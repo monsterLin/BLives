@@ -3,7 +3,6 @@ package com.monsterlin.blives;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -20,6 +19,7 @@ import com.monsterlin.blives.fragment.ModelFourFragment;
 import com.monsterlin.blives.fragment.ModelOneFragment;
 import com.monsterlin.blives.fragment.ModelThreeFragment;
 import com.monsterlin.blives.fragment.ModelTwoFragment;
+import com.monsterlin.blives.utils.StatusBarCompat;
 
 /**
  *
@@ -76,6 +76,7 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        StatusBarCompat.compat(this, getResources().getColor(R.color.colorAccent));
         initView();
         initToolBar();
         initMainContent();

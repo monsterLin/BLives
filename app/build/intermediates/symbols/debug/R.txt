@@ -729,9 +729,9 @@ int style AlertDialog_AppCompat 0x7f080075
 int style AlertDialog_AppCompat_Light 0x7f080076
 int style Animation_AppCompat_Dialog 0x7f080077
 int style Animation_AppCompat_DropDownUp 0x7f080078
-int style AppTheme 0x7f080079
-int style AppTheme_AppBarOverlay 0x7f08007a
-int style AppTheme_NoActionBar 0x7f08002f
+int style AppTheme 0x7f08002f
+int style AppTheme_AppBarOverlay 0x7f080079
+int style AppTheme_NoActionBar 0x7f08007a
 int style AppTheme_PopupOverlay 0x7f08007b
 int style Base_AlertDialog_AppCompat 0x7f08007c
 int style Base_AlertDialog_AppCompat_Light 0x7f08007d
