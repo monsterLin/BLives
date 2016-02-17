@@ -3,14 +3,17 @@ package com.monsterlin.blives;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.monsterlin.blives.adapter.ViewPagerAdapter;
 import com.monsterlin.blives.fragment.ModelFourFragment;
@@ -40,8 +43,14 @@ import com.monsterlin.blives.fragment.ModelTwoFragment;
  * 　　　　　┗┻┛　┗┻┛
  * ━━━━━━神兽出没━━━━━━
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
+    /**
+     * TabLayout和ViewPager组合实现切换的功能
+     */
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
     /**
      * ToolBar 控件
      */
@@ -53,20 +62,15 @@ public class MainActivity extends BaseActivity {
     /**
      * 类似于SLideMenu的布局
      */
-    private DrawerLayout mDrawerLayout;
+    private DrawerLayout drawer;
     /**
      * 菜单布局
      */
-    private NavigationView mNavigationView;
+    private NavigationView navigationView;
     /**
      * 控制菜单栏的出现关闭按钮
      */
-    private ActionBarDrawerToggle mActionBarDrawerToggle;
-    /**
-     * TabLayout和ViewPager组合实现切换的功能
-     */
-    private TabLayout mTabLayout;
-    private ViewPager mViewPager;
+    private ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,28 +79,32 @@ public class MainActivity extends BaseActivity {
         initView();
         initToolBar();
         initMainContent();
-        initAction();
+        initEvent();
     }
 
-    /**
-     * 监听事件的处理
-     */
-    private void initAction() {
-
+    private void initEvent() {
         /**
-         * 侧滑菜单监听事件
+         * 悬浮按钮点击事件
          */
-        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                int id = menuItem.getItemId();
-                switch (id) {
-
-                }
-                mDrawerLayout.closeDrawers();
-                return false;
+            public void onClick(View view) {
+                showToast("你好，我是FAB");
             }
         });
+
+        /**
+         * 控制菜单的变化
+         */
+        toggle = new ActionBarDrawerToggle(
+                this, drawer,    mToolBar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        /**
+         * 菜单中的item的点击事件
+         */
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     /**
@@ -110,10 +118,10 @@ public class MainActivity extends BaseActivity {
         Fragment modelThree = new ModelThreeFragment();
         Fragment modelFour = new ModelFourFragment();
 
-        adapter.addFragment(modelOne, "modelOne");
-        adapter.addFragment(modelTwo, "modelTwo");
-        adapter.addFragment(modelThree, "modelThree");
-        adapter.addFragment(modelFour, "modelFour");
+        adapter.addFragment(modelOne, "测试1");
+        adapter.addFragment(modelTwo, "测试2");
+        adapter.addFragment(modelThree, "测试3");
+        adapter.addFragment(modelFour, "测试4");
 
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);
@@ -125,35 +133,46 @@ public class MainActivity extends BaseActivity {
     private void initToolBar() {
         mToolBar.setTitle("BLives");
         setSupportActionBar(mToolBar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolBar, R.string.drawer_open, R.string.drawer_close);
-        mActionBarDrawerToggle.syncState();
-        mDrawerLayout.setDrawerListener(mActionBarDrawerToggle);
     }
 
     /**
      * 初始化视图
      */
     private void initView() {
-        mToolBar = (Toolbar) findViewById(R.id.toolBar);
+        mToolBar = (Toolbar) findViewById(R.id.toolbar);
         fab = (FloatingActionButton) findViewById(R.id.fab);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_drawer);
-        mNavigationView = (NavigationView) findViewById(R.id.nv_main_menu);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         mViewPager = (ViewPager) findViewById(R.id.vp_main_content);
         mTabLayout = (TabLayout) findViewById(R.id.tl_main_tabs);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     /**
-     * 右上角菜单
+     * 创建菜单视图（右上角部分）
      * @param menu
      * @return
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
+    /**
+     * 菜单的点击事件（右上角部分）
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -163,5 +182,27 @@ public class MainActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * 左侧菜单视图的点击事件
+     * @param item
+     * @return
+     */
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.nav_camara:
+                break;
+            default:
+                break;
+        }
+
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

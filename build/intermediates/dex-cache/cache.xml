@@ -2,11 +2,46 @@
 <items version="2" >
 
     <item
-        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.3.0\jars\classes.jar"
+        jar="F:\workspace-android-bymonster\BLives\myapplication\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-63b868b20d4c852c85a54ab1a8e953caf1cc60ce.jar" />
+        revision="23.0.1"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="F:\workspace-android-bymonster\BLives\myapplication\build\intermediates\pre-dexed\debug\classes-dc240df5293d5ec51ca3d7063f0cab34abf24ce5.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\myapplication\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="F:\workspace-android-bymonster\BLives\myapplication\build\intermediates\pre-dexed\debug\classes-60846978139172ea1d3b69ea469b1c6c67410d8a.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\myapplication\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="F:\workspace-android-bymonster\BLives\myapplication\build\intermediates\pre-dexed\debug\internal_impl-23.1.1-a273d1eca1f9478559ee28bc5ab2901c711249c3.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\myapplication\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="F:\workspace-android-bymonster\BLives\myapplication\build\intermediates\pre-dexed\debug\classes-31bf64669f864e71e561cdd66505dff73b1c8286.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\myapplication\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="F:\workspace-android-bymonster\BLives\myapplication\build\intermediates\pre-dexed\debug\classes-51954a63937180f4893e8951e0b902dc0ba6bd74.jar" />
+    </item>
+    <item
+        jar="G:\Users\monster\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="F:\workspace-android-bymonster\BLives\myapplication\build\intermediates\pre-dexed\debug\support-annotations-23.1.1-42e0927acfcde94808065c2c75dc9a2c5967d13b.jar" />
     </item>
 
 </items>

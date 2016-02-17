@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_main"
+    tools:showIn="@layout/app_bar_main"
     tools:context=".MainActivity">
 
-    <!--此处为一个DrawableLayout，这个的作用为包含一个侧滑栏和一个内容区域-->
-    <android.support.v4.widget.DrawerLayout
-        android:id="@+id/dl_drawer"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tl_main_tabs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary"
+        app:tabIndicatorColor="@color/white"
+        app:tabSelectedTextColor="@color/orange"
+        app:tabTextColor="@color/white"
+        app:elevation="5dp"/>
 
-        <!--主内容区域-->
-        <include layout="@layout/main_content" />
-
-        <!--菜单区域-->
-        <include layout="@layout/main_menu" />
-
-    </android.support.v4.widget.DrawerLayout>
-
-
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main_content"
+        android:layout_below="@id/tl_main_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>
