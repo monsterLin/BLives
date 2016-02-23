@@ -76,14 +76,19 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        StatusBarCompat.compat(this, getResources().getColor(R.color.colorAccent));
+        StatusBarCompat.compat(this, getResources().getColor(R.color.colorAccent));  //沉浸式状态栏
         initView();
         initToolBar();
         initMainContent();
         initEvent();
     }
 
-    private void initEvent() {
+    @Override
+    protected void initData() {
+
+    }
+
+    protected void initEvent() {
         /**
          * 悬浮按钮点击事件
          */
@@ -139,7 +144,7 @@ public class MainActivity extends BaseActivity
     /**
      * 初始化视图
      */
-    private void initView() {
+    protected void initView() {
         mToolBar = (Toolbar) findViewById(R.id.toolbar);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

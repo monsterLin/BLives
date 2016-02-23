@@ -11,12 +11,28 @@ import com.monsterlin.blives.utils.ToastUtils;
  * Created by monsterLin on 2016/2/16.
  * @email：linfanrong235@outlook.com
  */
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+
+    /**
+     * 初始化数据
+     */
+    protected abstract void initData();
+
+    /**
+     * 初始化控件
+     */
+    protected abstract void initView();
+
+    /**
+     * 初始化事件
+     */
+    protected abstract void initEvent();
 
     /**
      * 显示Toast

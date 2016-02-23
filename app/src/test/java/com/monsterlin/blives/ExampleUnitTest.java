@@ -1,15 +1,20 @@
 package com.monsterlin.blives;
 
+import com.monsterlin.blives.presenter.JParse;
+import com.monsterlin.blives.presenter.impl.JParseWeb;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 /**
- * To work on unit tests, switch the Test Artifact in the Build Variants view.
+ * 单元测试
+ * @author  monsterLin
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+    public void testJParseWeb() throws Exception {
+        JParse jParseWeb = new JParseWeb();
+        jParseWeb.getSchoolNews();
     }
 }
