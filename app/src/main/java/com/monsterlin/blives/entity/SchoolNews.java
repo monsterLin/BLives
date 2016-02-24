@@ -1,14 +1,16 @@
 package com.monsterlin.blives.entity;
 
+import java.util.List;
+
 /**
  * 学校新闻实体类
- * Created by monsterLin on 2016/2/23.
+ * Created by monsterLin on 2016/2/24.
  */
 public class SchoolNews {
-    private String newsTitle ; //新闻标题
-    private String newsDate ; //新闻时间
-    private String newsUrl ; //新闻链接
-    private String newsContent ; //新闻内容
+    private String newsTitle ;
+    private String newsDate ;
+    private String newsContent ;
+    private List<String> newsImgURLList ;
 
     public String getNewsTitle() {
         return newsTitle;
@@ -26,14 +28,6 @@ public class SchoolNews {
         this.newsDate = newsDate;
     }
 
-    public String getNewsUrl() {
-        return newsUrl;
-    }
-
-    public void setNewsUrl(String newsUrl) {
-        this.newsUrl = newsUrl;
-    }
-
     public String getNewsContent() {
         return newsContent;
     }
@@ -41,4 +35,14 @@ public class SchoolNews {
     public void setNewsContent(String newsContent) {
         this.newsContent = newsContent;
     }
+
+    public List<String> getNewsImgURLList() {
+        return newsImgURLList;
+    }
+
+    public void setNewsImgURLList(List<String> newsImgURLList) {
+        this.newsImgURLList = newsImgURLList;
+    }
+
 }
+
