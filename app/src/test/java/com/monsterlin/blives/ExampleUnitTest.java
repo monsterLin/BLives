@@ -24,7 +24,9 @@ public class ExampleUnitTest {
         ParseBZUWeb p = new ParseBZUWebImpl();
         mList =   p.getSchoolNews(schoolNewsURL);
 
+        int i = 0 ;//用于计数
         for (SchoolNews s :mList){
+            System.out.println(i++);
             System.out.println(s.getNewsTitle());
             System.out.println(s.getNewsDate());
             System.out.println(s.getNewsContent());

@@ -2,6 +2,20 @@
 <items version="2" >
 
     <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="11842de6a309c447b3a3d60d73ad637a87c58994">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-27fd053d37e416260b3ad72e1a88cb9e1a829fa2.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5b37cf49773f7f17aca9830efd3053b0cac56728">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-0f887932f51a2888ecd60943819728cb2540ebda.jar" />
+    </item>
+    <item
         jar="F:\workspace-android-bymonster\BLives\app\libs\jsoup-1.8.3.jar"
         jumboMode="false"
         revision="22.0.1"

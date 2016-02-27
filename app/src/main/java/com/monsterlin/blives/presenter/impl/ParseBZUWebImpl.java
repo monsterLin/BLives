@@ -79,6 +79,8 @@ public class ParseBZUWebImpl implements ParseBZUWeb {
                     newsImgURLList.add("http://www.bzu.edu.cn"+imgURL);  //图片封装到List中
                     // System.out.println("图片的URL："+"http://www.bzu.edu.cn"+imgURL);
                 }
+            }else {
+             // newsImgURLList.add("getImageIsNULL");
             }
 
             /**

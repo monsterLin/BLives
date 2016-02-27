@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   android:layout_marginBottom="4dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+  <ImageView
+      android:id="@+id/iv_show_img"
+      android:layout_width="100dp"
+      android:layout_height="46dp"
+      android:padding="4dp"
+      android:src="@drawable/test_banner_load_fail"
+      android:contentDescription="暂无缩略图" />
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_toRightOf="@id/iv_show_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:text="我是一则标题"/>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_toRightOf="@id/iv_show_img"
+        android:layout_below="@id/tv_title"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="4dp"
+        android:padding="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_title"
+        android:text="今天天气真好，风和日丽，鸟语花香....."/>
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2016-02-27"
+        android:textColor="@color/black"
+        android:layout_alignParentRight="true"
+       android:layout_marginTop="4dp"
+        android:layout_marginRight="10dp"
+        android:textSize="10sp"/>
+</RelativeLayout>
+
+</android.support.v7.widget.CardView>
