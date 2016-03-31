@@ -3,10 +3,7 @@ package com.monsterlin.blives;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -14,11 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.monsterlin.blives.adapter.ViewPagerAdapter;
-import com.monsterlin.blives.fragment.ModelFourFragment;
-import com.monsterlin.blives.fragment.ModelOneFragment;
-import com.monsterlin.blives.fragment.ModelThreeFragment;
-import com.monsterlin.blives.fragment.ModelTwoFragment;
 import com.monsterlin.blives.utils.StatusBarCompat;
 
 /**
@@ -49,8 +41,8 @@ public class MainActivity extends BaseActivity
     /**
      * TabLayout和ViewPager组合实现切换的功能
      */
-    private TabLayout mTabLayout;
-    private ViewPager mViewPager;
+//    private TabLayout mTabLayout;
+//    private ViewPager mViewPager;
     /**
      * ToolBar 控件
      */
@@ -79,7 +71,7 @@ public class MainActivity extends BaseActivity
         StatusBarCompat.compat(this, getResources().getColor(R.color.colorAccent));  //沉浸式状态栏
         initView();
         initToolBar();
-        initMainContent();
+        //initMainContent();
         initEvent();
     }
 
@@ -116,22 +108,22 @@ public class MainActivity extends BaseActivity
     /**
      * 初始化主内容区域
      */
-    private void initMainContent() {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-
-        Fragment modelOne = new ModelOneFragment();
-        Fragment modelTwo = new ModelTwoFragment();
-        Fragment modelThree = new ModelThreeFragment();
-        Fragment modelFour = new ModelFourFragment();
-
-        adapter.addFragment(modelOne, "测试1");
-        adapter.addFragment(modelTwo, "测试2");
-        adapter.addFragment(modelThree, "测试3");
-        adapter.addFragment(modelFour, "测试4");
-
-        mViewPager.setAdapter(adapter);
-        mTabLayout.setupWithViewPager(mViewPager);
-    }
+//    private void initMainContent() {
+//        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+//
+//        Fragment modelOne = new ModelOneFragment();
+//        Fragment modelTwo = new ModelTwoFragment();
+//        Fragment modelThree = new ModelThreeFragment();
+//        Fragment modelFour = new ModelFourFragment();
+//
+//        adapter.addFragment(modelOne, "测试1");
+//        adapter.addFragment(modelTwo, "测试2");
+//        adapter.addFragment(modelThree, "测试3");
+//        adapter.addFragment(modelFour, "测试4");
+//
+//        mViewPager.setAdapter(adapter);
+//        mTabLayout.setupWithViewPager(mViewPager);
+//    }
 
     /**
      * 初始化ToolBar
@@ -149,8 +141,8 @@ public class MainActivity extends BaseActivity
         fab = (FloatingActionButton) findViewById(R.id.fab);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-        mViewPager = (ViewPager) findViewById(R.id.vp_main_content);
-        mTabLayout = (TabLayout) findViewById(R.id.tl_main_tabs);
+//        mViewPager = (ViewPager) findViewById(R.id.vp_main_content);
+//        mTabLayout = (TabLayout) findViewById(R.id.tl_main_tabs);
     }
 
 
@@ -191,6 +183,7 @@ public class MainActivity extends BaseActivity
     }
 
     /**
+     * TODO　替换Fragment
      * 左侧菜单视图的点击事件
      * @param item
      * @return
