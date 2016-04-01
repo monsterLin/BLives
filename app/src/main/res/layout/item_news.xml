@@ -51,9 +51,16 @@
         android:text="@string/test_tv_date_text"
         android:textColor="@color/black"
         android:layout_alignParentRight="true"
-       android:layout_marginTop="6dp"
-        android:layout_marginRight="12dp"
+       android:layout_marginTop="12dp"
+        android:layout_marginRight="5dp"
         android:textSize="10sp"/>
+
+  <TextView
+      android:id="@+id/tv_newsCurrentUrl"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:visibility="gone"/>
+
 </RelativeLayout>
 
 </android.support.v7.widget.CardView>

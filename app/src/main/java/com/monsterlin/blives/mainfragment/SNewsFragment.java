@@ -12,6 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.adapter.NewsAdapter;
@@ -19,6 +21,7 @@ import com.monsterlin.blives.constants.SchoolURL;
 import com.monsterlin.blives.entity.SchoolNews;
 import com.monsterlin.blives.presenter.ParseBZUWeb;
 import com.monsterlin.blives.presenter.impl.ParseBZUWebImpl;
+import com.monsterlin.blives.utils.ToastUtils;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.io.IOException;
@@ -66,6 +69,23 @@ public class SNewsFragment extends Fragment{
 
         progressWheel.setVisibility(View.INVISIBLE);  //进度条显示
 
+        /**
+         * 点击事件
+         */
+        newsAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position, View view) {
+                TextView tv_newsCurrentUrl = (TextView) view.findViewById(R.id.tv_newsCurrentUrl);
+                String newsCurrentUrl = tv_newsCurrentUrl.getText().toString();
+                ToastUtils.showToast(mContext,""+newsCurrentUrl, Toast.LENGTH_SHORT);
+            }
+
+            @Override
+            public void OnItemLongClick(int position, View view) {
+
+            }
+        });
+
     }
 
     /**
@@ -102,6 +122,8 @@ public class SNewsFragment extends Fragment{
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
+
+
     }
 
     /**

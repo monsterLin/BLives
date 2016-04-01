@@ -24,6 +24,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
     private Context mContext ;
     private LayoutInflater mInflater;
 
+    /**
+     * 声明一个接口，用于实现点击事件
+     */
+    public interface  OnItemClickListener{
+        void OnItemClick(int position, View view);
+        void OnItemLongClick(int position, View view);
+    }
+
+    private OnItemClickListener mOnItemClickListener;
+
+    public  void setOnItemClickListener(OnItemClickListener listener){
+        this.mOnItemClickListener=listener;
+    }
 
     public NewsAdapter(List<SchoolNews> newsList, Context mContext) {
         this.newsList = newsList;
@@ -44,7 +57,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(NewsViewHolder holder, int position) {
+    public void onBindViewHolder(final NewsViewHolder holder, int position) {
            if (newsList.get(position).getNewsImgURLList().size() !=0){
                String firstImgURL = newsList.get(position).getNewsImgURLList().get(0);  //第一张图片的url
                holder.iv_show_img.setTag(firstImgURL);
@@ -57,6 +70,31 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
         holder.tv_title.setText(cutText(newsList.get(position).getNewsTitle()));
         holder.tv_content.setText(cutText(newsList.get(position).getNewsContent()));
         holder.tv_date.setText(newsList.get(position).getNewsDate());
+        holder.tv_newsCurrentUrl.setText(newsList.get(position).getNewsCurrentURL());
+
+
+        if (mOnItemClickListener!=null){
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    int LayoutPosition=holder.getLayoutPosition(); //得到布局的position
+                    mOnItemClickListener.OnItemClick(LayoutPosition,holder.itemView);
+
+                }
+            });
+
+            //longclickListener
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int LayoutPosition=holder.getLayoutPosition(); //得到布局的position
+                    mOnItemClickListener.OnItemLongClick(LayoutPosition,holder.itemView);
+                    return false;
+                }
+            });
+        }
     }
 
     /**
@@ -82,13 +120,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 class NewsViewHolder extends RecyclerView.ViewHolder{
 
     ImageView iv_show_img;
-    TextView tv_title , tv_content , tv_date;
+    TextView tv_title , tv_content , tv_date ,tv_newsCurrentUrl;
         public NewsViewHolder(View itemView) {
             super(itemView);
             iv_show_img= (ImageView) itemView.findViewById(R.id.iv_show_img);
             tv_title= (TextView) itemView.findViewById(R.id.tv_title);
             tv_content= (TextView) itemView.findViewById(R.id.tv_content);
             tv_date= (TextView) itemView.findViewById(R.id.tv_date);
+            tv_newsCurrentUrl= (TextView) itemView.findViewById(R.id.tv_newsCurrentUrl);
         }
 
 }

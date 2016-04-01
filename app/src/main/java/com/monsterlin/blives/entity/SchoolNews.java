@@ -10,6 +10,7 @@ public class SchoolNews {
     private String newsTitle ;
     private String newsDate ;
     private String newsContent ;
+    private String newsCurrentURL; //当前新闻链接
     private List<String> newsImgURLList ;
 
     public String getNewsTitle() {
@@ -40,8 +41,18 @@ public class SchoolNews {
         return newsImgURLList;
     }
 
+    public String getNewsCurrentURL() {
+        return newsCurrentURL;
+    }
+
+    public void setNewsCurrentURL(String newsCurrentURL) {
+        this.newsCurrentURL = newsCurrentURL;
+    }
+
     public void setNewsImgURLList(List<String> newsImgURLList) {
         this.newsImgURLList = newsImgURLList;
+
+
     }
 
 }

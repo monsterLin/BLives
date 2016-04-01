@@ -88,6 +88,7 @@ public class ParseBZUWebImpl implements ParseBZUWeb {
              */
 
             SchoolNews schoolnews = new SchoolNews();
+            schoolnews.setNewsCurrentURL(newsUrl); //当前新闻的url
             schoolnews.setNewsTitle(newsTitle);
             schoolnews.setNewsContent(newsContent);
             schoolnews.setNewsDate(newsDate);
