@@ -13,7 +13,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.monsterlin.blives.fragment.ModelFourFragment;
 import com.monsterlin.blives.fragment.ModelOneFragment;
+import com.monsterlin.blives.fragment.ModelThreeFragment;
 import com.monsterlin.blives.fragment.ModelTwoFragment;
 import com.monsterlin.blives.utils.StatusBarCompat;
 
@@ -52,6 +54,9 @@ public class MainActivity extends BaseActivity
 
     private ActionBarDrawerToggle toggle;
 
+    private FragmentManager fragmentManager= getFragmentManager();
+    private Fragment fragment;
+    private  Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,6 +163,7 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            showToast("setting");
             return true;
         }
 
@@ -165,39 +171,58 @@ public class MainActivity extends BaseActivity
     }
 
     /**
-     * TODO　代码后期优化
      * 左侧菜单视图的点击事件
      * @param item
      * @return
      */
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
-        Menu menu = navigationView.getMenu();
+        menu = navigationView.getMenu();
 
         switch (id){
             case R.id.item_one:
                 menu.getItem(0).setChecked(true); //用于item的选中状态
-                Fragment one = new ModelOneFragment();  //创建Fragment
-                FragmentManager oneManage = getFragmentManager();
-                oneManage.beginTransaction().replace(R.id.fram_main,one).commit();
+                fragment = new ModelOneFragment();
+                relace(R.id.fram_main,fragment);
                 break;
             case R.id.item_two:
                 menu.getItem(1).setChecked(true);
-                Fragment two = new ModelTwoFragment();  //创建Fragment
-                FragmentManager twoManage = getFragmentManager();
-                twoManage.beginTransaction().replace(R.id.fram_main,two).commit();
+                fragment = new ModelTwoFragment();
+                relace(R.id.fram_main,fragment);
                 break;
             case R.id.item_three:
+                menu.getItem(2).setChecked(true);
+                fragment = new ModelThreeFragment();
+                relace(R.id.fram_main,fragment);
                 break;
             case R.id.item_four:
+                menu.getItem(3).setChecked(true);
+                fragment = new ModelFourFragment();
+                relace(R.id.fram_main,fragment);
+                break;
+
+            //TODO 关于submenu 替换fragment
+            case R.id.item_five:
+              showToast("five");
+                break;
+            case R.id.item_six:
+                showToast("six");
                 break;
         }
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    /**
+     * 替换Fragment
+     * @param fram_main
+     * @param fragment
+     */
+    private void relace(int fram_main, Fragment fragment) {
+        fragmentManager.beginTransaction().replace(R.id.fram_main,fragment).commit();
     }
 
 
