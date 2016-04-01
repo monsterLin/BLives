@@ -348,6 +348,14 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="item_corporation_text">社团活动</string>
+    <string name="item_main_text">首页</string>
+    <string name="item_notification_text">消息</string>
+    <string name="item_other_text">其它</string>
+    <string name="item_scenery_text">校园风光</string>
+    <string name="item_setting_text">设置与帮助</string>
+    <string name="item_square_text">校园广场</string>
+    <string name="item_theme_text">主题选择</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
@@ -1301,7 +1309,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/orange</item>
     </style>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>

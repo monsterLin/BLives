@@ -1,7 +1,7 @@
-package com.monsterlin.blives.fragment;
+package com.monsterlin.blives.mainfragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,13 +9,10 @@ import android.view.ViewGroup;
 import com.monsterlin.blives.R;
 
 /**
- * 说明：
- * 布局的名字和对应的类名字为测试的名字，最后基本布局确定后，通过重构的形式更改即可
- * Created by monsterLin on 2016/2/16.
+ * 主内容_学校新闻
+ * Created by monsterlin on 2016/4/1.
  */
-public class ModelOneFragment extends Fragment {
-
-
+public class SNewsFragment extends Fragment{
     /**
      * 创建视图，返回View对象
      * @param inflater
@@ -25,7 +22,7 @@ public class ModelOneFragment extends Fragment {
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_modelone,container,false);
+        View view = inflater.inflate(R.layout.fragment_main_snews,container,false);
         return view;
     }
 

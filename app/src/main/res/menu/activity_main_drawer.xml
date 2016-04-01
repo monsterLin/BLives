@@ -3,35 +3,35 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/item_one"
-            android:icon="@mipmap/ic_launcher"
-            android:title="首页" />
+            android:id="@+id/item_main"
+            android:icon="@drawable/ic_home"
+            android:title="@string/item_main_text" />
         <item
-            android:id="@+id/item_two"
-            android:icon="@mipmap/ic_launcher"
-            android:title="测试" />
+            android:id="@+id/item_scenery"
+            android:icon="@drawable/ic_scenery"
+            android:title="@string/item_scenery_text" />
         <item
-            android:id="@+id/item_three"
-            android:icon="@mipmap/ic_launcher"
-            android:title="测试" />
+            android:id="@+id/item_corporation"
+            android:icon="@drawable/ic_corporation"
+            android:title="@string/item_corporation_text" />
         <item
-            android:id="@+id/item_four"
-            android:icon="@mipmap/ic_launcher"
-            android:title="测试" />
+            android:id="@+id/item_square"
+            android:icon="@drawable/ic_square"
+            android:title="@string/item_square_text" />
     </group>
 
 
-    <item android:title="其它">
+    <item android:title="@string/item_other_text">
         <menu>
             <item
-                android:id="@+id/item_five"
-                android:icon="@mipmap/ic_launcher"
-                android:title="测试" />
+                android:id="@+id/item_theme"
+                android:icon="@drawable/ic_theme"
+                android:title="@string/item_theme_text" />
             <item
-                android:id="@+id/item_six"
+                android:id="@+id/item_setting"
                 android:checked="false"
-                android:icon="@mipmap/ic_launcher"
-                android:title="测试" />
+                android:icon="@drawable/ic_setting"
+                android:title="@string/item_setting_text" />
         </menu>
     </item>
 

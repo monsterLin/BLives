@@ -1,10 +1,10 @@
 package com.monsterlin.blives;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,10 +13,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.monsterlin.blives.fragment.ModelFourFragment;
-import com.monsterlin.blives.fragment.ModelOneFragment;
-import com.monsterlin.blives.fragment.ModelThreeFragment;
-import com.monsterlin.blives.fragment.ModelTwoFragment;
+import com.monsterlin.blives.navfragment.CorporationFragment;
+import com.monsterlin.blives.navfragment.MainFragment;
+import com.monsterlin.blives.navfragment.SquareFragment;
 import com.monsterlin.blives.utils.StatusBarCompat;
 
 /**
@@ -54,7 +53,6 @@ public class MainActivity extends BaseActivity
 
     private ActionBarDrawerToggle toggle;
 
-    private FragmentManager fragmentManager= getFragmentManager();
     private Fragment fragment;
     private  Menu menu;
 
@@ -99,9 +97,11 @@ public class MainActivity extends BaseActivity
     private void initMain() {
         Menu menu = navigationView.getMenu();
         menu.getItem(0).setChecked(true);
-        Fragment one = new ModelOneFragment();  //创建Fragment
-        FragmentManager oneManage = getFragmentManager();
-        oneManage.beginTransaction().replace(R.id.fram_main,one).commit();
+        fragment = new MainFragment();  //创建Fragment
+
+        FragmentTransaction mainTransaction = getSupportFragmentManager().beginTransaction();
+        mainTransaction.replace(R.id.fram_main,fragment);
+        mainTransaction.commit();
     }
 
     /**
@@ -162,8 +162,8 @@ public class MainActivity extends BaseActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
-            showToast("setting");
+        if (id == R.id.item_notification) {
+            showToast("消息");
             return true;
         }
 
@@ -171,6 +171,7 @@ public class MainActivity extends BaseActivity
     }
 
     /**
+     * TODO 此处需优化
      * 左侧菜单视图的点击事件
      * @param item
      * @return
@@ -181,33 +182,47 @@ public class MainActivity extends BaseActivity
         menu = navigationView.getMenu();
 
         switch (id){
-            case R.id.item_one:
+            case R.id.item_main:
                 menu.getItem(0).setChecked(true); //用于item的选中状态
-                fragment = new ModelOneFragment();
-                relace(R.id.fram_main,fragment);
+                fragment = new MainFragment();
+
+                FragmentTransaction mainTransaction = getSupportFragmentManager().beginTransaction();
+                mainTransaction.replace(R.id.fram_main,fragment);
+                mainTransaction.commit();
                 break;
-            case R.id.item_two:
+            case R.id.item_scenery:
                 menu.getItem(1).setChecked(true);
-                fragment = new ModelTwoFragment();
-                relace(R.id.fram_main,fragment);
+                fragment = new SquareFragment();
+
+                FragmentTransaction sceneryTransaction = getSupportFragmentManager().beginTransaction();
+                sceneryTransaction.replace(R.id.fram_main,fragment);
+                sceneryTransaction.commit();
+
                 break;
-            case R.id.item_three:
+            case R.id.item_corporation:
                 menu.getItem(2).setChecked(true);
-                fragment = new ModelThreeFragment();
-                relace(R.id.fram_main,fragment);
+                fragment = new CorporationFragment();
+
+                FragmentTransaction corporationTransaction = getSupportFragmentManager().beginTransaction();
+                corporationTransaction.replace(R.id.fram_main,fragment);
+                corporationTransaction.commit();
+
                 break;
-            case R.id.item_four:
+            case R.id.item_square:
                 menu.getItem(3).setChecked(true);
-                fragment = new ModelFourFragment();
-                relace(R.id.fram_main,fragment);
+                fragment = new SquareFragment();
+
+                FragmentTransaction squareTransaction = getSupportFragmentManager().beginTransaction();
+                squareTransaction.replace(R.id.fram_main,fragment);
+                squareTransaction.commit();
                 break;
 
             //TODO 关于submenu 替换fragment
-            case R.id.item_five:
-              showToast("five");
+            case R.id.item_theme:
+              showToast("theme");
                 break;
-            case R.id.item_six:
-                showToast("six");
+            case R.id.item_setting:
+                showToast("setting");
                 break;
         }
 
@@ -216,14 +231,7 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
-    /**
-     * 替换Fragment
-     * @param fram_main
-     * @param fragment
-     */
-    private void relace(int fram_main, Fragment fragment) {
-        fragmentManager.beginTransaction().replace(R.id.fram_main,fragment).commit();
-    }
+
 
 
 }
