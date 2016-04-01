@@ -28,6 +28,7 @@ MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonst
 MERGED from [de.hdodenhof:circleimageview:1.3.0] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.3.0\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:cardview-v7:22.0.0] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.pnikosis:materialish-progress:1.7] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.pnikosis\materialish-progress\1.7\AndroidManifest.xml:11:5-20
 	android:label
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:10:9-41
 	android:supportsRtl
@@ -68,6 +69,7 @@ MERGED from [de.hdodenhof:circleimageview:1.3.0] F:\workspace-android-bymonster\
 MERGED from [com.android.support:recyclerview-v7:22.2.0] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.0\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:cardview-v7:22.0.0] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.0.0\AndroidManifest.xml:20:5-43
+MERGED from [com.pnikosis:materialish-progress:1.7] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.pnikosis\materialish-progress\1.7\AndroidManifest.xml:7:5-9:41
 	android:targetSdkVersion
 		INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml
 		INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml

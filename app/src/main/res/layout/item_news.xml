@@ -3,11 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-   android:layout_marginBottom="4dp"
+   android:layout_marginBottom="8dp"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp">
 
 <RelativeLayout
+    android:padding="6dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -15,9 +16,9 @@
       android:id="@+id/iv_show_img"
       android:layout_width="100dp"
       android:layout_height="46dp"
-      android:padding="4dp"
-      android:src="@drawable/test_banner_load_fail"
-      android:contentDescription="暂无缩略图" />
+      android:layout_margin="10dp"
+      android:background="@color/silver"
+      android:contentDescription="@string/iv_show_img_text" />
 
 
     <TextView
@@ -25,10 +26,10 @@
         android:layout_toRightOf="@id/iv_show_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="10dp"
         android:textSize="14sp"
         android:textColor="@color/black"
-        android:text="我是一则标题"/>
+        android:text="@string/test_tv_title_text"/>
 
     <TextView
         android:id="@+id/tv_content"
@@ -36,22 +37,22 @@
         android:layout_below="@id/tv_title"
         android:textSize="12sp"
         android:textColor="@color/black"
-        android:layout_marginTop="4dp"
-        android:padding="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_alignBottom="@id/iv_show_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/tv_title"
-        android:text="今天天气真好，风和日丽，鸟语花香....."/>
+        android:text="@string/test_tv_content_text"/>
 
     <TextView
         android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2016-02-27"
+        android:text="@string/test_tv_date_text"
         android:textColor="@color/black"
         android:layout_alignParentRight="true"
-       android:layout_marginTop="4dp"
-        android:layout_marginRight="10dp"
+       android:layout_marginTop="6dp"
+        android:layout_marginRight="12dp"
         android:textSize="10sp"/>
 </RelativeLayout>
 

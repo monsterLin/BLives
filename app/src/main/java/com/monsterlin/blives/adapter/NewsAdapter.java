@@ -51,7 +51,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
                new ImageLoader().showImageByAsyncTask(holder.iv_show_img,firstImgURL);
 
            }else {
-                holder.iv_show_img.setImageResource(R.drawable.test_banner_load_fail);
+                holder.iv_show_img.setImageResource(R.drawable.ic_nopic);
            }
 
         holder.tv_title.setText(cutText(newsList.get(position).getNewsTitle()));
@@ -66,8 +66,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
      */
     private String cutText(String allText) {
         int length = allText.length();
-        if(length>=14){
-            String text = allText.substring(0,13)+".......";
+        if(length>=11){
+            String text = allText.substring(0,10)+"....";
             return text;
         }else {
             return  allText;
