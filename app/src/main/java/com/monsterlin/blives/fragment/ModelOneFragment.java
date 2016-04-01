@@ -1,7 +1,7 @@
 package com.monsterlin.blives.fragment;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,37 +15,6 @@ import com.monsterlin.blives.R;
  */
 public class ModelOneFragment extends Fragment {
 
-//    private RecyclerView ry_schoolNews;
-//    private Context mContext;
-//    private LinearLayoutManager layoutManager;
-//    private List<SchoolNews> schoolNewsList = new ArrayList<>();
-//    private ParseBZUWeb bzuData = new ParseBZUWebImpl();
-//    private NewsAdapter newsAdapter;
-//
-//    private Thread mThread;
-//    private final static int MSG_SUCCESS = 0; //成功拿到数据的标识
-//    private final static int MSG_FAILURE = 1; //无法拿到数据的标识
-//
-//    private Handler mHandler=new Handler(){
-//        public void handleMessage(Message msg){  //此方法在UI线程中运行
-//            switch(msg.what){
-//                case MSG_SUCCESS:
-//                     initUI((List<SchoolNews>) msg.obj);
-//                    break;
-//                case MSG_FAILURE:
-//
-//                    break;
-//            }
-//        }
-//
-//    };
-//
-//    private void initUI(List<SchoolNews> list) {
-//        newsAdapter = new NewsAdapter(schoolNewsList,mContext);
-//        ry_schoolNews.setAdapter(newsAdapter);
-//        layoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
-//        ry_schoolNews.setLayoutManager(layoutManager);
-//    }
 
     /**
      * 创建视图，返回View对象
@@ -60,78 +29,4 @@ public class ModelOneFragment extends Fragment {
         return view;
     }
 
-    /**
-     * 在这里可以书写相关控件的操作
-     * @param view
-     * @param savedInstanceState
-     */
-//    @Override
-//    public void onViewCreated(View view, Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//        initView(view);
-//        initData();
-//        //  initEvent();
-//
-//    }
-
-//    /**
-//     * 初始化事件
-//     */
-//    private void initEvent() {
-//        newsAdapter = new NewsAdapter(schoolNewsList,mContext);
-//        ry_schoolNews.setAdapter(newsAdapter);
-//        layoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
-//        ry_schoolNews.setLayoutManager(layoutManager);
-//    }
-
-    /**
-     * 初始化数据源
-     */
-//    private void initData() {
-//        if(mThread==null){
-//            mThread=new Thread(runnable);
-//            mThread.start();
-//        }
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    schoolNewsList = bzuData.getSchoolNews(SchoolURL.schoolNewsURL);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
-//    }
-
-//    Runnable runnable=new Runnable() {
-//
-//        @Override
-//        public void run() {
-//            try {
-//                schoolNewsList = bzuData.getSchoolNews(SchoolURL.schoolNewsURL);
-//                mHandler.obtainMessage(MSG_SUCCESS,schoolNewsList).sendToTarget();
-//            } catch (IOException e) {
-//                mHandler.obtainMessage(MSG_FAILURE).sendToTarget();
-//            }
-//        }
-//    };
-//    /**
-//     * 初始化视图
-//     * @param view
-//     */
-//    private void initView(View view) {
-//        ry_schoolNews= (RecyclerView) view.findViewById(R.id.ry_schoolNews);
-//
-//    }
-//
-//    /**
-//     * 得到上下文对象
-//     * @param activity
-//     */
-//    @Override
-//    public void onAttach(Activity activity) {
-//        super.onAttach(activity);
-//        mContext=activity;
-//    }
 }

@@ -19,12 +19,18 @@
     <color name="abc_search_url_text_selected">@android:color/black</color>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="azure">#f0ffff</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
+    <eat-comment/>
     <color name="background_floating_material_dark">#ff424242</color>
     <color name="background_floating_material_light">#ffeeeeee</color>
     <color name="background_material_dark">#ff303030</color>
     <color name="background_material_light">#ffeeeeee</color>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
     <eat-comment/>
+    <color name="beige">#f5f5dc</color>
     <color name="black">#000000</color>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
@@ -97,6 +103,11 @@
     <color name="shadow_end_color">@android:color/transparent</color>
     <color name="shadow_mid_color">#14000000</color>
     <color name="shadow_start_color">#44000000</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="silver">#c0c0c0</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <eat-comment/>
     <color name="snackbar_background_color">#323232</color>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
@@ -106,6 +117,7 @@
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
     <eat-comment/>
+    <color name="violet">#ee82ee</color>
     <color name="white">#ffffff</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>

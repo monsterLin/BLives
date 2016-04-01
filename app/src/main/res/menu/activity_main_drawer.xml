@@ -3,16 +3,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camara"
+            android:id="@+id/item_one"
             android:icon="@mipmap/ic_launcher"
             android:title="首页" />
         <item
+            android:id="@+id/item_two"
             android:icon="@mipmap/ic_launcher"
             android:title="测试" />
         <item
+            android:id="@+id/item_three"
             android:icon="@mipmap/ic_launcher"
             android:title="测试" />
         <item
+            android:id="@+id/item_four"
             android:icon="@mipmap/ic_launcher"
             android:title="测试" />
     </group>
@@ -20,9 +23,11 @@
     <item android:title="其它">
         <menu>
             <item
+                android:id="@+id/item_five"
                 android:icon="@mipmap/ic_launcher"
                 android:title="测试" />
             <item
+                android:id="@+id/item_six"
                 android:icon="@mipmap/ic_launcher"
                 android:title="测试" />
         </menu>

@@ -1,5 +1,7 @@
 package com.monsterlin.blives;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -11,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.monsterlin.blives.fragment.ModelOneFragment;
+import com.monsterlin.blives.fragment.ModelTwoFragment;
 import com.monsterlin.blives.utils.StatusBarCompat;
 
 /**
@@ -38,31 +42,16 @@ import com.monsterlin.blives.utils.StatusBarCompat;
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    /**
-     * TabLayout和ViewPager组合实现切换的功能
-     */
-//    private TabLayout mTabLayout;
-//    private ViewPager mViewPager;
-    /**
-     * ToolBar 控件
-     */
     private Toolbar mToolBar ;
-    /**
-     * 悬浮按钮控件
-     */
+
     private FloatingActionButton fab;
-    /**
-     * 类似于SLideMenu的布局
-     */
+
     private DrawerLayout drawer;
-    /**
-     * 菜单布局
-     */
+
     private NavigationView navigationView;
-    /**
-     * 控制菜单栏的出现关闭按钮
-     */
+
     private ActionBarDrawerToggle toggle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +60,7 @@ public class MainActivity extends BaseActivity
         StatusBarCompat.compat(this, getResources().getColor(R.color.colorAccent));  //沉浸式状态栏
         initView();
         initToolBar();
-        //initMainContent();
+        initMain();
         initEvent();
     }
 
@@ -80,6 +69,39 @@ public class MainActivity extends BaseActivity
 
     }
 
+    /**
+     * 初始化视图
+     */
+    protected void initView() {
+        mToolBar = (Toolbar) findViewById(R.id.toolbar);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+    }
+
+    /**
+     * 初始化ToolBar
+     */
+    private void initToolBar() {
+        mToolBar.setTitle("BLives");
+        setSupportActionBar(mToolBar);
+    }
+
+
+    /**
+     * 初始化主内容区域
+     */
+    private void initMain() {
+        Menu menu = navigationView.getMenu();
+        menu.getItem(0).setChecked(true);
+        Fragment one = new ModelOneFragment();  //创建Fragment
+        FragmentManager oneManage = getFragmentManager();
+        oneManage.beginTransaction().replace(R.id.fram_main,one).commit();
+    }
+
+    /**
+     * 初始化事件
+     */
     protected void initEvent() {
         /**
          * 悬浮按钮点击事件
@@ -103,46 +125,6 @@ public class MainActivity extends BaseActivity
          * 菜单中的item的点击事件
          */
         navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    /**
-     * 初始化主内容区域
-     */
-//    private void initMainContent() {
-//        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-//
-//        Fragment modelOne = new ModelOneFragment();
-//        Fragment modelTwo = new ModelTwoFragment();
-//        Fragment modelThree = new ModelThreeFragment();
-//        Fragment modelFour = new ModelFourFragment();
-//
-//        adapter.addFragment(modelOne, "测试1");
-//        adapter.addFragment(modelTwo, "测试2");
-//        adapter.addFragment(modelThree, "测试3");
-//        adapter.addFragment(modelFour, "测试4");
-//
-//        mViewPager.setAdapter(adapter);
-//        mTabLayout.setupWithViewPager(mViewPager);
-//    }
-
-    /**
-     * 初始化ToolBar
-     */
-    private void initToolBar() {
-        mToolBar.setTitle("BLives");
-        setSupportActionBar(mToolBar);
-    }
-
-    /**
-     * 初始化视图
-     */
-    protected void initView() {
-        mToolBar = (Toolbar) findViewById(R.id.toolbar);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        mViewPager = (ViewPager) findViewById(R.id.vp_main_content);
-//        mTabLayout = (TabLayout) findViewById(R.id.tl_main_tabs);
     }
 
 
@@ -183,7 +165,7 @@ public class MainActivity extends BaseActivity
     }
 
     /**
-     * TODO　替换Fragment
+     * TODO　代码后期优化
      * 左侧菜单视图的点击事件
      * @param item
      * @return
@@ -192,11 +174,24 @@ public class MainActivity extends BaseActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
+        Menu menu = navigationView.getMenu();
 
         switch (id){
-            case R.id.nav_camara:
+            case R.id.item_one:
+                menu.getItem(0).setChecked(true); //用于item的选中状态
+                Fragment one = new ModelOneFragment();  //创建Fragment
+                FragmentManager oneManage = getFragmentManager();
+                oneManage.beginTransaction().replace(R.id.fram_main,one).commit();
                 break;
-            default:
+            case R.id.item_two:
+                menu.getItem(1).setChecked(true);
+                Fragment two = new ModelTwoFragment();  //创建Fragment
+                FragmentManager twoManage = getFragmentManager();
+                twoManage.beginTransaction().replace(R.id.fram_main,two).commit();
+                break;
+            case R.id.item_three:
+                break;
+            case R.id.item_four:
                 break;
         }
 
@@ -204,4 +199,6 @@ public class MainActivity extends BaseActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
