@@ -51,8 +51,8 @@
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="colorAccent">#C01100</color>
-    <color name="colorPrimary">#0077D9</color>
-    <color name="colorPrimaryDark">#0077D9</color>
+    <color name="colorPrimary">#d92400</color>
+    <color name="colorPrimaryDark">#101112</color>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
@@ -227,7 +227,6 @@
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="app_bar_height">180dp</dimen>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="appbar_elevation">4dp</dimen>

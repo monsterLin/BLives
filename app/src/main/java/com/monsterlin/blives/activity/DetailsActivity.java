@@ -1,6 +1,8 @@
 package com.monsterlin.blives.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -24,7 +26,7 @@ public class DetailsActivity extends AppCompatActivity{
 
         setSupportActionBar(toolbar);
 
-        toolbar.setTitle("标题1111111111111");
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //出现返回箭头
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,14 @@ public class DetailsActivity extends AppCompatActivity{
                 onBackPressed();
             }
         });
+
+        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
+        collapsingToolbarLayout.setTitle("标题");
+        //设置还没有收缩状态下的字体颜色
+        collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
+        //设置收缩后Toolbar上的字体颜色
+        collapsingToolbarLayout.setCollapsedTitleTextColor(R.color.white);
     }
 
 

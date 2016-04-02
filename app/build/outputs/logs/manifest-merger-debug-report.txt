@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:2:1-27:12
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:2:1-28:12
 	package
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml
@@ -18,7 +18,7 @@ ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xm
 	android:name
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:7:5-25:19
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:7:5-26:19
 MERGED from [com.android.support:appcompat-v7:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:22.2.0] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\AndroidManifest.xml:22:5-20
@@ -58,7 +58,9 @@ ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xm
 	android:name
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:20:27-74
 activity#com.monsterlin.blives.activity.DetailsActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:24:9-61
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:24:9-25:58
+	android:theme
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:25:13-56
 	android:name
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:24:19-59
 uses-sdk

@@ -360,11 +360,11 @@ public final class R {
 		public static final int dialog_fixed_height_minor = 0x7f070009;
 		public static final int dialog_fixed_width_major = 0x7f07000a;
 		public static final int dialog_fixed_width_minor = 0x7f07000b;
-		public static final int disabled_alpha_material_dark = 0x7f07004f;
-		public static final int disabled_alpha_material_light = 0x7f070050;
-		public static final int notification_large_icon_height = 0x7f070061;
-		public static final int notification_large_icon_width = 0x7f070062;
-		public static final int notification_subtext_size = 0x7f070063;
+		public static final int disabled_alpha_material_dark = 0x7f07004e;
+		public static final int disabled_alpha_material_light = 0x7f07004f;
+		public static final int notification_large_icon_height = 0x7f070060;
+		public static final int notification_large_icon_width = 0x7f070061;
+		public static final int notification_subtext_size = 0x7f070062;
 	}
 	public static final class drawable {
 		public static final int abc_ab_share_pack_mtrl_alpha = 0x7f020000;
