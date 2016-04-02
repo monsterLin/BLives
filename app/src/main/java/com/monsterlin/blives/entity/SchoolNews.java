@@ -1,12 +1,13 @@
 package com.monsterlin.blives.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * 学校新闻实体类
  * Created by monsterLin on 2016/2/24.
  */
-public class SchoolNews {
+public class SchoolNews implements Serializable{
     private String newsTitle ;
     private String newsDate ;
     private String newsContent ;

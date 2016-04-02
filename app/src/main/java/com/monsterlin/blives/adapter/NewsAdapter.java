@@ -70,7 +70,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
         holder.tv_title.setText(cutText(newsList.get(position).getNewsTitle()));
         holder.tv_content.setText(cutText(newsList.get(position).getNewsContent()));
         holder.tv_date.setText(newsList.get(position).getNewsDate());
-        holder.tv_newsCurrentUrl.setText(newsList.get(position).getNewsCurrentURL());
 
 
         if (mOnItemClickListener!=null){
@@ -112,6 +111,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
         }
 
     }
+
+    /**
+     * 得到单个实体类对象
+     * @param position
+     * @return  SchoolNews
+     */
+    public SchoolNews getSchoolNews(int position){
+        return newsList.get(position);
+    }
 }
 
 /**
@@ -120,14 +128,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 class NewsViewHolder extends RecyclerView.ViewHolder{
 
     ImageView iv_show_img;
-    TextView tv_title , tv_content , tv_date ,tv_newsCurrentUrl;
+    TextView tv_title , tv_content , tv_date ;
         public NewsViewHolder(View itemView) {
             super(itemView);
             iv_show_img= (ImageView) itemView.findViewById(R.id.iv_show_img);
             tv_title= (TextView) itemView.findViewById(R.id.tv_title);
             tv_content= (TextView) itemView.findViewById(R.id.tv_content);
             tv_date= (TextView) itemView.findViewById(R.id.tv_date);
-            tv_newsCurrentUrl= (TextView) itemView.findViewById(R.id.tv_newsCurrentUrl);
         }
 
 }

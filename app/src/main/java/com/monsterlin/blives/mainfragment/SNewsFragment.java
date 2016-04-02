@@ -13,8 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.DetailsActivity;
@@ -23,7 +21,6 @@ import com.monsterlin.blives.constants.SchoolURL;
 import com.monsterlin.blives.entity.SchoolNews;
 import com.monsterlin.blives.presenter.ParseBZUWeb;
 import com.monsterlin.blives.presenter.impl.ParseBZUWebImpl;
-import com.monsterlin.blives.utils.ToastUtils;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.io.IOException;
@@ -77,12 +74,22 @@ public class SNewsFragment extends Fragment{
         newsAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(int position, View view) {
-                TextView tv_newsCurrentUrl = (TextView) view.findViewById(R.id.tv_newsCurrentUrl);
-                String newsCurrentUrl = tv_newsCurrentUrl.getText().toString();
-                ToastUtils.showToast(mContext,""+newsCurrentUrl, Toast.LENGTH_SHORT);
 
-                Intent i = new Intent(mContext, DetailsActivity.class);
-                startActivity(i);
+
+                Bundle newsBundle = new Bundle();
+
+                SchoolNews schoolNews = new SchoolNews();
+                schoolNews.setNewsTitle(newsAdapter.getSchoolNews(position).getNewsTitle());
+                schoolNews.setNewsContent(newsAdapter.getSchoolNews(position).getNewsContent());
+                schoolNews.setNewsDate(newsAdapter.getSchoolNews(position).getNewsDate());
+                schoolNews.setNewsImgURLList(newsAdapter.getSchoolNews(position).getNewsImgURLList());
+                schoolNews.setNewsCurrentURL(newsAdapter.getSchoolNews(position).getNewsCurrentURL());
+
+                newsBundle.putSerializable("newsBundle",schoolNews);
+
+               Intent detailIntent = new Intent(mContext, DetailsActivity.class);
+                detailIntent.putExtra("newsBundle",newsBundle);
+                startActivity(detailIntent);
             }
 
             @Override

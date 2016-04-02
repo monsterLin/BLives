@@ -2272,12 +2272,13 @@ containing a value of this type.
         public static final int ic_qa=0x7f020041;
         public static final int ic_scenery=0x7f020042;
         public static final int ic_setting=0x7f020043;
-        public static final int ic_square=0x7f020044;
-        public static final int ic_theme=0x7f020045;
-        public static final int notification_template_icon_bg=0x7f020049;
-        public static final int side_nav_bar=0x7f020046;
-        public static final int snackbar_background=0x7f020047;
-        public static final int test_banner_load_fail=0x7f020048;
+        public static final int ic_share=0x7f020044;
+        public static final int ic_square=0x7f020045;
+        public static final int ic_theme=0x7f020046;
+        public static final int notification_template_icon_bg=0x7f02004a;
+        public static final int side_nav_bar=0x7f020047;
+        public static final int snackbar_background=0x7f020048;
+        public static final int test_banner_load_fail=0x7f020049;
     }
     public static final class id {
         public static final int action0=0x7f0c007c;
@@ -2349,7 +2350,8 @@ containing a value of this type.
         public static final int item_square=0x7f0c008c;
         public static final int item_theme=0x7f0c008d;
         public static final int item_touch_helper_previous_elevation=0x7f0c0005;
-        public static final int iv_show_img=0x7f0c0073;
+        public static final int iv_img=0x7f0c0070;
+        public static final int iv_show_img=0x7f0c0076;
         public static final int left=0x7f0c0025;
         public static final int line1=0x7f0c0081;
         public static final int line3=0x7f0c0085;
@@ -2368,10 +2370,10 @@ containing a value of this type.
         public static final int pin=0x7f0c001a;
         public static final int progress_circular=0x7f0c0006;
         public static final int progress_horizontal=0x7f0c0007;
-        public static final int progress_wheel=0x7f0c0072;
+        public static final int progress_wheel=0x7f0c0075;
         public static final int radio=0x7f0c0052;
         public static final int right=0x7f0c0026;
-        public static final int ry_schoolNews=0x7f0c0071;
+        public static final int ry_schoolNews=0x7f0c0074;
         public static final int screen=0x7f0c0037;
         public static final int scroll=0x7f0c0018;
         public static final int scrollView=0x7f0c004a;
@@ -2400,7 +2402,7 @@ containing a value of this type.
         public static final int start=0x7f0c0027;
         public static final int status_bar_latest_event_content=0x7f0c007e;
         public static final int submit_area=0x7f0c0063;
-        public static final int swipeRefreshLayout=0x7f0c0070;
+        public static final int swipeRefreshLayout=0x7f0c0073;
         public static final int tabMode=0x7f0c000d;
         public static final int text=0x7f0c0086;
         public static final int text2=0x7f0c0084;
@@ -2409,19 +2411,18 @@ containing a value of this type.
         public static final int time=0x7f0c0082;
         public static final int title=0x7f0c0044;
         public static final int title_template=0x7f0c0047;
-        public static final int tl_main_tabs=0x7f0c006e;
+        public static final int tl_main_tabs=0x7f0c0071;
         public static final int toolbar=0x7f0c0069;
         public static final int toolbar_layout=0x7f0c0068;
         public static final int top=0x7f0c0028;
         public static final int topPanel=0x7f0c0046;
-        public static final int tv_content=0x7f0c0075;
-        public static final int tv_date=0x7f0c0076;
-        public static final int tv_newsCurrentUrl=0x7f0c0077;
-        public static final int tv_title=0x7f0c0074;
+        public static final int tv_content=0x7f0c006f;
+        public static final int tv_date=0x7f0c006e;
+        public static final int tv_title=0x7f0c0077;
         public static final int up=0x7f0c0009;
         public static final int useLogo=0x7f0c0014;
         public static final int view_offset_helper=0x7f0c000a;
-        public static final int vp_main_content=0x7f0c006f;
+        public static final int vp_main_content=0x7f0c0072;
         public static final int withText=0x7f0c0030;
         public static final int wrap_content=0x7f0c0035;
     }
@@ -2533,13 +2534,12 @@ containing a value of this type.
         public static final int item_square_text=0x7f06001b;
         public static final int item_theme_text=0x7f06001c;
         public static final int iv_show_img_text=0x7f06001d;
-        public static final int large_text=0x7f06001e;
-        public static final int navigation_drawer_close=0x7f06001f;
-        public static final int navigation_drawer_open=0x7f060020;
-        public static final int status_bar_notification_info_overflow=0x7f060021;
-        public static final int test_tv_content_text=0x7f060022;
-        public static final int test_tv_date_text=0x7f060023;
-        public static final int test_tv_title_text=0x7f060024;
+        public static final int navigation_drawer_close=0x7f06001e;
+        public static final int navigation_drawer_open=0x7f06001f;
+        public static final int status_bar_notification_info_overflow=0x7f060020;
+        public static final int test_tv_content_text=0x7f060021;
+        public static final int test_tv_date_text=0x7f060022;
+        public static final int test_tv_title_text=0x7f060023;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080075;

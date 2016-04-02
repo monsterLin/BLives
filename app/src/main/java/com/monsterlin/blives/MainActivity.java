@@ -16,7 +16,6 @@ import android.view.View;
 import com.monsterlin.blives.navfragment.CorporationFragment;
 import com.monsterlin.blives.navfragment.MainFragment;
 import com.monsterlin.blives.navfragment.SquareFragment;
-import com.monsterlin.blives.utils.StatusBarCompat;
 
 /**
  *
@@ -60,7 +59,7 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        StatusBarCompat.compat(this, getResources().getColor(R.color.colorAccent));  //沉浸式状态栏
+       // StatusBarCompat.compat(this, getResources().getColor(R.color.colorAccent));  //沉浸式状态栏
         initView();
         initToolBar();
         initMain();
