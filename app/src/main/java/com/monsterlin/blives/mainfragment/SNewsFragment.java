@@ -2,6 +2,7 @@ package com.monsterlin.blives.mainfragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.monsterlin.blives.R;
+import com.monsterlin.blives.activity.DetailsActivity;
 import com.monsterlin.blives.adapter.NewsAdapter;
 import com.monsterlin.blives.constants.SchoolURL;
 import com.monsterlin.blives.entity.SchoolNews;
@@ -78,6 +80,9 @@ public class SNewsFragment extends Fragment{
                 TextView tv_newsCurrentUrl = (TextView) view.findViewById(R.id.tv_newsCurrentUrl);
                 String newsCurrentUrl = tv_newsCurrentUrl.getText().toString();
                 ToastUtils.showToast(mContext,""+newsCurrentUrl, Toast.LENGTH_SHORT);
+
+                Intent i = new Intent(mContext, DetailsActivity.class);
+                startActivity(i);
             }
 
             @Override

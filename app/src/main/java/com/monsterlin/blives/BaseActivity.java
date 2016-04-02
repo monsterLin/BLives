@@ -19,20 +19,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * 初始化数据
-     */
-    protected abstract void initData();
 
-    /**
-     * 初始化控件
-     */
-    protected abstract void initView();
-
-    /**
-     * 初始化事件
-     */
-    protected abstract void initEvent();
 
     /**
      * 显示Toast

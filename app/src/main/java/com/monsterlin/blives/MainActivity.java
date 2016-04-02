@@ -67,10 +67,7 @@ public class MainActivity extends BaseActivity
         initEvent();
     }
 
-    @Override
-    protected void initData() {
 
-    }
 
     /**
      * 初始化视图
