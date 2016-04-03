@@ -16,6 +16,7 @@ import android.view.View;
 import com.monsterlin.blives.navfragment.CorporationFragment;
 import com.monsterlin.blives.navfragment.MainFragment;
 import com.monsterlin.blives.navfragment.SquareFragment;
+import com.monsterlin.blives.navfragment.SceneryFragment;
 
 /**
  *
@@ -52,7 +53,16 @@ public class MainActivity extends BaseActivity
 
     private ActionBarDrawerToggle toggle;
 
-    private Fragment fragment;
+    private MainFragment  MainFragment;
+
+    private SquareFragment  SquareFragment;
+
+    private CorporationFragment CorporationFragment;
+
+    private SceneryFragment  SceneryFragment;
+
+    private Fragment mContent;
+
     private  Menu menu;
 
     @Override
@@ -93,10 +103,11 @@ public class MainActivity extends BaseActivity
     private void initMain() {
         Menu menu = navigationView.getMenu();
         menu.getItem(0).setChecked(true);
-        fragment = new MainFragment();  //创建Fragment
+        MainFragment = new MainFragment();  //创建Fragment
 
         FragmentTransaction mainTransaction = getSupportFragmentManager().beginTransaction();
-        mainTransaction.replace(R.id.fram_main,fragment);
+        mainTransaction.add(R.id.fram_main, MainFragment);
+        mContent = MainFragment;
         mainTransaction.commit();
     }
 
@@ -167,7 +178,6 @@ public class MainActivity extends BaseActivity
     }
 
     /**
-     * TODO 此处需优化
      * 左侧菜单视图的点击事件
      * @param item
      * @return
@@ -180,37 +190,23 @@ public class MainActivity extends BaseActivity
         switch (id){
             case R.id.item_main:
                 menu.getItem(0).setChecked(true); //用于item的选中状态
-                fragment = new MainFragment();
-
-                FragmentTransaction mainTransaction = getSupportFragmentManager().beginTransaction();
-                mainTransaction.replace(R.id.fram_main,fragment);
-                mainTransaction.commit();
+               MainFragment=new MainFragment();
+                switchContent(MainFragment);
                 break;
             case R.id.item_scenery:
                 menu.getItem(1).setChecked(true);
-                fragment = new SquareFragment();
-
-                FragmentTransaction sceneryTransaction = getSupportFragmentManager().beginTransaction();
-                sceneryTransaction.replace(R.id.fram_main,fragment);
-                sceneryTransaction.commit();
-
+                SceneryFragment = new SceneryFragment();
+                switchContent(SceneryFragment);
                 break;
             case R.id.item_corporation:
                 menu.getItem(2).setChecked(true);
-                fragment = new CorporationFragment();
-
-                FragmentTransaction corporationTransaction = getSupportFragmentManager().beginTransaction();
-                corporationTransaction.replace(R.id.fram_main,fragment);
-                corporationTransaction.commit();
-
+                CorporationFragment = new CorporationFragment();
+                switchContent(CorporationFragment);
                 break;
             case R.id.item_square:
                 menu.getItem(3).setChecked(true);
-                fragment = new SquareFragment();
-
-                FragmentTransaction squareTransaction = getSupportFragmentManager().beginTransaction();
-                squareTransaction.replace(R.id.fram_main,fragment);
-                squareTransaction.commit();
+                SquareFragment = new SquareFragment();
+                switchContent(SquareFragment);
                 break;
 
             //TODO 关于submenu 替换fragment
@@ -227,7 +223,23 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
+    /** 修改显示的内容 不会重新加载 **/
+    public void switchContent(Fragment to) {
+        if (mContent != to) {
+            FragmentTransaction transaction = getSupportFragmentManager()
+                    .beginTransaction();
+            if (!to.isAdded()) { // 先判断是否被add过
+                transaction.hide(mContent).add(R.id.fram_main, to).commit(); // 隐藏当前的fragment，add下一个到Activity中
+            } else {
+                transaction.hide(mContent).show(to).commit(); // 隐藏当前的fragment，显示下一个
+            }
+            mContent = to;
+        }
+
+    }
+
+    }
 
 
 
-}
+

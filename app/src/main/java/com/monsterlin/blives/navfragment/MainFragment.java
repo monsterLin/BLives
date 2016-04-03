@@ -31,6 +31,10 @@ public class MainFragment extends Fragment {
     private ViewPager mViewPager;
 
     private Context mContext;
+
+    /** ViewPager缓存页面数目;当前页面的相邻N各页面都会被缓存 */
+    private int cachePagers = 3;
+
     /**
      * 创建视图，返回View对象
      * @param inflater
@@ -68,6 +72,8 @@ public class MainFragment extends Fragment {
         adapter.addFragment(jobnewsFragment, "就业信息");
 
         mViewPager.setAdapter(adapter);
+        //TODO 与左侧菜单栏冲突
+       mViewPager.setOffscreenPageLimit(cachePagers);// 设置缓存页面，当前页面的相邻N各页面都会被缓存
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
@@ -85,4 +91,6 @@ public class MainFragment extends Fragment {
         super.onAttach(activity);
         mContext=activity;
     }
+
+
 }
