@@ -19,10 +19,21 @@
     <color name="abc_search_url_text_selected">@android:color/black</color>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="azure">#f0ffff</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
+    <eat-comment/>
     <color name="background_floating_material_dark">#ff424242</color>
     <color name="background_floating_material_light">#ffeeeeee</color>
     <color name="background_material_dark">#ff303030</color>
     <color name="background_material_light">#ffeeeeee</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="beige">#f5f5dc</color>
+    <color name="black">#000000</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
+    <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -31,11 +42,17 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/res/values/values.xml -->
+    <eat-comment/>
+    <color name="cardview_dark_background">#FF202020</color>
+    <color name="cardview_light_background">#FFFAFAFA</color>
+    <color name="cardview_shadow_end_color">#03000000</color>
+    <color name="cardview_shadow_start_color">#37000000</color>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
     <eat-comment/>
-    <color name="colorAccent">#FF4081</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#C01100</color>
+    <color name="colorPrimary">#d92400</color>
+    <color name="colorPrimaryDark">#d92400</color>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
@@ -62,6 +79,11 @@
     <color name="material_blue_grey_950">#ff21272b</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
     <color name="material_deep_teal_500">#ff009688</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="orange">#ffa500</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
+    <eat-comment/>
     <color name="primary_dark_material_dark">#ff000000</color>
     <color name="primary_dark_material_light">#ff757575</color>
     <color name="primary_material_dark">#ff212121</color>
@@ -81,6 +103,11 @@
     <color name="shadow_end_color">@android:color/transparent</color>
     <color name="shadow_mid_color">#14000000</color>
     <color name="shadow_start_color">#44000000</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="silver">#c0c0c0</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <eat-comment/>
     <color name="snackbar_background_color">#323232</color>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
@@ -88,6 +115,10 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="violet">#ee82ee</color>
+    <color name="white">#ffffff</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
@@ -98,6 +129,8 @@
     <declare-styleable name="AppBarLayout"><attr name="elevation"/><attr name="android:background"/></declare-styleable>
     <declare-styleable name="AppBarLayout_LayoutParams"><attr name="layout_scrollFlags"><flag name="scroll" value="0x1"/><flag name="exitUntilCollapsed" value="0x2"/><flag name="enterAlways" value="0x4"/><flag name="enterAlwaysCollapsed" value="0x8"/></attr><attr format="reference" name="layout_scrollInterpolator"/></declare-styleable>
     <declare-styleable name="AppCompatTextView"><attr format="reference|boolean" name="textAllCaps"/><attr name="android:textAppearance"/></declare-styleable>
+    <declare-styleable name="CardView"><attr format="color" name="cardBackgroundColor"/><attr format="dimension" name="cardCornerRadius"/><attr format="dimension" name="cardElevation"/><attr format="dimension" name="cardMaxElevation"/><attr format="boolean" name="cardUseCompatPadding"/><attr format="boolean" name="cardPreventCornerOverlap"/><attr format="dimension" name="contentPadding"/><attr format="dimension" name="contentPaddingLeft"/><attr format="dimension" name="contentPaddingRight"/><attr format="dimension" name="contentPaddingTop"/><attr format="dimension" name="contentPaddingBottom"/></declare-styleable>
+    <declare-styleable name="CircleImageView"><attr format="dimension" name="border_width"/><attr format="color" name="border_color"/><attr format="boolean" name="border_overlay"/></declare-styleable>
     <declare-styleable name="CollapsingAppBarLayout_LayoutParams"><attr name="layout_collapseMode"><enum name="none" value="0"/><enum name="pin" value="1"/><enum name="parallax" value="2"/></attr><attr format="float" name="layout_collapseParallaxMultiplier"/></declare-styleable>
     <declare-styleable name="CollapsingToolbarLayout"><attr format="dimension" name="expandedTitleMargin"/><attr format="dimension" name="expandedTitleMarginStart"/><attr format="dimension" name="expandedTitleMarginTop"/><attr format="dimension" name="expandedTitleMarginEnd"/><attr format="dimension" name="expandedTitleMarginBottom"/><attr format="reference" name="expandedTitleTextAppearance"/><attr format="reference" name="collapsedTitleTextAppearance"/><attr format="color" name="contentScrim"/><attr format="color" name="statusBarScrim"/><attr format="reference" name="toolbarId"/></declare-styleable>
     <declare-styleable name="CoordinatorLayout"><attr format="reference" name="keylines"/><attr format="reference" name="statusBarBackground"/></declare-styleable>
@@ -113,6 +146,8 @@
     <declare-styleable name="NavigationView"><attr name="android:background"/><attr name="android:fitsSystemWindows"/><attr name="android:maxWidth"/><attr name="elevation"/><attr format="reference" name="menu"/><attr format="color" name="itemIconTint"/><attr format="color" name="itemTextColor"/><attr format="reference" name="itemBackground"/><attr format="reference" name="headerLayout"/></declare-styleable>
     <declare-styleable name="PopupWindow"><attr format="boolean" name="overlapAnchor"/><attr name="android:popupBackground"/></declare-styleable>
     <declare-styleable name="PopupWindowBackgroundState"><attr format="boolean" name="state_above_anchor"/></declare-styleable>
+    <declare-styleable name="ProgressWheel"><attr format="boolean" name="matProg_progressIndeterminate"/><attr format="color" name="matProg_barColor"/><attr format="color" name="matProg_rimColor"/><attr format="dimension" name="matProg_rimWidth"/><attr format="float" name="matProg_spinSpeed"/><attr format="integer" name="matProg_barSpinCycleTime"/><attr format="dimension" name="matProg_circleRadius"/><attr format="boolean" name="matProg_fillRadius"/><attr format="dimension" name="matProg_barWidth"/><attr format="boolean" name="matProg_linearProgress"/></declare-styleable>
+    <declare-styleable name="RecyclerView"><attr format="string" name="layoutManager"/><attr name="android:orientation"/><attr format="integer" name="spanCount"/><attr format="boolean" name="reverseLayout"/><attr format="boolean" name="stackFromEnd"/></declare-styleable>
     <declare-styleable name="ScrimInsetsFrameLayout"><attr format="color|reference" name="insetForeground"/></declare-styleable>
     <declare-styleable name="ScrollingViewBehavior_Params"><attr format="dimension" name="behavior_overlapTop"/></declare-styleable>
     <declare-styleable name="SearchView"><attr format="reference" name="layout"/><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr format="string" name="defaultQueryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/><attr format="reference" name="closeIcon"/><attr format="reference" name="goIcon"/><attr format="reference" name="searchIcon"/><attr format="reference" name="searchHintIcon"/><attr format="reference" name="voiceIcon"/><attr format="reference" name="commitIcon"/><attr format="reference" name="suggestionRowLayout"/><attr format="reference" name="queryBackground"/><attr format="reference" name="submitBackground"/><attr name="android:focusable"/></declare-styleable>
@@ -126,6 +161,8 @@
     <declare-styleable name="Toolbar"><attr format="reference" name="titleTextAppearance"/><attr format="reference" name="subtitleTextAppearance"/><attr name="title"/><attr name="subtitle"/><attr name="android:gravity"/><attr format="dimension" name="titleMargins"/><attr format="dimension" name="titleMarginStart"/><attr format="dimension" name="titleMarginEnd"/><attr format="dimension" name="titleMarginTop"/><attr format="dimension" name="titleMarginBottom"/><attr name="contentInsetStart"/><attr name="contentInsetEnd"/><attr name="contentInsetLeft"/><attr name="contentInsetRight"/><attr format="dimension" name="maxButtonHeight"/><attr format="reference" name="collapseIcon"/><attr format="string" name="collapseContentDescription"/><attr name="popupTheme"/><attr format="reference" name="navigationIcon"/><attr format="string" name="navigationContentDescription"/><attr name="android:minHeight"/></declare-styleable>
     <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/><attr format="reference" name="theme"/><attr name="android:theme"/><attr format="color" name="backgroundTint"/><attr name="backgroundTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
+    <eat-comment/>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
     <dimen name="abc_action_bar_default_padding_material">4dp</dimen>
@@ -193,6 +230,11 @@
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="appbar_elevation">4dp</dimen>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="cardview_compat_inset_shadow">1dp</dimen>
+    <dimen name="cardview_default_elevation">2dp</dimen>
+    <dimen name="cardview_default_radius">2dp</dimen>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <item name="dialog_fixed_height_major" type="dimen">80%</item>
@@ -214,6 +256,15 @@
     <dimen name="fab_size_mini">40dp</dimen>
     <dimen name="fab_size_normal">56dp</dimen>
     <dimen name="fab_translation_z_pressed">6dp</dimen>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.2.0/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
+    <eat-comment/>
     <dimen name="navigation_elevation">12dp</dimen>
     <dimen name="navigation_icon_padding">32dp</dimen>
     <dimen name="navigation_icon_size">24dp</dimen>
@@ -240,6 +291,9 @@
     <dimen name="snackbar_text_size">14sp</dimen>
     <dimen name="tab_max_width">264dp</dimen>
     <dimen name="tab_min_width">72dp</dimen>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="text_margin">16dp</dimen>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
@@ -248,6 +302,11 @@
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
     <item name="home" type="id"/>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.2.0/res/values/values.xml -->
+    <eat-comment/>
+    <item name="item_touch_helper_previous_elevation" type="id"/>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
+    <eat-comment/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="split_action_bar" type="id"/>
@@ -291,9 +350,32 @@
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.pnikosis/materialish-progress/1.7/res/values/values.xml -->
+    <eat-comment/>
+    <string name="default_progressbar">Default Progressbar:</string>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="item_corporation_text">社团活动</string>
+    <string name="item_main_text">首页</string>
+    <string name="item_notification_text">消息</string>
+    <string name="item_other_text">其它</string>
+    <string name="item_scenery_text">校园风光</string>
+    <string name="item_setting_text">设置与帮助</string>
+    <string name="item_square_text">校园广场</string>
+    <string name="item_theme_text">主题选择</string>
+    <string name="iv_show_img_text">暂无缩略图</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="test_tv_content_text">今天天气真好，风和日丽，鸟语花香.....</string>
+    <string name="test_tv_date_text">2016-02-27</string>
+    <string name="test_tv_title_text">我是一则标题</string>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
+    <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -1242,7 +1324,23 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/orange</item>
+    </style>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/res/values/values.xml -->
+    <eat-comment/>
+    <style name="CardView">
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+        <item name="cardCornerRadius">@dimen/cardview_default_radius</item>
+        <item name="cardElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardMaxElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardUseCompatPadding">false</item>
+        <item name="cardPreventCornerOverlap">true</item>
+    </style>
+    <style name="CardView.Dark">
+        <item name="cardBackgroundColor">@color/cardview_dark_background</item>
+    </style>
+    <style name="CardView.Light">
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>

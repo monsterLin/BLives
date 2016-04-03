@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/item_main"
+            android:icon="@drawable/ic_home"
+            android:title="@string/item_main_text" />
+        <item
+            android:id="@+id/item_scenery"
+            android:icon="@drawable/ic_scenery"
+            android:title="@string/item_scenery_text" />
+        <item
+            android:id="@+id/item_corporation"
+            android:icon="@drawable/ic_corporation"
+            android:title="@string/item_corporation_text" />
+        <item
+            android:id="@+id/item_square"
+            android:icon="@drawable/ic_square"
+            android:title="@string/item_square_text" />
+    </group>
+
+
+    <item android:title="@string/item_other_text">
+        <menu>
+            <item
+                android:id="@+id/item_theme"
+                android:icon="@drawable/ic_theme"
+                android:title="@string/item_theme_text" />
+            <item
+                android:id="@+id/item_setting"
+                android:checked="false"
+                android:icon="@drawable/ic_setting"
+                android:title="@string/item_setting_text" />
+        </menu>
+    </item>
+
+</menu>

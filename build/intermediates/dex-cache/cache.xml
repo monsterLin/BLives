@@ -2,39 +2,11 @@
 <items version="2" >
 
     <item
-        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.pnikosis\materialish-progress\1.7\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-8970ba0459c17491309ac22ad114fc2818f1bb68.jar" />
-    </item>
-    <item
-        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-2925a38941352366b58210da7b5a502dde041136.jar" />
-    </item>
-    <item
-        jar="G:\Users\monster\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-f84bf69664d36b20d1da0e7f8083c8eeed8941d2.jar" />
-    </item>
-    <item
-        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-2d38bff59544ef6ab22327847594b878cb36b4fd.jar" />
-    </item>
-    <item
-        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-6f078955c709d2cddbbdbf7893aa4c4bd159befe.jar" />
+        sha1="41a4edf3c43fdbce6eba27da50b17ff9933987f1">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-e1e922028cff41b8e83f027d2a281c739bbb4e9f.jar" />
     </item>
 
 </items>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:wheel="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ry_schoolNews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:id="@+id/progress_wheel"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        wheel:matProg_barColor="#5588FF"
+        android:visibility="invisible"
+        wheel:matProg_progressIndeterminate="true" />
+    </RelativeLayout>
+
