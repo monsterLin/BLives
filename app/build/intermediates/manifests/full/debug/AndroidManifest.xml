@@ -31,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.monsterlin.blives.activity.LoginActivity" />
         <activity
             android:name="com.monsterlin.blives.activity.DetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />

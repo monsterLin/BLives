@@ -31,4 +31,5 @@ dependencies {
     compile files('libs/Volley.jar')
     compile 'com.pnikosis:materialish-progress:1.7'  //进度条
     compile 'cn.bmob.android:bmob-sdk:3.4.5'  //Bmob的android sdk包
+    
 }

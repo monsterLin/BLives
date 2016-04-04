@@ -1,5 +1,6 @@
 package com.monsterlin.blives;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -12,11 +13,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import com.monsterlin.blives.activity.LoginActivity;
 import com.monsterlin.blives.navfragment.CorporationFragment;
 import com.monsterlin.blives.navfragment.MainFragment;
-import com.monsterlin.blives.navfragment.SquareFragment;
 import com.monsterlin.blives.navfragment.SceneryFragment;
+import com.monsterlin.blives.navfragment.SquareFragment;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  *
@@ -41,7 +46,7 @@ import com.monsterlin.blives.navfragment.SceneryFragment;
  * ━━━━━━神兽出没━━━━━━
  */
 public class MainActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener , View.OnClickListener{
 
     private Toolbar mToolBar ;
 
@@ -65,6 +70,9 @@ public class MainActivity extends BaseActivity
 
     private  Menu menu;
 
+    private CircleImageView iv_userphoto;
+    private TextView tv_nick , tv_depart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +94,10 @@ public class MainActivity extends BaseActivity
         fab = (FloatingActionButton) findViewById(R.id.fab);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        iv_userphoto= (CircleImageView) findViewById(R.id.iv_userphoto);
+        tv_nick= (TextView) findViewById(R.id.tv_nick);
+        tv_depart= (TextView) findViewById(R.id.tv_depart);
     }
 
     /**
@@ -137,6 +149,11 @@ public class MainActivity extends BaseActivity
          * 菜单中的item的点击事件
          */
         navigationView.setNavigationItemSelectedListener(this);
+
+        /**
+         * 个人信息区域
+         */
+        iv_userphoto.setOnClickListener(this);
     }
 
 
@@ -246,7 +263,17 @@ public class MainActivity extends BaseActivity
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_userphoto:
+                //TODO 需要处理
+                Intent i = new Intent(this, LoginActivity.class);
+                startActivity(i);
+                break;
+        }
     }
+}
 
 
 

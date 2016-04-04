@@ -11,23 +11,25 @@
     android:gravity="bottom">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_userphoto"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/ic_bzu"
-        android:id="@+id/imageView" />
+        android:src="@drawable/ic_bzu" />
 
-    <TextView android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_nick"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="滨州学院"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
+        android:id="@+id/tv_depart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="信息工程系"
-        android:paddingTop="5dp"
-        android:id="@+id/textView" />
+        android:paddingTop="5dp" />
 
 </LinearLayout>
