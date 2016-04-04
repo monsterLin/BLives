@@ -190,22 +190,30 @@ public class MainActivity extends BaseActivity
         switch (id){
             case R.id.item_main:
                 menu.getItem(0).setChecked(true); //用于item的选中状态
-               MainFragment=new MainFragment();
+                if(null == MainFragment){
+                    MainFragment=new MainFragment();
+                }
                 switchContent(MainFragment);
                 break;
             case R.id.item_scenery:
                 menu.getItem(1).setChecked(true);
-                SceneryFragment = new SceneryFragment();
+                if(null ==SceneryFragment){
+                    SceneryFragment = new SceneryFragment();
+                }
                 switchContent(SceneryFragment);
                 break;
             case R.id.item_corporation:
                 menu.getItem(2).setChecked(true);
-                CorporationFragment = new CorporationFragment();
+                if (null == CorporationFragment){
+                    CorporationFragment = new CorporationFragment();
+                }
                 switchContent(CorporationFragment);
                 break;
             case R.id.item_square:
                 menu.getItem(3).setChecked(true);
-                SquareFragment = new SquareFragment();
+                if(null ==SquareFragment){
+                    SquareFragment = new SquareFragment();
+                };
                 switchContent(SquareFragment);
                 break;
 
