@@ -12,7 +12,7 @@
             android:theme="@style/AppTheme.AppBarOverlay"
             android:fitsSystemWindows="true" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_logo"
         android:layout_width="100dp"
         android:layout_height="100dp"

@@ -94,7 +94,8 @@ public class DetailsActivity extends AppCompatActivity{
            iv_img.setTag(schoolNews.getNewsImgURLList().get(0));
            new ImageLoader().showImageByAsyncTask(iv_img,schoolNews.getNewsImgURLList().get(0));
        }else {
-           iv_img.setBackgroundResource(R.drawable.ic_nopic);
+         //  iv_img.setBackgroundResource(R.drawable.ic_nopic);
+           iv_img.setVisibility(View.INVISIBLE);
        }
 
 

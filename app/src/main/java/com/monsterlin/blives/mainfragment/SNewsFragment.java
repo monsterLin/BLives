@@ -36,7 +36,7 @@ public class SNewsFragment extends Fragment{
     private RecyclerView ry_schoolNews;
     private Context mContext;
     private LinearLayoutManager layoutManager;
-    private List<SchoolNews> schoolNewsList = new ArrayList<>();
+    private List<SchoolNews> schoolNewsList = new ArrayList<>();  //解析出来的数据
     private ParseBZUWeb bzuData = new ParseBZUWebImpl();
     private NewsAdapter newsAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -48,12 +48,14 @@ public class SNewsFragment extends Fragment{
 
     private List<SchoolNews> mList = new ArrayList<>();
 
+
     private Handler mHandler=new Handler(){
         public void handleMessage(Message msg){  //此方法在UI线程中运行
             switch(msg.what){
                 case MSG_SUCCESS:
                    mList= (List<SchoolNews>) msg.obj;
                     initUI(mList);
+
                     break;
                 case MSG_FAILURE:
                     break;
@@ -61,6 +63,65 @@ public class SNewsFragment extends Fragment{
         }
 
     };
+
+    /**
+     * 创建视图，返回View对象
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_main_snews,container,false);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view,  Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(view);
+        progressWheel.setVisibility(View.VISIBLE);  //进度条显示
+        initData();
+        initEvent();
+    }
+
+
+    /**
+     * 初始化视图
+     * @param view
+     */
+    private void initView(View view) {
+        ry_schoolNews= (RecyclerView) view.findViewById(R.id.ry_schoolNews);
+        swipeRefreshLayout= (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+        progressWheel= (ProgressWheel) view.findViewById(R.id.progress_wheel);
+
+    }
+
+
+    /**
+     * 初始化数据源
+     */
+    private void initData() {
+        if(mThread==null){
+            mThread=new Thread(runnable);
+            mThread.start();
+        }
+    };
+
+    Runnable runnable=new Runnable() {
+
+        @Override
+        public void run() {
+            try {
+                schoolNewsList = bzuData.getSchoolNews(SchoolURL.schoolNewsURL);
+                mHandler.obtainMessage(MSG_SUCCESS,schoolNewsList).sendToTarget();
+            } catch (IOException e) {
+                mHandler.obtainMessage(MSG_FAILURE).sendToTarget();
+            }
+        }
+    };
+
 
     private void initUI(List<SchoolNews> list) {
         newsAdapter = new NewsAdapter(schoolNewsList,mContext);
@@ -88,7 +149,7 @@ public class SNewsFragment extends Fragment{
 
                 newsBundle.putSerializable("newsBundle",schoolNews);
 
-               Intent detailIntent = new Intent(mContext, DetailsActivity.class);
+                Intent detailIntent = new Intent(mContext, DetailsActivity.class);
                 detailIntent.putExtra("newsBundle",newsBundle);
                 startActivity(detailIntent);
             }
@@ -102,36 +163,13 @@ public class SNewsFragment extends Fragment{
         //分页加载
 
 
-
-    }
-
-
-    /**
-     * 创建视图，返回View对象
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
-     */
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main_snews,container,false);
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(View view,  Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initView(view);
-        progressWheel.setVisibility(View.VISIBLE);  //进度条显示
-        initData();
-        initEvent();
     }
 
     /**
      * 初始化事件
      */
     private void initEvent() {
+
         swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -141,43 +179,8 @@ public class SNewsFragment extends Fragment{
             }
         });
 
-
     }
 
-    /**
-     * 初始化视图
-     * @param view
-     */
-    private void initView(View view) {
-        ry_schoolNews= (RecyclerView) view.findViewById(R.id.ry_schoolNews);
-        swipeRefreshLayout= (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        progressWheel= (ProgressWheel) view.findViewById(R.id.progress_wheel);
-
-    }
-
-    /**
-     * 初始化数据源
-     */
-    private void initData() {
-        if(mThread==null){
-            mThread=new Thread(runnable);
-            mThread.start();
-        }
-    };
-
-
-    Runnable runnable=new Runnable() {
-
-        @Override
-        public void run() {
-            try {
-                schoolNewsList = bzuData.getSchoolNews(SchoolURL.schoolNewsURL);
-                mHandler.obtainMessage(MSG_SUCCESS,schoolNewsList).sendToTarget();
-            } catch (IOException e) {
-                mHandler.obtainMessage(MSG_FAILURE).sendToTarget();
-            }
-        }
-    };
     /**
      * 得到上下文对象
      * @param activity

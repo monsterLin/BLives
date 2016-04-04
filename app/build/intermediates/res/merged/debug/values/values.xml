@@ -359,8 +359,12 @@
     <string name="default_progressbar">Default Progressbar:</string>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="edt_depart_text">请输入你的系院</string>
+    <string name="edt_email_text">请输入你的邮箱</string>
     <string name="edt_pass_text">请输入密码</string>
+    <string name="edt_tel_text">请输入手机号</string>
     <string name="edt_user_text">你的手机号/邮箱</string>
+    <string name="edt_username_text">请输入你的姓名</string>
     <string name="item_corporation_text">社团活动</string>
     <string name="item_forget_text">忘记密码？</string>
     <string name="item_main_text">首页</string>

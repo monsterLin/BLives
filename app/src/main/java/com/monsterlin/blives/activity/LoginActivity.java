@@ -1,5 +1,6 @@
 package com.monsterlin.blives.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -31,7 +32,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     private void initToolBar() {
         toolbar.setTitle("登陆");
-       // toolbar.setBackgroundResource(R.color.colorPrimaryDark);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //出现返回箭头
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -62,6 +62,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.btn_login:
                 break;
             case R.id.btn_regist:
+                Intent registIntent = new Intent(LoginActivity.this,RegistActivity.class);
+                startActivity(registIntent);
                 break;
         }
     }
