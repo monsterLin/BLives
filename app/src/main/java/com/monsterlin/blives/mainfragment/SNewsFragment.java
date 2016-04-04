@@ -46,14 +46,16 @@ public class SNewsFragment extends Fragment{
     private final static int MSG_SUCCESS = 0; //成功拿到数据的标识
     private final static int MSG_FAILURE = 1; //无法拿到数据的标识
 
+    private List<SchoolNews> mList = new ArrayList<>();
+
     private Handler mHandler=new Handler(){
         public void handleMessage(Message msg){  //此方法在UI线程中运行
             switch(msg.what){
                 case MSG_SUCCESS:
-                    initUI((List<SchoolNews>) msg.obj);
+                   mList= (List<SchoolNews>) msg.obj;
+                    initUI(mList);
                     break;
                 case MSG_FAILURE:
-
                     break;
             }
         }
@@ -74,7 +76,6 @@ public class SNewsFragment extends Fragment{
         newsAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(int position, View view) {
-
 
                 Bundle newsBundle = new Bundle();
 
@@ -98,7 +99,12 @@ public class SNewsFragment extends Fragment{
             }
         });
 
+        //分页加载
+
+
+
     }
+
 
     /**
      * 创建视图，返回View对象
