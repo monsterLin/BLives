@@ -19,8 +19,8 @@ import com.monsterlin.blives.activity.DetailsActivity;
 import com.monsterlin.blives.adapter.NewsAdapter;
 import com.monsterlin.blives.constants.SchoolURL;
 import com.monsterlin.blives.entity.SchoolNews;
-import com.monsterlin.blives.presenter.ParseBZUWeb;
-import com.monsterlin.blives.presenter.impl.ParseBZUWebImpl;
+import com.monsterlin.blives.dao.ParseBZUWeb;
+import com.monsterlin.blives.dao.impl.ParseBZUWebImpl;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.io.IOException;

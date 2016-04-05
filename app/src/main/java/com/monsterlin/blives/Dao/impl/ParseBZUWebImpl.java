@@ -1,7 +1,7 @@
-package com.monsterlin.blives.presenter.impl;
+package com.monsterlin.blives.dao.impl;
 
 import com.monsterlin.blives.entity.SchoolNews;
-import com.monsterlin.blives.presenter.ParseBZUWeb;
+import com.monsterlin.blives.dao.ParseBZUWeb;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
