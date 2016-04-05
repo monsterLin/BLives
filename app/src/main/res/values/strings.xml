@@ -15,7 +15,7 @@
     <string name="test_tv_title_text">我是一则标题</string>
     <string name="test_tv_content_text">今天天气真好，风和日丽，鸟语花香.....</string>
     <string name="test_tv_date_text">2016-02-27</string>
-    <string name="edt_user_text">你的手机号/邮箱</string>
+    <string name="edt_user_text">你的邮箱</string>
     <string name="edt_pass_text">请输入密码</string>
     <string name="btn_regist_text">注册账号</string>
     <string name="btn_login_text">登陆</string>
