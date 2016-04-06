@@ -9,8 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.monsterlin.blives.R;
+import com.monsterlin.blives.entity.SchoolNews;
 
 import java.util.List;
+
+import cn.bmob.v3.datatype.BmobFile;
 
 /**
  * Created by monsterLin on 2016/4/5.
@@ -21,13 +24,13 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private static final int TYPE_FOOTER = 1;
 
 
-    private Context context;
-    private List data;
+    private Context mContext;
+    private List<SchoolNews> newsList;
 
 
-    public NormalAdapter(Context context, List data) {
-        this.context = context;
-        this.data = data;
+    public NormalAdapter(Context mContext, List<SchoolNews> newsList) {
+        this.mContext = mContext;
+        this.newsList = newsList;
     }
 
 
@@ -47,12 +50,14 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
 
 
+    // RecyclerView的count设置为数据总条数+ 1（footerView）
+
     @Override
     public int getItemCount() {
-        return data.size() == 0 ? 0 : data.size() + 1;
+        return newsList.size()+1;
     }
 
-    //????
+
     @Override
     public int getItemViewType(int position) {
         if (position + 1 == getItemCount()) {
@@ -66,11 +71,11 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
-            View view = LayoutInflater.from(context).inflate(R.layout.item_news, parent,
+            View view = LayoutInflater.from(mContext).inflate(R.layout.item_news, parent,
                     false);
             return new ItemViewHolder(view);
         } else if (viewType == TYPE_FOOTER) {
-            View view = LayoutInflater.from(context).inflate(R.layout.item_foot, parent,
+            View view = LayoutInflater.from(mContext).inflate(R.layout.item_foot, parent,
                     false);
             return new FootViewHolder(view);
         }
@@ -80,6 +85,19 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ItemViewHolder) {
+
+            if (newsList.get(position).getNewsimg()!=null){
+                BmobFile imgFile = newsList.get(position).getNewsimg();
+                imgFile.loadImage(mContext,((ItemViewHolder) holder).iv_show_img);
+            }else {
+                ((ItemViewHolder) holder).iv_show_img.setImageResource(R.drawable.ic_nopic);
+            }
+
+            ((ItemViewHolder) holder).tv_title.setText(cutText(newsList.get(position).getTitle()));
+            ((ItemViewHolder) holder).tv_content.setText(cutText(newsList.get(position).getContent()));
+            ((ItemViewHolder) holder).tv_date.setText(StringFormate(newsList.get(position).getNewsdate().getDate()));
+
+
 
             if (mOnItemClickListener!=null){
 
@@ -104,9 +122,35 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 });
             }
         }
+
     }
 
 
+    /**
+     * 格式化时间
+     * @param date
+     * @return
+     */
+    private String StringFormate (String date){
+        String dateString;
+        dateString = date.substring(0,10);
+        return dateString ;
+    }
+    /**
+     * 剪切文本
+     * @param allText
+     * @return
+     */
+    private String cutText(String allText) {
+        int length = allText.length();
+        if(length>=11){
+            String text = allText.substring(0,10)+"....";
+            return text;
+        }else {
+            return  allText;
+        }
+
+    }
     //布局ViewHolder
 
     static class ItemViewHolder extends RecyclerView.ViewHolder {

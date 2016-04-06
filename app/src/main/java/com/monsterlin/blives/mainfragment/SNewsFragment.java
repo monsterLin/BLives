@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.monsterlin.blives.R;
-import com.monsterlin.blives.adapter.NewsAdapter;
+import com.monsterlin.blives.adapter.NormalAdapter;
 import com.monsterlin.blives.entity.SchoolNews;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
@@ -34,13 +34,19 @@ public class SNewsFragment extends Fragment{
     private SwipeRefreshLayout srl ;
     private RecyclerView rynews ;
 
-    private NewsAdapter adapter;
-    private LinearLayoutManager layoutManager;
+    //private NewsAdapter adapter;
 
     private ProgressWheel  progressWheel ;
 
     BmobQuery<SchoolNews> query ;
     private List<SchoolNews> mList = new ArrayList<>();
+    private NormalAdapter adapter = new NormalAdapter(mContext,mList);
+
+    boolean isLoading ; //监听加载状态
+
+    private int limit = 10;		// 每页的数据是10条
+    private int curPage = 0;		// 当前页的编号，从0开始
+
 
     /**
      * 创建视图，返回View对象
@@ -67,16 +73,15 @@ public class SNewsFragment extends Fragment{
      * 初始化数据
      */
     private void initData() {
+
         query= new BmobQuery<SchoolNews>();
         query.order("-newsdate");
-       query.setLimit(10);
+        query.setLimit(10);
         query.findObjects(mContext, new FindListener<SchoolNews>() {
             @Override
             public void onSuccess(List<SchoolNews> list) {
-                adapter = new NewsAdapter(list,mContext);
-                rynews.setAdapter(adapter);
-                layoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
-                rynews.setLayoutManager(layoutManager);
+                //TODO　新数据的添加
+                mList.addAll(list);
             }
 
             @Override
@@ -84,6 +89,15 @@ public class SNewsFragment extends Fragment{
                 Log.e("OnError :",s);
             }
         });
+
+    }
+
+    private void getData() {
+
+        //TODO 进行服务器端的分页处理
+
+
+
     }
 
 
@@ -97,27 +111,79 @@ public class SNewsFragment extends Fragment{
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                //TODO 首先在这里得到数据 ，得到数据后进行刷新停止的操作
+                mList.clear(); //清空List
+
+                //TODO  得到数据
+
+                getData();
                 srl.setRefreshing(false);
             }
         });
 
+
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+        rynews.setLayoutManager(layoutManager);
+        rynews.setAdapter(adapter);
 
         //滑动监听
         rynews.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
+
+                /**
+                 * 当RecyclerView的滑动状态改变时触发
+                 * 0： 手指离开屏幕
+                 * 1：  手指触摸屏幕
+                 * 2： 手指加速滑动并放开，此时滑动状态伴随SCROLL_STATE_IDLE
+                 */
+                Log.d("test", "StateChanged = " + newState);
+
             }
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+
+                Log.d("test", "onScrolled");
+                int lastVisibleItemPosition =layoutManager.findLastVisibleItemPosition(); //最后一个可视的Item
+                if (lastVisibleItemPosition + 1 == adapter.getItemCount()) {
+
+                    boolean isRefreshing = srl.isRefreshing();  //刷新状态
+
+                    if (isRefreshing) {
+                        adapter.notifyItemRemoved(adapter.getItemCount());
+                        return;
+                    }
+                    if (!isLoading) {
+                        isLoading = true;
+                        //TODO　加载数据
+
+                        getData();
+                        isLoading = false;
+                    }
+                }
+
             }
         });
 
+     adapter.setOnItemClickListener(new NormalAdapter.OnItemClickListener() {
+         @Override
+         public void OnItemClick(int position, View view) {
+             Log.d("test", "item position = " + position);
+         }
+
+         @Override
+         public void OnItemLongClick(int position, View view) {
+
+         }
+     });
 
 
     }
+
+
 
 
     @Override
@@ -125,4 +191,6 @@ public class SNewsFragment extends Fragment{
         super.onAttach(activity);
         mContext=activity;
     }
+
+
 }
