@@ -42,7 +42,9 @@ public class SNewsFragment extends Fragment{
     private SwipeRefreshLayout swipeRefreshLayout;
     private ProgressWheel progressWheel ;
 
-    public int count = 1;
+    public int count = 0;
+    //假设这个是客户端的真是数据
+    private List<SchoolNews> realData = new ArrayList<SchoolNews>();
 
     private Thread mThread;
     private final static int MSG_SUCCESS = 0; //成功拿到数据的标识
@@ -64,7 +66,8 @@ public class SNewsFragment extends Fragment{
 
     private void initUI(List<SchoolNews> list) {
         if (null == newsAdapter){
-            newsAdapter = new NewsAdapter(schoolNewsList,mContext);
+            realData = schoolNewsList.subList(0,1);
+            newsAdapter = new NewsAdapter(realData,mContext);
             ry_schoolNews.setAdapter(newsAdapter);
             layoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
             ry_schoolNews.setLayoutManager(layoutManager);
@@ -77,10 +80,7 @@ public class SNewsFragment extends Fragment{
             newsAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
                 @Override
                 public void OnItemClick(int position, View view) {
-
-
                     Bundle newsBundle = new Bundle();
-
                     SchoolNews schoolNews = new SchoolNews();
                     schoolNews.setNewsTitle(newsAdapter.getSchoolNews(position).getNewsTitle());
                     schoolNews.setNewsContent(newsAdapter.getSchoolNews(position).getNewsContent());
@@ -100,7 +100,6 @@ public class SNewsFragment extends Fragment{
 
                 }
             });
-
         }else {
             newsAdapter.newsList = schoolNewsList;
             newsAdapter.notifyDataSetChanged();
@@ -137,7 +136,14 @@ public class SNewsFragment extends Fragment{
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                initData();
+//                initData();
+                if (schoolNewsList.size()>0){
+                    //证明咱们假设的服务器数据有了
+                    realData.add(schoolNewsList.get(0));
+                    newsAdapter.notifyDataSetChanged();
+                }else {
+                    initData();
+                }
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -181,8 +187,8 @@ public class SNewsFragment extends Fragment{
         @Override
         public void run() {
             try {
-                schoolNewsList = bzuData.getSchoolNews(SchoolURL.schoolNewsURL,count);
-                count++ ;
+                //假设第一次得到这个数据就是服务器的所有数据，
+                schoolNewsList = bzuData.getSchoolNews(SchoolURL.schoolNewsURL);
                 mHandler.obtainMessage(MSG_SUCCESS,schoolNewsList).sendToTarget();
             } catch (IOException e) {
                 mHandler.obtainMessage(MSG_FAILURE).sendToTarget();

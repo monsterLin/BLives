@@ -24,7 +24,7 @@ public class ParseBZUWebImpl implements ParseBZUWeb {
      * @return
      */
     @Override
-    public List<SchoolNews> getSchoolNews(String mainNewsUrl ,int count)throws IOException {
+    public List<SchoolNews> getSchoolNews(String mainNewsUrl)throws IOException {
         List<SchoolNews> mList = new ArrayList<SchoolNews>();
         Document newsDoc = null;
 
@@ -44,8 +44,7 @@ public class ParseBZUWebImpl implements ParseBZUWeb {
             mList.add(s);
 
         }
-        count = count>mList.size()?mList.size():count;
-        return  mList.subList(0,count);
+        return  mList;
     }
 
 
