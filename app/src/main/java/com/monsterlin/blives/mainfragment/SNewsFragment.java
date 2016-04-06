@@ -2,30 +2,26 @@ package com.monsterlin.blives.mainfragment;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.monsterlin.blives.R;
-import com.monsterlin.blives.activity.DetailsActivity;
-import com.monsterlin.blives.adapter.NewsAdapter;
-import com.monsterlin.blives.constants.SchoolURL;
+import com.monsterlin.blives.adapter.NormalAdapter;
 import com.monsterlin.blives.entity.SchoolNews;
-import com.monsterlin.blives.presenter.ParseBZUWeb;
-import com.monsterlin.blives.presenter.impl.ParseBZUWebImpl;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindListener;
 
 /**
  * 主内容_学校新闻
@@ -33,78 +29,24 @@ import java.util.List;
  */
 public class SNewsFragment extends Fragment{
 
-    private RecyclerView ry_schoolNews;
-    private Context mContext;
-    private LinearLayoutManager layoutManager;
-    private List<SchoolNews> schoolNewsList = new ArrayList<>();
-    private ParseBZUWeb bzuData = new ParseBZUWebImpl();
-    private NewsAdapter newsAdapter;
-    private SwipeRefreshLayout swipeRefreshLayout;
-    private ProgressWheel progressWheel ;
 
-    public int count = 0;
-    //假设这个是客户端的真是数据
-    private List<SchoolNews> realData = new ArrayList<SchoolNews>();
+    private Context mContext ;
+    private SwipeRefreshLayout srl ;
+    private RecyclerView rynews ;
 
-    private Thread mThread;
-    private final static int MSG_SUCCESS = 0; //成功拿到数据的标识
-    private final static int MSG_FAILURE = 1; //无法拿到数据的标识
+    //private NewsAdapter adapter;
 
-    private Handler mHandler=new Handler(){
-        public void handleMessage(Message msg){  //此方法在UI线程中运行
-            switch(msg.what){
-                case MSG_SUCCESS:
-                    initUI((List<SchoolNews>) msg.obj);
-                    break;
-                case MSG_FAILURE:
+    private ProgressWheel  progressWheel ;
 
-                    break;
-            }
-        }
+    BmobQuery<SchoolNews> query ;
+    private List<SchoolNews> mList = new ArrayList<>();
+    private NormalAdapter adapter = new NormalAdapter(mContext,mList);
 
-    };
+    boolean isLoading ; //监听加载状态
 
-    private void initUI(List<SchoolNews> list) {
-        if (null == newsAdapter){
-            realData = schoolNewsList.subList(0,1);
-            newsAdapter = new NewsAdapter(realData,mContext);
-            ry_schoolNews.setAdapter(newsAdapter);
-            layoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
-            ry_schoolNews.setLayoutManager(layoutManager);
+    private int limit = 10;		// 每页的数据是10条
+    private int curPage = 0;		// 当前页的编号，从0开始
 
-            progressWheel.setVisibility(View.INVISIBLE);  //进度条显示
-
-            /**
-             * 点击事件
-             */
-            newsAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
-                @Override
-                public void OnItemClick(int position, View view) {
-                    Bundle newsBundle = new Bundle();
-                    SchoolNews schoolNews = new SchoolNews();
-                    schoolNews.setNewsTitle(newsAdapter.getSchoolNews(position).getNewsTitle());
-                    schoolNews.setNewsContent(newsAdapter.getSchoolNews(position).getNewsContent());
-                    schoolNews.setNewsDate(newsAdapter.getSchoolNews(position).getNewsDate());
-                    schoolNews.setNewsImgURLList(newsAdapter.getSchoolNews(position).getNewsImgURLList());
-                    schoolNews.setNewsCurrentURL(newsAdapter.getSchoolNews(position).getNewsCurrentURL());
-
-                    newsBundle.putSerializable("newsBundle",schoolNews);
-
-                    Intent detailIntent = new Intent(mContext, DetailsActivity.class);
-                    detailIntent.putExtra("newsBundle",newsBundle);
-                    startActivity(detailIntent);
-                }
-
-                @Override
-                public void OnItemLongClick(int position, View view) {
-
-                }
-            });
-        }else {
-            newsAdapter.newsList = schoolNewsList;
-            newsAdapter.notifyDataSetChanged();
-        }
-    }
 
     /**
      * 创建视图，返回View对象
@@ -123,85 +65,132 @@ public class SNewsFragment extends Fragment{
     public void onViewCreated(View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
-        progressWheel.setVisibility(View.VISIBLE);  //进度条显示
         initData();
-        initEvent();
+
     }
 
     /**
-     * 初始化事件
+     * 初始化数据
      */
-    private void initEvent() {
-        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+    private void initData() {
+
+        query= new BmobQuery<SchoolNews>();
+        query.order("-newsdate");
+        query.setLimit(10);
+        query.findObjects(mContext, new FindListener<SchoolNews>() {
+            @Override
+            public void onSuccess(List<SchoolNews> list) {
+                //TODO　新数据的添加
+                mList.addAll(list);
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Log.e("OnError :",s);
+            }
+        });
+
+    }
+
+    private void getData() {
+
+        //TODO 进行服务器端的分页处理
+
+
+
+    }
+
+
+    private void initView(View view) {
+        srl= (SwipeRefreshLayout) view.findViewById(R.id.srl);
+        rynews= (RecyclerView) view.findViewById(R.id.rynews);
+        progressWheel= (ProgressWheel) view.findViewById(R.id.progressWheel);
+
+
+        srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
+        srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-//                initData();
-                if (schoolNewsList.size()>0){
-                    //证明咱们假设的服务器数据有了
-                    realData.add(schoolNewsList.get(0));
-                    newsAdapter.notifyDataSetChanged();
-                }else {
-                    initData();
-                }
-                swipeRefreshLayout.setRefreshing(false);
+                //TODO 首先在这里得到数据 ，得到数据后进行刷新停止的操作
+                mList.clear(); //清空List
+
+                //TODO  得到数据
+
+                getData();
+                srl.setRefreshing(false);
             }
         });
 
 
-    }
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+        rynews.setLayoutManager(layoutManager);
+        rynews.setAdapter(adapter);
 
-    /**
-     * 初始化视图
-     * @param view
-     */
-    private void initView(View view) {
-        ry_schoolNews= (RecyclerView) view.findViewById(R.id.ry_schoolNews);
-        swipeRefreshLayout= (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        progressWheel= (ProgressWheel) view.findViewById(R.id.progress_wheel);
+        //滑动监听
+        rynews.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
 
-    }
+                /**
+                 * 当RecyclerView的滑动状态改变时触发
+                 * 0： 手指离开屏幕
+                 * 1：  手指触摸屏幕
+                 * 2： 手指加速滑动并放开，此时滑动状态伴随SCROLL_STATE_IDLE
+                 */
+                Log.d("test", "StateChanged = " + newState);
 
-    /**
-     * 初始化数据源
-     */
-    private void initData() {
-        if(mThread != null){
-//            mThread=new Thread(runnable);
-//            mThread.start();
-            mThread.interrupt();
-            try {
-                mThread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
 
-        }
-        mThread = new Thread(runnable);
-        mThread.start();
-    };
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
 
+                Log.d("test", "onScrolled");
+                int lastVisibleItemPosition =layoutManager.findLastVisibleItemPosition(); //最后一个可视的Item
+                if (lastVisibleItemPosition + 1 == adapter.getItemCount()) {
 
-    Runnable runnable=new Runnable() {
+                    boolean isRefreshing = srl.isRefreshing();  //刷新状态
 
-        @Override
-        public void run() {
-            try {
-                //假设第一次得到这个数据就是服务器的所有数据，
-                schoolNewsList = bzuData.getSchoolNews(SchoolURL.schoolNewsURL);
-                mHandler.obtainMessage(MSG_SUCCESS,schoolNewsList).sendToTarget();
-            } catch (IOException e) {
-                mHandler.obtainMessage(MSG_FAILURE).sendToTarget();
+                    if (isRefreshing) {
+                        adapter.notifyItemRemoved(adapter.getItemCount());
+                        return;
+                    }
+                    if (!isLoading) {
+                        isLoading = true;
+                        //TODO　加载数据
+
+                        getData();
+                        isLoading = false;
+                    }
+                }
+
             }
-        }
-    };
-    /**
-     * 得到上下文对象
-     * @param activity
-     */
+        });
+
+     adapter.setOnItemClickListener(new NormalAdapter.OnItemClickListener() {
+         @Override
+         public void OnItemClick(int position, View view) {
+             Log.d("test", "item position = " + position);
+         }
+
+         @Override
+         public void OnItemLongClick(int position, View view) {
+
+         }
+     });
+
+
+    }
+
+
+
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mContext=activity;
     }
+
+
 }

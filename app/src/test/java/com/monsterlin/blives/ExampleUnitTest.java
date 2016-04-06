@@ -1,8 +1,8 @@
 package com.monsterlin.blives;
 
 import com.monsterlin.blives.entity.SchoolNews;
-import com.monsterlin.blives.presenter.ParseBZUWeb;
-import com.monsterlin.blives.presenter.impl.ParseBZUWebImpl;
+import com.monsterlin.blives.dao.ParseBZUWeb;
+import com.monsterlin.blives.dao.impl.ParseBZUWebImpl;
 
 import org.junit.Test;
 

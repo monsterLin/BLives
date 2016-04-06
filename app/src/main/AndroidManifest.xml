@@ -3,6 +3,11 @@
     package="com.monsterlin.blives" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
 
     <application
         android:allowBackup="true"
@@ -21,8 +26,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.DetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activity.LoginActivity"/>
+        <activity android:name=".activity.RegistActivity"/>
+        <!--<activity android:name=".activity.DetailsActivity"-->
+            <!--android:theme="@style/AppTheme.NoActionBar"/>-->
     </application>
 
 </manifest>

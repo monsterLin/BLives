@@ -1,4 +1,4 @@
-package com.monsterlin.blives.presenter;
+package com.monsterlin.blives.dao;
 
 import com.monsterlin.blives.entity.SchoolNews;
 

@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.monsterlin.blives.constants.BmobKey;
 import com.monsterlin.blives.utils.ToastUtils;
+
+import cn.bmob.v3.Bmob;
 
 /**
  * 在这里我们可以把基本的公共方法写入，如Toast,Intent等方法
@@ -16,6 +19,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bmob.initialize(this, BmobKey.APPKEY); //Bmob的初始化
     }
 
 

@@ -78,5 +78,12 @@
         sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
         <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/classes-b60bf824d2850ed0a2ab55d75cc634d1af1242f7.jar" />
     </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\cn.bmob.android\bmob-sdk\3.4.5\44e559d18fd5a4826b0a4c0354308213e4f658a2\bmob-sdk-3.4.5.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="44e559d18fd5a4826b0a4c0354308213e4f658a2">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\bmob-sdk-3.4.5-f8460ac30a4820dc717be90c1808efd7e8de599e.jar" />
+    </item>
 
 </items>
