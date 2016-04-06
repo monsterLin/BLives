@@ -40,11 +40,11 @@ public class SNewsFragment extends Fragment{
 
     BmobQuery<SchoolNews> query ;
     private List<SchoolNews> mList = new ArrayList<>();
-    private NormalAdapter adapter = new NormalAdapter(mContext,mList);
+    private NormalAdapter adapter ;
 
     boolean isLoading ; //监听加载状态
 
-    private int limit = 10;		// 每页的数据是10条
+    private int limit = 2;		// 每页的数据是10条
     private int curPage = 0;		// 当前页的编号，从0开始
 
 
@@ -76,12 +76,17 @@ public class SNewsFragment extends Fragment{
 
         query= new BmobQuery<SchoolNews>();
         query.order("-newsdate");
-        query.setLimit(10);
+        query.setLimit(limit);
+        query.setSkip(curPage*limit);
+        curPage++;
         query.findObjects(mContext, new FindListener<SchoolNews>() {
             @Override
             public void onSuccess(List<SchoolNews> list) {
                 //TODO　新数据的添加
                 mList.addAll(list);
+                if (null != adapter){
+                    adapter.notifyDataSetChanged();
+                }
             }
 
             @Override
@@ -104,19 +109,21 @@ public class SNewsFragment extends Fragment{
     private void initView(View view) {
         srl= (SwipeRefreshLayout) view.findViewById(R.id.srl);
         rynews= (RecyclerView) view.findViewById(R.id.rynews);
-        progressWheel= (ProgressWheel) view.findViewById(R.id.progressWheel);
+//        progressWheel= (ProgressWheel) view.findViewById(R.id.progressWheel);
 
 
         srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                //TODO 首先在这里得到数据 ，得到数据后进行刷新停止的操作
-                mList.clear(); //清空List
-
-                //TODO  得到数据
-
-                getData();
+//                //TODO 首先在这里得到数据 ，得到数据后进行刷新停止的操作
+//                mList.clear(); //清空List
+//
+//                //TODO  得到数据
+//
+//                getData();
+                //initData里面做了分页
+                initData();
                 srl.setRefreshing(false);
             }
         });
@@ -124,6 +131,7 @@ public class SNewsFragment extends Fragment{
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         rynews.setLayoutManager(layoutManager);
+        adapter = new NormalAdapter(mContext,mList);
         rynews.setAdapter(adapter);
 
         //滑动监听

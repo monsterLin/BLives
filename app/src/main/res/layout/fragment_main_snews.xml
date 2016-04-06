@@ -19,14 +19,14 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <com.pnikosis.materialishprogress.ProgressWheel
-        android:id="@+id/progressWheel"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        wheel:matProg_barColor="#5588FF"
-        android:visibility="invisible"
-        wheel:matProg_progressIndeterminate="true" />
+    <!--<com.pnikosis.materialishprogress.ProgressWheel-->
+        <!--android:id="@+id/progressWheel"-->
+        <!--android:layout_width="45dp"-->
+        <!--android:layout_height="45dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--wheel:matProg_barColor="#5588FF"-->
+        <!--android:visibility="invisible"-->
+        <!--wheel:matProg_progressIndeterminate="true" />-->
     </RelativeLayout>
 
