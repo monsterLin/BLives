@@ -33,9 +33,8 @@
         </activity>
         <activity android:name="com.monsterlin.blives.activity.LoginActivity" />
         <activity android:name="com.monsterlin.blives.activity.RegistActivity" />
-        <activity
-            android:name="com.monsterlin.blives.activity.DetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- <activity android:name=".activity.DetailsActivity" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar"/> -->
     </application>
 
 </manifest>

@@ -1,60 +1,50 @@
 package com.monsterlin.blives.entity;
 
-import java.io.Serializable;
-import java.util.List;
+import cn.bmob.v3.BmobObject;
+import cn.bmob.v3.datatype.BmobDate;
+import cn.bmob.v3.datatype.BmobFile;
 
 /**
  * 学校新闻实体类
  * Created by monsterLin on 2016/2/24.
  */
-public class SchoolNews implements Serializable{
-    private String newsTitle ;
-    private String newsDate ;
-    private String newsContent ;
-    private String newsCurrentURL; //当前新闻链接
-    private List<String> newsImgURLList ;
+public class SchoolNews extends BmobObject{
 
-    public String getNewsTitle() {
-        return newsTitle;
+    private String title ; //标题
+    private String content ; //内容
+    private BmobDate newsdate ; // 时间  //-->此处必须使用BmobDate ，否则会出现 Expected a string but was BEGIN_OBJECT at line 1 column 482
+    private BmobFile newsimg ; //图片
+
+    public String getTitle() {
+        return title;
     }
 
-    public void setNewsTitle(String newsTitle) {
-        this.newsTitle = newsTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getNewsDate() {
-        return newsDate;
+    public String getContent() {
+        return content;
     }
 
-    public void setNewsDate(String newsDate) {
-        this.newsDate = newsDate;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getNewsContent() {
-        return newsContent;
+    public BmobDate getNewsdate() {
+        return newsdate;
     }
 
-    public void setNewsContent(String newsContent) {
-        this.newsContent = newsContent;
+    public void setNewsdate(BmobDate newsdate) {
+        this.newsdate = newsdate;
     }
 
-    public List<String> getNewsImgURLList() {
-        return newsImgURLList;
+    public BmobFile getNewsimg() {
+        return newsimg;
     }
 
-    public String getNewsCurrentURL() {
-        return newsCurrentURL;
+    public void setNewsimg(BmobFile newsimg) {
+        this.newsimg = newsimg;
     }
-
-    public void setNewsCurrentURL(String newsCurrentURL) {
-        this.newsCurrentURL = newsCurrentURL;
-    }
-
-    public void setNewsImgURLList(List<String> newsImgURLList) {
-        this.newsImgURLList = newsImgURLList;
-
-
-    }
-
 }
 

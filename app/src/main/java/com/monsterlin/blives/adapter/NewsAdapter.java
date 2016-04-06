@@ -10,9 +10,10 @@ import android.widget.TextView;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.SchoolNews;
-import com.monsterlin.blives.utils.ImageLoader;
 
 import java.util.List;
+
+import cn.bmob.v3.datatype.BmobFile;
 
 /**
  * 新闻适配器
@@ -58,18 +59,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 
     @Override
     public void onBindViewHolder(final NewsViewHolder holder, int position) {
-           if (newsList.get(position).getNewsImgURLList().size() !=0){
-               String firstImgURL = newsList.get(position).getNewsImgURLList().get(0);  //第一张图片的url
-               holder.iv_show_img.setTag(firstImgURL);
-               new ImageLoader().showImageByAsyncTask(holder.iv_show_img,firstImgURL);
-
+           if (newsList.get(position).getNewsimg()!=null){
+            BmobFile imgFile = newsList.get(position).getNewsimg();
+            imgFile.loadImage(mContext,holder.iv_show_img);
            }else {
                 holder.iv_show_img.setImageResource(R.drawable.ic_nopic);
            }
 
-        holder.tv_title.setText(cutText(newsList.get(position).getNewsTitle()));
-        holder.tv_content.setText(cutText(newsList.get(position).getNewsContent()));
-        holder.tv_date.setText(newsList.get(position).getNewsDate());
+        holder.tv_title.setText(cutText(newsList.get(position).getTitle()));
+        holder.tv_content.setText(cutText(newsList.get(position).getContent()));
+        holder.tv_date.setText(StringFormate(newsList.get(position).getNewsdate().getDate()));
 
 
         if (mOnItemClickListener!=null){
@@ -96,6 +95,17 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
         }
     }
 
+
+    /**
+     * 格式化时间
+     * @param date
+     * @return
+     */
+    private String StringFormate (String date){
+        String dateString;
+        dateString = date.substring(0,10);
+        return dateString ;
+    }
     /**
      * 剪切文本
      * @param allText

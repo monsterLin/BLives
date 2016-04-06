@@ -2387,12 +2387,12 @@ containing a value of this type.
         public static final int parentPanel=0x7f0c0045;
         public static final int pin=0x7f0c001a;
         public static final int progressBar=0x7f0c0080;
+        public static final int progressWheel=0x7f0c007f;
         public static final int progress_circular=0x7f0c0006;
         public static final int progress_horizontal=0x7f0c0007;
-        public static final int progress_wheel=0x7f0c007f;
         public static final int radio=0x7f0c0052;
         public static final int right=0x7f0c0026;
-        public static final int ry_schoolNews=0x7f0c007e;
+        public static final int rynews=0x7f0c007e;
         public static final int screen=0x7f0c0037;
         public static final int scroll=0x7f0c0018;
         public static final int scrollView=0x7f0c004a;
@@ -2418,10 +2418,10 @@ containing a value of this type.
         public static final int src_atop=0x7f0c0038;
         public static final int src_in=0x7f0c0039;
         public static final int src_over=0x7f0c003a;
+        public static final int srl=0x7f0c007d;
         public static final int start=0x7f0c0027;
         public static final int status_bar_latest_event_content=0x7f0c0089;
         public static final int submit_area=0x7f0c0063;
-        public static final int swipeRefreshLayout=0x7f0c007d;
         public static final int tabMode=0x7f0c000d;
         public static final int text=0x7f0c0091;
         public static final int text2=0x7f0c008f;

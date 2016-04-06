@@ -85,12 +85,6 @@ activity#com.monsterlin.blives.activity.RegistActivity
 ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:30:9-60
 	android:name
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:30:19-58
-activity#com.monsterlin.blives.activity.DetailsActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:31:9-32:58
-	android:theme
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:32:13-56
-	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:31:19-59
 uses-sdk
 INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\AndroidManifest.xml:20:5-43

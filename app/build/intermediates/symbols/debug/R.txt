@@ -670,12 +670,12 @@ int id parallax 0x7f0c0019
 int id parentPanel 0x7f0c0045
 int id pin 0x7f0c001a
 int id progressBar 0x7f0c0080
+int id progressWheel 0x7f0c007f
 int id progress_circular 0x7f0c0006
 int id progress_horizontal 0x7f0c0007
-int id progress_wheel 0x7f0c007f
 int id radio 0x7f0c0052
 int id right 0x7f0c0026
-int id ry_schoolNews 0x7f0c007e
+int id rynews 0x7f0c007e
 int id screen 0x7f0c0037
 int id scroll 0x7f0c0018
 int id scrollView 0x7f0c004a
@@ -701,10 +701,10 @@ int id split_action_bar 0x7f0c0008
 int id src_atop 0x7f0c0038
 int id src_in 0x7f0c0039
 int id src_over 0x7f0c003a
+int id srl 0x7f0c007d
 int id start 0x7f0c0027
 int id status_bar_latest_event_content 0x7f0c0089
 int id submit_area 0x7f0c0063
-int id swipeRefreshLayout 0x7f0c007d
 int id tabMode 0x7f0c000d
 int id text 0x7f0c0091
 int id text2 0x7f0c008f
