@@ -2,11 +2,81 @@
 <items version="2" >
 
     <item
-        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.pnikosis\materialish-progress\1.7\jars\classes.jar"
+        jar="/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-a1a22c267f3b50548956d89fd750352ad866b7f9.jar" />
+    </item>
+    <item
+        jar="/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/classes-0b04f023a25c8d42aa5833a885c3fe38f86d6816.jar" />
+    </item>
+    <item
+        jar="/home/guolei/BLives/app/build/intermediates/exploded-aar/com.pnikosis/materialish-progress/1.7/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="41a4edf3c43fdbce6eba27da50b17ff9933987f1">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-e1e922028cff41b8e83f027d2a281c739bbb4e9f.jar" />
+        <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/classes-24ebfb1c00b3762be53be6e7faa3d3fbbcba43cd.jar" />
+    </item>
+    <item
+        jar="/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/classes-fa3b5f1d04a97bd3b3b351a653063859f9c4de90.jar" />
+    </item>
+    <item
+        jar="/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="11842de6a309c447b3a3d60d73ad637a87c58994">
+        <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/classes-63eda3d24d74c3cfe156acd38e699a8f285488e1.jar" />
+    </item>
+    <item
+        jar="/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5b37cf49773f7f17aca9830efd3053b0cac56728">
+        <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/classes-ee3a1b40a7f8e26ad3c54bb9f9b57cca25ffcb39.jar" />
+    </item>
+    <item
+        jar="/home/guolei/BLives/app/libs/Volley.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2dd908289a096a92b5f266cefb6c1bda32762cef">
+        <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/Volley-478307a8ade23d1f833c0731d3d3f544bfc586e9.jar" />
+    </item>
+    <item
+        jar="/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/classes-84e33276cb01b4e7ac2ba4026dbe26c432076f0a.jar" />
+    </item>
+    <item
+        jar="/home/guolei/BLives/app/libs/jsoup-1.8.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3a86e137575e4a45f5a9eec407f8135512e823a2">
+        <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/jsoup-1.8.3-642f693187c9ab4122c7d3de04db247ee2efd6bf.jar" />
+    </item>
+    <item
+        jar="/home/guolei/Android/Sdk/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-3632ba590653c99577de9022670f802aecb7276b.jar" />
+    </item>
+    <item
+        jar="/home/guolei/BLives/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="/home/guolei/BLives/app/build/intermediates/pre-dexed/debug/classes-b60bf824d2850ed0a2ab55d75cc634d1af1242f7.jar" />
     </item>
 
 </items>

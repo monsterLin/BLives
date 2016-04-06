@@ -42,6 +42,8 @@ public class SNewsFragment extends Fragment{
     private SwipeRefreshLayout swipeRefreshLayout;
     private ProgressWheel progressWheel ;
 
+    public int count = 1;
+
     private Thread mThread;
     private final static int MSG_SUCCESS = 0; //成功拿到数据的标识
     private final static int MSG_FAILURE = 1; //无法拿到数据的标识
@@ -61,43 +63,48 @@ public class SNewsFragment extends Fragment{
     };
 
     private void initUI(List<SchoolNews> list) {
-        newsAdapter = new NewsAdapter(schoolNewsList,mContext);
-        ry_schoolNews.setAdapter(newsAdapter);
-        layoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
-        ry_schoolNews.setLayoutManager(layoutManager);
+        if (null == newsAdapter){
+            newsAdapter = new NewsAdapter(schoolNewsList,mContext);
+            ry_schoolNews.setAdapter(newsAdapter);
+            layoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
+            ry_schoolNews.setLayoutManager(layoutManager);
 
-        progressWheel.setVisibility(View.INVISIBLE);  //进度条显示
+            progressWheel.setVisibility(View.INVISIBLE);  //进度条显示
 
-        /**
-         * 点击事件
-         */
-        newsAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
-            @Override
-            public void OnItemClick(int position, View view) {
+            /**
+             * 点击事件
+             */
+            newsAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
+                @Override
+                public void OnItemClick(int position, View view) {
 
 
-                Bundle newsBundle = new Bundle();
+                    Bundle newsBundle = new Bundle();
 
-                SchoolNews schoolNews = new SchoolNews();
-                schoolNews.setNewsTitle(newsAdapter.getSchoolNews(position).getNewsTitle());
-                schoolNews.setNewsContent(newsAdapter.getSchoolNews(position).getNewsContent());
-                schoolNews.setNewsDate(newsAdapter.getSchoolNews(position).getNewsDate());
-                schoolNews.setNewsImgURLList(newsAdapter.getSchoolNews(position).getNewsImgURLList());
-                schoolNews.setNewsCurrentURL(newsAdapter.getSchoolNews(position).getNewsCurrentURL());
+                    SchoolNews schoolNews = new SchoolNews();
+                    schoolNews.setNewsTitle(newsAdapter.getSchoolNews(position).getNewsTitle());
+                    schoolNews.setNewsContent(newsAdapter.getSchoolNews(position).getNewsContent());
+                    schoolNews.setNewsDate(newsAdapter.getSchoolNews(position).getNewsDate());
+                    schoolNews.setNewsImgURLList(newsAdapter.getSchoolNews(position).getNewsImgURLList());
+                    schoolNews.setNewsCurrentURL(newsAdapter.getSchoolNews(position).getNewsCurrentURL());
 
-                newsBundle.putSerializable("newsBundle",schoolNews);
+                    newsBundle.putSerializable("newsBundle",schoolNews);
 
-               Intent detailIntent = new Intent(mContext, DetailsActivity.class);
-                detailIntent.putExtra("newsBundle",newsBundle);
-                startActivity(detailIntent);
-            }
+                    Intent detailIntent = new Intent(mContext, DetailsActivity.class);
+                    detailIntent.putExtra("newsBundle",newsBundle);
+                    startActivity(detailIntent);
+                }
 
-            @Override
-            public void OnItemLongClick(int position, View view) {
+                @Override
+                public void OnItemLongClick(int position, View view) {
 
-            }
-        });
+                }
+            });
 
+        }else {
+            newsAdapter.newsList = schoolNewsList;
+            newsAdapter.notifyDataSetChanged();
+        }
     }
 
     /**
@@ -153,10 +160,19 @@ public class SNewsFragment extends Fragment{
      * 初始化数据源
      */
     private void initData() {
-        if(mThread==null){
-            mThread=new Thread(runnable);
-            mThread.start();
+        if(mThread != null){
+//            mThread=new Thread(runnable);
+//            mThread.start();
+            mThread.interrupt();
+            try {
+                mThread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
+        mThread = new Thread(runnable);
+        mThread.start();
     };
 
 
@@ -165,7 +181,8 @@ public class SNewsFragment extends Fragment{
         @Override
         public void run() {
             try {
-                schoolNewsList = bzuData.getSchoolNews(SchoolURL.schoolNewsURL);
+                schoolNewsList = bzuData.getSchoolNews(SchoolURL.schoolNewsURL,count);
+                count++ ;
                 mHandler.obtainMessage(MSG_SUCCESS,schoolNewsList).sendToTarget();
             } catch (IOException e) {
                 mHandler.obtainMessage(MSG_FAILURE).sendToTarget();

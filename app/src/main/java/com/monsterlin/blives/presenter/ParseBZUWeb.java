@@ -14,7 +14,7 @@ public interface ParseBZUWeb {
      * 得到学校新闻
      * @return list
      */
-    List<SchoolNews> getSchoolNews(String mainNewsUrl) throws IOException;
+    List<SchoolNews> getSchoolNews(String mainNewsUrl,int count) throws IOException;
 
     /**
      * 解析新闻详情

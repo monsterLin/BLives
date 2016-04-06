@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 
-    private List<SchoolNews> newsList;
+    public List<SchoolNews> newsList;
     private Context mContext ;
     private LayoutInflater mInflater;
 
