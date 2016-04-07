@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values-v21/values-v21.xml -->
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <dimen name="navigation_padding_top_default">24dp</dimen>
-    <!-- From: file:/home/guolei/BLives/app/src/main/res/values-v21/styles.xml -->
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values-v21/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="@style/BaseAppTheme">
     </style>
-    <!-- From: file:/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-v21/values-v21.xml -->
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>

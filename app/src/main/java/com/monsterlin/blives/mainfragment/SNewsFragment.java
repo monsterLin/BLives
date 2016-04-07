@@ -11,11 +11,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.adapter.NormalAdapter;
 import com.monsterlin.blives.entity.SchoolNews;
-import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +34,7 @@ public class SNewsFragment extends Fragment{
     private SwipeRefreshLayout srl ;
     private RecyclerView rynews ;
 
-    //private NewsAdapter adapter;
 
-    private ProgressWheel  progressWheel ;
 
     BmobQuery<SchoolNews> query ;
     private List<SchoolNews> mList = new ArrayList<>();
@@ -44,7 +42,7 @@ public class SNewsFragment extends Fragment{
 
     boolean isLoading ; //监听加载状态
 
-    private int limit = 2;		// 每页的数据是10条
+    private int limit =10;		// 每页的数据是8条
     private int curPage = 0;		// 当前页的编号，从0开始
 
 
@@ -97,9 +95,30 @@ public class SNewsFragment extends Fragment{
 
     }
 
-    private void getData() {
+    private void getData(int page) {
 
         //TODO 进行服务器端的分页处理
+        BmobQuery<SchoolNews> query = new BmobQuery<>();
+        query.order("-newsdate");
+        query.setSkip(page*limit+1);
+        query.setLimit(5);
+        curPage++;
+        query.findObjects(mContext, new FindListener<SchoolNews>() {
+            @Override
+            public void onSuccess(List<SchoolNews> list) {
+                if(list.size()!=0){
+                    mList.addAll(list);
+                    adapter.notifyDataSetChanged();
+                }
+
+
+            }
+
+            @Override
+            public void onError(int i, String s) {
+
+            }
+        });
 
 
 
@@ -109,20 +128,12 @@ public class SNewsFragment extends Fragment{
     private void initView(View view) {
         srl= (SwipeRefreshLayout) view.findViewById(R.id.srl);
         rynews= (RecyclerView) view.findViewById(R.id.rynews);
-//        progressWheel= (ProgressWheel) view.findViewById(R.id.progressWheel);
 
 
         srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-//                //TODO 首先在这里得到数据 ，得到数据后进行刷新停止的操作
-//                mList.clear(); //清空List
-//
-//                //TODO  得到数据
-//
-//                getData();
-                //initData里面做了分页
                 initData();
                 srl.setRefreshing(false);
             }
@@ -146,7 +157,6 @@ public class SNewsFragment extends Fragment{
                  * 1：  手指触摸屏幕
                  * 2： 手指加速滑动并放开，此时滑动状态伴随SCROLL_STATE_IDLE
                  */
-                Log.d("test", "StateChanged = " + newState);
 
             }
 
@@ -154,7 +164,6 @@ public class SNewsFragment extends Fragment{
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
-                Log.d("test", "onScrolled");
                 int lastVisibleItemPosition =layoutManager.findLastVisibleItemPosition(); //最后一个可视的Item
                 if (lastVisibleItemPosition + 1 == adapter.getItemCount()) {
 
@@ -167,8 +176,8 @@ public class SNewsFragment extends Fragment{
                     if (!isLoading) {
                         isLoading = true;
                         //TODO　加载数据
+                       getData(curPage);
 
-                        getData();
                         isLoading = false;
                     }
                 }
@@ -179,7 +188,7 @@ public class SNewsFragment extends Fragment{
      adapter.setOnItemClickListener(new NormalAdapter.OnItemClickListener() {
          @Override
          public void OnItemClick(int position, View view) {
-             Log.d("test", "item position = " + position);
+            showToast(""+position);
          }
 
          @Override
@@ -192,13 +201,14 @@ public class SNewsFragment extends Fragment{
     }
 
 
-
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mContext=activity;
     }
 
+    private void showToast(String s){
+        Toast.makeText(mContext,""+s,Toast.LENGTH_SHORT).show();
+    }
 
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.monsterlin.blives.R;
@@ -75,9 +76,20 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     false);
             return new ItemViewHolder(view);
         } else if (viewType == TYPE_FOOTER) {
-            View view = LayoutInflater.from(mContext).inflate(R.layout.item_foot, parent,
-                    false);
-            return new FootViewHolder(view);
+            if(newsList.size()!=0){
+                View view = LayoutInflater.from(mContext).inflate(R.layout.item_foot, parent,
+                        false);
+                return new FootViewHolder(view);
+            }else {
+                View view = LayoutInflater.from(mContext).inflate(R.layout.item_foot, parent,
+                        false);
+                TextView tv =(TextView)view.findViewById(R.id.tv_foot);
+                ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+                progressBar.setVisibility(View.INVISIBLE);
+                tv.setText("已到最底部");
+                return new FootViewHolder(view);
+            }
+
         }
         return null;
     }
@@ -125,6 +137,16 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     }
 
+
+    /**
+     * 得到FootView
+     * @param
+     * @return
+     */
+        public View getFootView(){
+           View footView = LayoutInflater.from(mContext).inflate(R.layout.item_foot,null);
+            return footView;
+        }
 
     /**
      * 格式化时间

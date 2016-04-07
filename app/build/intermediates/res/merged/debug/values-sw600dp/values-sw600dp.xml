@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-sw600dp/values-sw600dp.xml -->
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-sw600dp/values-sw600dp.xml -->
     <eat-comment/>
     <dimen name="abc_action_bar_content_inset_material">24dp</dimen>
     <dimen name="abc_action_bar_default_height_material">64dp</dimen>
@@ -10,7 +10,7 @@
     <dimen name="abc_config_prefDialogWidth">580dp</dimen>
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values-sw600dp/values-sw600dp.xml -->
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values-sw600dp/values-sw600dp.xml -->
     <eat-comment/>
     <dimen name="snackbar_action_inline_max_width">0dp</dimen>
     <dimen name="snackbar_background_corner_radius">2dp</dimen>
@@ -19,10 +19,10 @@
     <dimen name="snackbar_min_width">320dp</dimen>
     <dimen name="snackbar_padding_vertical_2lines">@dimen/snackbar_padding_vertical</dimen>
     <dimen name="tab_min_width">160dp</dimen>
-    <!-- From: file:/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-sw600dp/values-sw600dp.xml -->
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-sw600dp/values-sw600dp.xml -->
     <eat-comment/>
     <integer name="abc_max_action_buttons">5</integer>
-    <!-- From: file:/home/guolei/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values-sw600dp/values-sw600dp.xml -->
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values-sw600dp/values-sw600dp.xml -->
     <eat-comment/>
     <integer name="snackbar_text_max_lines">1</integer>
     <style name="Widget.Design.TabLayout" parent="Base.Widget.Design.TabLayout">
