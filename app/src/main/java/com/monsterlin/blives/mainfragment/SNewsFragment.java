@@ -2,6 +2,7 @@ package com.monsterlin.blives.mainfragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,8 +15,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.monsterlin.blives.R;
+import com.monsterlin.blives.activity.DetailsActivity;
 import com.monsterlin.blives.adapter.NormalAdapter;
 import com.monsterlin.blives.entity.SchoolNews;
+import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +48,7 @@ public class SNewsFragment extends Fragment{
     private int limit =10;		// 每页的数据是8条
     private int curPage = 0;		// 当前页的编号，从0开始
 
+    private ProgressWheel progressWheel ;
 
     /**
      * 创建视图，返回View对象
@@ -64,7 +68,7 @@ public class SNewsFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
         initView(view);
         initData();
-
+        progressWheel.setVisibility(View.INVISIBLE);
     }
 
     /**
@@ -80,7 +84,7 @@ public class SNewsFragment extends Fragment{
         query.findObjects(mContext, new FindListener<SchoolNews>() {
             @Override
             public void onSuccess(List<SchoolNews> list) {
-                //TODO　新数据的添加
+                //　新数据的添加
                 mList.addAll(list);
                 if (null != adapter){
                     adapter.notifyDataSetChanged();
@@ -128,6 +132,9 @@ public class SNewsFragment extends Fragment{
     private void initView(View view) {
         srl= (SwipeRefreshLayout) view.findViewById(R.id.srl);
         rynews= (RecyclerView) view.findViewById(R.id.rynews);
+        progressWheel = (ProgressWheel) view.findViewById(R.id.progressWheel);
+
+
 
 
         srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
@@ -175,7 +182,7 @@ public class SNewsFragment extends Fragment{
                     }
                     if (!isLoading) {
                         isLoading = true;
-                        //TODO　加载数据
+                        //　加载数据
                        getData(curPage);
 
                         isLoading = false;
@@ -185,10 +192,27 @@ public class SNewsFragment extends Fragment{
             }
         });
 
+        /**
+         * 点击事件
+         */
      adapter.setOnItemClickListener(new NormalAdapter.OnItemClickListener() {
          @Override
          public void OnItemClick(int position, View view) {
-            showToast(""+position);
+            SchoolNews schoolNews = adapter.getSchoolNews(position);
+            //showToast(""+schoolNews.getObjectId()+"\n"+""+schoolNews.getTitle());
+
+             Bundle bundle = new Bundle();
+             SchoolNews detail = new SchoolNews();
+             detail.setTitle(schoolNews.getTitle());
+             detail.setContent(schoolNews.getContent());
+             detail.setNewsdate(schoolNews.getNewsdate());
+             detail.setNewsimg(schoolNews.getNewsimg());
+
+             bundle.putSerializable("detail",detail);
+
+             Intent detailIntent = new Intent(mContext, DetailsActivity.class);
+             detailIntent.putExtra("dataExtra",bundle);
+            startActivity(detailIntent);
          }
 
          @Override

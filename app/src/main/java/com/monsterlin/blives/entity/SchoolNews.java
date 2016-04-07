@@ -8,7 +8,7 @@ import cn.bmob.v3.datatype.BmobFile;
  * 学校新闻实体类
  * Created by monsterLin on 2016/2/24.
  */
-public class SchoolNews extends BmobObject{
+public class SchoolNews extends BmobObject {
 
     private String title ; //标题
     private String content ; //内容

@@ -138,15 +138,6 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
 
-    /**
-     * 得到FootView
-     * @param
-     * @return
-     */
-        public View getFootView(){
-           View footView = LayoutInflater.from(mContext).inflate(R.layout.item_foot,null);
-            return footView;
-        }
 
     /**
      * 格式化时间
@@ -172,6 +163,15 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             return  allText;
         }
 
+    }
+
+    /**
+     * 得到单个实体类对象
+     * @param position
+     * @return  SchoolNews
+     */
+    public SchoolNews getSchoolNews(int position){
+        return newsList.get(position);
     }
     //布局ViewHolder
 
