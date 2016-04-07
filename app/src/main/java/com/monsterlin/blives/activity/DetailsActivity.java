@@ -88,7 +88,7 @@ public class DetailsActivity extends BaseActivity{
      */
     private void initDataControlller() {
         tv_content.setText(schoolNews.getContent());
-        tv_date.setText(schoolNews.getNewsdate().getDate());
+        tv_date.setText(StringFormate(schoolNews.getNewsdate().getDate()));
 
        if (schoolNews.getNewsimg()!=null){
            iv_img.setTag(schoolNews.getNewsimg().getFileUrl(this));
@@ -104,5 +104,15 @@ public class DetailsActivity extends BaseActivity{
     }
 
 
+    /**
+     * 格式化时间
+     * @param date
+     * @return
+     */
+    private String StringFormate (String date){
+        String dateString;
+        dateString = date.substring(0,10);
+        return dateString ;
+    }
 
 }
