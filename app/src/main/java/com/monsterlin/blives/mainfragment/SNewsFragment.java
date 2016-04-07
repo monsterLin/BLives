@@ -37,8 +37,6 @@ public class SNewsFragment extends Fragment{
     private SwipeRefreshLayout srl ;
     private RecyclerView rynews ;
 
-
-
     BmobQuery<SchoolNews> query ;
     private List<SchoolNews> mList = new ArrayList<>();
     private NormalAdapter adapter ;
