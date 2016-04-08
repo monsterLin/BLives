@@ -110,8 +110,8 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             ((ItemViewHolder) holder).tv_title.setText(cutText(acinformsList.get(position).getTitle()));
             ((ItemViewHolder) holder).tv_content.setText(cutText(acinformsList.get(position).getContent()));
             //TODO 空指针
-            Log.e("DATE",""+acinformsList.get(position).getInfomdate().getDate());
-            ((ItemViewHolder) holder).tv_date.setText(StringFormate(acinformsList.get(position).getUpdatedAt()));
+            Log.e("DATE",""+acinformsList.get(position));
+            ((ItemViewHolder) holder).tv_date.setText(StringFormate(acinformsList.get(position).getInfomdate().getDate()));
 
 
 
