@@ -19,7 +19,7 @@ import cn.bmob.v3.datatype.BmobFile;
 /**
  * Created by monsterLin on 2016/4/5.
  */
-public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class SchoolNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_FOOTER = 1;
@@ -29,7 +29,7 @@ public class NormalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private List<SchoolNews> newsList;
 
 
-    public NormalAdapter(Context mContext, List<SchoolNews> newsList) {
+    public SchoolNewsAdapter(Context mContext, List<SchoolNews> newsList) {
         this.mContext = mContext;
         this.newsList = newsList;
     }

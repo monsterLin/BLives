@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.DetailsActivity;
-import com.monsterlin.blives.adapter.NormalAdapter;
+import com.monsterlin.blives.adapter.SchoolNewsAdapter;
 import com.monsterlin.blives.entity.SchoolNews;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
@@ -39,7 +39,7 @@ public class SNewsFragment extends Fragment{
 
     BmobQuery<SchoolNews> query ;
     private List<SchoolNews> mList = new ArrayList<>();
-    private NormalAdapter adapter ;
+    private SchoolNewsAdapter adapter ;
 
     boolean isLoading ; //监听加载状态
 
@@ -147,7 +147,7 @@ public class SNewsFragment extends Fragment{
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         rynews.setLayoutManager(layoutManager);
-        adapter = new NormalAdapter(mContext,mList);
+        adapter = new SchoolNewsAdapter(mContext,mList);
         rynews.setAdapter(adapter);
 
         //滑动监听
@@ -193,7 +193,7 @@ public class SNewsFragment extends Fragment{
         /**
          * 点击事件
          */
-     adapter.setOnItemClickListener(new NormalAdapter.OnItemClickListener() {
+     adapter.setOnItemClickListener(new SchoolNewsAdapter.OnItemClickListener() {
          @Override
          public void OnItemClick(int position, View view) {
             SchoolNews schoolNews = adapter.getSchoolNews(position);
