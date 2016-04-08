@@ -107,7 +107,7 @@ public class SchoolNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
             ((ItemViewHolder) holder).tv_title.setText(cutText(newsList.get(position).getTitle()));
             ((ItemViewHolder) holder).tv_content.setText(cutText(newsList.get(position).getContent()));
-            ((ItemViewHolder) holder).tv_date.setText(StringFormate(newsList.get(position).getNewsdate().getDate()));
+            ((ItemViewHolder) holder).tv_date.setText(stringFormate(newsList.get(position).getNewsdate().getDate()));
 
 
 
@@ -144,7 +144,7 @@ public class SchoolNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
      * @param date
      * @return
      */
-    private String StringFormate (String date){
+    private String stringFormate (String date){
         String dateString;
         dateString = date.substring(0,10);
         return dateString ;

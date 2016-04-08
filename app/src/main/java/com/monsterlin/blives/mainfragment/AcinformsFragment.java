@@ -65,7 +65,7 @@ public class AcinformsFragment extends Fragment{
     private void initData() {
 
         query= new BmobQuery<Acinforms>();
-        query.order("-infomdate");
+       query.order("-infomdate");
         query.setLimit(limit);
         query.setSkip(curPage*limit);
         curPage++;
@@ -123,16 +123,16 @@ public class AcinformsFragment extends Fragment{
         progressWheel = (ProgressWheel) view.findViewById(R.id.progressWheel);
 
 
-//
-//
-//        srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
-//        srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                initData();
-//                srl.setRefreshing(false);
-//            }
-//        });
+
+
+        srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
+        srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                initData();
+                srl.setRefreshing(false);
+            }
+        });
 
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
@@ -184,6 +184,8 @@ public class AcinformsFragment extends Fragment{
      adapter.setOnItemClickListener(new AcinformsAdapter.OnItemClickListener() {
          @Override
          public void OnItemClick(int position, View view) {
+
+
              showToast(""+position);
          }
 

@@ -2,7 +2,6 @@ package com.monsterlin.blives.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -109,9 +108,8 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
             ((ItemViewHolder) holder).tv_title.setText(cutText(acinformsList.get(position).getTitle()));
             ((ItemViewHolder) holder).tv_content.setText(cutText(acinformsList.get(position).getContent()));
-            //TODO 空指针
-            Log.e("DATE",""+acinformsList.get(position));
-            ((ItemViewHolder) holder).tv_date.setText(StringFormate(acinformsList.get(position).getInfomdate().getDate()));
+
+              ((ItemViewHolder) holder).tv_date.setText(stringFormate(acinformsList.get(position).getInformdate().getDate()));
 
 
 
@@ -148,7 +146,7 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
      * @param date
      * @return
      */
-    private String StringFormate (String date){
+    private String stringFormate (String date){
         String dateString;
         dateString = date.substring(0,10);
         return dateString ;
