@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.DetailsActivity;
 import com.monsterlin.blives.adapter.SchoolNewsAdapter;
+import com.monsterlin.blives.constants.DetailType;
 import com.monsterlin.blives.entity.SchoolNews;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
@@ -207,6 +208,7 @@ public class SNewsFragment extends Fragment{
              detail.setNewsimg(schoolNews.getNewsimg());
 
              bundle.putSerializable("detail",detail);
+             bundle.putInt("type", DetailType.SchoolNews);
 
              Intent detailIntent = new Intent(mContext, DetailsActivity.class);
              detailIntent.putExtra("dataExtra",bundle);

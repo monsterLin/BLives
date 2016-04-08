@@ -11,6 +11,10 @@ import android.widget.TextView;
 
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
+import com.monsterlin.blives.constants.DetailType;
+import com.monsterlin.blives.entity.Acinforms;
+import com.monsterlin.blives.entity.Jobnews;
+import com.monsterlin.blives.entity.Offnews;
 import com.monsterlin.blives.entity.SchoolNews;
 import com.monsterlin.blives.utils.ImageLoader;
 
@@ -27,8 +31,11 @@ public class DetailsActivity extends BaseActivity{
     private TextView tv_date ,tv_content;
     private ImageView iv_img;
 
-   private SchoolNews schoolNews;
 
+    private SchoolNews schoolNews; //学校新闻
+    private Acinforms acinforms ; //学术新闻
+    private Offnews offnews; //教务信息
+    private Jobnews jobnews; //就业新闻
 
 
     @Override
@@ -36,11 +43,11 @@ public class DetailsActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
       //  StatusBarCompat.compat(this, getResources().getColor(R.color.colorAccent));  //沉浸式状态栏
-        initData();
+
         initView();
         initToolBar();
-        initCollasping();
-        initDataControlller();
+        initData();
+
     }
 
 
@@ -48,9 +55,80 @@ public class DetailsActivity extends BaseActivity{
      * 初始化数据源
      */
     private void initData() {
-       schoolNews = (SchoolNews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");  //得到上一级传来的数据
+        int type = getIntent().getBundleExtra("dataExtra").getInt("type");
+        switch (type){
+            case DetailType.SchoolNews:
+                 schoolNews = (SchoolNews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");  //得到上一级传来的数据
+                initSchoolNews(schoolNews);
+                break;
+            case DetailType.Acinforms:
+                acinforms= (Acinforms) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
+                initAcinforms(acinforms);
+                break;
+            case DetailType.Offnews:
+                //offnews= (Offnews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
+              //  initOffnews(offnews);
+                break;
+            case DetailType.Jobnews:
+                //jobnews= (Jobnews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
+                //initJobnews(jobnews);
+                break;
+        }
+    }
+
+    /**TODO 下面内容需要优化 **/
+    /**
+     * 初始化学术活动信息
+     * @param acinforms
+     */
+    private void initAcinforms(Acinforms acinforms) {
+        //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
+        collapsingToolbarLayout.setTitle(acinforms.getTitle()); //设置标题
+        //设置还没有收缩状态下的字体颜色
+        collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
+        //设置收缩后Toolbar上的字体颜色
+        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+
+
+        tv_content.setText(acinforms.getContent());
+        tv_date.setText(StringFormate(acinforms.getInformdate().getDate()));
+
+        if (acinforms.getInformimg()!=null){
+            iv_img.setTag(acinforms.getInformimg().getFileUrl(this));
+
+            new ImageLoader().showImageByAsyncTask(iv_img,acinforms.getInformimg().getFileUrl(this));
+        }else {
+            iv_img.setVisibility(View.INVISIBLE);
+        }
 
     }
+
+    /**
+     * 初始化校园新闻内容
+     * @param schoolNews
+     */
+    private void initSchoolNews(SchoolNews schoolNews) {
+        //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
+        collapsingToolbarLayout.setTitle(schoolNews.getTitle()); //设置标题
+        //设置还没有收缩状态下的字体颜色
+        collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
+        //设置收缩后Toolbar上的字体颜色
+        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+
+
+        tv_content.setText(schoolNews.getContent());
+        tv_date.setText(StringFormate(schoolNews.getNewsdate().getDate()));
+
+        if (schoolNews.getNewsimg()!=null){
+            iv_img.setTag(schoolNews.getNewsimg().getFileUrl(this));
+
+            new ImageLoader().showImageByAsyncTask(iv_img,schoolNews.getNewsimg().getFileUrl(this));
+        }else {
+            iv_img.setVisibility(View.INVISIBLE);
+        }
+
+    }
+
 
     private void initView() {
         mToolBar = (Toolbar) findViewById(R.id.toolbar);
@@ -74,34 +152,6 @@ public class DetailsActivity extends BaseActivity{
         });
     }
 
-    private void initCollasping() {
-        //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
-        collapsingToolbarLayout.setTitle(schoolNews.getTitle()); //设置标题
-        //设置还没有收缩状态下的字体颜色
-        collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
-        //设置收缩后Toolbar上的字体颜色
-        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
-    }
-
-    /**
-     * 初始化控件数据
-     */
-    private void initDataControlller() {
-        tv_content.setText(schoolNews.getContent());
-        tv_date.setText(StringFormate(schoolNews.getNewsdate().getDate()));
-
-       if (schoolNews.getNewsimg()!=null){
-           iv_img.setTag(schoolNews.getNewsimg().getFileUrl(this));
-           //showToast(schoolNews.getNewsimg().getFileUrl(this));
-
-           new ImageLoader().showImageByAsyncTask(iv_img,schoolNews.getNewsimg().getFileUrl(this));
-       }else {
-         //  iv_img.setBackgroundResource(R.drawable.ic_nopic);
-           iv_img.setVisibility(View.INVISIBLE);
-       }
-
-
-    }
 
 
     /**

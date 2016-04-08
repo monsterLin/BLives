@@ -2,6 +2,7 @@ package com.monsterlin.blives.mainfragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,7 +15,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.monsterlin.blives.R;
+import com.monsterlin.blives.activity.DetailsActivity;
 import com.monsterlin.blives.adapter.AcinformsAdapter;
+import com.monsterlin.blives.constants.DetailType;
 import com.monsterlin.blives.entity.Acinforms;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
@@ -89,7 +92,7 @@ public class AcinformsFragment extends Fragment{
 
     private void getData(int page) {
 
-        //TODO 进行服务器端的分页处理
+        // 进行服务器端的分页处理
         BmobQuery<Acinforms> query = new BmobQuery<>();
         query.order("-infomdate");
         query.setSkip(page*limit+1);
@@ -184,9 +187,20 @@ public class AcinformsFragment extends Fragment{
      adapter.setOnItemClickListener(new AcinformsAdapter.OnItemClickListener() {
          @Override
          public void OnItemClick(int position, View view) {
+             Acinforms acinforms = adapter.getAcinform(position);
+             Bundle bundle = new Bundle();
+             Acinforms detail = new Acinforms();
+             detail.setTitle(acinforms.getTitle());
+             detail.setContent(acinforms.getContent());
+             detail.setInformimg(acinforms.getInformimg());
+             detail.setInformdate(acinforms.getInformdate());
 
+             bundle.putSerializable("detail",detail);
+             bundle.putInt("type", DetailType.Acinforms);
 
-             showToast(""+position);
+             Intent detailIntent = new Intent(mContext, DetailsActivity.class);
+             detailIntent.putExtra("dataExtra",bundle);
+             startActivity(detailIntent);
          }
 
          @Override
