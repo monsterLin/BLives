@@ -70,12 +70,11 @@ public class DetailsActivity extends BaseActivity{
                 initOffnews(offnews);
                 break;
             case DetailType.Jobnews:
-                //jobnews= (Jobnews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
-                //initJobnews(jobnews);
+                jobnews= (Jobnews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
+                initJobnews(jobnews);
                 break;
         }
     }
-
 
 
     /**TODO 下面内容需要优化 **/
@@ -131,8 +130,12 @@ public class DetailsActivity extends BaseActivity{
 
     }
 
+    /**
+     * 初始化教务新闻
+     * @param offnews
+     */
     private void initOffnews(Offnews offnews) {
-//使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
+        //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
         collapsingToolbarLayout.setTitle(offnews.getTitle()); //设置标题
         //设置还没有收缩状态下的字体颜色
         collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
@@ -152,6 +155,34 @@ public class DetailsActivity extends BaseActivity{
         }
 
     }
+
+
+    /**
+     * 初始化就业新闻
+     * @param jobnews
+     */
+    private void initJobnews(Jobnews jobnews) {
+        //使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
+        collapsingToolbarLayout.setTitle(jobnews.getTitle()); //设置标题
+        //设置还没有收缩状态下的字体颜色
+        collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
+        //设置收缩后Toolbar上的字体颜色
+        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+
+
+        tv_content.setText(jobnews.getContent());
+        tv_date.setText(StringFormate(jobnews.getNewsdate().getDate()));
+
+        if (jobnews.getNewsimg()!=null){
+            iv_img.setTag(jobnews.getNewsimg().getFileUrl(this));
+
+            new ImageLoader().showImageByAsyncTask(iv_img,jobnews.getNewsimg().getFileUrl(this));
+        }else {
+            iv_img.setVisibility(View.INVISIBLE);
+        }
+
+    }
+
 
 
     private void initView() {
