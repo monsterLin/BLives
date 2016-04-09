@@ -48,7 +48,7 @@ public class SceneryAdapter extends RecyclerView.Adapter<SceneryAdapter.ItemView
         int width = wm.getDefaultDisplay().getWidth();
 
         BmobFile img = mList.get(position).getSceneryimg();
-       // img.loadImage(mContext,holder.iv_img,width/2,200);
+        // img.loadImage(mContext,holder.iv_img,width/2,200);
         img.loadImageThumbnail(mContext,holder.iv_img,width/2,200);
         holder.tv_intro.setText(mList.get(position).getSceneryintro());
 
@@ -72,9 +72,8 @@ public class SceneryAdapter extends RecyclerView.Adapter<SceneryAdapter.ItemView
             iv_img= (ImageView) itemView.findViewById(R.id.iv_img);
             tv_intro= (TextView) itemView.findViewById(R.id.tv_intro);
         }
-}
+    }
 
 
 
 }
-
