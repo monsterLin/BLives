@@ -66,8 +66,8 @@ public class DetailsActivity extends BaseActivity{
                 initAcinforms(acinforms);
                 break;
             case DetailType.Offnews:
-                //offnews= (Offnews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
-              //  initOffnews(offnews);
+                offnews= (Offnews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
+                initOffnews(offnews);
                 break;
             case DetailType.Jobnews:
                 //jobnews= (Jobnews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
@@ -75,6 +75,8 @@ public class DetailsActivity extends BaseActivity{
                 break;
         }
     }
+
+
 
     /**TODO 下面内容需要优化 **/
     /**
@@ -123,6 +125,28 @@ public class DetailsActivity extends BaseActivity{
             iv_img.setTag(schoolNews.getNewsimg().getFileUrl(this));
 
             new ImageLoader().showImageByAsyncTask(iv_img,schoolNews.getNewsimg().getFileUrl(this));
+        }else {
+            iv_img.setVisibility(View.INVISIBLE);
+        }
+
+    }
+
+    private void initOffnews(Offnews offnews) {
+//使用CollapsingToolbarLayout必须把title设置到CollapsingToolbarLayout上，设置到Toolbar上则不会显示
+        collapsingToolbarLayout.setTitle(offnews.getTitle()); //设置标题
+        //设置还没有收缩状态下的字体颜色
+        collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
+        //设置收缩后Toolbar上的字体颜色
+        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+
+
+        tv_content.setText(offnews.getContent());
+        tv_date.setText(StringFormate(offnews.getNewsdate().getDate()));
+
+        if (offnews.getNewsimg()!=null){
+            iv_img.setTag(offnews.getNewsimg().getFileUrl(this));
+
+            new ImageLoader().showImageByAsyncTask(iv_img,offnews.getNewsimg().getFileUrl(this));
         }else {
             iv_img.setVisibility(View.INVISIBLE);
         }
