@@ -36,4 +36,5 @@ dependencies {
     //Bmob的android sdk包
     compile files('libs/umeng_social_sdk.jar')
     compile files('libs/libammsdk.jar')
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
 }

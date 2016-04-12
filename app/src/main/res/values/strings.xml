@@ -24,5 +24,6 @@
     <string name="edt_username_text">请输入你的姓名</string>
     <string name="edt_depart_text">请输入你的系院</string>
     <string name="edt_tel_text">请输入手机号</string>
+    <string name="edt_feedback_text">你的反馈</string>
 
 </resources>

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.monsterlin.blives.activity.FeedBackActivity;
 import com.monsterlin.blives.activity.LoginActivity;
 import com.monsterlin.blives.navfragment.CorporationFragment;
 import com.monsterlin.blives.navfragment.MainFragment;
@@ -133,7 +134,8 @@ public class MainActivity extends BaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("你好，我是FAB");
+               Intent feedbackIntent = new Intent(MainActivity.this, FeedBackActivity.class);
+                startActivity(feedbackIntent);
             }
         });
 
