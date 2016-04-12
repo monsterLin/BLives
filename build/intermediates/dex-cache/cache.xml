@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="F:\workspace-android-bymonster\BLives\app\libs\umeng_social_sdk.jar"
+        jar="F:\workspace-android-bymonster\BLives\app\libs\libammsdk.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="f943f7506e5f1a01ca78349b382578a514c36d30">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\umeng_social_sdk-6191c8397582a0d9f8cb690aa10a2fabde08a84f.jar" />
+        sha1="c1f63f70671d69ee38379728e1192db82e289246">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\libammsdk-1b57ee9ea3959d61355e55add23683296be51d25.jar" />
     </item>
 
 </items>

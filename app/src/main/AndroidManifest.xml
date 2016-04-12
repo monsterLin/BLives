@@ -37,7 +37,11 @@
         <activity android:name=".activity.DetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
-
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
     </application>
 

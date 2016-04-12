@@ -41,6 +41,11 @@
         <activity
             android:name="com.monsterlin.blives.activity.DetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.monsterlin.blives.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>

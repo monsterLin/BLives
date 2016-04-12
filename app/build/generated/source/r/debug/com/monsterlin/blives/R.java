@@ -2282,10 +2282,11 @@ containing a value of this type.
         public static final int ic_tel=0x7f02004b;
         public static final int ic_theme=0x7f02004c;
         public static final int ic_username=0x7f02004d;
-        public static final int notification_template_icon_bg=0x7f020051;
-        public static final int side_nav_bar=0x7f02004e;
-        public static final int snackbar_background=0x7f02004f;
-        public static final int test_banner_load_fail=0x7f020050;
+        public static final int ic_weixin_share=0x7f02004e;
+        public static final int notification_template_icon_bg=0x7f020052;
+        public static final int side_nav_bar=0x7f02004f;
+        public static final int snackbar_background=0x7f020050;
+        public static final int test_banner_load_fail=0x7f020051;
     }
     public static final class id {
         public static final int action0=0x7f0c008d;

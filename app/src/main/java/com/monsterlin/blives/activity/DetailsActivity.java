@@ -1,5 +1,6 @@
 package com.monsterlin.blives.activity;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -12,11 +13,18 @@ import android.widget.TextView;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.constants.DetailType;
+import com.monsterlin.blives.constants.KEY;
 import com.monsterlin.blives.entity.Acinforms;
 import com.monsterlin.blives.entity.Jobnews;
 import com.monsterlin.blives.entity.Offnews;
 import com.monsterlin.blives.entity.SchoolNews;
 import com.monsterlin.blives.utils.ImageLoader;
+import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.tencent.mm.sdk.openapi.SendMessageToWX;
+import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.tencent.mm.sdk.openapi.WXImageObject;
+import com.tencent.mm.sdk.openapi.WXMediaMessage;
+import com.tencent.mm.sdk.openapi.WXWebpageObject;
 
 /**
  * 新闻详情
@@ -37,17 +45,62 @@ public class DetailsActivity extends BaseActivity{
     private Offnews offnews; //教务信息
     private Jobnews jobnews; //就业新闻
 
+    private IWXAPI wxApi;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        //实例化
+        wxApi = WXAPIFactory.createWXAPI(this, KEY.APPID);
+        wxApi.registerApp(KEY.APPID);
       //  StatusBarCompat.compat(this, getResources().getColor(R.color.colorAccent));  //沉浸式状态栏
 
         initView();
         initToolBar();
         initData();
+        initEvent();
 
+    }
+
+    /**
+     * 初始化点击事件
+     */
+    private void initEvent() {
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                wechatShare(1);
+            }
+        });
+    }
+
+    /**
+     * 微信分享标签
+     * @param flag
+     */
+    private void wechatShare(int flag) {
+        WXWebpageObject webpage = new WXWebpageObject();
+        WXMediaMessage msg = new WXMediaMessage(webpage);
+        msg.mediaObject = new WXImageObject(generate()); //在微信信息中添加图片
+
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = String.valueOf(System.currentTimeMillis());
+        req.message = msg;
+        req.scene = flag == 0 ? SendMessageToWX.Req.WXSceneSession : SendMessageToWX.Req.WXSceneTimeline;
+        wxApi.sendReq(req);
+    }
+
+    /**
+     * 调用系统自带的截图功能
+     * @return
+     */
+    private Bitmap generate() {
+        View view = getWindow().getDecorView();
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        return view.getDrawingCache();
     }
 
 

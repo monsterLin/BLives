@@ -35,4 +35,5 @@ dependencies {
     compile 'cn.bmob.android:bmob-sdk:3.4.5'
     //Bmob的android sdk包
     compile files('libs/umeng_social_sdk.jar')
+    compile files('libs/libammsdk.jar')
 }
