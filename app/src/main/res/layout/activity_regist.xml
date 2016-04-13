@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-    <LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,11 +22,13 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
+            android:clickable="true"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/ic_default_photo"/>
 
         <EditText
-            android:id="@+id/edt_email"
+            android:id="@+id/edt_mail"
+            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -40,6 +45,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:inputType="textPassword"
             android:drawableLeft="@drawable/ic_password"
             android:drawablePadding="20dp"
             android:hint="@string/edt_pass_text"/>
@@ -51,9 +57,22 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:inputType="text"
             android:drawableLeft="@drawable/ic_username"
             android:drawablePadding="20dp"
             android:hint="@string/edt_username_text"/>
+
+    <EditText
+        android:id="@+id/edt_nick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:inputType="text"
+        android:drawableLeft="@drawable/ic_nick"
+        android:drawablePadding="20dp"
+        android:hint="@string/edt_nick_text"/>
 
         <EditText
             android:id="@+id/edt_depart"
@@ -62,6 +81,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:inputType="text"
             android:drawableLeft="@drawable/ic_depart"
             android:drawablePadding="20dp"
             android:hint="@string/edt_depart_text"/>
@@ -73,6 +93,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:inputType="phone"
             android:drawableLeft="@drawable/ic_tel"
             android:drawablePadding="20dp"
             android:hint="@string/edt_tel_text"/>
@@ -86,3 +107,4 @@
             android:background="@drawable/btn_login_shape"
             android:layout_margin="10dp"/>
     </LinearLayout>
+</ScrollView>

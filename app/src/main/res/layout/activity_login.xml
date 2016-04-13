@@ -22,12 +22,13 @@
         android:layout_margin="10dp"/>
 
     <EditText
-        android:id="@+id/edt_user"
+        android:id="@+id/edt_mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_username"
         android:drawablePadding="20dp"
         android:hint="@string/edt_user_text"
+        android:inputType="text"
         android:layout_below="@id/iv_logo"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
@@ -39,7 +40,8 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_password"
         android:hint="@string/edt_pass_text"
-        android:layout_below="@id/edt_user"
+        android:layout_below="@id/edt_mail"
+        android:inputType="textPassword"
         android:drawablePadding="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"

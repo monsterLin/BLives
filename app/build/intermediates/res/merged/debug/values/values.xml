@@ -145,6 +145,7 @@
     <declare-styleable name="MenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="showAsAction"><flag name="never" value="0"/><flag name="ifRoom" value="1"/><flag name="always" value="2"/><flag name="withText" value="4"/><flag name="collapseActionView" value="8"/></attr><attr format="reference" name="actionLayout"/><attr format="string" name="actionViewClass"/><attr format="string" name="actionProviderClass"/></declare-styleable>
     <declare-styleable name="MenuView"><attr name="android:itemTextAppearance"/><attr name="android:horizontalDivider"/><attr name="android:verticalDivider"/><attr name="android:headerBackground"/><attr name="android:itemBackground"/><attr name="android:windowAnimationStyle"/><attr name="android:itemIconDisabledAlpha"/><attr format="boolean" name="preserveIconSpacing"/></declare-styleable>
     <declare-styleable name="NavigationView"><attr name="android:background"/><attr name="android:fitsSystemWindows"/><attr name="android:maxWidth"/><attr name="elevation"/><attr format="reference" name="menu"/><attr format="color" name="itemIconTint"/><attr format="color" name="itemTextColor"/><attr format="reference" name="itemBackground"/><attr format="reference" name="headerLayout"/></declare-styleable>
+    <declare-styleable name="OkCancelBar"><attr format="string" localization="suggested" name="okLabel"/><attr format="string" localization="suggested" name="cancelLabel"/></declare-styleable>
     <declare-styleable name="PopupWindow"><attr format="boolean" name="overlapAnchor"/><attr name="android:popupBackground"/></declare-styleable>
     <declare-styleable name="PopupWindowBackgroundState"><attr format="boolean" name="state_above_anchor"/></declare-styleable>
     <declare-styleable name="ProgressWheel"><attr format="boolean" name="matProg_progressIndeterminate"/><attr format="color" name="matProg_barColor"/><attr format="color" name="matProg_rimColor"/><attr format="dimension" name="matProg_rimWidth"/><attr format="float" name="matProg_spinSpeed"/><attr format="integer" name="matProg_barSpinCycleTime"/><attr format="dimension" name="matProg_circleRadius"/><attr format="boolean" name="matProg_fillRadius"/><attr format="dimension" name="matProg_barWidth"/><attr format="boolean" name="matProg_linearProgress"/></declare-styleable>
@@ -374,13 +375,28 @@
     <string name="default_progressbar">Default Progressbar:</string>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="edt_depart_text">请输入你的系院</string>
-    <string name="edt_email_text">请输入你的邮箱</string>
+    <string name="edt_depart_text">你的系院</string>
+    <string name="edt_email_text">你的邮箱</string>
     <string name="edt_feedback_text">你的反馈</string>
-    <string name="edt_pass_text">请输入密码</string>
-    <string name="edt_tel_text">请输入手机号</string>
+    <string name="edt_nick_text">你的昵称</string>
+    <string name="edt_pass_text">你的密码</string>
+    <string name="edt_tel_text">你的手机号</string>
     <string name="edt_user_text">你的邮箱</string>
-    <string name="edt_username_text">请输入你的姓名</string>
+    <string name="edt_username_text">你的姓名</string>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/BLives/validator/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="global_about">About</string>
+    <string name="global_accept">Accept</string>
+    <string name="global_address">Address</string>
+    <string name="global_cancel">Cancel</string>
+    <string name="global_email">Email</string>
+    <string name="global_name">Name</string>
+    <string name="global_password">Password</string>
+    <string name="global_phone">Phone</string>
+    <string name="global_submit">Submit</string>
+    <string name="global_website">Web Site</string>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="item_corporation_text">社团活动</string>
     <string name="item_forget_text">忘记密码？</string>
     <string name="item_main_text">首页</string>
@@ -401,6 +417,16 @@
     <string name="test_tv_content_text">今天天气真好，风和日丽，鸟语花香.....</string>
     <string name="test_tv_date_text">2016-02-27</string>
     <string name="test_tv_title_text">我是一则标题</string>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/BLives/validator/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="validator_alnum">输入只能为英文字母！</string>
+    <string name="validator_confirm">密码不能通过确认！</string>
+    <string name="validator_email">非法的电子邮箱！</string>
+    <string name="validator_empty">输入不能为空！</string>
+    <string name="validator_hex">输入只能是十六进制数字！</string>
+    <string name="validator_phone">非法电话号码！</string>
+    <string name="validator_regexp">输入不合法！</string>
+    <string name="validator_url">网络地址不正确!</string>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -1628,6 +1654,11 @@
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
     <style name="ThemeOverlay.AppCompat.Dark.ActionBar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Light" parent="Base.ThemeOverlay.AppCompat.Light"/>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/BLives/validator/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <style name="Validator.Light" parent="@android:style/Theme.Light"/>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
+    <eat-comment/>
     <style name="Widget.AppCompat.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
     </style>
     <style name="Widget.AppCompat.ActionBar.Solid" parent="Base.Widget.AppCompat.ActionBar.Solid">

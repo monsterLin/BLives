@@ -28,13 +28,15 @@ dependencies {
     //圆形图片
     compile 'com.android.support:recyclerview-v7:22.2.0'
     compile 'com.android.support:cardview-v7:22.0.0'
-    compile files('libs/jsoup-1.8.3.jar')
-    compile files('libs/Volley.jar')
     compile 'com.pnikosis:materialish-progress:1.7'
     //进度条
     compile 'cn.bmob.android:bmob-sdk:3.4.5'
     //Bmob的android sdk包
-    compile files('libs/umeng_social_sdk.jar')
-    compile files('libs/libammsdk.jar')
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    //Material Text
+    compile files('libs/jsoup-1.8.3.jar')
+    compile files('libs/Volley.jar')
+    compile files('libs/libammsdk.jar')
+    //微信SDK
+    compile project(':validator')
 }

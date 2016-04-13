@@ -2,18 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\BLives\validator\unspecified\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\library-2.4.0-dd460f45d27a359687729c3c169358b1eda3100b.jar" />
-    </item>
-    <item
-        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.rengwuxian.materialedittext\library\2.1.4\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="288913b440a3c61c30aa171095453a605432277a">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-a9f590056ffc9d0d9748f8e18bbf278c16201cc4.jar" />
+        sha1="827e2003d122962c641df896dbe4f8313c495cb7">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-69801286e6ec041ccdfa0f1acc0a677274028a34.jar" />
     </item>
 
 </items>

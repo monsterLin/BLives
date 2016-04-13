@@ -164,4 +164,7 @@
         <item name="android:actionModeCopyDrawable">?actionModeCopyDrawable</item>
         <item name="android:actionModePasteDrawable">?actionModePasteDrawable</item>
     </style>
+    <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/BLives/validator/unspecified/res/values-v11/values-v11.xml -->
+    <eat-comment/>
+    <style name="Validator.Light" parent="@android:style/Theme.Light"/>
 </resources>

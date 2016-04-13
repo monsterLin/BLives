@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="validator_email">非法的电子邮箱！</string>
+    <string name="validator_empty">输入不能为空！</string>
+    <string name="validator_url">网络地址不正确!</string>
+    <string name="validator_confirm">密码不能通过确认！</string>
+    <string name="validator_alnum">输入只能为英文字母！</string>
+    <string name="validator_hex">输入只能是十六进制数字！</string>
+    <string name="validator_regexp">输入不合法！</string>
+    <string name="validator_phone">非法电话号码！</string>
+
+</resources>

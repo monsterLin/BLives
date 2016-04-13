@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BLives.iml" filepath="$PROJECT_DIR$/BLives.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/validator/validator.iml" filepath="$PROJECT_DIR$/validator/validator.iml" />
     </modules>
   </component>
 </project>
