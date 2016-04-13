@@ -21,11 +21,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="570c874067e58eea90001a2f" >
-        </meta-data>
-
         <activity
             android:name="com.monsterlin.blives.MainActivity"
             android:label="@string/app_name"
