@@ -37,6 +37,7 @@
             android:name="com.monsterlin.blives.activity.DetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.monsterlin.blives.activity.FeedBackActivity" />
+        <activity android:name="com.monsterlin.blives.activity.ResetActivity" />
         <activity
             android:name="com.monsterlin.blives.wxapi.WXEntryActivity"
             android:exported="true"

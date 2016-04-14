@@ -26,8 +26,7 @@
     <string name="edt_tel_text">你的手机号</string>
     <string name="edt_feedback_text">你的反馈</string>
     <string name="edt_nick_text">你的昵称</string>
-
-
+    <string name="btn_reset_text">找回密码</string>
 
 
 </resources>

@@ -16,6 +16,8 @@ import cn.bmob.v3.Bmob;
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
+    //TODO  优化时候记得加入ToolBar的优化，Adapter的优化
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

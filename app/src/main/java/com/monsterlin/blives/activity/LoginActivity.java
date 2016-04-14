@@ -85,6 +85,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         mailString=edt_mail.getText().toString();
         passString=edt_pass.getText().toString();
 
+        //TODO 必须要求用户进行邮箱验证，否则无法登陆
+
         if(TextUtils.isEmpty(mailString)&&TextUtils.isEmpty(passString)){
             showToast("邮箱或密码未填写");
         }else {
@@ -121,7 +123,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         int id = item.getItemId();
 
         if (id == R.id.item_forget) {
-            showToast("忘记密码？");
+            Intent resetIntent = new Intent(LoginActivity.this,ResetActivity.class);
+            startActivity(resetIntent);
             return true;
         }
 

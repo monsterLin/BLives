@@ -32,6 +32,7 @@
         <activity android:name=".activity.DetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activity.FeedBackActivity"/>
+        <activity android:name=".activity.ResetActivity"/>
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
