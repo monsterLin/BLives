@@ -106,6 +106,7 @@
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="silver">#c0c0c0</color>
+    <color name="slategray">#708090</color>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <color name="snackbar_background_color">#323232</color>
@@ -418,6 +419,9 @@
     <string name="test_tv_content_text">今天天气真好，风和日丽，鸟语花香.....</string>
     <string name="test_tv_date_text">2016-02-27</string>
     <string name="test_tv_title_text">我是一则标题</string>
+    <string name="tv_label_email">邮箱</string>
+    <string name="tv_label_name">姓名</string>
+    <string name="tv_label_tel">手机号</string>
     <!-- From: file:/F:/workspace-android-bymonster/BLives/app/build/intermediates/exploded-aar/BLives/validator/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="validator_alnum">输入只能为英文字母！</string>

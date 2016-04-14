@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.monsterlin.blives.activity.FeedBackActivity;
 import com.monsterlin.blives.activity.LoginActivity;
+import com.monsterlin.blives.activity.ShowUserActivity;
 import com.monsterlin.blives.entity.BUser;
 import com.monsterlin.blives.navfragment.CorporationFragment;
 import com.monsterlin.blives.navfragment.MainFragment;
@@ -313,12 +314,12 @@ public class MainActivity extends BaseActivity
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.iv_userphoto:
-                //TODO 需要处理
                 if(null ==bmobUser){
                     Intent loginIntent = new Intent(this, LoginActivity.class);
                     startActivity(loginIntent);
                 }else {
-                        showToast("用户资料区域制作中....");
+                      Intent showUserIntent = new Intent(this, ShowUserActivity.class);
+                    startActivity(showUserIntent);
                 }
 
                 break;

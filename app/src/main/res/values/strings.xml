@@ -27,6 +27,9 @@
     <string name="edt_feedback_text">你的反馈</string>
     <string name="edt_nick_text">你的昵称</string>
     <string name="btn_reset_text">找回密码</string>
+    <string name="tv_label_name">姓名</string>
+    <string name="tv_label_email">邮箱</string>
+    <string name="tv_label_tel">手机号</string>
 
 
 </resources>

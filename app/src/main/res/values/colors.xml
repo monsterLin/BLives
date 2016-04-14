@@ -6,6 +6,7 @@
     <color name="white">#ffffff</color>
     <color name="orange">#ffa500</color>
     <color name="black">#000000</color>
+    <color name="slategray">#708090</color><!--灰石色 -->
 
     <!--test-->
     <color name="beige">#f5f5dc</color><!--米色 -->
