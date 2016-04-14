@@ -97,7 +97,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     @Override
                     public void done(BUser bUser, BmobException e) {
                         if(bUser!=null){
-                           showToast("登录成功");
+                            if (bUser.getEmailVerified()){
+                                showToast("登录成功");
+                                finish();
+                            }else {
+                                showToast("请登录你的邮箱进行邮箱验证");
+                            }
+
                         }else {
                             showToast("邮箱或者密码不正确");
                         }

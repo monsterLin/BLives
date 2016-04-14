@@ -17,11 +17,16 @@ import android.widget.TextView;
 
 import com.monsterlin.blives.activity.FeedBackActivity;
 import com.monsterlin.blives.activity.LoginActivity;
+import com.monsterlin.blives.entity.BUser;
 import com.monsterlin.blives.navfragment.CorporationFragment;
 import com.monsterlin.blives.navfragment.MainFragment;
 import com.monsterlin.blives.navfragment.SceneryFragment;
 import com.monsterlin.blives.navfragment.SquareFragment;
+import com.monsterlin.blives.utils.ImageLoader;
 
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.listener.GetListener;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -74,17 +79,21 @@ public class MainActivity extends BaseActivity
     private CircleImageView iv_userphoto;
     private TextView tv_nick , tv_depart;
 
+    private BmobUser bmobUser ; //BmobUser对象
+    private String  currentId ; //当前登录用户的id
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bmobUser=BmobUser.getCurrentUser(this);
        // StatusBarCompat.compat(this, getResources().getColor(R.color.colorAccent));  //沉浸式状态栏
         initView();
         initToolBar();
         initMain();
         initEvent();
     }
-
 
 
     /**
@@ -95,10 +104,45 @@ public class MainActivity extends BaseActivity
         fab = (FloatingActionButton) findViewById(R.id.fab);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         iv_userphoto= (CircleImageView) findViewById(R.id.iv_userphoto);
         tv_nick= (TextView) findViewById(R.id.tv_nick);
         tv_depart= (TextView) findViewById(R.id.tv_depart);
+
+        updateleftUserData();  //更新左侧用户资料
+
+    }
+
+    /**
+     * 更新左侧用户资料
+     */
+    public void updateleftUserData(){
+        bmobUser=BmobUser.getCurrentUser(this);
+        if (bmobUser!=null){
+            currentId=bmobUser.getObjectId();
+            BmobQuery<BUser> query = new BmobQuery<>();
+            query.getObject(MainActivity.this, currentId, new GetListener<BUser>() {
+                @Override
+                public void onSuccess(BUser bUser) {
+                    tv_nick.setText(bUser.getNick());
+                    tv_depart.setText(bUser.getDepart());
+                    String photoUrl = bUser.getUserPhoto().getFileUrl(MainActivity.this);
+                    if(photoUrl!=null){
+                        iv_userphoto.setTag(photoUrl);
+                        new ImageLoader().showImageByThread(iv_userphoto,photoUrl);
+                    }else {
+                        iv_userphoto.setBackgroundResource(R.drawable.ic_bzu);
+                    }
+
+                }
+
+                @Override
+                public void onFailure(int i, String s) {
+                    showToast("接收用户数据异常："+s);
+                }
+            });
+        }
+    //   drawer.closeDrawer(GravityCompat.START);
     }
 
     /**
@@ -245,7 +289,7 @@ public class MainActivity extends BaseActivity
                 break;
         }
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -270,12 +314,31 @@ public class MainActivity extends BaseActivity
         switch (v.getId()){
             case R.id.iv_userphoto:
                 //TODO 需要处理
-                Intent i = new Intent(this, LoginActivity.class);
-                startActivity(i);
+                if(null ==bmobUser){
+                    Intent loginIntent = new Intent(this, LoginActivity.class);
+                    startActivity(loginIntent);
+                }else {
+                        showToast("用户资料区域制作中....");
+                }
+
                 break;
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateleftUserData();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        updateleftUserData();
+    }
 }
+
+
 
 
 
