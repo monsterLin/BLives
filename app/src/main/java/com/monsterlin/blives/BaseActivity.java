@@ -8,6 +8,7 @@ import com.monsterlin.blives.constants.BmobKey;
 import com.monsterlin.blives.utils.ToastUtils;
 
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobInstallation;
 
 /**
  * 在这里我们可以把基本的公共方法写入，如Toast,Intent等方法
@@ -21,6 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BmobInstallation.getCurrentInstallation(this).save();
         Bmob.initialize(this, BmobKey.APPKEY); //Bmob的初始化
     }
 
