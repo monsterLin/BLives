@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\BLives\validator\unspecified\jars\classes.jar"
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.balysv\material-ripple\1.0.2\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="827e2003d122962c641df896dbe4f8313c495cb7">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-69801286e6ec041ccdfa0f1acc0a677274028a34.jar" />
+        sha1="c733e9d1b065d940a08f2fca0ff920dfc08d94cc">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-e3a76821c766c4a687170d6876845cdf022593cb.jar" />
     </item>
 
 </items>

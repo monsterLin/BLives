@@ -30,6 +30,12 @@
     <string name="tv_label_name">姓名</string>
     <string name="tv_label_email">邮箱</string>
     <string name="tv_label_tel">手机号</string>
+    <string name="btn_sms_text">消息推送</string>
+    <string name="btn_trash_text">清除缓存</string>
+    <string name="btn_update_text">检测新版本</string>
+    <string name="btn_help_text">我要帮助</string>
+    <string name="btn_about_text">关于我们</string>
+    <string name="btn_exit_text">退出登录</string>
 
 
 </resources>

@@ -40,6 +40,8 @@
         <activity android:name="com.monsterlin.blives.activity.FeedBackActivity" />
         <activity android:name="com.monsterlin.blives.activity.ResetActivity" />
         <activity android:name="com.monsterlin.blives.activity.ShowUserActivity" />
+        <activity android:name="com.monsterlin.blives.activity.SettingActivity" />
+        <activity android:name="com.monsterlin.blives.activity.ThemeActivity" />
         <activity
             android:name="com.monsterlin.blives.wxapi.WXEntryActivity"
             android:exported="true"

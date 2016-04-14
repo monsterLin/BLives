@@ -39,4 +39,6 @@ dependencies {
     compile files('libs/libammsdk.jar')
     //微信SDK
     compile project(':validator')
+    //水滴反馈
+    compile 'com.balysv:material-ripple:1.0.2'
 }

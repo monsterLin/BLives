@@ -17,7 +17,9 @@ import android.widget.TextView;
 
 import com.monsterlin.blives.activity.FeedBackActivity;
 import com.monsterlin.blives.activity.LoginActivity;
+import com.monsterlin.blives.activity.SettingActivity;
 import com.monsterlin.blives.activity.ShowUserActivity;
+import com.monsterlin.blives.activity.ThemeActivity;
 import com.monsterlin.blives.entity.BUser;
 import com.monsterlin.blives.navfragment.CorporationFragment;
 import com.monsterlin.blives.navfragment.MainFragment;
@@ -134,7 +136,6 @@ public class MainActivity extends BaseActivity
                     }else {
                         iv_userphoto.setBackgroundResource(R.drawable.ic_bzu);
                     }
-
                 }
 
                 @Override
@@ -142,8 +143,12 @@ public class MainActivity extends BaseActivity
                     showToast("接收用户数据异常："+s);
                 }
             });
+        }else {
+            tv_nick.setText("滨州学院");
+            tv_depart.setText("信息工程系");
+           iv_userphoto.setImageResource(R.drawable.ic_bzu);
         }
-    //   drawer.closeDrawer(GravityCompat.START);
+         //   drawer.closeDrawer(GravityCompat.START);
     }
 
     /**
@@ -283,10 +288,12 @@ public class MainActivity extends BaseActivity
 
             //TODO 关于submenu 替换fragment
             case R.id.item_theme:
-              showToast("theme");
+                Intent themeIntent = new Intent(MainActivity.this, ThemeActivity.class);
+                startActivity(themeIntent);
                 break;
             case R.id.item_setting:
-                showToast("setting");
+               Intent settingIntent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(settingIntent);
                 break;
         }
 
