@@ -34,7 +34,6 @@ public class SquareFragment extends Fragment {
 
     private void initView(View view) {
         mapView = (MapView)view.findViewById(R.id.bmapView);
-
         
     }
 

@@ -262,6 +262,7 @@ public class MainActivity extends BaseActivity
                 if(null == MainFragment){
                     MainFragment=new MainFragment();
                 }
+                fab.setVisibility(View.VISIBLE);
                 switchContent(MainFragment);
                 break;
             case R.id.item_scenery:
@@ -269,6 +270,7 @@ public class MainActivity extends BaseActivity
                 if(null ==SceneryFragment){
                     SceneryFragment = new SceneryFragment();
                 }
+                fab.setVisibility(View.VISIBLE);
                 switchContent(SceneryFragment);
                 break;
             case R.id.item_corporation:
@@ -276,13 +278,15 @@ public class MainActivity extends BaseActivity
                 if (null == CorporationFragment){
                     CorporationFragment = new CorporationFragment();
                 }
+                fab.setVisibility(View.VISIBLE);
                 switchContent(CorporationFragment);
                 break;
             case R.id.item_square:
                 menu.getItem(3).setChecked(true);
                 if(null ==SquareFragment){
                     SquareFragment = new SquareFragment();
-                };
+                }
+                fab.setVisibility(View.INVISIBLE);
                 switchContent(SquareFragment);
                 break;
 
