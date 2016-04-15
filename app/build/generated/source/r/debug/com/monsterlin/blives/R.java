@@ -2675,27 +2675,30 @@ containing a value of this type.
         public static final int ic_home=0x7f02004f;
         public static final int ic_inform_bg=0x7f020050;
         public static final int ic_launcher=0x7f020051;
-        public static final int ic_nick=0x7f020052;
-        public static final int ic_nopic=0x7f020053;
-        public static final int ic_notifications=0x7f020054;
-        public static final int ic_password=0x7f020055;
-        public static final int ic_scenery=0x7f020056;
-        public static final int ic_send=0x7f020057;
-        public static final int ic_setting=0x7f020058;
-        public static final int ic_share=0x7f020059;
-        public static final int ic_square=0x7f02005a;
-        public static final int ic_tel=0x7f02005b;
-        public static final int ic_theme=0x7f02005c;
-        public static final int ic_to_send=0x7f02005d;
-        public static final int ic_trash=0x7f02005e;
-        public static final int ic_username=0x7f02005f;
-        public static final int ic_weixin_share=0x7f020060;
-        public static final int ic_wenhao=0x7f020061;
-        public static final int met_ic_clear=0x7f020062;
-        public static final int notification_template_icon_bg=0x7f020066;
-        public static final int side_nav_bar=0x7f020063;
-        public static final int snackbar_background=0x7f020064;
-        public static final int test_banner_load_fail=0x7f020065;
+        public static final int ic_map_marker=0x7f020052;
+        public static final int ic_nick=0x7f020053;
+        public static final int ic_nopic=0x7f020054;
+        public static final int ic_notifications=0x7f020055;
+        public static final int ic_password=0x7f020056;
+        public static final int ic_scenery=0x7f020057;
+        public static final int ic_send=0x7f020058;
+        public static final int ic_setting=0x7f020059;
+        public static final int ic_share=0x7f02005a;
+        public static final int ic_square=0x7f02005b;
+        public static final int ic_tel=0x7f02005c;
+        public static final int ic_theme=0x7f02005d;
+        public static final int ic_to_send=0x7f02005e;
+        public static final int ic_trash=0x7f02005f;
+        public static final int ic_username=0x7f020060;
+        public static final int ic_weixin_share=0x7f020061;
+        public static final int ic_wenhao=0x7f020062;
+        public static final int icon_map=0x7f020063;
+        public static final int map_bg_pop=0x7f020064;
+        public static final int met_ic_clear=0x7f020065;
+        public static final int notification_template_icon_bg=0x7f020069;
+        public static final int side_nav_bar=0x7f020066;
+        public static final int snackbar_background=0x7f020067;
+        public static final int test_banner_load_fail=0x7f020068;
     }
     public static final class id {
         public static final int action0=0x7f0c00a9;
@@ -2779,15 +2782,15 @@ containing a value of this type.
         public static final int ifRoom=0x7f0c002f;
         public static final int image=0x7f0c0041;
         public static final int info=0x7f0c00b4;
-        public static final int item_corporation=0x7f0c00bd;
-        public static final int item_edit=0x7f0c00c2;
-        public static final int item_forget=0x7f0c00c3;
-        public static final int item_main=0x7f0c00bb;
-        public static final int item_notification=0x7f0c00c1;
-        public static final int item_scenery=0x7f0c00bc;
-        public static final int item_setting=0x7f0c00c0;
-        public static final int item_square=0x7f0c00be;
-        public static final int item_theme=0x7f0c00bf;
+        public static final int item_corporation=0x7f0c00be;
+        public static final int item_edit=0x7f0c00c3;
+        public static final int item_forget=0x7f0c00c4;
+        public static final int item_main=0x7f0c00bc;
+        public static final int item_notification=0x7f0c00c2;
+        public static final int item_scenery=0x7f0c00bd;
+        public static final int item_setting=0x7f0c00c1;
+        public static final int item_square=0x7f0c00bf;
+        public static final int item_theme=0x7f0c00c0;
         public static final int item_touch_helper_previous_elevation=0x7f0c0005;
         public static final int iv_img=0x7f0c006f;
         public static final int iv_logo=0x7f0c0072;
@@ -2882,6 +2885,7 @@ containing a value of this type.
         public static final int tv_intro=0x7f0c009c;
         public static final int tv_name=0x7f0c00b6;
         public static final int tv_nick=0x7f0c00a7;
+        public static final int tv_popview=0x7f0c00b9;
         public static final int tv_qq=0x7f0c0071;
         public static final int tv_tel=0x7f0c00b8;
         public static final int tv_title=0x7f0c009b;
@@ -2890,8 +2894,8 @@ containing a value of this type.
         public static final int useLogo=0x7f0c0014;
         public static final int view_offset_helper=0x7f0c000a;
         public static final int vp_main_content=0x7f0c008f;
-        public static final int widget_okcancelbar_cancel=0x7f0c00b9;
-        public static final int widget_okcancelbar_ok=0x7f0c00ba;
+        public static final int widget_okcancelbar_cancel=0x7f0c00ba;
+        public static final int widget_okcancelbar_ok=0x7f0c00bb;
         public static final int withText=0x7f0c0031;
         public static final int wrap_content=0x7f0c0036;
     }
@@ -2973,7 +2977,8 @@ containing a value of this type.
         public static final int select_dialog_singlechoice_material=0x7f040042;
         public static final int showuser_activity=0x7f040043;
         public static final int support_simple_spinner_dropdown_item=0x7f040044;
-        public static final int widget_ok_cancel_bar=0x7f040045;
+        public static final int view_map_pop=0x7f040045;
+        public static final int widget_ok_cancel_bar=0x7f040046;
     }
     public static final class menu {
         public static final int activity_main_drawer=0x7f0d0000;
