@@ -47,6 +47,7 @@
         <activity android:name=".activity.ShowUserActivity"/>
         <activity android:name=".activity.SettingActivity"/>
         <activity android:name=".activity.ThemeActivity"/>
+        <activity android:name=".activity.BImgActivity"/>
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"

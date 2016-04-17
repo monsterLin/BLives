@@ -139,6 +139,14 @@ public class SceneryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
 
+    /**
+     * 得到item的信息
+     * @param position
+     * @return
+     */
+    public Scenery getScenery(int position){
+        return mList.get(position);
+    }
 
 
 

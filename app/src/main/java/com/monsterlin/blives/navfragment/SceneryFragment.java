@@ -2,6 +2,7 @@ package com.monsterlin.blives.navfragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.monsterlin.blives.R;
+import com.monsterlin.blives.activity.BImgActivity;
 import com.monsterlin.blives.adapter.SceneryAdapter;
 import com.monsterlin.blives.entity.Scenery;
 
@@ -50,12 +52,31 @@ public class SceneryFragment extends Fragment {
     }
 
 
-
     @Override
     public void onViewCreated(View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
         initData();
+        initEvent();
+    }
+
+    private void initEvent() {
+           adapter.setOnItemClickListener(new SceneryAdapter.OnItemClickListener() {
+               @Override
+               public void OnItemClick(int position, View view) {
+                   Scenery scenery =adapter.getScenery(position);
+                   String imgUrl =scenery.getSceneryimg().getFileUrl(mContext);
+
+                   Intent imgIntent = new Intent(mContext, BImgActivity.class);
+                   imgIntent.putExtra("imgUrl",imgUrl);
+                   startActivity(imgIntent);
+               }
+
+               @Override
+               public void OnItemLongClick(int position, View view) {
+
+               }
+           });
     }
 
     /**

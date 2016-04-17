@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:2:1-58:12
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:2:1-59:12
 	package
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml
@@ -58,7 +58,7 @@ ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xm
 	android:name
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:15:22-70
 application
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:17:5-56:19
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:17:5-57:19
 MERGED from [com.android.support:appcompat-v7:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:22.2.0] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\AndroidManifest.xml:22:5-20
@@ -145,16 +145,20 @@ activity#com.monsterlin.blives.activity.ThemeActivity
 ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:49:9-59
 	android:name
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:49:19-57
-activity#com.monsterlin.blives.wxapi.WXEntryActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:50:9-54:74
-	android:screenOrientation
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:53:13-49
-	android:exported
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:52:13-36
-	android:theme
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:54:13-72
+activity#com.monsterlin.blives.activity.BImgActivity
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:50:9-58
 	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:51:13-50
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:50:19-56
+activity#com.monsterlin.blives.wxapi.WXEntryActivity
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:51:9-55:74
+	android:screenOrientation
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:54:13-49
+	android:exported
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:53:13-36
+	android:theme
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:55:13-72
+	android:name
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:52:13-50
 uses-sdk
 INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\AndroidManifest.xml:20:5-43
