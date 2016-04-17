@@ -1,19 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.balysv\material-ripple\1.0.2\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c733e9d1b065d940a08f2fca0ff920dfc08d94cc">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\classes-e3a76821c766c4a687170d6876845cdf022593cb.jar" />
-    </item>
-    <item
-        jar="F:\workspace-android-bymonster\BLives\app\libs\BaiduLBS_Android.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="95a1969738d6f75acc2b6c1478abfc3421a314e9">
-        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\BaiduLBS_Android-cbdc0515952ec5f26f51d3c5248b685babaa6b17.jar" />
-    </item>
-
-</items>

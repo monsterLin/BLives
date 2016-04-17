@@ -24,6 +24,12 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.monsterlin.blives.R;
+import com.monsterlin.blives.entity.MarkPoint;
+
+import java.util.List;
+
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindListener;
 
 /**
  * 校园广场
@@ -36,6 +42,7 @@ public class SquareFragment extends Fragment {
     private BaiduMap map ;
 
     Marker markers; //标记点
+    private BmobQuery<MarkPoint> markQuery ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,17 +54,45 @@ public class SquareFragment extends Fragment {
     public void onViewCreated(View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
-        initMap();
+        initData();
+
     }
 
-    private void initMap() {
-        map =mapView.getMap();
 
+    //TODO  mark点的及时刷新问题
+
+    /**
+     * 初始化坐标数据
+     */
+    private void initData() {
+        markQuery=new BmobQuery<>();
+        markQuery.findObjects(mContext, new FindListener<MarkPoint>() {
+            @Override
+            public void onSuccess(List<MarkPoint> list) {
+                if (null!=list){
+                    initMap(list);
+                }
+
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                showToast("接受数据库数据异常："+s);
+            }
+        });
+    }
+
+    /**
+     * 初始化地图
+     * @param list
+     */
+    private void initMap(List<MarkPoint> list) {
+        map =mapView.getMap();
         /**
          * 设置地图的中心点
          */
         LatLng latLng = new LatLng(37.391485,117.991591) ; //地理坐标基本数据结构  -->纬度/经度
-        MapStatus mapStatus =new MapStatus.Builder()
+        final MapStatus mapStatus =new MapStatus.Builder()
                 .target(latLng)  //中心点
                 .zoom(17) //缩放级别
                 .build();
@@ -66,19 +101,30 @@ public class SquareFragment extends Fragment {
         map.setMapStatus(mapStatusUpdate);
 
 
+        /**------------------------Mark点为输出数据库中的信息--------------------------------**/
         /**
          * 设置地图的Mark点
          */
-        LatLng libraryPoint = new LatLng(37.391485,117.991591);  //图书馆坐标
-        BitmapDescriptor bitmap = BitmapDescriptorFactory
-                .fromResource(R.drawable.icon_map);
-        OverlayOptions option = new MarkerOptions()
-                .position(libraryPoint)
-                .icon(bitmap)
-                .title("图书馆");
+        for (int i =0;i<list.size();i++){
+            MarkPoint markPoint =list.get(i);
+            String latitude = markPoint.getLatitude();
+            String longitude = markPoint.getLongitude();
+            String plcae =markPoint.getPlace();
+            //String introbuce =markPoint.getIntrobuce();
 
-        map.addOverlay(option);
+            LatLng libraryPoint = new LatLng(Double.parseDouble(latitude),Double.parseDouble(longitude));
+            BitmapDescriptor bitmap = BitmapDescriptorFactory
+                    .fromResource(R.drawable.ic_mark);
+            OverlayOptions option = new MarkerOptions()
+                    .position(libraryPoint)
+                    .icon(bitmap)
+                    .title(plcae);
 
+            map.addOverlay(option);
+
+        }
+
+        /**----------------------------------Mark点的点击事件--------------------------------------**/
 
         /**
          * mark的点击事件
@@ -86,13 +132,12 @@ public class SquareFragment extends Fragment {
         map.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                //TODO Test
-                LatLng libraryPoint = new LatLng(37.391485,117.991591);  //图书馆坐标
 
-                //TODO view需要进行优化
+                LatLng libraryPoint =marker.getPosition();
+
                 View popView = LayoutInflater.from(mContext).inflate(R.layout.view_map_pop, null);
                 TextView tv_info = (TextView) popView.findViewById(R.id.tv_popview);
-                tv_info.setText("图书馆");
+                tv_info.setText(marker.getTitle());
 
                 /**
                  * 弹出框
@@ -104,18 +149,20 @@ public class SquareFragment extends Fragment {
                     }
                 });
 
-
                 /**
                  * 控制mark的显示和隐藏
                  */
-                if(markers==null){
-                    markers=marker;
+                if (markers == null) {
+                    markers = marker;
                     map.showInfoWindow(infoWindow);
-
-                }else {
-                    if(markers.equals(marker)){
+                } else {
+                    if (markers.equals(marker)) {
                         map.hideInfoWindow();
-                        markers=null;
+                        markers = null;
+                    } else {
+                        map.hideInfoWindow();
+                        map.showInfoWindow(infoWindow);
+                        markers = marker;
                     }
                 }
 
@@ -142,7 +189,10 @@ public class SquareFragment extends Fragment {
     }
 
 
-
+    /**
+     * 实例化控件
+     * @param view
+     */
     private void initView(View view) {
         mapView = (MapView)view.findViewById(R.id.bmapView);
         
@@ -171,5 +221,13 @@ public class SquareFragment extends Fragment {
     public void onPause() {
         super.onPause();
         mapView.onPause();
+    }
+
+    /**
+     * 打印Toast
+     * @param s
+     */
+    public void showToast(String s){
+        Toast.makeText(mContext,s,Toast.LENGTH_SHORT).show();
     }
 }

@@ -2676,29 +2676,33 @@ containing a value of this type.
         public static final int ic_inform_bg=0x7f020050;
         public static final int ic_launcher=0x7f020051;
         public static final int ic_map_marker=0x7f020052;
-        public static final int ic_nick=0x7f020053;
-        public static final int ic_nopic=0x7f020054;
-        public static final int ic_notifications=0x7f020055;
-        public static final int ic_password=0x7f020056;
-        public static final int ic_scenery=0x7f020057;
-        public static final int ic_send=0x7f020058;
-        public static final int ic_setting=0x7f020059;
-        public static final int ic_share=0x7f02005a;
-        public static final int ic_square=0x7f02005b;
-        public static final int ic_tel=0x7f02005c;
-        public static final int ic_theme=0x7f02005d;
-        public static final int ic_to_send=0x7f02005e;
-        public static final int ic_trash=0x7f02005f;
-        public static final int ic_username=0x7f020060;
-        public static final int ic_weixin_share=0x7f020061;
-        public static final int ic_wenhao=0x7f020062;
-        public static final int icon_map=0x7f020063;
-        public static final int map_bg_pop=0x7f020064;
-        public static final int met_ic_clear=0x7f020065;
-        public static final int notification_template_icon_bg=0x7f020069;
-        public static final int side_nav_bar=0x7f020066;
-        public static final int snackbar_background=0x7f020067;
-        public static final int test_banner_load_fail=0x7f020068;
+        public static final int ic_map_pop=0x7f020053;
+        public static final int ic_mark=0x7f020054;
+        public static final int ic_mark_=0x7f020055;
+        public static final int ic_nick=0x7f020056;
+        public static final int ic_nopic=0x7f020057;
+        public static final int ic_notifications=0x7f020058;
+        public static final int ic_password=0x7f020059;
+        public static final int ic_pop_map_arrow=0x7f02005a;
+        public static final int ic_refush=0x7f02005b;
+        public static final int ic_scenery=0x7f02005c;
+        public static final int ic_send=0x7f02005d;
+        public static final int ic_setting=0x7f02005e;
+        public static final int ic_share=0x7f02005f;
+        public static final int ic_square=0x7f020060;
+        public static final int ic_tel=0x7f020061;
+        public static final int ic_theme=0x7f020062;
+        public static final int ic_to_send=0x7f020063;
+        public static final int ic_trash=0x7f020064;
+        public static final int ic_username=0x7f020065;
+        public static final int ic_weixin_share=0x7f020066;
+        public static final int ic_wenhao=0x7f020067;
+        public static final int map_bg_pop=0x7f020068;
+        public static final int met_ic_clear=0x7f020069;
+        public static final int notification_template_icon_bg=0x7f02006d;
+        public static final int side_nav_bar=0x7f02006a;
+        public static final int snackbar_background=0x7f02006b;
+        public static final int test_banner_load_fail=0x7f02006c;
     }
     public static final class id {
         public static final int action0=0x7f0c00a9;
@@ -2787,6 +2791,7 @@ containing a value of this type.
         public static final int item_forget=0x7f0c00c4;
         public static final int item_main=0x7f0c00bc;
         public static final int item_notification=0x7f0c00c2;
+        public static final int item_refush=0x7f0c00c5;
         public static final int item_scenery=0x7f0c00bd;
         public static final int item_setting=0x7f0c00c1;
         public static final int item_square=0x7f0c00bf;
@@ -2985,6 +2990,7 @@ containing a value of this type.
         public static final int main=0x7f0d0001;
         public static final int menu_inform=0x7f0d0002;
         public static final int menu_login=0x7f0d0003;
+        public static final int menu_map=0x7f0d0004;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
@@ -3057,14 +3063,15 @@ containing a value of this type.
         public static final int tv_label_email=0x7f060040;
         public static final int tv_label_name=0x7f060041;
         public static final int tv_label_tel=0x7f060042;
-        public static final int validator_alnum=0x7f060043;
-        public static final int validator_confirm=0x7f060044;
-        public static final int validator_email=0x7f060045;
-        public static final int validator_empty=0x7f060046;
-        public static final int validator_hex=0x7f060047;
-        public static final int validator_phone=0x7f060048;
-        public static final int validator_regexp=0x7f060049;
-        public static final int validator_url=0x7f06004a;
+        public static final int tv_popview_test_text=0x7f060043;
+        public static final int validator_alnum=0x7f060044;
+        public static final int validator_confirm=0x7f060045;
+        public static final int validator_email=0x7f060046;
+        public static final int validator_empty=0x7f060047;
+        public static final int validator_hex=0x7f060048;
+        public static final int validator_phone=0x7f060049;
+        public static final int validator_regexp=0x7f06004a;
+        public static final int validator_url=0x7f06004b;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080076;

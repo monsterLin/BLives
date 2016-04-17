@@ -36,6 +36,7 @@
     <string name="btn_help_text">我要帮助</string>
     <string name="btn_about_text">关于我们</string>
     <string name="btn_exit_text">退出登录</string>
+    <string name="tv_popview_test_text">测试</string>
 
 
 </resources>

@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/item_refush"
+        android:icon="@drawable/ic_refush"
+        android:title="@string/item_notification_text"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/item_notification"
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/item_notification_text"
+        app:showAsAction="ifRoom"/>
+</menu>
