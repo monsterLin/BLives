@@ -2697,12 +2697,11 @@ containing a value of this type.
         public static final int ic_username=0x7f020065;
         public static final int ic_weixin_share=0x7f020066;
         public static final int ic_wenhao=0x7f020067;
-        public static final int map_bg_pop=0x7f020068;
-        public static final int met_ic_clear=0x7f020069;
-        public static final int notification_template_icon_bg=0x7f02006d;
-        public static final int side_nav_bar=0x7f02006a;
-        public static final int snackbar_background=0x7f02006b;
-        public static final int test_banner_load_fail=0x7f02006c;
+        public static final int met_ic_clear=0x7f020068;
+        public static final int notification_template_icon_bg=0x7f02006c;
+        public static final int side_nav_bar=0x7f020069;
+        public static final int snackbar_background=0x7f02006a;
+        public static final int test_banner_load_fail=0x7f02006b;
     }
     public static final class id {
         public static final int action0=0x7f0c00a9;

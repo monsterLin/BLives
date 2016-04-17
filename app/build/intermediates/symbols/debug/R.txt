@@ -649,12 +649,11 @@ int drawable ic_trash 0x7f020064
 int drawable ic_username 0x7f020065
 int drawable ic_weixin_share 0x7f020066
 int drawable ic_wenhao 0x7f020067
-int drawable map_bg_pop 0x7f020068
-int drawable met_ic_clear 0x7f020069
-int drawable notification_template_icon_bg 0x7f02006d
-int drawable side_nav_bar 0x7f02006a
-int drawable snackbar_background 0x7f02006b
-int drawable test_banner_load_fail 0x7f02006c
+int drawable met_ic_clear 0x7f020068
+int drawable notification_template_icon_bg 0x7f02006c
+int drawable side_nav_bar 0x7f020069
+int drawable snackbar_background 0x7f02006a
+int drawable test_banner_load_fail 0x7f02006b
 int id action0 0x7f0c00a9
 int id action_bar 0x7f0c0059
 int id action_bar_activity_content 0x7f0c0000
