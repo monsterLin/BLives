@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:2:1-59:12
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:2:1-61:12
 	package
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml
@@ -58,7 +58,7 @@ ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xm
 	android:name
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:15:22-70
 application
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:17:5-57:19
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:17:5-59:19
 MERGED from [com.android.support:appcompat-v7:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:22.2.0] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\AndroidManifest.xml:22:5-20
@@ -96,72 +96,80 @@ ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xm
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:27:13-61
 	android:name
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:26:13-52
+service#com.baidu.location.f
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:29:9-30:19
+	android:enabled
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:29:54-76
+	android:process
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:29:77-102
+	android:name
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:29:18-53
 activity#com.monsterlin.blives.MainActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:30:9-39:20
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:32:9-41:20
 	android:label
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:32:13-45
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:34:13-45
 	android:theme
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:33:13-56
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:35:13-56
 	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:31:13-41
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:33:13-41
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:34:13-38:29
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:36:13-40:29
 action#android.intent.action.MAIN
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:35:17-69
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:37:17-69
 	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:35:25-66
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:37:25-66
 category#android.intent.category.LAUNCHER
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:37:17-77
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:39:17-77
 	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:37:27-74
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:39:27-74
 activity#com.monsterlin.blives.activity.LoginActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:41:9-59
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:43:9-59
 	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:41:19-57
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:43:19-57
 activity#com.monsterlin.blives.activity.RegistActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:42:9-60
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:44:9-60
 	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:42:19-58
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:44:19-58
 activity#com.monsterlin.blives.activity.DetailsActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:43:9-44:58
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:45:9-46:58
 	android:theme
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:44:13-56
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:46:13-56
 	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:43:19-59
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:45:19-59
 activity#com.monsterlin.blives.activity.FeedBackActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:45:9-62
-	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:45:19-60
-activity#com.monsterlin.blives.activity.ResetActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:46:9-59
-	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:46:19-57
-activity#com.monsterlin.blives.activity.ShowUserActivity
 ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:47:9-62
 	android:name
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:47:19-60
+activity#com.monsterlin.blives.activity.ResetActivity
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:48:9-59
+	android:name
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:48:19-57
+activity#com.monsterlin.blives.activity.ShowUserActivity
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:49:9-62
+	android:name
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:49:19-60
 activity#com.monsterlin.blives.activity.SettingActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:48:9-61
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:50:9-61
 	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:48:19-59
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:50:19-59
 activity#com.monsterlin.blives.activity.ThemeActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:49:9-59
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:51:9-59
 	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:49:19-57
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:51:19-57
 activity#com.monsterlin.blives.activity.BImgActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:50:9-58
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:52:9-58
 	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:50:19-56
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:52:19-56
 activity#com.monsterlin.blives.wxapi.WXEntryActivity
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:51:9-55:74
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:53:9-57:74
 	android:screenOrientation
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:54:13-49
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:56:13-49
 	android:exported
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:53:13-36
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:55:13-36
 	android:theme
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:55:13-72
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:57:13-72
 	android:name
-		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:52:13-50
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:54:13-50
 uses-sdk
 INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\AndroidManifest.xml:20:5-43

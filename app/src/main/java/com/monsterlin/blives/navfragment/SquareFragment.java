@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,9 @@ public class SquareFragment extends Fragment {
     Marker markers; //标记点
     private BmobQuery<MarkPoint> markQuery ;
 
+    private Button btn_lbs;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_square,container,false);
@@ -55,6 +59,25 @@ public class SquareFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
         initData();
+        initLocation();
+        initEvent();
+    }
+
+    /**
+     * 定位初始化
+     */
+    private void initLocation() {
+
+
+    }
+
+    private void initEvent() {
+        btn_lbs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    showToast("定位");
+            }
+        });
 
     }
 
@@ -195,7 +218,7 @@ public class SquareFragment extends Fragment {
      */
     private void initView(View view) {
         mapView = (MapView)view.findViewById(R.id.bmapView);
-        
+        btn_lbs= (Button) view.findViewById(R.id.btn_lbs);
     }
 
 
@@ -209,6 +232,7 @@ public class SquareFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
+
     }
 
     @Override
