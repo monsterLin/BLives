@@ -11,4 +11,8 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         android:fitsSystemWindows="true" />
 
-</LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    </LinearLayout>

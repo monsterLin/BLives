@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr format="integer|reference" name="dp_animDuration"/>
+    <attr format="integer" name="dp_day"/>
+    <attr format="integer" name="dp_dayMax"/>
+    <attr format="integer" name="dp_dayMin"/>
+    <attr format="string|reference" name="dp_fontFamily"/>
+    <attr format="reference" name="dp_inInterpolator"/>
+    <attr format="integer" name="dp_month"/>
+    <attr format="integer" name="dp_monthMax"/>
+    <attr format="integer" name="dp_monthMin"/>
+    <attr format="reference" name="dp_outInterpolator"/>
+    <attr format="color|reference" name="dp_selectionColor"/>
+    <attr format="color|reference" name="dp_textColor"/>
+    <attr format="color|reference" name="dp_textHighlightColor"/>
+    <attr format="integer" name="dp_textStyle">
+        <enum name="normal" value="0"/>
+        <enum name="bold" value="1"/>
+        <enum name="italic" value="2"/>
+        <enum name="bold_italic" value="3"/>
+    </attr>
+    <attr format="integer" name="dp_year"/>
+    <attr format="integer" name="dp_yearMax"/>
+    <attr format="integer" name="dp_yearMin"/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
+    <attr format="float" name="pv_progress"/>
+    <attr format="integer" name="pv_progressMode">
+        <enum name="determinate" value="0x00000000"/>
+        <enum name="indeterminate" value="0x00000001"/>
+        <enum name="buffer" value="0x00000002"/>
+        <enum name="query" value="0x00000003"/>    
+    </attr>
+    <attr format="float" name="pv_secondaryProgress"/>
+    <attr format="boolean" name="rd_enable"/>
+    <attr format="reference" name="rd_style"/>
     <attr format="string" name="title"/>
+    <attr format="reference|string" name="tv_fontFamily"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_action_bar_embed_tabs_pre_jb">false</bool>
     <bool name="abc_action_bar_expanded_action_views_exclusive">true</bool>
@@ -85,6 +118,10 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <color name="theme_blcak">#000000</color>
+    <color name="theme_blue">#FF1945C9</color>
+    <color name="theme_orange">#ffa500</color>
+    <color name="theme_red">#de1111</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="violet">#ee82ee</color>
     <color name="white">#ffffff</color>
@@ -98,41 +135,67 @@
     <declare-styleable name="AppBarLayout"><attr name="elevation"/><attr name="android:background"/></declare-styleable>
     <declare-styleable name="AppBarLayout_LayoutParams"><attr name="layout_scrollFlags"><flag name="scroll" value="0x1"/><flag name="exitUntilCollapsed" value="0x2"/><flag name="enterAlways" value="0x4"/><flag name="enterAlwaysCollapsed" value="0x8"/></attr><attr format="reference" name="layout_scrollInterpolator"/></declare-styleable>
     <declare-styleable name="AppCompatTextView"><attr format="reference|boolean" name="textAllCaps"/><attr name="android:textAppearance"/></declare-styleable>
+    <declare-styleable name="AutoCompleteTextView"><attr name="android:completionHint"/><attr name="android:completionThreshold"/><attr name="android:dropDownAnchor"/><attr name="android:dropDownHeight"/><attr name="android:dropDownHorizontalOffset"/><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownWidth"/><attr name="android:popupBackground"/></declare-styleable>
+    <declare-styleable name="BottomSheetDialog"><attr format="reference|integer" name="bsd_inDuration"/><attr format="reference" name="bsd_inInterpolator"/><attr format="reference|integer" name="bsd_outDuration"/><attr format="reference" name="bsd_outInterpolator"/><attr format="reference|boolean" name="bsd_cancelable"/><attr format="reference|boolean" name="bsd_canceledOnTouchOutside"/><attr format="reference|float" name="bsd_dimAmount"/><attr name="android:layout_height"/></declare-styleable>
     <declare-styleable name="CardView"><attr format="color" name="cardBackgroundColor"/><attr format="dimension" name="cardCornerRadius"/><attr format="dimension" name="cardElevation"/><attr format="dimension" name="cardMaxElevation"/><attr format="boolean" name="cardUseCompatPadding"/><attr format="boolean" name="cardPreventCornerOverlap"/><attr format="dimension" name="contentPadding"/><attr format="dimension" name="contentPaddingLeft"/><attr format="dimension" name="contentPaddingRight"/><attr format="dimension" name="contentPaddingTop"/><attr format="dimension" name="contentPaddingBottom"/></declare-styleable>
+    <declare-styleable name="CheckBoxDrawable"><attr format="reference|dimension" name="cbd_width"/><attr format="reference|dimension" name="cbd_height"/><attr format="reference|dimension" name="cbd_boxSize"/><attr format="reference|dimension" name="cbd_cornerRadius"/><attr format="reference|dimension" name="cbd_strokeSize"/><attr format="reference|color" name="cbd_strokeColor"/><attr format="reference|color" name="cbd_tickColor"/><attr format="reference|integer" name="cbd_animDuration"/></declare-styleable>
     <declare-styleable name="CircleImageView"><attr format="dimension" name="border_width"/><attr format="color" name="border_color"/><attr format="boolean" name="border_overlay"/></declare-styleable>
+    <declare-styleable name="CircularProgressDrawable"><attr format="reference|dimension" name="cpd_padding"/><attr format="reference|integer" name="cpd_initialAngle"/><attr format="reference|integer" name="cpd_maxSweepAngle"/><attr format="reference|integer" name="cpd_minSweepAngle"/><attr format="reference|dimension" name="cpd_strokeSize"/><attr format="reference|color" name="cpd_strokeColor"/><attr format="reference|color" name="cpd_strokeSecondaryColor"/><attr format="reference" name="cpd_strokeColors"/><attr format="boolean" name="cpd_reverse"/><attr format="reference|integer" name="cpd_rotateDuration"/><attr format="reference|integer" name="cpd_transformDuration"/><attr format="reference|integer" name="cpd_keepDuration"/><attr format="reference" name="cpd_transformInterpolator"/><attr format="reference|integer" name="cpd_inAnimDuration"/><attr format="reference|integer" name="cpd_outAnimDuration"/><attr format="reference" name="cpd_inStepColors"/><attr format="float" name="cpd_inStepPercent"/><attr name="pv_progressMode"/><attr name="pv_progress"/><attr name="pv_secondaryProgress"/></declare-styleable>
     <declare-styleable name="CollapsingAppBarLayout_LayoutParams"><attr name="layout_collapseMode"><enum name="none" value="0"/><enum name="pin" value="1"/><enum name="parallax" value="2"/></attr><attr format="float" name="layout_collapseParallaxMultiplier"/></declare-styleable>
     <declare-styleable name="CollapsingToolbarLayout"><attr format="dimension" name="expandedTitleMargin"/><attr format="dimension" name="expandedTitleMarginStart"/><attr format="dimension" name="expandedTitleMarginTop"/><attr format="dimension" name="expandedTitleMarginEnd"/><attr format="dimension" name="expandedTitleMarginBottom"/><attr format="reference" name="expandedTitleTextAppearance"/><attr format="reference" name="collapsedTitleTextAppearance"/><attr format="color" name="contentScrim"/><attr format="color" name="statusBarScrim"/><attr format="reference" name="toolbarId"/></declare-styleable>
     <declare-styleable name="CoordinatorLayout"><attr format="reference" name="keylines"/><attr format="reference" name="statusBarBackground"/></declare-styleable>
     <declare-styleable name="CoordinatorLayout_LayoutParams"><attr name="android:layout_gravity"/><attr format="string" name="layout_behavior"/><attr format="reference" name="layout_anchor"/><attr format="integer" name="layout_keyline"/><attr name="layout_anchorGravity"><flag name="top" value="0x30"/><flag name="bottom" value="0x50"/><flag name="left" value="0x03"/><flag name="right" value="0x05"/><flag name="center_vertical" value="0x10"/><flag name="fill_vertical" value="0x70"/><flag name="center_horizontal" value="0x01"/><flag name="fill_horizontal" value="0x07"/><flag name="center" value="0x11"/><flag name="fill" value="0x77"/><flag name="clip_vertical" value="0x80"/><flag name="clip_horizontal" value="0x08"/><flag name="start" value="0x00800003"/><flag name="end" value="0x00800005"/></attr></declare-styleable>
+    <declare-styleable name="DatePicker"><attr name="dp_yearMin"/><attr name="dp_monthMin"/><attr name="dp_dayMin"/><attr name="dp_yearMax"/><attr name="dp_monthMax"/><attr name="dp_dayMax"/><attr name="dp_year"/><attr name="dp_month"/><attr name="dp_day"/><attr format="dimension|reference" name="dp_dayTextSize"/><attr format="color|reference" name="dp_textLabelColor"/><attr format="color|reference" name="dp_textDisableColor"/><attr name="dp_textHighlightColor"/><attr name="dp_textColor"/><attr name="dp_selectionColor"/><attr name="dp_animDuration"/><attr name="dp_inInterpolator"/><attr name="dp_outInterpolator"/><attr name="dp_fontFamily"/><attr name="dp_textStyle"/><attr name="android:padding"/><attr name="android:paddingLeft"/><attr name="android:paddingTop"/><attr name="android:paddingRight"/><attr name="android:paddingBottom"/></declare-styleable>
+    <declare-styleable name="DatePickerDialog"><attr format="dimension|reference" name="dp_headerPrimaryHeight"/><attr format="color|reference" name="dp_headerPrimaryColor"/><attr format="dimension|reference" name="dp_headerSecondaryHeight"/><attr format="color|reference" name="dp_headerSecondaryColor"/><attr format="dimension|reference" name="dp_headerPrimaryTextSize"/><attr format="dimension|reference" name="dp_headerSecondaryTextSize"/><attr format="color|reference" name="dp_textHeaderColor"/></declare-styleable>
+    <declare-styleable name="Dialog"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr format="float" name="di_dimAmount"/><attr format="color|reference" name="di_backgroundColor"/><attr format="dimension|reference" name="di_elevation"/><attr format="dimension|reference" name="di_maxElevation"/><attr format="dimension|reference" name="di_cornerRadius"/><attr format="integer" name="di_layoutDirection"><enum name="ltr" value="0"/><enum name="rtl" value="1"/><enum name="locale" value="3"/></attr><attr format="dimension|reference" name="di_maxWidth"/><attr format="dimension|reference" name="di_maxHeight"/><attr format="reference" name="di_titleTextAppearance"/><attr format="color|reference" name="di_titleTextColor"/><attr format="reference" name="di_actionBackground"/><attr format="reference" name="di_actionRipple"/><attr format="reference" name="di_actionTextAppearance"/><attr format="color|reference" name="di_actionTextColor"/><attr format="reference" name="di_positiveActionBackground"/><attr format="reference" name="di_positiveActionRipple"/><attr format="reference" name="di_positiveActionTextAppearance"/><attr format="color|reference" name="di_positiveActionTextColor"/><attr format="reference" name="di_negativeActionBackground"/><attr format="reference" name="di_negativeActionRipple"/><attr format="reference" name="di_negativeActionTextAppearance"/><attr format="color|reference" name="di_negativeActionTextColor"/><attr format="reference" name="di_neutralActionBackground"/><attr format="reference" name="di_neutralActionRipple"/><attr format="reference" name="di_neutralActionTextAppearance"/><attr format="color|reference" name="di_neutralActionTextColor"/><attr format="color|reference" name="di_dividerColor"/><attr format="dimension|reference" name="di_dividerHeight"/><attr format="reference" name="di_inAnimation"/><attr format="reference" name="di_outAnimation"/><attr format="boolean" name="di_cancelable"/><attr format="boolean" name="di_canceledOnTouchOutside"/></declare-styleable>
     <declare-styleable name="DrawerArrowToggle"><attr format="color" name="color"/><attr format="boolean" name="spinBars"/><attr format="dimension" name="drawableSize"/><attr format="dimension" name="gapBetweenBars"/><attr format="dimension" name="topBottomBarArrowSize"/><attr format="dimension" name="middleBarArrowSize"/><attr format="dimension" name="barSize"/><attr format="dimension" name="thickness"/></declare-styleable>
-    <declare-styleable name="FloatingActionButton"><attr name="android:background"/><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="rippleColor"/><attr name="fabSize"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr><attr name="elevation"/><attr format="dimension" name="pressedTranslationZ"/><attr format="dimension" name="borderWidth"/></declare-styleable>
+    <declare-styleable name="EditText"><attr format="reference" name="et_inputId"/><attr format="boolean" name="et_labelEnable"/><attr format="reference|dimension" name="et_labelPadding"/><attr format="reference|dimension" name="et_labelTextSize"/><attr format="reference|color" name="et_labelTextColor"/><attr format="reference" name="et_labelTextAppearance"/><attr format="integer" name="et_labelEllipsize"><enum name="start" value="0x00000001"/><enum name="middle" value="0x00000002"/><enum name="end" value="0x00000003"/><enum name="marquee" value="0x00000004"/></attr><attr format="reference" name="et_labelInAnim"/><attr format="reference" name="et_labelOutAnim"/><attr format="integer" name="et_supportMode"><enum name="none" value="0x00000000"/><enum name="helper" value="0x00000001"/><enum name="helperWithError" value="0x00000002"/><enum name="charCounter" value="0x00000003"/></attr><attr format="reference|integer" name="et_supportMaxChars"/><attr format="reference|string" name="et_helper"/><attr format="reference|string" name="et_error"/><attr format="reference|dimension" name="et_supportPadding"/><attr format="reference|dimension" name="et_supportTextSize"/><attr format="reference|color" name="et_supportTextColor"/><attr format="reference|color" name="et_supportTextErrorColor"/><attr format="reference" name="et_supportTextAppearance"/><attr format="boolean" name="et_supportSingleLine"/><attr format="reference|integer" name="et_supportMaxLines"/><attr format="reference|integer" name="et_supportLines"/><attr format="integer" name="et_supportEllipsize"><enum name="start" value="0x00000001"/><enum name="middle" value="0x00000002"/><enum name="end" value="0x00000003"/><enum name="marquee" value="0x00000004"/></attr><attr format="reference|color" name="et_dividerColor"/><attr format="reference|color" name="et_dividerErrorColor"/><attr format="reference|dimension" name="et_dividerHeight"/><attr format="reference|dimension" name="et_dividerPadding"/><attr format="reference|integer" name="et_dividerAnimDuration"/><attr format="boolean" name="et_dividerCompoundPadding"/><attr format="integer" name="et_autoCompleteMode"><enum name="none" value="0"/><enum name="single" value="1"/><enum name="multi" value="2"/></attr></declare-styleable>
+    <declare-styleable name="FloatingActionButton"><attr format="reference|color" name="fab_backgroundColor"/><attr format="reference|integer" name="fab_backgroundAnimDuration"/><attr format="reference|dimension" name="fab_radius"/><attr format="reference|dimension" name="fab_elevation"/><attr format="reference" name="fab_iconSrc"/><attr format="reference" name="fab_iconLineMorphing"/><attr format="reference|dimension" name="fab_iconSize"/><attr format="reference" name="fab_interpolator"/><attr format="reference|integer" name="fab_animDuration"/><attr name="android:background"/><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="rippleColor"/><attr name="fabSize"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr><attr name="elevation"/><attr format="dimension" name="pressedTranslationZ"/><attr format="dimension" name="borderWidth"/></declare-styleable>
+    <declare-styleable name="LineMorphingDrawable"><attr format="reference" name="lmd_state"/><attr format="integer" name="lmd_curState"/><attr format="reference|dimension" name="lmd_padding"/><attr format="reference|dimension" name="lmd_paddingLeft"/><attr format="reference|dimension" name="lmd_paddingTop"/><attr format="reference|dimension" name="lmd_paddingRight"/><attr format="reference|dimension" name="lmd_paddingBottom"/><attr format="reference|integer" name="lmd_animDuration"/><attr format="reference" name="lmd_interpolator"/><attr format="reference|dimension" name="lmd_strokeSize"/><attr format="reference|color" name="lmd_strokeColor"/><attr format="integer" name="lmd_strokeCap"><enum name="butt" value="0x00000000"/><enum name="round" value="0x00000001"/><enum name="square" value="0x00000002"/></attr><attr format="integer" name="lmd_strokeJoin"><enum name="miter" value="0x00000000"/><enum name="round" value="0x00000001"/><enum name="bevel" value="0x00000002"/></attr><attr format="boolean" name="lmd_clockwise"/><attr format="integer" name="lmd_layoutDirection"><enum name="ltr" value="0x00000000"/><enum name="rtl" value="0x00000001"/><enum name="locale" value="0x00000003"/></attr></declare-styleable>
     <declare-styleable name="LinearLayoutCompat"><attr name="android:orientation"/><attr name="android:gravity"/><attr name="android:baselineAligned"/><attr name="android:baselineAlignedChildIndex"/><attr name="android:weightSum"/><attr format="boolean" name="measureWithLargestChild"/><attr name="divider"/><attr name="showDividers"><flag name="none" value="0"/><flag name="beginning" value="1"/><flag name="middle" value="2"/><flag name="end" value="4"/></attr><attr format="dimension" name="dividerPadding"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat_Layout"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_weight"/><attr name="android:layout_gravity"/></declare-styleable>
+    <declare-styleable name="LinearProgressDrawable"><attr format="reference|dimension|fraction" name="lpd_maxLineWidth"/><attr format="reference|dimension|fraction" name="lpd_minLineWidth"/><attr format="reference|dimension" name="lpd_strokeSize"/><attr format="reference|color" name="lpd_strokeColor"/><attr format="reference|color" name="lpd_strokeSecondaryColor"/><attr format="reference" name="lpd_strokeColors"/><attr format="boolean" name="lpd_reverse"/><attr format="reference|integer" name="lpd_travelDuration"/><attr format="reference|integer" name="lpd_transformDuration"/><attr format="reference|integer" name="lpd_keepDuration"/><attr format="reference" name="lpd_transformInterpolator"/><attr format="reference|integer" name="lpd_inAnimDuration"/><attr format="reference|integer" name="lpd_outAnimDuration"/><attr format="integer" name="lpd_verticalAlign"><enum name="top" value="0x00000000"/><enum name="center" value="0x00000001"/><enum name="bottom" value="0x00000002"/></attr><attr name="pv_progressMode"/><attr name="pv_progress"/><attr name="pv_secondaryProgress"/></declare-styleable>
     <declare-styleable name="ListPopupWindow"><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/></declare-styleable>
     <declare-styleable name="MaterialEditText"><attr format="color" name="met_baseColor"/><attr format="color" name="met_primaryColor"/><attr name="met_floatingLabel"><enum name="none" value="0"/><enum name="normal" value="1"/><enum name="highlight" value="2"/></attr><attr format="color" name="met_errorColor"/><attr format="integer" name="met_minCharacters"/><attr format="integer" name="met_maxCharacters"/><attr format="boolean" name="met_singleLineEllipsis"/><attr format="integer" name="met_minBottomTextLines"/><attr format="string" name="met_helperText"/><attr format="color" name="met_helperTextColor"/><attr format="string" name="met_accentTypeface"/><attr format="string" name="met_typeface"/><attr format="string" name="met_floatingLabelText"/><attr format="dimension" name="met_floatingLabelPadding"/><attr format="boolean" name="met_hideUnderline"/><attr format="color" name="met_underlineColor"/><attr format="boolean" name="met_autoValidate"/><attr format="reference" name="met_iconLeft"/><attr format="reference" name="met_iconRight"/><attr format="dimension" name="met_iconPadding"/><attr format="boolean" name="met_clearButton"/><attr format="dimension" name="met_floatingLabelTextSize"/><attr format="color" name="met_floatingLabelTextColor"/><attr format="dimension" name="met_bottomTextSize"/><attr format="boolean" name="met_floatingLabelAlwaysShown"/><attr format="boolean" name="met_helperTextAlwaysShown"/><attr format="boolean" name="met_floatingLabelAnimating"/><attr format="color" name="met_textColor"/><attr format="color" name="met_textColorHint"/><attr format="boolean" name="met_validateOnFocusLost"/><attr format="boolean" name="met_checkCharactersCountAtBeginning"/></declare-styleable>
     <declare-styleable name="MaterialRippleLayout"><attr format="color" localization="suggested" name="mrl_rippleColor"/><attr format="dimension" localization="suggested" name="mrl_rippleDimension"/><attr format="boolean" localization="suggested" name="mrl_rippleOverlay"/><attr format="float" localization="suggested" name="mrl_rippleAlpha"/><attr format="integer" localization="suggested" name="mrl_rippleDuration"/><attr format="integer" localization="suggested" name="mrl_rippleFadeDuration"/><attr format="boolean" localization="suggested" name="mrl_rippleHover"/><attr format="color" localization="suggested" name="mrl_rippleBackground"/><attr format="boolean" localization="suggested" name="mrl_rippleDelayClick"/><attr format="boolean" localization="suggested" name="mrl_ripplePersistent"/><attr format="boolean" localization="suggested" name="mrl_rippleInAdapter"/><attr format="dimension" localization="suggested" name="mrl_rippleRoundedCorners"/></declare-styleable>
     <declare-styleable name="MenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
     <declare-styleable name="MenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="showAsAction"><flag name="never" value="0"/><flag name="ifRoom" value="1"/><flag name="always" value="2"/><flag name="withText" value="4"/><flag name="collapseActionView" value="8"/></attr><attr format="reference" name="actionLayout"/><attr format="string" name="actionViewClass"/><attr format="string" name="actionProviderClass"/></declare-styleable>
     <declare-styleable name="MenuView"><attr name="android:itemTextAppearance"/><attr name="android:horizontalDivider"/><attr name="android:verticalDivider"/><attr name="android:headerBackground"/><attr name="android:itemBackground"/><attr name="android:windowAnimationStyle"/><attr name="android:itemIconDisabledAlpha"/><attr format="boolean" name="preserveIconSpacing"/></declare-styleable>
+    <declare-styleable name="NavigationDrawerDrawable"><attr format="reference" name="nd_ripple"/><attr format="reference" name="nd_icon"/></declare-styleable>
     <declare-styleable name="NavigationView"><attr name="android:background"/><attr name="android:fitsSystemWindows"/><attr name="android:maxWidth"/><attr name="elevation"/><attr format="reference" name="menu"/><attr format="color" name="itemIconTint"/><attr format="color" name="itemTextColor"/><attr format="reference" name="itemBackground"/><attr format="reference" name="headerLayout"/></declare-styleable>
     <declare-styleable name="OkCancelBar"><attr format="string" localization="suggested" name="okLabel"/><attr format="string" localization="suggested" name="cancelLabel"/></declare-styleable>
     <declare-styleable name="PopupWindow"><attr format="boolean" name="overlapAnchor"/><attr name="android:popupBackground"/></declare-styleable>
     <declare-styleable name="PopupWindowBackgroundState"><attr format="boolean" name="state_above_anchor"/></declare-styleable>
+    <declare-styleable name="ProgressView"><attr format="boolean" name="pv_autostart"/><attr format="boolean" name="pv_circular"/><attr format="reference" name="pv_progressStyle"/><attr name="pv_progressMode"/><attr name="pv_progress"/><attr name="pv_secondaryProgress"/></declare-styleable>
     <declare-styleable name="ProgressWheel"><attr format="boolean" name="matProg_progressIndeterminate"/><attr format="color" name="matProg_barColor"/><attr format="color" name="matProg_rimColor"/><attr format="dimension" name="matProg_rimWidth"/><attr format="float" name="matProg_spinSpeed"/><attr format="integer" name="matProg_barSpinCycleTime"/><attr format="dimension" name="matProg_circleRadius"/><attr format="boolean" name="matProg_fillRadius"/><attr format="dimension" name="matProg_barWidth"/><attr format="boolean" name="matProg_linearProgress"/></declare-styleable>
+    <declare-styleable name="RadioButtonDrawable"><attr format="reference|dimension" name="rbd_width"/><attr format="reference|dimension" name="rbd_height"/><attr format="reference|dimension" name="rbd_strokeSize"/><attr format="reference|dimension" name="rbd_radius"/><attr format="reference|dimension" name="rbd_innerRadius"/><attr format="reference|color" name="rbd_strokeColor"/><attr format="reference|integer" name="rbd_animDuration"/></declare-styleable>
     <declare-styleable name="RecyclerView"><attr format="string" name="layoutManager"/><attr name="android:orientation"/><attr format="integer" name="spanCount"/><attr format="boolean" name="reverseLayout"/><attr format="boolean" name="stackFromEnd"/></declare-styleable>
+    <declare-styleable name="RippleDrawable"><attr format="reference|color" name="rd_backgroundColor"/><attr format="reference|integer" name="rd_backgroundAnimDuration"/><attr format="reference|dimension|integer" name="rd_maxRippleRadius"><enum name="match_view" value="0x00000000"/></attr><attr format="reference|color" name="rd_rippleColor"/><attr format="reference|integer" name="rd_rippleAnimDuration"/><attr format="reference" name="rd_inInterpolator"/><attr format="reference" name="rd_outInterpolator"/><attr format="integer" name="rd_maskType"><enum name="rectangle" value="0x00000000"/><enum name="oval" value="0x00000001"/></attr><attr format="integer" name="rd_rippleType"><enum name="touch" value="0x00000000"/><enum name="wave" value="0x00000001"/></attr><attr format="reference|dimension" name="rd_cornerRadius"/><attr format="reference|dimension" name="rd_topLeftCornerRadius"/><attr format="reference|dimension" name="rd_topRightCornerRadius"/><attr format="reference|dimension" name="rd_bottomLeftCornerRadius"/><attr format="reference|dimension" name="rd_bottomRightCornerRadius"/><attr format="reference|dimension" name="rd_padding"/><attr format="reference|dimension" name="rd_leftPadding"/><attr format="reference|dimension" name="rd_topPadding"/><attr format="reference|dimension" name="rd_rightPadding"/><attr format="reference|dimension" name="rd_bottomPadding"/><attr format="integer" name="rd_delayClick"><enum name="none" value="0x00000000"/><enum name="untilRelease" value="0x00000001"/><enum name="afterRelease" value="0x00000002"/></attr></declare-styleable>
+    <declare-styleable name="RippleView"><attr name="rd_style"/><attr name="rd_enable"/></declare-styleable>
     <declare-styleable name="ScrimInsetsFrameLayout"><attr format="color|reference" name="insetForeground"/></declare-styleable>
     <declare-styleable name="ScrollingViewBehavior_Params"><attr format="dimension" name="behavior_overlapTop"/></declare-styleable>
     <declare-styleable name="SearchView"><attr format="reference" name="layout"/><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr format="string" name="defaultQueryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/><attr format="reference" name="closeIcon"/><attr format="reference" name="goIcon"/><attr format="reference" name="searchIcon"/><attr format="reference" name="searchHintIcon"/><attr format="reference" name="voiceIcon"/><attr format="reference" name="commitIcon"/><attr format="reference" name="suggestionRowLayout"/><attr format="reference" name="queryBackground"/><attr format="reference" name="submitBackground"/><attr name="android:focusable"/></declare-styleable>
+    <declare-styleable name="SimpleDialog"><attr format="reference" name="di_messageTextAppearance"/><attr format="color|reference" name="di_messageTextColor"/><attr format="reference" name="di_radioButtonStyle"/><attr format="reference" name="di_checkBoxStyle"/><attr format="dimension|reference" name="di_itemHeight"/><attr format="reference" name="di_itemTextAppearance"/></declare-styleable>
+    <declare-styleable name="Slider"><attr format="reference|dimension" name="sl_trackSize"/><attr format="reference|color" name="sl_primaryColor"/><attr format="reference|color" name="sl_secondaryColor"/><attr format="integer" name="sl_trackCap"><enum name="butt" value="0x00000000"/><enum name="round" value="0x00000001"/><enum name="square" value="0x00000002"/></attr><attr format="reference|dimension" name="sl_thumbBorderSize"/><attr format="reference|dimension" name="sl_thumbRadius"/><attr format="reference|dimension" name="sl_thumbFocusRadius"/><attr format="reference|integer" name="sl_travelAnimDuration"/><attr format="reference|integer" name="sl_transformAnimDuration"/><attr format="reference" name="sl_interpolator"/><attr format="reference|integer" name="sl_minValue"/><attr format="reference|integer" name="sl_maxValue"/><attr format="reference|integer" name="sl_stepValue"/><attr format="reference|integer" name="sl_value"/><attr format="reference|boolean" name="sl_discreteMode"/><attr format="string|reference" name="sl_fontFamily"/><attr format="integer" name="sl_textStyle"><enum name="normal" value="0"/><enum name="bold" value="1"/><enum name="italic" value="2"/><enum name="bold_italic" value="3"/></attr><attr format="reference|dimension" name="sl_textSize"/><attr format="reference|color" name="sl_textColor"/><attr format="reference|boolean" name="sl_alwaysFillThumb"/><attr name="android:gravity"/><attr name="android:enabled"/></declare-styleable>
+    <declare-styleable name="SnackBar"><attr format="reference|color" name="sb_backgroundColor"/><attr format="reference|dimension" name="sb_backgroundCornerRadius"/><attr format="reference|dimension" name="sb_horizontalPadding"/><attr format="reference|dimension" name="sb_verticalPadding"/><attr format="reference|dimension|integer" name="sb_width"><enum name="match_parent" value="-1"/><enum name="wrap_content" value="-2"/></attr><attr format="reference|dimension" name="sb_minWidth"/><attr format="reference|dimension" name="sb_maxWidth"/><attr format="reference|dimension|integer" name="sb_height"><enum name="match_parent" value="-1"/><enum name="wrap_content" value="-2"/></attr><attr format="reference|dimension" name="sb_minHeight"/><attr format="reference|dimension" name="sb_maxHeight"/><attr format="reference|dimension" name="sb_marginStart"/><attr format="reference|dimension" name="sb_marginBottom"/><attr format="reference|dimension" name="sb_textSize"/><attr format="reference|color" name="sb_textColor"/><attr format="reference" name="sb_textAppearance"/><attr format="reference|string" name="sb_text"/><attr format="boolean" name="sb_singleLine"/><attr format="reference|integer" name="sb_maxLines"/><attr format="reference|integer" name="sb_lines"/><attr format="integer" name="sb_ellipsize"><enum name="start" value="0x00000001"/><enum name="middle" value="0x00000002"/><enum name="end" value="0x00000003"/><enum name="marquee" value="0x00000004"/></attr><attr format="reference|dimension" name="sb_actionTextSize"/><attr format="reference|color" name="sb_actionTextColor"/><attr format="reference" name="sb_actionTextAppearance"/><attr format="reference|string" name="sb_actionText"/><attr format="reference" name="sb_actionRipple"/><attr format="reference|integer" name="sb_duration"/><attr format="reference" name="sb_inAnimation"/><attr format="reference" name="sb_outAnimation"/><attr format="boolean" name="sb_removeOnDismiss"/></declare-styleable>
     <declare-styleable name="SnackbarLayout"><attr name="android:maxWidth"/><attr name="elevation"/><attr format="dimension" name="maxActionInlineWidth"/></declare-styleable>
-    <declare-styleable name="Spinner"><attr format="reference" name="prompt"/><attr format="enum" name="spinnerMode"><enum name="dialog" value="0"/><enum name="dropdown" value="1"/></attr><attr name="android:dropDownSelector"/><attr name="android:popupBackground"/><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/><attr name="android:dropDownWidth"/><attr format="reference" name="popupPromptView"/><attr name="android:gravity"/><attr format="boolean" name="disableChildrenWhenDisabled"/><attr name="android:background"/></declare-styleable>
+    <declare-styleable name="Spinner"><attr format="reference" name="prompt"/><attr format="enum" name="spinnerMode"><enum name="dialog" value="0"/><enum name="dropdown" value="1"/></attr><attr name="android:dropDownSelector"/><attr name="android:popupBackground"/><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/><attr name="android:dropDownWidth"/><attr format="reference" name="popupPromptView"/><attr name="android:gravity"/><attr format="boolean" name="disableChildrenWhenDisabled"/><attr name="android:background"/><attr name="android:minWidth"/><attr name="android:minHeight"/><attr format="boolean" name="spn_labelEnable"/><attr format="reference|dimension" name="spn_labelPadding"/><attr format="reference|dimension" name="spn_labelTextSize"/><attr format="reference|color" name="spn_labelTextColor"/><attr format="reference" name="spn_labelTextAppearance"/><attr format="integer" name="spn_labelEllipsize"><enum name="start" value="0x00000001"/><enum name="middle" value="0x00000002"/><enum name="end" value="0x00000003"/><enum name="marquee" value="0x00000004"/></attr><attr format="string|reference" name="spn_label"/><attr format="reference" name="spn_popupItemAnimation"/><attr format="integer" name="spn_popupItemAnimOffset"/><attr format="reference|color" name="spn_arrowColor"/><attr format="reference|dimension" name="spn_arrowSize"/><attr format="reference|dimension" name="spn_arrowPadding"/><attr format="integer" name="spn_arrowAnimDuration"/><attr format="reference" name="spn_arrowInterpolator"/><attr format="boolean" name="spn_arrowAnimClockwise"/><attr format="boolean" name="spn_arrowSwitchMode"/><attr format="reference|color" name="spn_dividerColor"/><attr format="reference|dimension" name="spn_dividerHeight"/><attr format="reference|dimension" name="spn_dividerPadding"/><attr format="reference|integer" name="spn_dividerAnimDuration"/></declare-styleable>
+    <declare-styleable name="Switch"><attr format="reference|dimension" name="sw_trackSize"/><attr format="reference|color" name="sw_trackColor"/><attr format="integer" name="sw_trackCap"><enum name="butt" value="0x00000000"/><enum name="round" value="0x00000001"/><enum name="square" value="0x00000002"/></attr><attr format="reference|color" name="sw_thumbColor"/><attr format="reference|dimension" name="sw_thumbRadius"/><attr format="reference|dimension" name="sw_thumbElevation"/><attr format="reference|integer" name="sw_animDuration"/><attr format="reference" name="sw_interpolator"/><attr name="android:gravity"/><attr name="android:checked"/></declare-styleable>
     <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="reference" name="track"/><attr name="android:textOn"/><attr name="android:textOff"/><attr format="dimension" name="thumbTextPadding"/><attr format="reference" name="switchTextAppearance"/><attr format="dimension" name="switchMinWidth"/><attr format="dimension" name="switchPadding"/><attr format="boolean" name="splitTrack"/><attr format="boolean" name="showText"/></declare-styleable>
     <declare-styleable name="TabLayout"><attr format="color" name="tabIndicatorColor"/><attr format="dimension" name="tabIndicatorHeight"/><attr format="dimension" name="tabContentStart"/><attr format="reference" name="tabBackground"/><attr name="tabMode"><enum name="scrollable" value="0"/><enum name="fixed" value="1"/></attr><attr name="tabGravity"><enum name="fill" value="0"/><enum name="center" value="1"/></attr><attr format="dimension" name="tabMinWidth"/><attr format="dimension" name="tabMaxWidth"/><attr format="reference" name="tabTextAppearance"/><attr format="color" name="tabTextColor"/><attr format="color" name="tabSelectedTextColor"/><attr format="dimension" name="tabPaddingStart"/><attr format="dimension" name="tabPaddingTop"/><attr format="dimension" name="tabPaddingEnd"/><attr format="dimension" name="tabPaddingBottom"/><attr format="dimension" name="tabPadding"/></declare-styleable>
-    <declare-styleable name="TextAppearance"><attr name="android:textSize"/><attr name="android:textColor"/><attr name="android:textStyle"/><attr name="android:typeface"/><attr name="textAllCaps"/></declare-styleable>
+    <declare-styleable name="TabPageIndicator"><attr format="reference|dimension" name="tpi_tabPadding"/><attr format="reference" name="tpi_tabRipple"/><attr format="reference|color" name="tpi_indicatorColor"/><attr format="reference|dimension" name="tpi_indicatorHeight"/><attr format="reference|boolean" name="tpi_tabSingleLine"/><attr name="android:textAppearance"/><attr format="integer" name="tpi_mode"><enum name="scroll" value="0x00000000"/><enum name="fixed" value="0x00000001"/></attr></declare-styleable>
+    <declare-styleable name="TextAppearance"><attr name="android:textSize"/><attr name="android:textColor"/><attr name="android:textStyle"/><attr name="android:typeface"/><attr name="textAllCaps"/><attr name="android:textColorHighlight"/><attr name="android:textColorHint"/><attr name="android:textColorLink"/><attr name="android:fontFamily"/><attr name="tv_fontFamily"/><attr name="android:textAllCaps"/><attr name="android:shadowColor"/><attr name="android:shadowDx"/><attr name="android:shadowDy"/><attr name="android:shadowRadius"/><attr name="android:elegantTextHeight"/><attr name="android:fontFeatureSettings"/><attr name="android:letterSpacing"/></declare-styleable>
     <declare-styleable name="TextInputLayout"><attr format="reference" name="hintTextAppearance"/><attr name="android:hint"/><attr format="boolean" name="errorEnabled"/><attr format="reference" name="errorTextAppearance"/></declare-styleable>
+    <declare-styleable name="TextView"><attr name="android:drawableBottom"/><attr name="android:drawableEnd"/><attr name="android:drawableLeft"/><attr name="android:drawablePadding"/><attr name="android:drawableRight"/><attr name="android:drawableStart"/><attr name="android:drawableTop"/><attr name="android:fontFamily"/><attr name="tv_fontFamily"/><attr name="android:elegantTextHeight"/><attr name="android:fontFeatureSettings"/><attr name="android:gravity"/><attr name="android:lines"/><attr name="android:letterSpacing"/><attr name="android:lineSpacingExtra"/><attr name="android:lineSpacingMultiplier"/><attr name="android:height"/><attr name="android:ems"/><attr name="android:width"/><attr name="android:includeFontPadding"/><attr name="android:cursorVisible"/><attr name="android:maxEms"/><attr name="android:maxHeight"/><attr name="android:maxLength"/><attr name="android:maxLines"/><attr name="android:maxWidth"/><attr name="android:minEms"/><attr name="android:minHeight"/><attr name="android:minLines"/><attr name="android:minWidth"/><attr name="android:scrollHorizontally"/><attr name="android:shadowColor"/><attr name="android:shadowDx"/><attr name="android:shadowDy"/><attr name="android:shadowRadius"/><attr name="android:singleLine"/><attr name="android:textAllCaps"/><attr name="android:textColor"/><attr name="android:textColorHighlight"/><attr name="android:textColorHint"/><attr name="android:textColorLink"/><attr name="android:textScaleX"/><attr name="android:textSize"/><attr name="android:textStyle"/><attr name="android:typeface"/></declare-styleable>
+    <declare-styleable name="TextViewAppearance"><attr name="android:textAppearance"/></declare-styleable>
+    <declare-styleable name="ThemableView"><attr format="reference" name="v_styleId"/></declare-styleable>
     <declare-styleable name="Theme"><attr format="boolean" name="windowActionBar"/><attr format="boolean" name="windowNoTitle"/><attr format="boolean" name="windowActionBarOverlay"/><attr format="boolean" name="windowActionModeOverlay"/><attr format="dimension|fraction" name="windowFixedWidthMajor"/><attr format="dimension|fraction" name="windowFixedHeightMinor"/><attr format="dimension|fraction" name="windowFixedWidthMinor"/><attr format="dimension|fraction" name="windowFixedHeightMajor"/><attr format="dimension|fraction" name="windowMinWidthMajor"/><attr format="dimension|fraction" name="windowMinWidthMinor"/><attr name="android:windowIsFloating"/><attr name="android:windowAnimationStyle"/><attr format="reference" name="actionBarTabStyle"/><attr format="reference" name="actionBarTabBarStyle"/><attr format="reference" name="actionBarTabTextStyle"/><attr format="reference" name="actionOverflowButtonStyle"/><attr format="reference" name="actionOverflowMenuStyle"/><attr format="reference" name="actionBarPopupTheme"/><attr format="reference" name="actionBarStyle"/><attr format="reference" name="actionBarSplitStyle"/><attr format="reference" name="actionBarTheme"/><attr format="reference" name="actionBarWidgetTheme"/><attr format="dimension" name="actionBarSize"><enum name="wrap_content" value="0"/></attr><attr format="reference" name="actionBarDivider"/><attr format="reference" name="actionBarItemBackground"/><attr format="reference" name="actionMenuTextAppearance"/><attr format="color|reference" name="actionMenuTextColor"/><attr format="reference" name="actionModeStyle"/><attr format="reference" name="actionModeCloseButtonStyle"/><attr format="reference" name="actionModeBackground"/><attr format="reference" name="actionModeSplitBackground"/><attr format="reference" name="actionModeCloseDrawable"/><attr format="reference" name="actionModeCutDrawable"/><attr format="reference" name="actionModeCopyDrawable"/><attr format="reference" name="actionModePasteDrawable"/><attr format="reference" name="actionModeSelectAllDrawable"/><attr format="reference" name="actionModeShareDrawable"/><attr format="reference" name="actionModeFindDrawable"/><attr format="reference" name="actionModeWebSearchDrawable"/><attr format="reference" name="actionModePopupWindowStyle"/><attr format="reference" name="textAppearanceLargePopupMenu"/><attr format="reference" name="textAppearanceSmallPopupMenu"/><attr format="reference" name="dialogTheme"/><attr format="dimension" name="dialogPreferredPadding"/><attr format="reference" name="listDividerAlertDialog"/><attr format="reference" name="actionDropDownStyle"/><attr format="dimension" name="dropdownListPreferredItemHeight"/><attr format="reference" name="spinnerDropDownItemStyle"/><attr format="reference" name="homeAsUpIndicator"/><attr format="reference" name="actionButtonStyle"/><attr format="reference" name="buttonBarStyle"/><attr format="reference" name="buttonBarButtonStyle"/><attr format="reference" name="selectableItemBackground"/><attr format="reference" name="selectableItemBackgroundBorderless"/><attr format="reference" name="borderlessButtonStyle"/><attr format="reference" name="dividerVertical"/><attr format="reference" name="dividerHorizontal"/><attr format="reference" name="activityChooserViewStyle"/><attr format="reference" name="toolbarStyle"/><attr format="reference" name="toolbarNavigationButtonStyle"/><attr format="reference" name="popupMenuStyle"/><attr format="reference" name="popupWindowStyle"/><attr format="reference|color" name="editTextColor"/><attr format="reference" name="editTextBackground"/><attr format="reference" name="textAppearanceSearchResultTitle"/><attr format="reference" name="textAppearanceSearchResultSubtitle"/><attr format="reference|color" name="textColorSearchUrl"/><attr format="reference" name="searchViewStyle"/><attr format="dimension" name="listPreferredItemHeight"/><attr format="dimension" name="listPreferredItemHeightSmall"/><attr format="dimension" name="listPreferredItemHeightLarge"/><attr format="dimension" name="listPreferredItemPaddingLeft"/><attr format="dimension" name="listPreferredItemPaddingRight"/><attr format="reference" name="dropDownListViewStyle"/><attr format="reference" name="listPopupWindowStyle"/><attr format="reference" name="textAppearanceListItem"/><attr format="reference" name="textAppearanceListItemSmall"/><attr format="reference" name="panelBackground"/><attr format="dimension" name="panelMenuListWidth"/><attr format="reference" name="panelMenuListTheme"/><attr format="reference" name="listChoiceBackgroundIndicator"/><attr format="color" name="colorPrimary"/><attr format="color" name="colorPrimaryDark"/><attr format="color" name="colorAccent"/><attr format="color" name="colorControlNormal"/><attr format="color" name="colorControlActivated"/><attr format="color" name="colorControlHighlight"/><attr format="color" name="colorButtonNormal"/><attr format="color" name="colorSwitchThumbNormal"/><attr format="reference" name="alertDialogStyle"/><attr format="reference" name="alertDialogButtonGroupStyle"/><attr format="boolean" name="alertDialogCenterButtons"/><attr format="reference" name="alertDialogTheme"/><attr format="reference|color" name="textColorAlertDialogListItem"/><attr format="reference" name="buttonBarPositiveButtonStyle"/><attr format="reference" name="buttonBarNegativeButtonStyle"/><attr format="reference" name="buttonBarNeutralButtonStyle"/><attr format="reference" name="autoCompleteTextViewStyle"/><attr format="reference" name="buttonStyle"/><attr format="reference" name="buttonStyleSmall"/><attr format="reference" name="checkboxStyle"/><attr format="reference" name="checkedTextViewStyle"/><attr format="reference" name="editTextStyle"/><attr format="reference" name="radioButtonStyle"/><attr format="reference" name="ratingBarStyle"/><attr format="reference" name="spinnerStyle"/><attr format="reference" name="switchStyle"/></declare-styleable>
+    <declare-styleable name="TimePicker"><attr format="color|reference" name="tp_backgroundColor"/><attr format="color|reference" name="tp_selectionColor"/><attr format="dimension|reference" name="tp_selectionRadius"/><attr format="dimension|reference" name="tp_tickSize"/><attr format="string|reference" name="tp_fontFamily"/><attr format="integer" name="tp_textStyle"><enum name="normal" value="0"/><enum name="bold" value="1"/><enum name="italic" value="2"/><enum name="bold_italic" value="3"/></attr><attr format="dimension|reference" name="tp_textSize"/><attr format="color|reference" name="tp_textColor"/><attr format="color|reference" name="tp_textHighlightColor"/><attr format="integer|reference" name="tp_animDuration"/><attr format="reference" name="tp_inInterpolator"/><attr format="reference" name="tp_outInterpolator"/><attr format="integer" name="tp_mode"><enum name="hour" value="0"/><enum name="minute" value="1"/></attr><attr format="boolean" name="tp_24Hour"/><attr format="integer" name="tp_hour"/><attr format="integer" name="tp_minute"/></declare-styleable>
+    <declare-styleable name="TimePickerDialog"><attr format="dimension|reference" name="tp_headerHeight"/><attr format="color|reference" name="tp_textTimeColor"/><attr format="dimension|reference" name="tp_textTimeSize"/><attr format="string|reference" name="tp_am"/><attr format="string|reference" name="tp_pm"/><attr format="boolean|reference" name="tp_leadingZero"/></declare-styleable>
     <declare-styleable name="Toolbar"><attr format="reference" name="titleTextAppearance"/><attr format="reference" name="subtitleTextAppearance"/><attr name="title"/><attr name="subtitle"/><attr name="android:gravity"/><attr format="dimension" name="titleMargins"/><attr format="dimension" name="titleMarginStart"/><attr format="dimension" name="titleMarginEnd"/><attr format="dimension" name="titleMarginTop"/><attr format="dimension" name="titleMarginBottom"/><attr name="contentInsetStart"/><attr name="contentInsetEnd"/><attr name="contentInsetLeft"/><attr name="contentInsetRight"/><attr format="dimension" name="maxButtonHeight"/><attr format="reference" name="collapseIcon"/><attr format="string" name="collapseContentDescription"/><attr name="popupTheme"/><attr format="reference" name="navigationIcon"/><attr format="string" name="navigationContentDescription"/><attr name="android:minHeight"/></declare-styleable>
-    <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/><attr format="reference" name="theme"/><attr name="android:theme"/><attr format="color" name="backgroundTint"/><attr name="backgroundTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr></declare-styleable>
+    <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/><attr format="reference" name="theme"/><attr name="android:theme"/><attr format="color" name="backgroundTint"/><attr name="backgroundTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr><attr name="android:background"/><attr name="android:backgroundTint"/><attr name="android:backgroundTintMode"/><attr name="android:elevation"/><attr name="android:fadeScrollbars"/><attr name="android:fadingEdgeLength"/><attr name="android:minHeight"/><attr name="android:minWidth"/><attr name="android:padding"/><attr name="android:paddingBottom"/><attr name="android:paddingEnd"/><attr name="android:paddingLeft"/><attr name="android:paddingRight"/><attr name="android:paddingStart"/><attr name="android:paddingTop"/><attr name="android:requiresFadingEdge"/><attr name="android:scrollbarDefaultDelayBeforeFade"/><attr name="android:scrollbarFadeDuration"/><attr name="android:scrollbarSize"/><attr name="android:scrollbarStyle"/><attr name="android:soundEffectsEnabled"/><attr name="android:textAlignment"/><attr name="android:textDirection"/><attr name="android:visibility"/><attr name="android:layoutDirection"/></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
+    <declare-styleable name="YearPicker"><attr name="dp_yearMin"/><attr name="dp_yearMax"/><attr name="dp_year"/><attr format="dimension|reference" name="dp_yearTextSize"/><attr format="dimension|reference" name="dp_yearItemHeight"/><attr name="dp_textHighlightColor"/><attr name="dp_textColor"/><attr name="dp_selectionColor"/><attr name="dp_animDuration"/><attr name="dp_inInterpolator"/><attr name="dp_outInterpolator"/><attr name="dp_fontFamily"/><attr name="dp_textStyle"/></declare-styleable>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
     <dimen name="abc_action_bar_default_padding_material">4dp</dimen>
@@ -1295,6 +1358,515 @@
     </style>
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
+    </style>
+    <style name="DialogNoAnimation">
+        <item name="android:windowEnterAnimation">@null</item>
+        <item name="android:windowExitAnimation">@null</item>
+    </style>
+    <style name="Material"/>
+    <style name="Material.App"/>
+    <style name="Material.App.BottomSheetDialog">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="bsd_inDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="bsd_inInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="bsd_outDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="bsd_outInterpolator">@android:anim/accelerate_interpolator</item>
+        <item name="bsd_cancelable">true</item>
+        <item name="bsd_canceledOnTouchOutside">true</item>
+        <item name="bsd_dimAmount">0.5</item>
+    </style>
+    <style name="Material.App.Dialog">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="di_dimAmount">0.5</item>
+        <item name="di_backgroundColor">@color/background_floating_material_dark</item>
+        <item name="di_elevation">4dp</item>
+        <item name="di_maxElevation">4dp</item>
+        <item name="di_cornerRadius">2dp</item>
+        <item name="di_layoutDirection">locale</item>
+        <item name="di_titleTextAppearance">@style/TextAppearance.AppCompat.Title</item>
+        <item name="di_titleTextColor">@color/abc_primary_text_material_dark</item>
+        <item name="di_actionRipple">@style/Material.Drawable.Ripple.Wave</item>
+        <item name="di_actionTextAppearance">@style/TextAppearance.AppCompat.Button</item>
+        <item name="di_actionTextColor">?attr/colorControlActivated</item>
+        <item name="di_dividerColor">#1E999999</item>
+        <item name="di_dividerHeight">1dp</item>
+        <item name="di_cancelable">true</item>
+        <item name="di_canceledOnTouchOutside">true</item>
+    </style>
+    <style name="Material.App.Dialog.DatePicker" parent="Material.App.Dialog">
+        <item name="dp_yearTextSize">@dimen/abc_text_size_title_material</item>
+        <item name="dp_yearItemHeight">48dp</item>
+        <item name="dp_textColor">@color/abc_primary_text_material_dark</item>
+        <item name="dp_textHighlightColor">#FFFFFFFF</item>
+        <item name="dp_selectionColor">?attr/colorPrimary</item>
+        <item name="dp_animDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="dp_inInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="dp_outInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="dp_textStyle">normal</item>
+        <item name="dp_dayTextSize">@dimen/abc_text_size_caption_material</item>
+        <item name="dp_textLabelColor">@color/abc_secondary_text_material_dark</item>
+        <item name="dp_textDisableColor">@color/abc_secondary_text_material_dark</item>
+        <item name="dp_headerPrimaryHeight">144dp</item>
+        <item name="dp_headerSecondaryHeight">32dp</item>
+        <item name="dp_headerPrimaryColor">?attr/colorPrimary</item>
+        <item name="dp_headerSecondaryColor">?attr/colorPrimaryDark</item>
+        <item name="dp_headerPrimaryTextSize">@dimen/abc_text_size_display_2_material</item>
+        <item name="dp_headerSecondaryTextSize">@dimen/abc_text_size_headline_material</item>
+        <item name="dp_textHeaderColor">#90FFFFFF</item>
+    </style>
+    <style name="Material.App.Dialog.DatePicker.Light" parent="Material.App.Dialog.Light">
+        <item name="dp_yearTextSize">@dimen/abc_text_size_title_material</item>
+        <item name="dp_yearItemHeight">48dp</item>
+        <item name="dp_textColor">@color/abc_primary_text_material_light</item>
+        <item name="dp_textHighlightColor">#FFFFFFFF</item>
+        <item name="dp_selectionColor">?attr/colorPrimary</item>
+        <item name="dp_animDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="dp_inInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="dp_outInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="dp_textStyle">normal</item>
+        <item name="dp_dayTextSize">@dimen/abc_text_size_caption_material</item>
+        <item name="dp_textLabelColor">@color/abc_secondary_text_material_light</item>
+        <item name="dp_textDisableColor">@color/abc_secondary_text_material_light</item>
+        <item name="dp_headerPrimaryHeight">144dp</item>
+        <item name="dp_headerSecondaryHeight">32dp</item>
+        <item name="dp_headerPrimaryColor">?attr/colorPrimary</item>
+        <item name="dp_headerSecondaryColor">?attr/colorPrimaryDark</item>
+        <item name="dp_headerPrimaryTextSize">@dimen/abc_text_size_display_2_material</item>
+        <item name="dp_headerSecondaryTextSize">@dimen/abc_text_size_headline_material</item>
+        <item name="dp_textHeaderColor">#90FFFFFF</item>
+    </style>
+    <style name="Material.App.Dialog.Light" parent="Material.App.Dialog">
+        <item name="di_backgroundColor">@color/background_floating_material_light</item>
+        <item name="di_titleTextColor">@color/abc_primary_text_material_light</item>
+        <item name="di_actionRipple">@style/Material.Drawable.Ripple.Wave.Light</item>
+        <item name="di_dividerColor">#1E000000</item>
+    </style>
+    <style name="Material.App.Dialog.Simple" parent="Material.App.Dialog">
+        <item name="di_messageTextAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="di_messageTextColor">@color/abc_secondary_text_material_dark</item>
+        <item name="di_radioButtonStyle">@style/Material.Drawable.RadioButton</item>
+        <item name="di_checkBoxStyle">@style/Material.Drawable.CheckBox</item>
+        <item name="di_itemTextAppearance">@style/Material.TextAppearance.SimpleDialog</item>
+        <item name="di_itemHeight">48dp</item>
+    </style>
+    <style name="Material.App.Dialog.Simple.Light" parent="Material.App.Dialog.Light">
+        <item name="di_messageTextAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="di_messageTextColor">@color/abc_secondary_text_material_light</item>
+        <item name="di_radioButtonStyle">@style/Material.Drawable.RadioButton</item>
+        <item name="di_checkBoxStyle">@style/Material.Drawable.CheckBox</item>
+        <item name="di_itemTextAppearance">@style/Material.TextAppearance.SimpleDialog.Light</item>
+        <item name="di_itemHeight">48dp</item>
+    </style>
+    <style name="Material.App.Dialog.TimePicker" parent="Material.App.Dialog">
+        <item name="tp_backgroundColor">#28999999</item>
+        <item name="tp_selectionColor">?attr/colorPrimary</item>
+        <item name="tp_selectionRadius">16dp</item>
+        <item name="tp_tickSize">1dp</item>
+        <item name="tp_textSize">@dimen/abc_text_size_caption_material</item>
+        <item name="tp_textStyle">normal</item>
+        <item name="tp_textColor">@color/abc_primary_text_material_dark</item>
+        <item name="tp_textHighlightColor">#FFFFFFFF</item>
+        <item name="tp_animDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="tp_inInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="tp_outInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="tp_mode">hour</item>
+        <item name="tp_headerHeight">120dp</item>
+        <item name="tp_textTimeSize">@dimen/abc_text_size_display_2_material</item>
+        <item name="tp_textTimeColor">#90FFFFFF</item>
+        <item name="tp_leadingZero">false</item>
+    </style>
+    <style name="Material.App.Dialog.TimePicker.Light" parent="Material.App.Dialog.Light">
+        <item name="tp_backgroundColor">#28999999</item>
+        <item name="tp_selectionColor">?attr/colorPrimary</item>
+        <item name="tp_selectionRadius">16dp</item>
+        <item name="tp_tickSize">1dp</item>
+        <item name="tp_textSize">@dimen/abc_text_size_caption_material</item>
+        <item name="tp_textStyle">normal</item>
+        <item name="tp_textColor">@color/abc_primary_text_material_light</item>
+        <item name="tp_textHighlightColor">#FFFFFFFF</item>
+        <item name="tp_animDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="tp_inInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="tp_outInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="tp_mode">hour</item>
+        <item name="tp_headerHeight">120dp</item>
+        <item name="tp_textTimeSize">@dimen/abc_text_size_display_2_material</item>
+        <item name="tp_textTimeColor">#90FFFFFF</item>
+        <item name="tp_leadingZero">false</item>
+    </style>
+    <style name="Material.Drawable"/>
+    <style name="Material.Drawable.CheckBox">
+        <item name="cbd_width">32dp</item>
+        <item name="cbd_height">32dp</item>
+        <item name="cbd_boxSize">20dp</item>
+        <item name="cbd_cornerRadius">2dp</item>
+        <item name="cbd_strokeSize">2dp</item>
+        <item name="cbd_animDuration">@android:integer/config_mediumAnimTime</item>
+    </style>
+    <style name="Material.Drawable.CircularProgress">
+        <item name="cpd_padding">0dp</item>
+        <item name="cpd_initialAngle">0</item>
+        <item name="cpd_maxSweepAngle">270</item>
+        <item name="cpd_minSweepAngle">1</item>
+        <item name="cpd_strokeSize">4dp</item>
+        <item name="cpd_strokeColor">?attr/colorPrimary</item>
+        <item name="cpd_strokeSecondaryColor">@android:color/transparent</item>
+        <item name="cpd_reverse">false</item>
+        <item name="cpd_rotateDuration">1000</item>
+        <item name="cpd_transformDuration">600</item>
+        <item name="cpd_keepDuration">200</item>
+        <item name="cpd_transformInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="pv_progressMode">indeterminate</item>
+        <item name="cpd_inAnimDuration">0</item>
+        <item name="cpd_outAnimDuration">@android:integer/config_mediumAnimTime</item>
+    </style>
+    <style name="Material.Drawable.CircularProgress.Determinate" parent="Material.Drawable.CircularProgress">
+        <item name="pv_progressMode">determinate</item>
+        <item name="cpd_inAnimDuration">@android:integer/config_mediumAnimTime</item>
+    </style>
+    <style name="Material.Drawable.LinearProgress">
+        <item name="lpd_maxLineWidth">75%</item>
+        <item name="lpd_minLineWidth">10%</item>
+        <item name="lpd_strokeSize">4dp</item>
+        <item name="lpd_strokeColor">?attr/colorPrimary</item>
+        <item name="lpd_strokeSecondaryColor">?attr/colorControlNormal</item>
+        <item name="lpd_reverse">false</item>
+        <item name="lpd_travelDuration">1000</item>
+        <item name="lpd_transformDuration">600</item>
+        <item name="lpd_keepDuration">200</item>
+        <item name="lpd_transformInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="pv_progressMode">indeterminate</item>
+        <item name="lpd_inAnimDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="lpd_outAnimDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="lpd_verticalAlign">bottom</item>
+    </style>
+    <style name="Material.Drawable.LinearProgress.Buffer" parent="Material.Drawable.LinearProgress">
+        <item name="pv_progressMode">buffer</item>
+    </style>
+    <style name="Material.Drawable.LinearProgress.Determinate" parent="Material.Drawable.LinearProgress">
+        <item name="pv_progressMode">determinate</item>
+    </style>
+    <style name="Material.Drawable.LinearProgress.Query" parent="Material.Drawable.LinearProgress">
+        <item name="pv_progressMode">query</item>
+    </style>
+    <style name="Material.Drawable.NavigationDrawer">
+        <item name="nd_ripple">@style/Material.Drawable.Ripple.Touch</item>
+        <item name="nd_icon">@style/Material.Drawable.NavigationDrawerIcon</item>
+    </style>
+    <style name="Material.Drawable.NavigationDrawer.Light">
+        <item name="nd_ripple">@style/Material.Drawable.Ripple.Touch.Light</item>
+        <item name="nd_icon">@style/Material.Drawable.NavigationDrawerIcon.Light</item>
+    </style>
+    <style name="Material.Drawable.NavigationDrawerIcon">
+        <item name="lmd_state">@xml/nav_states</item>
+        <item name="lmd_curState">0</item>
+        <item name="lmd_padding">6dp</item>
+        <item name="lmd_animDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="lmd_interpolator">@android:anim/accelerate_decelerate_interpolator</item>
+        <item name="lmd_strokeSize">3dp</item>
+        <item name="lmd_strokeColor">#FFFFFFFF</item>
+        <item name="lmd_strokeCap">butt</item>
+        <item name="lmd_strokeJoin">miter</item>
+        <item name="lmd_clockwise">true</item>
+        <item name="lmd_layoutDirection">locale</item>
+    </style>
+    <style name="Material.Drawable.NavigationDrawerIcon.Light" parent="Material.Drawable.NavigationDrawerIcon">
+        <item name="lmd_strokeColor">#87000000</item>
+    </style>
+    <style name="Material.Drawable.RadioButton">
+        <item name="rbd_width">32dp</item>
+        <item name="rbd_height">32dp</item>
+        <item name="rbd_strokeSize">2dp</item>
+        <item name="rbd_radius">10dp</item>
+        <item name="rbd_innerRadius">5dp</item>
+        <item name="rbd_animDuration">@android:integer/config_mediumAnimTime</item>
+    </style>
+    <style name="Material.Drawable.Ripple">
+        <item name="rd_enable">true</item>
+        <item name="rd_inInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="rd_outInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="rd_maskType">rectangle</item>
+        <item name="rd_cornerRadius">2dp</item>
+        <item name="rd_padding">0dp</item>
+        <item name="rd_delayClick">none</item>
+    </style>
+    <style name="Material.Drawable.Ripple.Touch" parent="Material.Drawable.Ripple">
+        <item name="rd_backgroundColor">#26CCCCCC</item>
+        <item name="rd_backgroundAnimDuration">200</item>
+        <item name="rd_maxRippleRadius">48dp</item>
+        <item name="rd_rippleColor">#19CCCCCC</item>
+        <item name="rd_rippleAnimDuration">300</item>
+        <item name="rd_rippleType">touch</item>
+    </style>
+    <style name="Material.Drawable.Ripple.Touch.Light" parent="Material.Drawable.Ripple.Touch">
+        <item name="rd_backgroundColor">#33999999</item>
+        <item name="rd_rippleColor">#33999999</item>
+    </style>
+    <style name="Material.Drawable.Ripple.Touch.MatchView" parent="Material.Drawable.Ripple.Touch">
+        <item name="rd_maxRippleRadius">match_view</item>
+    </style>
+    <style name="Material.Drawable.Ripple.Touch.MatchView.Light" parent="Material.Drawable.Ripple.Touch">
+        <item name="rd_maxRippleRadius">match_view</item>
+        <item name="rd_backgroundColor">#33999999</item>
+        <item name="rd_rippleColor">#33999999</item>
+    </style>
+    <style name="Material.Drawable.Ripple.Wave" parent="Material.Drawable.Ripple">
+        <item name="rd_maxRippleRadius">48dp</item>
+        <item name="rd_rippleColor">#3FCCCCCC</item>
+        <item name="rd_rippleAnimDuration">200</item>
+        <item name="rd_rippleType">wave</item>
+    </style>
+    <style name="Material.Drawable.Ripple.Wave.Light" parent="Material.Drawable.Ripple.Wave">
+        <item name="rd_rippleColor">#66999999</item>
+    </style>
+    <style name="Material.TextAppearance"/>
+    <style name="Material.TextAppearance.SimpleDialog" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/abc_secondary_text_material_dark</item>
+    </style>
+    <style name="Material.TextAppearance.SimpleDialog.Light" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/abc_secondary_text_material_light</item>
+    </style>
+    <style name="Material.Widget"/>
+    <style name="Material.Widget.DatePicker">
+        <item name="dp_dayTextSize">@dimen/abc_text_size_caption_material</item>
+        <item name="dp_textLabelColor">@color/abc_secondary_text_material_dark</item>
+        <item name="dp_textDisableColor">@color/abc_secondary_text_material_dark</item>
+        <item name="dp_textHighlightColor">#FFFFFFFF</item>
+        <item name="dp_textColor">@color/abc_primary_text_material_dark</item>
+        <item name="dp_selectionColor">?attr/colorPrimary</item>
+        <item name="dp_animDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="dp_inInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="dp_outInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="dp_textStyle">normal</item>
+    </style>
+    <style name="Material.Widget.DatePicker.Light" parent="Material.Widget.DatePicker">
+        <item name="dp_textLabelColor">@color/abc_secondary_text_material_light</item>
+        <item name="dp_textDisableColor">@color/abc_secondary_text_material_light</item>
+        <item name="dp_textColor">@color/abc_primary_text_material_light</item>
+    </style>
+    <style name="Material.Widget.EditText">
+        <item name="et_labelEnable">true</item>
+        <item name="et_labelPadding">0dp</item>
+        <item name="et_labelTextAppearance">@style/TextAppearance.AppCompat.Caption</item>
+        <item name="et_labelTextColor">@color/abc_secondary_text_material_dark</item>
+        <item name="et_labelEllipsize">end</item>
+        <item name="et_labelInAnim">@anim/abc_fade_in</item>
+        <item name="et_labelOutAnim">@anim/abc_fade_out</item>
+        <item name="et_dividerErrorColor">?attr/colorAccent</item>
+        <item name="et_dividerAnimDuration">@android:integer/config_shortAnimTime</item>
+        <item name="et_dividerHeight">2dp</item>
+        <item name="et_dividerPadding">0dp</item>
+        <item name="et_dividerCompoundPadding">true</item>
+        <item name="et_supportTextAppearance">@style/TextAppearance.AppCompat.Caption</item>
+        <item name="et_supportTextColor">@color/abc_secondary_text_material_dark</item>
+        <item name="et_supportTextErrorColor">?attr/colorAccent</item>
+        <item name="et_supportEllipsize">end</item>
+    </style>
+    <style name="Material.Widget.EditText.Light" parent="Material.Widget.EditText">
+        <item name="et_labelTextColor">@color/abc_secondary_text_material_light</item>
+        <item name="et_supportTextColor">@color/abc_secondary_text_material_light</item>
+    </style>
+    <style name="Material.Widget.FloatingActionButton" parent="Material.Drawable.Ripple.Touch">
+        <item name="fab_radius">28dp</item>
+        <item name="fab_elevation">4dp</item>
+        <item name="fab_iconSize">24dp</item>
+        <item name="fab_interpolator">@android:anim/decelerate_interpolator</item>
+        <item name="fab_animDuration">@android:integer/config_mediumAnimTime</item>
+    </style>
+    <style name="Material.Widget.FloatingActionButton.Light" parent="Material.Drawable.Ripple.Touch.Light">
+        <item name="fab_radius">28dp</item>
+        <item name="fab_elevation">4dp</item>
+        <item name="fab_iconSize">24dp</item>
+        <item name="fab_interpolator">@android:anim/decelerate_interpolator</item>
+        <item name="fab_animDuration">@android:integer/config_mediumAnimTime</item>
+    </style>
+    <style name="Material.Widget.FloatingActionButton.Mini" parent="Material.Drawable.Ripple.Touch">
+        <item name="fab_radius">20dp</item>
+        <item name="fab_elevation">4dp</item>
+        <item name="fab_iconSize">24dp</item>
+        <item name="fab_interpolator">@android:anim/decelerate_interpolator</item>
+        <item name="fab_animDuration">@android:integer/config_mediumAnimTime</item>
+    </style>
+    <style name="Material.Widget.FloatingActionButton.Mini.Light" parent="Material.Drawable.Ripple.Touch.Light">
+        <item name="fab_radius">20dp</item>
+        <item name="fab_elevation">4dp</item>
+        <item name="fab_iconSize">24dp</item>
+        <item name="fab_interpolator">@android:anim/decelerate_interpolator</item>
+        <item name="fab_animDuration">@android:integer/config_mediumAnimTime</item>
+    </style>
+    <style name="Material.Widget.ProgressView">
+        <item name="pv_progress">0</item>
+    </style>
+    <style name="Material.Widget.ProgressView.Circular" parent="Material.Widget.ProgressView">
+        <item name="pv_autostart">true</item>
+        <item name="pv_circular">true</item>
+        <item name="pv_progressStyle">@style/Material.Drawable.CircularProgress</item>
+        <item name="pv_progressMode">indeterminate</item>
+    </style>
+    <style name="Material.Widget.ProgressView.Circular.Determinate" parent="Material.Widget.ProgressView.Circular">
+        <item name="pv_progressStyle">@style/Material.Drawable.CircularProgress.Determinate</item>
+        <item name="pv_progressMode">determinate</item>
+    </style>
+    <style name="Material.Widget.ProgressView.Linear" parent="Material.Widget.ProgressView">
+        <item name="pv_autostart">true</item>
+        <item name="pv_circular">false</item>
+        <item name="pv_progressStyle">@style/Material.Drawable.LinearProgress</item>
+        <item name="pv_progressMode">indeterminate</item>
+    </style>
+    <style name="Material.Widget.ProgressView.Linear.Buffer" parent="Material.Widget.ProgressView.Linear">
+        <item name="pv_progressStyle">@style/Material.Drawable.LinearProgress.Buffer</item>
+        <item name="pv_progressMode">buffer</item>
+    </style>
+    <style name="Material.Widget.ProgressView.Linear.Determinate" parent="Material.Widget.ProgressView.Linear">
+        <item name="pv_progressStyle">@style/Material.Drawable.LinearProgress.Determinate</item>
+        <item name="pv_progressMode">determinate</item>
+    </style>
+    <style name="Material.Widget.ProgressView.Linear.Query" parent="Material.Widget.ProgressView.Linear">
+        <item name="pv_progressStyle">@style/Material.Drawable.LinearProgress.Query</item>
+        <item name="pv_progressMode">query</item>
+    </style>
+    <style name="Material.Widget.Slider">
+        <item name="sl_trackSize">2dp</item>
+        <item name="sl_trackCap">square</item>
+        <item name="sl_thumbBorderSize">2dp</item>
+        <item name="sl_thumbRadius">10dp</item>
+        <item name="sl_thumbFocusRadius">14dp</item>
+        <item name="sl_travelAnimDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="sl_transformAnimDuration">@android:integer/config_shortAnimTime</item>
+        <item name="sl_interpolator">@android:anim/decelerate_interpolator</item>
+        <item name="sl_minValue">0</item>
+        <item name="sl_maxValue">100</item>
+        <item name="sl_stepValue">1</item>
+        <item name="sl_discreteMode">false</item>
+        <item name="sl_textSize">@dimen/abc_text_size_small_material</item>
+        <item name="sl_textColor">#FFFFFFFF</item>
+        <item name="sl_alwaysFillThumb">false</item>
+    </style>
+    <style name="Material.Widget.Slider.Discrete" parent="Material.Widget.Slider">
+        <item name="sl_discreteMode">true</item>
+    </style>
+    <style name="Material.Widget.SnackBar">
+        <item name="sb_backgroundColor">#FF323232</item>
+        <item name="sb_backgroundCornerRadius">0dp</item>
+        <item name="sb_horizontalPadding">24dp</item>
+        <item name="sb_verticalPadding">0dp</item>
+        <item name="sb_width">match_parent</item>
+        <item name="sb_height">48dp</item>
+        <item name="sb_textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="sb_textColor">#FFFFFFFF</item>
+        <item name="sb_ellipsize">end</item>
+        <item name="sb_actionTextAppearance">@style/TextAppearance.AppCompat.Button</item>
+        <item name="sb_actionTextColor">?attr/colorPrimary</item>
+        <item name="sb_actionRipple">@style/Material.Drawable.Ripple.Wave</item>
+        <item name="sb_inAnimation">@anim/abc_slide_in_bottom</item>
+        <item name="sb_outAnimation">@anim/abc_slide_out_bottom</item>
+        <item name="sb_removeOnDismiss">false</item>
+    </style>
+    <style name="Material.Widget.SnackBar.Mobile" parent="Material.Widget.SnackBar">
+        <item name="sb_marginStart">0dp</item>
+        <item name="sb_marginBottom">0dp</item>
+        <item name="sb_width">match_parent</item>
+        <item name="sb_height">48dp</item>
+        <item name="sb_singleLine">true</item>
+    </style>
+    <style name="Material.Widget.SnackBar.Mobile.MultiLine" parent="Material.Widget.SnackBar.Mobile">
+        <item name="sb_verticalPadding">18dp</item>
+        <item name="sb_height">wrap_content</item>
+        <item name="sb_singleLine">false</item>
+        <item name="sb_maxLines">2</item>
+        <item name="sb_maxHeight">80dp</item>
+    </style>
+    <style name="Material.Widget.SnackBar.Tablet" parent="Material.Widget.SnackBar">
+        <item name="sb_marginStart">16dp</item>
+        <item name="sb_marginBottom">16dp</item>
+        <item name="sb_width">wrap_content</item>
+        <item name="sb_height">48dp</item>
+        <item name="sb_singleLine">true</item>
+        <item name="sb_minWidth">288dp</item>
+        <item name="sb_maxWidth">568dp</item>
+    </style>
+    <style name="Material.Widget.SnackBar.Tablet.MultiLine" parent="Material.Widget.SnackBar.Tablet">
+        <item name="sb_verticalPadding">18dp</item>
+        <item name="sb_height">wrap_content</item>
+        <item name="sb_singleLine">false</item>
+        <item name="sb_maxLines">2</item>
+        <item name="sb_maxHeight">80dp</item>
+    </style>
+    <style name="Material.Widget.Spinner">
+        <item name="spn_labelEnable">false</item>
+        <item name="spn_labelPadding">0dp</item>
+        <item name="spn_labelTextAppearance">@style/TextAppearance.AppCompat.Caption</item>
+        <item name="spn_labelTextColor">@color/abc_secondary_text_material_dark</item>
+        <item name="spn_labelEllipsize">end</item>
+        <item name="spn_dividerHeight">2dp</item>
+        <item name="spn_dividerPadding">0dp</item>
+        <item name="spn_dividerAnimDuration">@android:integer/config_shortAnimTime</item>
+        <item name="spn_arrowColor">?attr/colorControlNormal</item>
+        <item name="spn_arrowSize">4dp</item>
+        <item name="spn_arrowPadding">8dp</item>
+        <item name="spn_popupItemAnimation">@anim/abc_slide_in_bottom</item>
+        <item name="spn_popupItemAnimOffset">120</item>
+    </style>
+    <style name="Material.Widget.Spinner.Light" parent="Material.Widget.Spinner">
+        <item name="spn_labelTextColor">@color/abc_secondary_text_material_light</item>
+    </style>
+    <style name="Material.Widget.Switch">
+        <item name="sw_trackSize">14dp</item>
+        <item name="sw_trackCap">round</item>
+        <item name="sw_thumbRadius">10dp</item>
+        <item name="sw_thumbElevation">2dp</item>
+        <item name="sw_animDuration">@android:integer/config_shortAnimTime</item>
+        <item name="sw_interpolator">@android:anim/decelerate_interpolator</item>
+    </style>
+    <style name="Material.Widget.TabPageIndicator">
+        <item name="tpi_tabPadding">12dp</item>
+        <item name="tpi_tabRipple">@style/Material.Drawable.Ripple.Wave</item>
+        <item name="tpi_indicatorHeight">2dp</item>
+        <item name="tpi_tabSingleLine">true</item>
+        <item name="android:textAppearance">?attr/textAppearanceListItem</item>
+        <item name="tpi_mode">scroll</item>
+    </style>
+    <style name="Material.Widget.TabPageIndicator.Fixed" parent="Material.Widget.TabPageIndicator">
+        <item name="tpi_mode">fixed</item>
+    </style>
+    <style name="Material.Widget.TabPageIndicator.Fixed.Light" parent="Material.Widget.TabPageIndicator.Light">
+        <item name="tpi_mode">fixed</item>
+    </style>
+    <style name="Material.Widget.TabPageIndicator.Light" parent="Material.Widget.TabPageIndicator">
+        <item name="tpi_tabRipple">@style/Material.Drawable.Ripple.Wave.Light</item>
+    </style>
+    <style name="Material.Widget.TimePicker">
+        <item name="tp_backgroundColor">#28999999</item>
+        <item name="tp_selectionColor">?attr/colorPrimary</item>
+        <item name="tp_selectionRadius">16dp</item>
+        <item name="tp_tickSize">1dp</item>
+        <item name="tp_textSize">@dimen/abc_text_size_caption_material</item>
+        <item name="tp_textStyle">normal</item>
+        <item name="tp_textColor">@color/abc_primary_text_material_dark</item>
+        <item name="tp_textHighlightColor">#FFFFFFFF</item>
+        <item name="tp_animDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="tp_inInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="tp_outInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="tp_mode">hour</item>
+    </style>
+    <style name="Material.Widget.TimePicker.Light" parent="Material.Widget.TimePicker">
+        <item name="tp_textColor">@color/abc_primary_text_material_light</item>
+    </style>
+    <style name="Material.Widget.YearPicker">
+        <item name="dp_yearTextSize">@dimen/abc_text_size_title_material</item>
+        <item name="dp_yearItemHeight">48dp</item>
+        <item name="dp_textColor">@color/abc_primary_text_material_dark</item>
+        <item name="dp_textHighlightColor">#FFFFFFFF</item>
+        <item name="dp_selectionColor">?attr/colorPrimary</item>
+        <item name="dp_animDuration">@android:integer/config_mediumAnimTime</item>
+        <item name="dp_inInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="dp_outInterpolator">@android:anim/decelerate_interpolator</item>
+        <item name="dp_textStyle">normal</item>
+    </style>
+    <style name="Material.Widget.YearPicker.Light" parent="Material.Widget.TimePicker">
+        <item name="dp_textColor">@color/abc_primary_text_material_light</item>
     </style>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>

@@ -14,4 +14,9 @@
     <color name="violet">#ee82ee</color><!--紫罗兰色 -->
     <color name="silver">#c0c0c0</color><!--银色 -->
     <color name="red">#de1111</color><!--红色 -->
+
+    <color name="theme_red">#de1111</color>
+    <color name="theme_blcak">#000000</color>
+    <color name="theme_blue">#FF1945C9</color>
+    <color name="theme_orange">#ffa500</color>
 </resources>

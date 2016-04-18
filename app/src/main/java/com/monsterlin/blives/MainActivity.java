@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.monsterlin.blives.activity.FeedBackActivity;
@@ -85,6 +86,7 @@ public class MainActivity extends BaseActivity
     private BmobUser bmobUser ; //BmobUser对象
     private String  currentId ; //当前登录用户的id
 
+    private LinearLayout ly_header ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +113,7 @@ public class MainActivity extends BaseActivity
         iv_userphoto= (CircleImageView) findViewById(R.id.iv_userphoto);
         tv_nick= (TextView) findViewById(R.id.tv_nick);
         tv_depart= (TextView) findViewById(R.id.tv_depart);
+        ly_header= (LinearLayout) findViewById(R.id.ly_header);
 
         updateleftUserData();  //更新左侧用户资料
 
