@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -68,13 +69,13 @@ public class MainActivity extends BaseActivity
 
     private ActionBarDrawerToggle toggle;
 
-    private MainFragment  MainFragment;
+    private Fragment  MainFragment;
 
-    private SquareFragment  SquareFragment;
+    private Fragment  SquareFragment;
 
-    private CorporationFragment CorporationFragment;
+    private Fragment CorporationFragment;
 
-    private SceneryFragment  SceneryFragment;
+    private Fragment  SceneryFragment;
 
     private Fragment mContent;
 
@@ -169,12 +170,7 @@ public class MainActivity extends BaseActivity
     private void initMain() {
         Menu menu = navigationView.getMenu();
         menu.getItem(0).setChecked(true);
-        MainFragment = new MainFragment();  //创建Fragment
-
-        FragmentTransaction mainTransaction = getSupportFragmentManager().beginTransaction();
-        mainTransaction.add(R.id.fram_main, MainFragment);
-        mContent = MainFragment;
-        mainTransaction.commit();
+        setSelect(0);
     }
 
     /**
@@ -262,35 +258,27 @@ public class MainActivity extends BaseActivity
         switch (id){
             case R.id.item_main:
                 menu.getItem(0).setChecked(true); //用于item的选中状态
-                if(null == MainFragment){
-                    MainFragment=new MainFragment();
-                }
+                setSelect(0);
                 fab.setVisibility(View.VISIBLE);
-                switchContent(MainFragment);
+
                 break;
             case R.id.item_scenery:
                 menu.getItem(1).setChecked(true);
-                if(null ==SceneryFragment){
-                    SceneryFragment = new SceneryFragment();
-                }
+                setSelect(1);
                 fab.setVisibility(View.VISIBLE);
-                switchContent(SceneryFragment);
+
                 break;
             case R.id.item_corporation:
                 menu.getItem(2).setChecked(true);
-                if (null == CorporationFragment){
-                    CorporationFragment = new CorporationFragment();
-                }
+                setSelect(2);
                 fab.setVisibility(View.VISIBLE);
-                switchContent(CorporationFragment);
+
                 break;
             case R.id.item_square:
                 menu.getItem(3).setChecked(true);
-                if(null ==SquareFragment){
-                    SquareFragment = new SquareFragment();
-                }
+                setSelect(3);
                 fab.setVisibility(View.INVISIBLE);
-                switchContent(SquareFragment);
+
                 break;
 
             //TODO 关于submenu 替换fragment
@@ -309,19 +297,86 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
-    /** 修改显示的内容 不会重新加载 **/
-    public void switchContent(Fragment to) {
-        if (mContent != to) {
-            FragmentTransaction transaction = getSupportFragmentManager()
-                    .beginTransaction();
-            if (!to.isAdded()) { // 先判断是否被add过
-                transaction.hide(mContent).add(R.id.fram_main, to).commit(); // 隐藏当前的fragment，add下一个到Activity中
-            } else {
-                transaction.hide(mContent).show(to).commit(); // 隐藏当前的fragment，显示下一个
-            }
-            mContent = to;
+
+    private void setSelect(int i)
+    {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        hideFragment(transaction);
+        // 把图片设置为亮的
+        // 设置内容区域
+        switch (i)
+        {
+            case 0:
+                if (MainFragment == null)
+                {
+                    MainFragment = new MainFragment();
+                    transaction.add(R.id.fram_main, MainFragment);
+                } else
+                {
+                    transaction.show(MainFragment);
+                }
+
+                break;
+            case 1:
+                if (SceneryFragment == null)
+                {
+                    SceneryFragment = new SceneryFragment();transaction.add(R.id.fram_main, SceneryFragment);
+                } else
+                {
+                    transaction.show(SceneryFragment);
+
+                }
+
+                break;
+            case 2:
+                if (CorporationFragment == null)
+                {
+                    CorporationFragment = new CorporationFragment();
+                    transaction.add(R.id.fram_main, CorporationFragment);
+                } else
+                {
+                    transaction.show(CorporationFragment);
+                }
+
+                break;
+            case 3:
+                if (SquareFragment == null)
+                {
+                    SquareFragment = new SquareFragment();
+                    transaction.add(R.id.fram_main, SquareFragment);
+                } else
+                {
+                    transaction.show(SquareFragment);
+                }
+
+                break;
+
+            default:
+                break;
         }
 
+        transaction.commit();
+    }
+
+    private void hideFragment(FragmentTransaction transaction)
+    {
+        if (MainFragment != null)
+        {
+            transaction.hide(MainFragment);
+        }
+        if (SquareFragment != null)
+        {
+            transaction.hide(SquareFragment);
+        }
+        if (CorporationFragment != null)
+        {
+            transaction.hide(CorporationFragment);
+        }
+        if (SceneryFragment != null)
+        {
+            transaction.hide(SceneryFragment);
+        }
     }
 
     @Override
