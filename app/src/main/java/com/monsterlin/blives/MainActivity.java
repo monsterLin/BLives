@@ -14,7 +14,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.monsterlin.blives.activity.FeedBackActivity;
@@ -29,6 +28,7 @@ import com.monsterlin.blives.navfragment.SceneryFragment;
 import com.monsterlin.blives.navfragment.SquareFragment;
 import com.monsterlin.blives.utils.ImageLoader;
 
+import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.GetListener;
@@ -59,13 +59,27 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener , View.OnClickListener{
 
-    private Toolbar mToolBar ;
+    @InjectView(R.id.toolbar)
+    Toolbar mToolBar;
 
-    private FloatingActionButton fab;
+    @InjectView(R.id.fab)
+    FloatingActionButton fab;
 
-    private DrawerLayout drawer;
+    @InjectView(R.id.drawer_layout)
+    DrawerLayout drawer;
 
-    private NavigationView navigationView;
+    @InjectView(R.id.nav_view)
+    NavigationView navigationView;
+
+    @InjectView(R.id.iv_userphoto)
+    CircleImageView iv_userphoto;
+
+
+    @InjectView(R.id.tv_nick)
+    TextView tv_nick;
+
+    @InjectView(R.id.tv_depart)
+    TextView tv_depart;
 
     private ActionBarDrawerToggle toggle;
 
@@ -77,48 +91,31 @@ public class MainActivity extends BaseActivity
 
     private Fragment  SceneryFragment;
 
-    private Fragment mContent;
-
     private  Menu menu;
-
-    private CircleImageView iv_userphoto;
-    private TextView tv_nick , tv_depart;
-
     private BmobUser bmobUser ; //BmobUser对象
     private String  currentId ; //当前登录用户的id
 
-    private LinearLayout ly_header ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bmobUser=BmobUser.getCurrentUser(this);
-       // StatusBarCompat.compat(this, getResources().getColor(R.color.colorAccent));  //沉浸式状态栏
-        initView();
-        initToolBar();
-        initMain();
-        initEvent();
+        initActivityButterKnife(this);  //初始化注解框架
+        initToolBar(mToolBar,"BLives",false);  //初始化ToolBar
+        initData();  //初始化用户数据
+        initMain(); //初始化主页面
+        initEvent();  //初始化点击事件
     }
-
 
     /**
-     * 初始化视图
+     * 初始化用户数据
      */
-    protected void initView() {
-        mToolBar = (Toolbar) findViewById(R.id.toolbar);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        iv_userphoto= (CircleImageView) findViewById(R.id.iv_userphoto);
-        tv_nick= (TextView) findViewById(R.id.tv_nick);
-        tv_depart= (TextView) findViewById(R.id.tv_depart);
-        ly_header= (LinearLayout) findViewById(R.id.ly_header);
-
+    private void initData() {
+        bmobUser=BmobUser.getCurrentUser(this);
         updateleftUserData();  //更新左侧用户资料
-
     }
+
+
 
     /**
      * 更新左侧用户资料
@@ -153,14 +150,6 @@ public class MainActivity extends BaseActivity
            iv_userphoto.setImageResource(R.drawable.ic_bzu);
         }
          //   drawer.closeDrawer(GravityCompat.START);
-    }
-
-    /**
-     * 初始化ToolBar
-     */
-    private void initToolBar() {
-        mToolBar.setTitle("BLives");
-        setSupportActionBar(mToolBar);
     }
 
 
@@ -278,10 +267,8 @@ public class MainActivity extends BaseActivity
                 menu.getItem(3).setChecked(true);
                 setSelect(3);
                 fab.setVisibility(View.INVISIBLE);
-
                 break;
 
-            //TODO 关于submenu 替换fragment
             case R.id.item_theme:
                 Intent themeIntent = new Intent(MainActivity.this, ThemeActivity.class);
                 startActivity(themeIntent);
@@ -297,13 +284,15 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
-
+    /**
+     * 切换Fragment
+     * @param i
+     */
     private void setSelect(int i)
     {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         hideFragment(transaction);
-        // 把图片设置为亮的
         // 设置内容区域
         switch (i)
         {
@@ -359,6 +348,10 @@ public class MainActivity extends BaseActivity
         transaction.commit();
     }
 
+    /**
+     * 隐藏Fragment
+     * @param transaction
+     */
     private void hideFragment(FragmentTransaction transaction)
     {
         if (MainFragment != null)
@@ -384,16 +377,14 @@ public class MainActivity extends BaseActivity
         switch (v.getId()){
             case R.id.iv_userphoto:
                 if(null ==bmobUser){
-                    Intent loginIntent = new Intent(this, LoginActivity.class);
-                    startActivity(loginIntent);
+                    nextActivity(LoginActivity.class);
                 }else {
-                      Intent showUserIntent = new Intent(this, ShowUserActivity.class);
-                    startActivity(showUserIntent);
+                    nextActivity(ShowUserActivity.class);
                 }
-
                 break;
         }
     }
+
 
     @Override
     protected void onResume() {
@@ -406,6 +397,7 @@ public class MainActivity extends BaseActivity
         super.onStart();
         updateleftUserData();
     }
+
 }
 
 

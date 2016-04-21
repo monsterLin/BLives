@@ -43,4 +43,5 @@ dependencies {
     compile 'com.balysv:material-ripple:1.0.2'
     compile files('libs/BaiduLBS_Android.jar')
     compile 'com.github.rey5137:material:1.2.1'
+    compile files('libs/butterknife-6.1.0.jar')
 }
