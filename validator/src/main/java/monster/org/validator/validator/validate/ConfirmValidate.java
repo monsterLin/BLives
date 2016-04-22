@@ -35,7 +35,6 @@ public class ConfirmValidate extends AbstractValidate {
 
 	@Override
 	public String getMessages() {
-		// TODO Auto-generated method stub
 		return mContext.getString(_errorMessage);
 	}
 

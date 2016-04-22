@@ -95,7 +95,6 @@ public class JobnewsFragment extends Fragment {
 
     private void getData(int page) {
 
-        //TODO 进行服务器端的分页处理
         BmobQuery<Jobnews> query = new BmobQuery<>();
         query.order("-newsdate");
         query.setSkip(page*limit+1);

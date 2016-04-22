@@ -52,7 +52,6 @@ public class OrTwoRequiredValidate extends AbstractValidate {
 
 	@Override
 	public String getMessages() {
-		// TODO Auto-generated method stub
 		return _errorMessage;
 	}
 

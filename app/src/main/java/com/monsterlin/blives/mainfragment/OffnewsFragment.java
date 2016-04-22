@@ -93,7 +93,6 @@ public class OffnewsFragment extends Fragment {
 
     private void getData(int page) {
 
-        //TODO 进行服务器端的分页处理
         BmobQuery<Offnews> query = new BmobQuery<>();
         query.order("-newsdate");
         query.setSkip(page*limit+1);
