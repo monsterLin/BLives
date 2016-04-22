@@ -20,7 +20,7 @@ import com.monsterlin.blives.activity.FeedBackActivity;
 import com.monsterlin.blives.activity.LoginActivity;
 import com.monsterlin.blives.activity.SettingActivity;
 import com.monsterlin.blives.activity.ShowUserActivity;
-import com.monsterlin.blives.activity.ThemeActivity;
+import com.monsterlin.blives.activity.LifeActivity;
 import com.monsterlin.blives.entity.BUser;
 import com.monsterlin.blives.navfragment.CorporationFragment;
 import com.monsterlin.blives.navfragment.MainFragment;
@@ -269,13 +269,11 @@ public class MainActivity extends BaseActivity
                 fab.setVisibility(View.INVISIBLE);
                 break;
 
-            case R.id.item_theme:
-                Intent themeIntent = new Intent(MainActivity.this, ThemeActivity.class);
-                startActivity(themeIntent);
+            case R.id.item_life:
+               nextActivity(LifeActivity.class);
                 break;
             case R.id.item_setting:
-               Intent settingIntent = new Intent(MainActivity.this, SettingActivity.class);
-                startActivity(settingIntent);
+                nextActivity(SettingActivity.class);
                 break;
         }
 

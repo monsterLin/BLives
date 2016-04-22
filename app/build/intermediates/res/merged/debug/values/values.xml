@@ -57,6 +57,7 @@
     <color name="background_material_light">#ffeeeeee</color>
     <color name="beige">#f5f5dc</color>
     <color name="black">#000000</color>
+    <color name="borrow">#EEEEEE</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -377,13 +378,13 @@
     <string name="global_website">Web Site</string>
     <string name="item_corporation_text">社团活动</string>
     <string name="item_forget_text">忘记密码？</string>
+    <string name="item_life_text">生活应用</string>
     <string name="item_main_text">首页</string>
     <string name="item_notification_text">消息</string>
     <string name="item_other_text">其它</string>
     <string name="item_scenery_text">校园风光</string>
     <string name="item_setting_text">设置与帮助</string>
     <string name="item_square_text">校园广场</string>
-    <string name="item_theme_text">主题选择</string>
     <string name="iv_show_img_text">暂无缩略图</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

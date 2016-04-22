@@ -47,6 +47,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.monsterlin.blives.activity.LifeDetailActivity" />
         <activity android:name="com.monsterlin.blives.activity.LoginActivity" />
         <activity android:name="com.monsterlin.blives.activity.RegistActivity" />
         <activity
@@ -56,7 +57,7 @@
         <activity android:name="com.monsterlin.blives.activity.ResetActivity" />
         <activity android:name="com.monsterlin.blives.activity.ShowUserActivity" />
         <activity android:name="com.monsterlin.blives.activity.SettingActivity" />
-        <activity android:name="com.monsterlin.blives.activity.ThemeActivity" />
+        <activity android:name="com.monsterlin.blives.activity.LifeActivity" />
         <activity android:name="com.monsterlin.blives.activity.BImgActivity" />
         <activity
             android:name="com.monsterlin.blives.wxapi.WXEntryActivity"

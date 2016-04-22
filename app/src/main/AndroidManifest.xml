@@ -40,6 +40,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.LifeDetailActivity"/>
         <activity android:name=".activity.LoginActivity"/>
         <activity android:name=".activity.RegistActivity"/>
         <activity android:name=".activity.DetailsActivity"
@@ -48,7 +49,7 @@
         <activity android:name=".activity.ResetActivity"/>
         <activity android:name=".activity.ShowUserActivity"/>
         <activity android:name=".activity.SettingActivity"/>
-        <activity android:name=".activity.ThemeActivity"/>
+        <activity android:name=".activity.LifeActivity"/>
         <activity android:name=".activity.BImgActivity"/>
         <activity
             android:name=".wxapi.WXEntryActivity"

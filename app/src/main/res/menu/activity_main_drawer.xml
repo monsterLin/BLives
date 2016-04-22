@@ -24,9 +24,9 @@
     <item android:title="@string/item_other_text">
         <menu>
             <item
-                android:id="@+id/item_theme"
-                android:icon="@drawable/ic_theme"
-                android:title="@string/item_theme_text" />
+                android:id="@+id/item_life"
+                android:icon="@drawable/ic_life"
+                android:title="@string/item_life_text" />
             <item
                 android:id="@+id/item_setting"
                 android:checked="false"
