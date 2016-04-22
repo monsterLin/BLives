@@ -2,12 +2,13 @@ package com.monsterlin.blives.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.utils.ImageLoader;
+
+import butterknife.InjectView;
 
 /**
  * 图片详情
@@ -15,15 +16,19 @@ import com.monsterlin.blives.utils.ImageLoader;
  */
 public class BImgActivity extends BaseActivity {
 
-    private ImageView iv_bimg;
-    private Toolbar toolbar;
+    @InjectView(R.id.toolbar)
+     Toolbar toolbar;
+
+    @InjectView(R.id.iv_bimg)
+    ImageView iv_bimg;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bimg);
-        initView();
-        initToolBar();
+        initActivityButterKnife(this);
+        initToolBar(toolbar,"浏览",true);
 
         String imgUrl = getIntent().getStringExtra("imgUrl");
         iv_bimg.setTag(imgUrl);
@@ -31,20 +36,5 @@ public class BImgActivity extends BaseActivity {
 
     }
 
-    private void initToolBar() {
-        toolbar.setTitle("浏览");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //出现返回箭头
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-    }
 
-    private void initView() {
-        iv_bimg= (ImageView) findViewById(R.id.iv_bimg);
-        toolbar= (Toolbar) findViewById(R.id.toolbar);
-    }
 }

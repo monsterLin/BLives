@@ -1,6 +1,5 @@
 package com.monsterlin.blives.activity;
 
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +15,7 @@ import com.monsterlin.blives.entity.BUser;
 import com.monsterlin.blives.entity.FeedBack;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.GetListener;
@@ -27,28 +27,43 @@ import cn.bmob.v3.listener.SaveListener;
  */
 public class FeedBackActivity extends BaseActivity {
 
-    private Toolbar toolbar;
-    private MaterialEditText edt_email ,edt_feedback;
+    @InjectView(R.id.toolbar)
+     Toolbar toolbar;
 
-    private TextView tv_author , tv_qq;
+    @InjectView(R.id.edt_email)
+     MaterialEditText edt_email ;
 
-    private ImageView  iv_send ,iv_img ;
+    @InjectView(R.id.edt_feedback)
+    MaterialEditText edt_feedback;
+
+    @InjectView(R.id.tv_author)
+     TextView tv_author ;
+
+    @InjectView(R.id.tv_qq)
+    TextView tv_qq;
+
+    @InjectView(R.id.iv_send)
+    ImageView iv_send;
+
+    @InjectView(R.id.iv_img)
+    ImageView iv_img;
 
     private BmobUser bmobUser;
 
     private String email ; //邮箱
 
     public Build bd;
+
     public TelephonyManager tm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
+        initActivityButterKnife(this);
         bd = new Build();
         tm = (TelephonyManager) getSystemService(this.TELEPHONY_SERVICE);
-        initView();
-        initToolBar();
+        initToolBar(toolbar,"用户反馈",true);
         initData();
         initEvent();
     }
@@ -59,6 +74,11 @@ public class FeedBackActivity extends BaseActivity {
      * 如果用户没有登录，则需要手动输入邮箱
      */
     private void initData() {
+
+        tv_author.setText("monster");
+        tv_qq.setText("876948462");
+
+
         bmobUser =  BmobUser.getCurrentUser(this);
         if (bmobUser!=null){
             BmobQuery<BUser> query = new BmobQuery<>();
@@ -130,33 +150,5 @@ public class FeedBackActivity extends BaseActivity {
         }
     }
 
-    private void initView() {
-        toolbar= (Toolbar) findViewById(R.id.toolbar);
-        edt_email= (MaterialEditText) findViewById(R.id.edt_email);
-        edt_feedback= (MaterialEditText) findViewById(R.id.edt_feedback);
-        tv_author= (TextView) findViewById(R.id.tv_author);
-        tv_qq= (TextView) findViewById(R.id.tv_qq);
-        iv_send= (ImageView) findViewById(R.id.iv_send);
-        iv_img= (ImageView) findViewById(R.id.iv_img);
-
-        tv_author.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/test.ttf"));
-        tv_qq.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/test.ttf"));
-
-        tv_author.setText("monster");
-        tv_qq.setText("876948462");
-
-    }
-
-    private void initToolBar() {
-        toolbar.setTitle("用户反馈");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //出现返回箭头
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-    }
 }
 

@@ -14,6 +14,7 @@ import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.BUser;
 
+import butterknife.InjectView;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
@@ -24,9 +25,21 @@ import cn.bmob.v3.listener.LogInListener;
  */
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
-    private Toolbar toolbar;
-    private EditText edt_mail , edt_pass ;
-    private Button btn_regist , btn_login ;
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @InjectView(R.id.edt_mail)
+    EditText edt_mail;
+
+    @InjectView(R.id.edt_pass)
+    EditText  edt_pass ;
+
+    @InjectView(R.id.btn_regist)
+     Button btn_regist ;
+
+    @InjectView(R.id. btn_login)
+    Button  btn_login;
+
 
     private String mailString , passString ;
 
@@ -34,36 +47,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        initView();
-        initToolBar();
+        initActivityButterKnife(this);
+        initToolBar(toolbar,"登陆",true);
         initEvent();
     }
 
-    private void initToolBar() {
-        toolbar.setTitle("登陆");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //出现返回箭头
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-    }
 
     private void initEvent() {
         btn_login.setOnClickListener(this);
         btn_regist.setOnClickListener(this);
     }
 
-    private void initView() {
-        toolbar= (Toolbar) findViewById(R.id.toolbar);
-        edt_mail= (EditText) findViewById(R.id.edt_mail);
-        edt_pass= (EditText) findViewById(R.id.edt_pass);
-
-        btn_login= (Button) findViewById(R.id.btn_login);
-        btn_regist= (Button) findViewById(R.id.btn_regist);
-    }
 
     @Override
     public void onClick(View v) {

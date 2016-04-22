@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 
+import butterknife.InjectView;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.ResetPasswordByEmailListener;
 
@@ -19,30 +20,25 @@ import cn.bmob.v3.listener.ResetPasswordByEmailListener;
  */
 public class ResetActivity extends BaseActivity{
 
-    private Toolbar toolbar;
-    private EditText edt_mail;
-    private Button btn_reset;
+    @InjectView(R.id.toolbar)
+     Toolbar toolbar;
+
+    @InjectView(R.id.edt_mail)
+     EditText edt_mail;
+
+    @InjectView(R.id.btn_reset)
+     Button btn_reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset);
-        initView();
-        initToolBar();
+        initActivityButterKnife(this);
+        initToolBar(toolbar,"找回密码",true);
         initEvent();
     }
 
-    private void initToolBar() {
-        toolbar.setTitle("找回密码");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //出现返回箭头
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-    }
+
 
     private void initEvent() {
         btn_reset.setOnClickListener(new View.OnClickListener() {

@@ -13,6 +13,7 @@ import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.BUser;
 import com.monsterlin.blives.utils.ImageLoader;
 
+import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.GetListener;
@@ -23,20 +24,25 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by monsterLin on 2016/4/14.
  */
 public class ShowUserActivity extends BaseActivity {
-    private Toolbar toolbar;
+
+    @InjectView(R.id.toolbar)
+     Toolbar toolbar;
+
     private BmobUser bmobUser ;
     private String objectId;
 
-    private CircleImageView iv_userphoto;
+    @InjectView(R.id.iv_userphoto)
+     CircleImageView iv_userphoto;
     private TextView tv_nick ,tv_depart ,tv_email,tv_name,tv_tel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showuser_activity);
+        initActivityButterKnife(this);
         bmobUser=BmobUser.getCurrentUser(this);
         initView();
-        initToolBar();
+       initToolBar(toolbar,"个人资料",true);
         initData();
     }
 
@@ -85,8 +91,6 @@ public class ShowUserActivity extends BaseActivity {
 
 
     private void initView() {
-        toolbar= (Toolbar) findViewById(R.id.toolbar);
-        iv_userphoto= (CircleImageView) findViewById(R.id.iv_userphoto);
         tv_nick= (TextView) findViewById(R.id.tv_nick);
         tv_depart= (TextView) findViewById(R.id.tv_depart);
         tv_email= (TextView) findViewById(R.id.tv_email);

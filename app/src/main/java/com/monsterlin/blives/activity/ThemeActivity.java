@@ -5,7 +5,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
@@ -15,14 +14,20 @@ import com.monsterlin.blives.entity.Theme;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.InjectView;
+
 /**
  * 主题选择界面
  * Created by monsterLin on 2016/4/14.
  */
 public class ThemeActivity extends BaseActivity{
-   private Toolbar toolbar;
 
-    private RecyclerView rv_theme ;
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @InjectView(R.id.rv_theme)
+     RecyclerView rv_theme ;
+
     private ThemeAdapter adapter;
 
     private List<Theme> mList = new ArrayList<>();
@@ -31,8 +36,8 @@ public class ThemeActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_theme);
-        intiView();
-        initToolBar();
+        initActivityButterKnife(this);
+       initToolBar(toolbar,"主题选择",true);
         initData();
         init();
     }
@@ -52,20 +57,7 @@ public class ThemeActivity extends BaseActivity{
         mList.add(new Theme(R.color.theme_red,"靓丽红"));
     }
 
-    private void initToolBar() {
-        toolbar.setTitle("主题选择");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //出现返回箭头
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-    }
 
-    private void intiView() {
-        toolbar= (Toolbar) findViewById(R.id.toolbar);
-        rv_theme= (RecyclerView) findViewById(R.id.rv_theme);
-    }
+
+
 }

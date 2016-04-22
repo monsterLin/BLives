@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 
+import butterknife.InjectView;
 import cn.bmob.v3.BmobUser;
 
 /**
@@ -16,7 +17,8 @@ import cn.bmob.v3.BmobUser;
  */
 public class SettingActivity extends BaseActivity implements View.OnClickListener{
 
-    private Toolbar toolbar;
+    @InjectView(R.id.toolbar)
+     Toolbar toolbar;
 
     private Button btn_exit,btn_sms,btn_trash,btn_update,btn_help,btn_about;
 
@@ -25,9 +27,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-
+        initActivityButterKnife(this);
         intiView();
-        initToolBar();
+        initToolBar(toolbar,"设置与帮助",true);
         initEvent();
     }
 
@@ -40,20 +42,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         btn_about.setOnClickListener(this);
     }
 
-    private void initToolBar() {
-        toolbar.setTitle("设置与帮助");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //出现返回箭头
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-    }
+
 
     private void intiView() {
-        toolbar= (Toolbar) findViewById(R.id.toolbar);
         btn_exit= (Button) findViewById(R.id.btn_exit);
         btn_sms= (Button) findViewById(R.id.btn_sms);
         btn_trash= (Button) findViewById(R.id.btn_trash);

@@ -18,6 +18,7 @@ import com.monsterlin.blives.entity.BUser;
 
 import java.io.File;
 
+import butterknife.InjectView;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UploadFileListener;
@@ -37,10 +38,17 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
     /**
      * TODO 用户交互需要加强，进度条需要使用
      */
-    private Toolbar toolbar;
-    private CircleImageView iv_userphoto;
+
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @InjectView(R.id.iv_userphoto)
+     CircleImageView iv_userphoto;
+
     private EditText edt_mail ,edt_pass ,edt_name ,edt_depart , edt_tel,edt_nick;
-    private Button btn_regist;
+
+    @InjectView(R.id.btn_regist)
+     Button btn_regist;
 
     private static final int PICK_CODE = 1; //请求码
     private String mCurrentPhotoStr;  //当前图片的路径  --->上传图片所用到的数据
@@ -55,8 +63,9 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist);
+        initActivityButterKnife(this);
         initView();
-        initToolBar();
+        initToolBar(toolbar,"注册",true);
         initEvent();
         initForm();
     }
@@ -105,22 +114,9 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
         iv_userphoto.setOnClickListener(this);
     }
 
-    private void initToolBar() {
-        toolbar.setTitle("注册");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //出现返回箭头
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-    }
+
 
     private void initView() {
-        toolbar= (Toolbar) findViewById(R.id.toolbar);
-
-        iv_userphoto= (CircleImageView) findViewById(R.id.iv_userphoto);
 
         edt_mail= (EditText) findViewById(R.id.edt_mail);
         edt_pass= (EditText) findViewById(R.id.edt_pass);
@@ -130,7 +126,6 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
         edt_depart= (EditText) findViewById(R.id.edt_depart);
         edt_tel= (EditText) findViewById(R.id.edt_tel);
         btn_regist= (Button) findViewById(R.id.btn_regist);
-        edt_nick= (EditText) findViewById(R.id.edt_nick);
     }
 
     @Override
