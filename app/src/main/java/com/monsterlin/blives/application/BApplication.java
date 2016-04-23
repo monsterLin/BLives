@@ -3,6 +3,8 @@ package com.monsterlin.blives.application;
 import android.app.Application;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 /**
  * 应用的Application
@@ -13,5 +15,10 @@ public class BApplication  extends Application{
     public void onCreate() {
         super.onCreate();
         SDKInitializer.initialize(getApplicationContext());
+
+        ImageLoaderConfiguration configuration = ImageLoaderConfiguration
+                .createDefault(this);
+
+        ImageLoader.getInstance().init(configuration);
     }
 }

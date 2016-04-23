@@ -44,4 +44,6 @@ dependencies {
     compile files('libs/BaiduLBS_Android.jar')
     compile 'com.github.rey5137:material:1.2.1'
     compile files('libs/butterknife-6.1.0.jar')
+    compile 'com.monsterlin:mlbasetools:1.2.0'
+    compile files('libs/universal-image-loader-1.9.5.jar')
 }

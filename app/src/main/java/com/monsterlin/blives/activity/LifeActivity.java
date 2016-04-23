@@ -5,11 +5,16 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
-import com.monsterlin.blives.adapter.LifeAdapter;
 import com.monsterlin.blives.entity.Life;
+import com.monsterlin.mlbasetools.recyclerview.CommonAdapter;
+import com.monsterlin.mlbasetools.recyclerview.OnItemClickListener;
+import com.monsterlin.mlbasetools.viewholder.ViewHolder;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,36 +33,52 @@ public class LifeActivity extends BaseActivity{
     @InjectView(R.id.rv_life)
      RecyclerView rv_life ;
 
-
-    private LifeAdapter adapter;
     private List<Life> mList ;
+
+    ImageLoader imageLoader;
+
+    private String app_url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_life);
         initActivityButterKnife(this);
+        imageLoader = ImageLoader.getInstance();
         initToolBar(toolbar,"生活应用",true);
         initData();
         initAdapter();
     }
 
     private void initAdapter() {
-        adapter=new LifeAdapter(this,mList);
-        rv_life.setAdapter(adapter);
         rv_life.setLayoutManager(new GridLayoutManager(this,3));
 
-        adapter.setOnItemClickListener(new LifeAdapter.OnItemClickListener() {
+        final CommonAdapter<Life> adapter=new CommonAdapter<Life>(this,R.layout.item_life,mList) {
             @Override
-            public void OnItemClick(int position, View view) {
-               Bundle bundle=new Bundle();
-                bundle.putString("app_url",adapter.getLife(position).getApp_url());
+            public void convert(ViewHolder holder, Life life) {
+                holder.setText(R.id.tv_life,life.getLifename());
+
+                app_url=life.getApp_url();
+
+                ImageView iv_life = holder.getView(R.id.iv_life);
+                imageLoader.displayImage(life.getApp_url(), iv_life);
+            }
+        };
+
+        rv_life.setAdapter(adapter);
+
+
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(ViewGroup parent, View view, Object o, int position) {
+                Bundle bundle=new Bundle();
+                bundle.putString("app_url",app_url);
                 nextActivity(LifeDetailActivity.class,bundle);
             }
 
             @Override
-            public void OnItemLongClick(int position, View view) {
-
+            public boolean onItemLongClick(ViewGroup parent, View view, Object o, int position) {
+                return false;
             }
         });
     }
