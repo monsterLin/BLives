@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
@@ -14,7 +13,6 @@ import com.monsterlin.blives.entity.Life;
 import com.monsterlin.mlbasetools.recyclerview.CommonAdapter;
 import com.monsterlin.mlbasetools.recyclerview.OnItemClickListener;
 import com.monsterlin.mlbasetools.viewholder.ViewHolder;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +33,6 @@ public class LifeActivity extends BaseActivity{
 
     private List<Life> mList ;
 
-    ImageLoader imageLoader;
 
     private String app_url;
 
@@ -44,7 +41,6 @@ public class LifeActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_life);
         initActivityButterKnife(this);
-        imageLoader = ImageLoader.getInstance();
         initToolBar(toolbar,"生活应用",true);
         initData();
         initAdapter();
@@ -57,11 +53,8 @@ public class LifeActivity extends BaseActivity{
             @Override
             public void convert(ViewHolder holder, Life life) {
                 holder.setText(R.id.tv_life,life.getLifename());
-
                 app_url=life.getApp_url();
-
-                ImageView iv_life = holder.getView(R.id.iv_life);
-                imageLoader.displayImage(life.getApp_url(), iv_life);
+                holder.setImageResource(R.id.iv_life,life.getLifeicon());
             }
         };
 
