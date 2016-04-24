@@ -15,6 +15,7 @@ import cn.bmob.v3.listener.BmobUpdateListener;
 import cn.bmob.v3.update.BmobUpdateAgent;
 import cn.bmob.v3.update.UpdateResponse;
 import cn.bmob.v3.update.UpdateStatus;
+import me.drakeet.materialdialog.MaterialDialog;
 
 /**
  * 设置界面
@@ -27,6 +28,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     private Button btn_exit,btn_sms,btn_trash,btn_update,btn_help,btn_about;
 
+    private MaterialDialog helpDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 finish();
                 break;
             case R.id.btn_sms:
-                showToast("消息推送");
+                showToast("消息推送将在下一版本推出，敬请期待");
                 break;
             case R.id.btn_trash:
                 //TODO 需优化，此缓存非彼缓存
@@ -97,10 +99,22 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 BmobUpdateAgent.update(this);
                 break;
             case R.id.btn_help:
-                showToast("我要帮助");
+                   helpDialog = new MaterialDialog(this)
+                        .setTitle("帮助")
+                        .setMessage("相信亲一定一看就懂，啊哈，对吧^_^")
+                        .setNegativeButton("是的", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                    helpDialog.dismiss();
+                            }
+                        });
+
+                helpDialog.show();
+
+
                 break;
             case R.id.btn_about:
-                showToast("关于");
+                nextActivity(AboutActivity.class);
                 break;
         }
     }

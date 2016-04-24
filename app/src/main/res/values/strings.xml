@@ -39,4 +39,14 @@
     <string name="tv_popview_test_text">测试</string>
 
 
+    <string name="tv_about_author_text">关于作者</string>
+    <string name="tv_version_number">1.0</string>
+    <string name="tv_about_me_text">https://github.com/monsterLin</string>
+    <string name="tv_main_web_text">项目主页</string>
+    <string name="tv_web_text">https://github.com/binzhouuniversity</string>
+    <string name="tv_tips">免责声明</string>
+    <string name="tv_version_text">当前版本</string>
+    <string name="tv_mz_text_one">Copyright @ 2015 BLives All Rights Reserved</string>
+    <string name="tv_mz_text_two">Power by BLives</string>
+
 </resources>
