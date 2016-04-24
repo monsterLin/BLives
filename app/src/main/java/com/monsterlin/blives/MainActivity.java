@@ -17,21 +17,23 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.monsterlin.blives.activity.FeedBackActivity;
+import com.monsterlin.blives.activity.LifeActivity;
 import com.monsterlin.blives.activity.LoginActivity;
 import com.monsterlin.blives.activity.SettingActivity;
 import com.monsterlin.blives.activity.ShowUserActivity;
-import com.monsterlin.blives.activity.LifeActivity;
 import com.monsterlin.blives.entity.BUser;
 import com.monsterlin.blives.navfragment.CorporationFragment;
 import com.monsterlin.blives.navfragment.MainFragment;
 import com.monsterlin.blives.navfragment.SceneryFragment;
 import com.monsterlin.blives.navfragment.SquareFragment;
+import com.monsterlin.blives.utils.CheckNetWork;
 import com.monsterlin.blives.utils.ImageLoader;
 
 import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.GetListener;
+import cn.bmob.v3.update.BmobUpdateAgent;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -96,15 +98,50 @@ public class MainActivity extends BaseActivity
     private String  currentId ; //当前登录用户的id
 
 
+    private boolean isNet;
+
+    @InjectView(R.id.tv_netWork)
+    TextView tv_netWork;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initActivityButterKnife(this);  //初始化注解框架
         initToolBar(mToolBar,"BLives",false);  //初始化ToolBar
-        initData();  //初始化用户数据
-        initMain(); //初始化主页面
-        initEvent();  //初始化点击事件
+        checkNet();
+
+    }
+
+    /**
+     * 网络监测
+     */
+    private void checkNet() {
+        isNet=new CheckNetWork().isNetworkAvailable(this);
+        if (isNet){
+            //网络连接
+            checkVersion();
+            initData();  //初始化用户数据
+            initMain(); //初始化主页面
+            initEvent();  //初始化点击事件
+        }else {
+            //无网络连接
+            new CheckNetWork().showNetDialog(this);
+            tv_netWork.setVisibility(View.VISIBLE);
+        }
+    }
+
+    /**
+     * 版本监测
+     */
+    private void checkVersion() {
+        BmobUpdateAgent.setUpdateOnlyWifi(false);
+        BmobUpdateAgent.update(this);
+//        BmobUpdateAgent.update(this);  //强制更新
+
+
+
     }
 
     /**

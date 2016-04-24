@@ -31,6 +31,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         BmobInstallation.getCurrentInstallation(this).save();
         Bmob.initialize(this, BmobKey.APPKEY); //Bmob的初始化
+        //initAppVersion方法适合开发者调试自动更新功能时使用，一旦AppVersion表在后台创建成功，
+        // 建议屏蔽或删除此方法，否则会生成多行记录。
+        //BmobUpdateAgent.initAppVersion(this);  //自动更新创建表
 
     }
 

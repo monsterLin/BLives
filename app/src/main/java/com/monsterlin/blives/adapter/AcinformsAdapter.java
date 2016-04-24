@@ -28,8 +28,6 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     private Context mContext;
     private List<Acinforms> acinformsList;
-
-
     public AcinformsAdapter(Context mContext, List<Acinforms> acinformsList) {
         this.mContext = mContext;
         this.acinformsList = acinformsList;
@@ -101,7 +99,10 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
             if (acinformsList.get(position).getInformimg()!=null){
                 BmobFile imgFile = acinformsList.get(position).getInformimg();
+
                 imgFile.loadImage(mContext,((ItemViewHolder) holder).iv_show_img);
+
+
             }else {
                 ((ItemViewHolder) holder).iv_show_img.setImageResource(R.drawable.ic_nopic);
             }

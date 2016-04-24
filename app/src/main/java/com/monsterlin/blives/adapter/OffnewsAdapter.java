@@ -30,7 +30,6 @@ public class OffnewsAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolde
     private Context mContext;
     private List<Offnews> newsList;
 
-
     public OffnewsAdapter(Context mContext, List<Offnews> newsList) {
         this.mContext = mContext;
         this.newsList = newsList;

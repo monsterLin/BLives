@@ -26,6 +26,15 @@
 
     <include layout="@layout/content_main" />
 
+    <TextView
+        android:id="@+id/tv_netWork"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="网络开小差去了.."/>
+
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

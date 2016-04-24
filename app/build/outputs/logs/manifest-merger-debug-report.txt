@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:2:1-62:12
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:2:1-68:12
 	package
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml
@@ -58,7 +58,7 @@ ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xm
 	android:name
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:15:22-70
 application
-ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:17:5-60:19
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:17:5-66:19
 MERGED from [com.android.support:appcompat-v7:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:22.2.0] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\AndroidManifest.xml:22:5-20
@@ -178,6 +178,12 @@ ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xm
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:58:13-72
 	android:name
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:55:13-50
+activity#cn.bmob.v3.update.UpdateDialogActivity
+ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:61:9-64:20
+	android:theme
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:63:13-72
+	android:name
+		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:62:13-66
 uses-sdk
 INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\AndroidManifest.xml:20:5-43
@@ -207,6 +213,7 @@ MERGED from [com.android.support:appcompat-v7:22.2.1] F:\workspace-android-bymon
 MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:recyclerview-v7:22.2.0] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.0\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:20:5-43
+MERGED from [me.drakeet.materialdialog:library:1.2.2] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\me.drakeet.materialdialog\library\1.2.2\AndroidManifest.xml:8:5-10:41
 	android:targetSdkVersion
 		INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml
 		INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml

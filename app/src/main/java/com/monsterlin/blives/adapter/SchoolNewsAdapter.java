@@ -28,7 +28,6 @@ public class SchoolNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private Context mContext;
     private List<SchoolNews> newsList;
 
-
     public SchoolNewsAdapter(Context mContext, List<SchoolNews> newsList) {
         this.mContext = mContext;
         this.newsList = newsList;

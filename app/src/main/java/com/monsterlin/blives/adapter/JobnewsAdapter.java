@@ -29,7 +29,6 @@ public class JobnewsAdapter   extends RecyclerView.Adapter<RecyclerView.ViewHold
     private Context mContext;
     private List<Jobnews> newsList;
 
-
     public JobnewsAdapter(Context mContext, List<Jobnews> newsList) {
         this.mContext = mContext;
         this.newsList = newsList;
@@ -92,6 +91,7 @@ public class JobnewsAdapter   extends RecyclerView.Adapter<RecyclerView.ViewHold
             if (newsList.get(position).getNewsimg()!=null){
                 BmobFile imgFile = newsList.get(position).getNewsimg();
                 imgFile.loadImage(mContext,((ItemViewHolder) holder).iv_show_img);
+
             }else {
                 ((ItemViewHolder) holder).iv_show_img.setImageResource(R.drawable.ic_nopic);
             }

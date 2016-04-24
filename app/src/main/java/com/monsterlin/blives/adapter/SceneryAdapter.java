@@ -29,7 +29,6 @@ public class SceneryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private List<Scenery> mList ;
     private Context mContext ;
 
-
     public SceneryAdapter(List<Scenery> mList, Context mContext) {
         this.mList = mList;
         this.mContext = mContext;
@@ -105,7 +104,8 @@ public class SceneryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 int width = wm.getDefaultDisplay().getWidth();
 
                 BmobFile img = mList.get(position).getSceneryimg();
-                img.loadImageThumbnail(mContext,  ((ItemViewHolder) holder).iv_img,width/2,200);
+
+               img.loadImageThumbnail(mContext,  ((ItemViewHolder) holder).iv_img,width/2,200);
             }else {
                 ((ItemViewHolder) holder).iv_img.setImageResource(R.drawable.ic_nopic);
             }

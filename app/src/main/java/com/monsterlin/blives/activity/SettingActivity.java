@@ -9,7 +9,12 @@ import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 
 import butterknife.InjectView;
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.listener.BmobUpdateListener;
+import cn.bmob.v3.update.BmobUpdateAgent;
+import cn.bmob.v3.update.UpdateResponse;
+import cn.bmob.v3.update.UpdateStatus;
 
 /**
  * 设置界面
@@ -64,10 +69,32 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 showToast("消息推送");
                 break;
             case R.id.btn_trash:
-                showToast("清除缓存");
+                //TODO 需优化，此缓存非彼缓存
+                BmobQuery.clearAllCachedResults(this);  //清除缓存
+                showToast("清除缓存成功");
                 break;
             case R.id.btn_update:
-                showToast("检测新版本");
+                BmobUpdateAgent.forceUpdate(this);  //手动更新
+                BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
+                    @Override
+                    public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
+                        switch (updateStatus){
+                            case UpdateStatus.Yes:
+                                //版本有更新
+                                break;
+                            case UpdateStatus.No:
+                                showToast("已是最新版本");
+                                break;
+                            case UpdateStatus.ErrorSizeFormat:
+                                showToast("请检查target_size填写的格式，请使用file.length()方法获取apk大小");
+                                break;
+                            case UpdateStatus.TimeOut:
+                                showToast("查询出错或超时");
+                                break;
+                        }
+                    }
+                });
+                BmobUpdateAgent.update(this);
                 break;
             case R.id.btn_help:
                 showToast("我要帮助");
