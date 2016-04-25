@@ -57,6 +57,7 @@
     <color name="background_material_light">#ffeeeeee</color>
     <color name="beige">#f5f5dc</color>
     <color name="black">#000000</color>
+    <color name="blue">#0000ff</color>
     <color name="borrow">#EEEEEE</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
@@ -411,7 +412,7 @@
     <string name="global_submit">Submit</string>
     <string name="global_website">Web Site</string>
     <string name="hello_world">Hello world!</string>
-    <string name="item_corporation_text">社团活动</string>
+    <string name="item_corporation_text">校园活动</string>
     <string name="item_forget_text">忘记密码？</string>
     <string name="item_life_text">生活应用</string>
     <string name="item_main_text">首页</string>
@@ -429,14 +430,18 @@
     <string name="test_tv_title_text">我是一则标题</string>
     <string name="tv_about_author_text">关于作者</string>
     <string name="tv_about_me_text">https://github.com/monsterLin</string>
+    <string name="tv_campus_tips_text">发布须知：发布水贴和告白帖管理员必删，发布不良信息的用户经核实将进行删号处理</string>
+    <string name="tv_date_text">2016-04-25 10:17</string>
     <string name="tv_label_email">邮箱</string>
     <string name="tv_label_name">姓名</string>
     <string name="tv_label_tel">手机号</string>
     <string name="tv_main_web_text">项目主页</string>
     <string name="tv_mz_text_one">Copyright @ 2015 BLives All Rights Reserved</string>
     <string name="tv_mz_text_two">Power by BLives</string>
+    <string name="tv_nick_text">滨州学院</string>
     <string name="tv_popview_test_text">测试</string>
     <string name="tv_tips">免责声明</string>
+    <string name="tv_title_text">滨州学院是一所省属全日制综合性普通本科院校</string>
     <string name="tv_version_number">1.0</string>
     <string name="tv_version_text">当前版本</string>
     <string name="tv_web_text">https://github.com/binzhouuniversity</string>

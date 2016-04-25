@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="item_main_text">首页</string>
     <string name="item_scenery_text">校园风光</string>
-    <string name="item_corporation_text">社团活动</string>
+    <string name="item_corporation_text">校园活动</string>
     <string name="item_square_text">校园广场</string>
     <string name="item_other_text">其它</string>
     <string name="item_life_text">生活应用</string>
@@ -48,5 +48,9 @@
     <string name="tv_version_text">当前版本</string>
     <string name="tv_mz_text_one">Copyright @ 2015 BLives All Rights Reserved</string>
     <string name="tv_mz_text_two">Power by BLives</string>
+    <string name="tv_campus_tips_text">发布须知：发布水贴和告白帖管理员必删，发布不良信息的用户经核实将进行删号处理</string>
+    <string name="tv_title_text">滨州学院是一所省属全日制综合性普通本科院校</string>
+    <string name="tv_nick_text">滨州学院</string>
+    <string name="tv_date_text">2016-04-25 10:17</string>
 
 </resources>

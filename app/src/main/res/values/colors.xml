@@ -23,4 +23,5 @@
     <color name="borrow">#EEEEEE</color>
     <color name="lightpink">#EB8A9E</color>
     <color name="ivory">#fffff0</color><!--象牙色 -->
+    <color name="blue">#0000ff</color><!--蓝色 -->
 </resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#F0F1EB"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_userphoto"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_bzu"/>
+
+        <TextView
+            android:id="@+id/tv_nick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_nick_text"
+            android:textSize="14sp"
+            android:textColor="@color/red"
+            android:layout_toRightOf="@id/iv_userphoto"
+            android:layout_marginTop="15dp"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_date_text"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/iv_userphoto"
+            android:layout_below="@id/tv_nick"
+            android:layout_alignLeft="@id/tv_nick"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_userphoto"
+            android:text="@string/tv_title_text"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:padding="5dp"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label"
+            android:text="社交"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/white"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:textSize="13sp"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -11,7 +11,7 @@
             android:icon="@drawable/ic_scenery"
             android:title="@string/item_scenery_text" />
         <item
-            android:id="@+id/item_corporation"
+            android:id="@+id/item_campus"
             android:icon="@drawable/ic_corporation"
             android:title="@string/item_corporation_text" />
         <item

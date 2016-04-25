@@ -22,7 +22,7 @@ import com.monsterlin.blives.activity.LoginActivity;
 import com.monsterlin.blives.activity.SettingActivity;
 import com.monsterlin.blives.activity.ShowUserActivity;
 import com.monsterlin.blives.entity.BUser;
-import com.monsterlin.blives.navfragment.CorporationFragment;
+import com.monsterlin.blives.navfragment.CampusFragment;
 import com.monsterlin.blives.navfragment.MainFragment;
 import com.monsterlin.blives.navfragment.SceneryFragment;
 import com.monsterlin.blives.navfragment.SquareFragment;
@@ -89,7 +89,7 @@ public class MainActivity extends BaseActivity
 
     private Fragment  SquareFragment;
 
-    private Fragment CorporationFragment;
+    private Fragment CampusFragment;
 
     private Fragment  SceneryFragment;
 
@@ -294,10 +294,10 @@ public class MainActivity extends BaseActivity
                 fab.setVisibility(View.VISIBLE);
 
                 break;
-            case R.id.item_corporation:
+            case R.id.item_campus:
                 menu.getItem(2).setChecked(true);
                 setSelect(2);
-                fab.setVisibility(View.VISIBLE);
+                fab.setVisibility(View.INVISIBLE);
 
                 break;
             case R.id.item_square:
@@ -354,13 +354,13 @@ public class MainActivity extends BaseActivity
 
                 break;
             case 2:
-                if (CorporationFragment == null)
+                if (CampusFragment == null)
                 {
-                    CorporationFragment = new CorporationFragment();
-                    transaction.add(R.id.fram_main, CorporationFragment);
+                    CampusFragment = new CampusFragment();
+                    transaction.add(R.id.fram_main, CampusFragment);
                 } else
                 {
-                    transaction.show(CorporationFragment);
+                    transaction.show(CampusFragment);
                 }
 
                 break;
@@ -397,9 +397,9 @@ public class MainActivity extends BaseActivity
         {
             transaction.hide(SquareFragment);
         }
-        if (CorporationFragment != null)
+        if (CampusFragment != null)
         {
-            transaction.hide(CorporationFragment);
+            transaction.hide(CampusFragment);
         }
         if (SceneryFragment != null)
         {
