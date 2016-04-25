@@ -5550,19 +5550,21 @@ containing a value of this type.
         public static final int tv_mz_text_two=0x7f07006d;
         public static final int tv_nick_text=0x7f07006e;
         public static final int tv_popview_test_text=0x7f07006f;
-        public static final int tv_tips=0x7f070070;
-        public static final int tv_title_text=0x7f070071;
-        public static final int tv_version_number=0x7f070072;
-        public static final int tv_version_text=0x7f070073;
-        public static final int tv_web_text=0x7f070074;
-        public static final int validator_alnum=0x7f070075;
-        public static final int validator_confirm=0x7f070076;
-        public static final int validator_email=0x7f070077;
-        public static final int validator_empty=0x7f070078;
-        public static final int validator_hex=0x7f070079;
-        public static final int validator_phone=0x7f07007a;
-        public static final int validator_regexp=0x7f07007b;
-        public static final int validator_url=0x7f07007c;
+        public static final int tv_thanks=0x7f070070;
+        public static final int tv_thanks_ui=0x7f070071;
+        public static final int tv_tips=0x7f070072;
+        public static final int tv_title_text=0x7f070073;
+        public static final int tv_version_number=0x7f070074;
+        public static final int tv_version_text=0x7f070075;
+        public static final int tv_web_text=0x7f070076;
+        public static final int validator_alnum=0x7f070077;
+        public static final int validator_confirm=0x7f070078;
+        public static final int validator_email=0x7f070079;
+        public static final int validator_empty=0x7f07007a;
+        public static final int validator_hex=0x7f07007b;
+        public static final int validator_phone=0x7f07007c;
+        public static final int validator_regexp=0x7f07007d;
+        public static final int validator_url=0x7f07007e;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f090076;

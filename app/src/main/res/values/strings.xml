@@ -59,5 +59,7 @@
     <string name="edt_campus_object">活动对象</string>
     <string name="edt_campus_type">活动类型</string>
     <string name="btn_public_text">发布</string>
+    <string name="tv_thanks">特别鸣谢</string>
+    <string name="tv_thanks_ui"><![CDATA[鸣谢-->≈ 云朵飘过的城南<--对程序UI的支持， 欢迎关注新浪微博：@磁力链接君]]></string>
 
 </resources>
