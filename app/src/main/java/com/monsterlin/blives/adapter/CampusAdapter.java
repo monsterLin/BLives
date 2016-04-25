@@ -118,6 +118,15 @@ public class CampusAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
 
+    /**
+     * 返回单个实体类对象
+     * @param position
+     * @return
+     */
+    public Campus getCampusData(int position){
+        return campusList.get(position);
+    }
+
     @Override
     public int getItemCount() {
         return  campusList.size()+1;

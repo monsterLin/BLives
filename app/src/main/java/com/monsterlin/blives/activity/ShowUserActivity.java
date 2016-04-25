@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import com.monsterlin.blives.BaseActivity;
@@ -15,7 +14,6 @@ import com.monsterlin.blives.utils.ImageLoader;
 
 import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
-import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.GetListener;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -28,7 +26,7 @@ public class ShowUserActivity extends BaseActivity {
     @InjectView(R.id.toolbar)
      Toolbar toolbar;
 
-    private BmobUser bmobUser ;
+//    private BmobUser bmobUser ;
     private String objectId;
 
     @InjectView(R.id.iv_userphoto)
@@ -40,15 +38,16 @@ public class ShowUserActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showuser_activity);
         initActivityButterKnife(this);
-        bmobUser=BmobUser.getCurrentUser(this);
+      //  bmobUser=BmobUser.getCurrentUser(this);
+        objectId=getIntent().getStringExtra("objectId");
         initView();
        initToolBar(toolbar,"个人资料",true);
         initData();
     }
 
     private void initData() {
-        if (null!=bmobUser){
-             objectId =bmobUser.getObjectId();
+        if (null!=objectId){
+            // objectId =bmobUser.getObjectId();
 
             BmobQuery<BUser> query= new BmobQuery<>();
             query.getObject(this, objectId, new GetListener<BUser>() {
@@ -77,17 +76,6 @@ public class ShowUserActivity extends BaseActivity {
     }
 
 
-    private void initToolBar() {
-            toolbar.setTitle("个人资料");
-            setSupportActionBar(toolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true); //出现返回箭头
-            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onBackPressed();
-                }
-            });
-        }
 
 
     private void initView() {

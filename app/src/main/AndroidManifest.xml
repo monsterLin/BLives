@@ -52,6 +52,7 @@
         <activity android:name=".activity.LifeActivity"/>
         <activity android:name=".activity.BImgActivity"/>
         <activity android:name=".activity.AboutActivity"/>
+        <activity android:name=".activity.CampusDetailActivity"/>
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"

@@ -297,7 +297,7 @@ public class MainActivity extends BaseActivity
             case R.id.item_campus:
                 menu.getItem(2).setChecked(true);
                 setSelect(2);
-                fab.setVisibility(View.INVISIBLE);
+                fab.setVisibility(View.GONE);
 
                 break;
             case R.id.item_square:
@@ -414,7 +414,12 @@ public class MainActivity extends BaseActivity
                 if(null ==bmobUser){
                     nextActivity(LoginActivity.class);
                 }else {
-                    nextActivity(ShowUserActivity.class);
+                   String objectId = bmobUser.getObjectId();
+                    Intent showUserIntent = new Intent(this,ShowUserActivity.class);
+                    showUserIntent.putExtra("objectId",objectId);
+//                    nextActivity(ShowUserActivity.class);
+                    startActivity(showUserIntent);
+
                 }
                 break;
         }
