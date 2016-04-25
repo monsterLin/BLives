@@ -264,7 +264,7 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.item_notification) {
-            showToast("消息");
+            showToast("功能暂无开放，敬请期待");
             return true;
         }
 

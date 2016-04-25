@@ -34,7 +34,8 @@ public class LifeDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lifedetail);
         initActivityButterKnife(this);
-        initToolBar(toolbar,"详情",true);
+        String life_name = getIntent().getStringExtra("life_name");
+        initToolBar(toolbar,life_name,true);
         initWeb();
     }
 
