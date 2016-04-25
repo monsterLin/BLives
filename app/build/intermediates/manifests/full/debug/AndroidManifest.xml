@@ -61,6 +61,7 @@
         <activity android:name="com.monsterlin.blives.activity.BImgActivity" />
         <activity android:name="com.monsterlin.blives.activity.AboutActivity" />
         <activity android:name="com.monsterlin.blives.activity.CampusDetailActivity" />
+        <activity android:name="com.monsterlin.blives.activity.NCampusActivity" />
         <activity
             android:name="com.monsterlin.blives.wxapi.WXEntryActivity"
             android:exported="true"

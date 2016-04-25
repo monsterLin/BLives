@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.monsterlin.blives.activity.NCampusActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.CampusDetailActivity;
 import com.monsterlin.blives.adapter.CampusAdapter;
@@ -27,6 +28,7 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.FindListener;
 
 /**
@@ -56,6 +58,7 @@ public class CampusFragment extends Fragment {
     FloatingActionButton fab_new ;
     View fab_me;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_campus,container,false);
@@ -76,8 +79,15 @@ public class CampusFragment extends Fragment {
         fab_new.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO 点击事件
-                showToast("新活动");
+                //TODO   数据及时刷新问题
+                //需要为带返回值的跳转，或者onResume执行数据刷新
+                BmobUser bmobUser=BmobUser.getCurrentUser(mContext);
+                if (bmobUser!=null){
+                    Intent ncampusIntent = new Intent(mContext, NCampusActivity.class);
+                    startActivity(ncampusIntent);
+                }else {
+                    showToast("登陆程序方可发布活动");
+                }
             }
         });
 
@@ -88,9 +98,9 @@ public class CampusFragment extends Fragment {
             }
         });
 
-
-
     }
+
+
 
 
     /**
@@ -254,6 +264,7 @@ public class CampusFragment extends Fragment {
         super.onAttach(activity);
         mContext=activity;
     }
+
 
 
 
