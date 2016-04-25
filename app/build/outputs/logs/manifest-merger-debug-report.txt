@@ -82,6 +82,7 @@ MERGED from [com.monsterlin:mlbasetools:1.2.0] F:\workspace-android-bymonster\BL
 MERGED from [com.android.support:appcompat-v7:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.getbase:floatingactionbutton:1.10.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.getbase\floatingactionbutton\1.10.1\AndroidManifest.xml:12:5-20
 	android:label
 		ADDED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml:20:9-41
 	android:supportsRtl
@@ -222,6 +223,7 @@ MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonst
 MERGED from [com.android.support:recyclerview-v7:22.2.0] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.0\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:22.2.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:20:5-43
 MERGED from [me.drakeet.materialdialog:library:1.2.2] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\me.drakeet.materialdialog\library\1.2.2\AndroidManifest.xml:8:5-10:41
+MERGED from [com.getbase:floatingactionbutton:1.10.1] F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.getbase\floatingactionbutton\1.10.1\AndroidManifest.xml:8:5-10:41
 	android:targetSdkVersion
 		INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml
 		INJECTED from F:\workspace-android-bymonster\BLives\app\src\main\AndroidManifest.xml

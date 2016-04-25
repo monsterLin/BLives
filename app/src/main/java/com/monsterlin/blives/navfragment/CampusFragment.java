@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.CampusDetailActivity;
 import com.monsterlin.blives.adapter.CampusAdapter;
@@ -52,6 +53,9 @@ public class CampusFragment extends Fragment {
     private int limit =10;		// 每页的数据是8条
     private int curPage = 0;		// 当前页的编号，从0开始
 
+    FloatingActionButton fab_new ;
+    View fab_me;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_campus,container,false);
@@ -65,9 +69,28 @@ public class CampusFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
         initData();
-
+        initEvent();
     }
 
+    private void initEvent() {
+        fab_new.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO 点击事件
+                showToast("新活动");
+            }
+        });
+
+        fab_me.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("我的发布");
+            }
+        });
+
+
+
+    }
 
 
     /**
@@ -130,6 +153,8 @@ public class CampusFragment extends Fragment {
 
 
     private void initView(View view) {
+        fab_new = (FloatingActionButton) view.findViewById(R.id.fab_new);
+        fab_me = view.findViewById(R.id.fab_me);
         srl = (SwipeRefreshLayout) view.findViewById(R.id.srl);
         rv_campus = (RecyclerView) view.findViewById(R.id.rv_campus);
 
@@ -217,6 +242,9 @@ public class CampusFragment extends Fragment {
 
            }
        });
+
+
+
 
     }
 

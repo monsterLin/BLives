@@ -24,4 +24,9 @@
     <color name="lightpink">#EB8A9E</color>
     <color name="ivory">#fffff0</color><!--象牙色 -->
     <color name="blue">#0000ff</color><!--蓝色 -->
+
+    <color name="fwhite">#fafafa</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="half_black">#808080</color>
+    <color name="black_semi_transparent">#B2000000</color>
 </resources>

@@ -57,6 +57,7 @@
     <color name="background_material_light">#ffeeeeee</color>
     <color name="beige">#f5f5dc</color>
     <color name="black">#000000</color>
+    <color name="black_semi_transparent">#B2000000</color>
     <color name="blue">#0000ff</color>
     <color name="borrow">#EEEEEE</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
@@ -85,6 +86,8 @@
     <color name="fab_stroke_end_outer_color">#0F000000</color>
     <color name="fab_stroke_top_inner_color">#1AFFFFFF</color>
     <color name="fab_stroke_top_outer_color">#2EFFFFFF</color>
+    <color name="fwhite">#fafafa</color>
+    <color name="half_black">#808080</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
@@ -132,6 +135,7 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="violet">#ee82ee</color>
     <color name="white">#ffffff</color>
+    <color name="white_pressed">#f1f1f1</color>
     <color name="window_background">#00000000</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
@@ -139,6 +143,7 @@
     <declare-styleable name="ActionMenuView"/>
     <declare-styleable name="ActionMode"><attr name="titleTextStyle"/><attr name="subtitleTextStyle"/><attr name="background"/><attr name="backgroundSplit"/><attr name="height"/><attr format="reference" name="closeItemLayout"/></declare-styleable>
     <declare-styleable name="ActivityChooserView"><attr format="string" name="initialActivityCount"/><attr format="reference" name="expandActivityOverflowButtonDrawable"/></declare-styleable>
+    <declare-styleable name="AddFloatingActionButton"><attr format="color" name="fab_plusIconColor"/></declare-styleable>
     <declare-styleable name="AlertDialog"><attr name="android:layout"/><attr format="reference" name="buttonPanelSideLayout"/><attr format="reference" name="listLayout"/><attr format="reference" name="multiChoiceItemLayout"/><attr format="reference" name="singleChoiceItemLayout"/><attr format="reference" name="listItemLayout"/></declare-styleable>
     <declare-styleable name="AppBarLayout"><attr name="elevation"/><attr name="android:background"/></declare-styleable>
     <declare-styleable name="AppBarLayout_LayoutParams"><attr name="layout_scrollFlags"><flag name="scroll" value="0x1"/><flag name="exitUntilCollapsed" value="0x2"/><flag name="enterAlways" value="0x4"/><flag name="enterAlwaysCollapsed" value="0x8"/></attr><attr format="reference" name="layout_scrollInterpolator"/></declare-styleable>
@@ -158,7 +163,8 @@
     <declare-styleable name="Dialog"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr format="float" name="di_dimAmount"/><attr format="color|reference" name="di_backgroundColor"/><attr format="dimension|reference" name="di_elevation"/><attr format="dimension|reference" name="di_maxElevation"/><attr format="dimension|reference" name="di_cornerRadius"/><attr format="integer" name="di_layoutDirection"><enum name="ltr" value="0"/><enum name="rtl" value="1"/><enum name="locale" value="3"/></attr><attr format="dimension|reference" name="di_maxWidth"/><attr format="dimension|reference" name="di_maxHeight"/><attr format="reference" name="di_titleTextAppearance"/><attr format="color|reference" name="di_titleTextColor"/><attr format="reference" name="di_actionBackground"/><attr format="reference" name="di_actionRipple"/><attr format="reference" name="di_actionTextAppearance"/><attr format="color|reference" name="di_actionTextColor"/><attr format="reference" name="di_positiveActionBackground"/><attr format="reference" name="di_positiveActionRipple"/><attr format="reference" name="di_positiveActionTextAppearance"/><attr format="color|reference" name="di_positiveActionTextColor"/><attr format="reference" name="di_negativeActionBackground"/><attr format="reference" name="di_negativeActionRipple"/><attr format="reference" name="di_negativeActionTextAppearance"/><attr format="color|reference" name="di_negativeActionTextColor"/><attr format="reference" name="di_neutralActionBackground"/><attr format="reference" name="di_neutralActionRipple"/><attr format="reference" name="di_neutralActionTextAppearance"/><attr format="color|reference" name="di_neutralActionTextColor"/><attr format="color|reference" name="di_dividerColor"/><attr format="dimension|reference" name="di_dividerHeight"/><attr format="reference" name="di_inAnimation"/><attr format="reference" name="di_outAnimation"/><attr format="boolean" name="di_cancelable"/><attr format="boolean" name="di_canceledOnTouchOutside"/></declare-styleable>
     <declare-styleable name="DrawerArrowToggle"><attr format="color" name="color"/><attr format="boolean" name="spinBars"/><attr format="dimension" name="drawableSize"/><attr format="dimension" name="gapBetweenBars"/><attr format="dimension" name="topBottomBarArrowSize"/><attr format="dimension" name="middleBarArrowSize"/><attr format="dimension" name="barSize"/><attr format="dimension" name="thickness"/></declare-styleable>
     <declare-styleable name="EditText"><attr format="reference" name="et_inputId"/><attr format="boolean" name="et_labelEnable"/><attr format="reference|dimension" name="et_labelPadding"/><attr format="reference|dimension" name="et_labelTextSize"/><attr format="reference|color" name="et_labelTextColor"/><attr format="reference" name="et_labelTextAppearance"/><attr format="integer" name="et_labelEllipsize"><enum name="start" value="0x00000001"/><enum name="middle" value="0x00000002"/><enum name="end" value="0x00000003"/><enum name="marquee" value="0x00000004"/></attr><attr format="reference" name="et_labelInAnim"/><attr format="reference" name="et_labelOutAnim"/><attr format="integer" name="et_supportMode"><enum name="none" value="0x00000000"/><enum name="helper" value="0x00000001"/><enum name="helperWithError" value="0x00000002"/><enum name="charCounter" value="0x00000003"/></attr><attr format="reference|integer" name="et_supportMaxChars"/><attr format="reference|string" name="et_helper"/><attr format="reference|string" name="et_error"/><attr format="reference|dimension" name="et_supportPadding"/><attr format="reference|dimension" name="et_supportTextSize"/><attr format="reference|color" name="et_supportTextColor"/><attr format="reference|color" name="et_supportTextErrorColor"/><attr format="reference" name="et_supportTextAppearance"/><attr format="boolean" name="et_supportSingleLine"/><attr format="reference|integer" name="et_supportMaxLines"/><attr format="reference|integer" name="et_supportLines"/><attr format="integer" name="et_supportEllipsize"><enum name="start" value="0x00000001"/><enum name="middle" value="0x00000002"/><enum name="end" value="0x00000003"/><enum name="marquee" value="0x00000004"/></attr><attr format="reference|color" name="et_dividerColor"/><attr format="reference|color" name="et_dividerErrorColor"/><attr format="reference|dimension" name="et_dividerHeight"/><attr format="reference|dimension" name="et_dividerPadding"/><attr format="reference|integer" name="et_dividerAnimDuration"/><attr format="boolean" name="et_dividerCompoundPadding"/><attr format="integer" name="et_autoCompleteMode"><enum name="none" value="0"/><enum name="single" value="1"/><enum name="multi" value="2"/></attr></declare-styleable>
-    <declare-styleable name="FloatingActionButton"><attr format="reference|color" name="fab_backgroundColor"/><attr format="reference|integer" name="fab_backgroundAnimDuration"/><attr format="reference|dimension" name="fab_radius"/><attr format="reference|dimension" name="fab_elevation"/><attr format="reference" name="fab_iconSrc"/><attr format="reference" name="fab_iconLineMorphing"/><attr format="reference|dimension" name="fab_iconSize"/><attr format="reference" name="fab_interpolator"/><attr format="reference|integer" name="fab_animDuration"/><attr name="android:background"/><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="rippleColor"/><attr name="fabSize"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr><attr name="elevation"/><attr format="dimension" name="pressedTranslationZ"/><attr format="dimension" name="borderWidth"/></declare-styleable>
+    <declare-styleable name="FloatingActionButton"><attr format="color" name="fab_colorPressed"/><attr format="color" name="fab_colorDisabled"/><attr format="color" name="fab_colorNormal"/><attr format="reference" name="fab_icon"/><attr format="enum" name="fab_size"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr><attr format="string" name="fab_title"/><attr format="boolean" name="fab_stroke_visible"/><attr format="reference|color" name="fab_backgroundColor"/><attr format="reference|integer" name="fab_backgroundAnimDuration"/><attr format="reference|dimension" name="fab_radius"/><attr format="reference|dimension" name="fab_elevation"/><attr format="reference" name="fab_iconSrc"/><attr format="reference" name="fab_iconLineMorphing"/><attr format="reference|dimension" name="fab_iconSize"/><attr format="reference" name="fab_interpolator"/><attr format="reference|integer" name="fab_animDuration"/><attr name="android:background"/><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="rippleColor"/><attr name="fabSize"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr><attr name="elevation"/><attr format="dimension" name="pressedTranslationZ"/><attr format="dimension" name="borderWidth"/></declare-styleable>
+    <declare-styleable name="FloatingActionsMenu"><attr format="color" name="fab_addButtonColorPressed"/><attr format="color" name="fab_addButtonColorNormal"/><attr format="enum" name="fab_addButtonSize"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr><attr format="color" name="fab_addButtonPlusIconColor"/><attr format="boolean" name="fab_addButtonStrokeVisible"/><attr format="reference" name="fab_labelStyle"/><attr format="enum" name="fab_labelsPosition"><enum name="left" value="0"/><enum name="right" value="1"/></attr><attr format="enum" name="fab_expandDirection"><enum name="up" value="0"/><enum name="down" value="1"/><enum name="left" value="2"/><enum name="right" value="3"/></attr></declare-styleable>
     <declare-styleable name="LineMorphingDrawable"><attr format="reference" name="lmd_state"/><attr format="integer" name="lmd_curState"/><attr format="reference|dimension" name="lmd_padding"/><attr format="reference|dimension" name="lmd_paddingLeft"/><attr format="reference|dimension" name="lmd_paddingTop"/><attr format="reference|dimension" name="lmd_paddingRight"/><attr format="reference|dimension" name="lmd_paddingBottom"/><attr format="reference|integer" name="lmd_animDuration"/><attr format="reference" name="lmd_interpolator"/><attr format="reference|dimension" name="lmd_strokeSize"/><attr format="reference|color" name="lmd_strokeColor"/><attr format="integer" name="lmd_strokeCap"><enum name="butt" value="0x00000000"/><enum name="round" value="0x00000001"/><enum name="square" value="0x00000002"/></attr><attr format="integer" name="lmd_strokeJoin"><enum name="miter" value="0x00000000"/><enum name="round" value="0x00000001"/><enum name="bevel" value="0x00000002"/></attr><attr format="boolean" name="lmd_clockwise"/><attr format="integer" name="lmd_layoutDirection"><enum name="ltr" value="0x00000000"/><enum name="rtl" value="0x00000001"/><enum name="locale" value="0x00000003"/></attr></declare-styleable>
     <declare-styleable name="LinearLayoutCompat"><attr name="android:orientation"/><attr name="android:gravity"/><attr name="android:baselineAligned"/><attr name="android:baselineAlignedChildIndex"/><attr name="android:weightSum"/><attr format="boolean" name="measureWithLargestChild"/><attr name="divider"/><attr name="showDividers"><flag name="none" value="0"/><flag name="beginning" value="1"/><flag name="middle" value="2"/><flag name="end" value="4"/></attr><attr format="dimension" name="dividerPadding"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat_Layout"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_weight"/><attr name="android:layout_gravity"/></declare-styleable>
@@ -280,12 +286,20 @@
     <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
+    <dimen name="fab_actions_spacing">16dp</dimen>
     <dimen name="fab_border_width">0.5dp</dimen>
     <dimen name="fab_content_size">24dp</dimen>
     <dimen name="fab_elevation">8dp</dimen>
+    <dimen name="fab_icon_size">24dp</dimen>
+    <dimen name="fab_labels_margin">8dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_plus_icon_size">14dp</dimen>
+    <dimen name="fab_plus_icon_stroke">2dp</dimen>
+    <dimen name="fab_shadow_offset">3dp</dimen>
+    <dimen name="fab_shadow_radius">9dp</dimen>
     <dimen name="fab_size_mini">40dp</dimen>
     <dimen name="fab_size_normal">56dp</dimen>
+    <dimen name="fab_stroke_width">1dp</dimen>
     <dimen name="fab_translation_z_pressed">6dp</dimen>
     <dimen name="floating_label_text_size">12sp</dimen>
     <dimen name="inner_components_spacing">8dp</dimen>
@@ -322,6 +336,8 @@
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
+    <item name="fab_expand_menu_button" type="id"/>
+    <item name="fab_label" type="id"/>
     <item name="home" type="id"/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
     <item name="progress_circular" type="id"/>
@@ -2311,5 +2327,9 @@
     <style name="Widget.Design.TextInputLayout" parent="android:Widget">
         <item name="hintTextAppearance">@style/TextAppearance.Design.Hint</item>
         <item name="errorTextAppearance">@style/TextAppearance.Design.Error</item>
+    </style>
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>
