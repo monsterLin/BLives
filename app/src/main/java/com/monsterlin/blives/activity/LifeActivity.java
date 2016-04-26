@@ -70,18 +70,18 @@ public class LifeActivity extends BaseActivity{
     private void initData() {
         mList=new ArrayList<>();
         mList.add(new Life(R.mipmap.ic_launcher,"滨州学院","http://www.bzu.edu.cn/"));
-        mList.add(new Life(R.mipmap.ic_launcher,"微信首页","http://weixin.bzu.edu.cn/html/xxgk/index.htm"));
-        mList.add(new Life(R.mipmap.ic_launcher,"通知公告","http://weixin.bzu.edu.cn/wp/?cat=10"));
-        mList.add(new Life(R.mipmap.ic_launcher,"四六级","http://weixin.bzu.edu.cn/html/cet"));
-        mList.add(new Life(R.mipmap.ic_launcher,"一卡通","http://m.xzxyun.com/download/main"));
-        mList.add(new Life(R.mipmap.ic_launcher,"招生就业","http://weixin.bzu.edu.cn/wp/?cat=11"));
-        mList.add(new Life(R.mipmap.ic_launcher,"借阅","http://10.9.10.3/dzjs/login_form.asp"));
-        mList.add(new Life(R.mipmap.ic_launcher,"校园风光","http://weixin.bzu.edu.cn/wp/?cat=12"));
-        mList.add(new Life(R.mipmap.ic_launcher,"院系传真","http://weixin.bzu.edu.cn/wp/?cat=13"));
-        mList.add(new Life(R.mipmap.ic_launcher,"留言板","http://weixin.bzu.edu.cn/wp/?page_id=52"));
-        mList.add(new Life(R.mipmap.ic_launcher,"师生风采","http://weixin.bzu.edu.cn/wp/?cat=14"));
-        mList.add(new Life(R.mipmap.ic_launcher,"互动话题","http://weixin.bzu.edu.cn/wp/?cat=17"));
-        mList.add(new Life(R.mipmap.ic_launcher,"关于","file:///android_asset/web/showwx.html"));
+        mList.add(new Life(R.drawable.ic_campus_wx,"微信首页","http://weixin.bzu.edu.cn/html/xxgk/index.htm"));
+        mList.add(new Life(R.drawable.ic_campus_inform,"通知公告","http://weixin.bzu.edu.cn/wp/?cat=10"));
+        mList.add(new Life(R.drawable.ic_campus_cet,"四六级","http://weixin.bzu.edu.cn/html/cet"));
+        mList.add(new Life(R.drawable.ic_campus_onekey,"一卡通","http://m.xzxyun.com/download/main"));
+        mList.add(new Life(R.drawable.ic_campus_jobs,"招生就业","http://weixin.bzu.edu.cn/wp/?cat=11"));
+        mList.add(new Life(R.drawable.ic_campus_borrow,"借阅","http://10.9.10.3/dzjs/login_form.asp"));
+        mList.add(new Life(R.drawable.ic_campus_sight,"校园风光","http://weixin.bzu.edu.cn/wp/?cat=12"));
+        mList.add(new Life(R.drawable.ic_campus_cz,"院系传真","http://weixin.bzu.edu.cn/wp/?cat=13"));
+        mList.add(new Life(R.drawable.ic_campus_board,"留言板","http://weixin.bzu.edu.cn/wp/?page_id=52"));
+        mList.add(new Life(R.drawable.ic_campus_ts,"师生风采","http://weixin.bzu.edu.cn/wp/?cat=14"));
+        mList.add(new Life(R.drawable.ic_campus_topics,"互动话题","http://weixin.bzu.edu.cn/wp/?cat=17"));
+        mList.add(new Life(R.drawable.ic_campus_about,"关于","file:///android_asset/web/showwx.html"));
     }
 
 
