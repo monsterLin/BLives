@@ -31,6 +31,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.MarkPoint;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
@@ -54,7 +55,7 @@ public class SquareFragment extends Fragment {
     private LocationClient locationClient=null;
     private static final int UPDATE_TIME=15000;  //更新频率
 
-
+private List<MarkPoint> markPoints = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_square,container,false);
@@ -95,7 +96,7 @@ public class SquareFragment extends Fragment {
 
                 String AddStr  =location.getAddrStr();  //详细地址
 
-                showToast("纬度："+Latitude+"\n"+"精度："+Longitude+"\n"+"详细地址："+AddStr);
+                //showToast("纬度："+Latitude+"\n"+"精度："+Longitude+"\n"+"详细地址："+AddStr);
 //
 //                LatLng locationLbs = new LatLng(Latitude,Longitude);
 //
@@ -107,9 +108,12 @@ public class SquareFragment extends Fragment {
 //                        .title(city);
 //
 //                map.addOverlay(option);
-
-
-
+               // LatLng latLng = new LatLng(mList.get(0).getLat(), mList.get(0).getLng());
+                LatLng latLng = new LatLng(Latitude, Longitude);
+                MapStatus status = new MapStatus.Builder().zoom(18.0f).target(latLng).build();
+                MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newMapStatus(status);
+                map.animateMapStatus(mapStatusUpdate);
+                initMarker();
            }
         });
     }
@@ -154,6 +158,8 @@ public class SquareFragment extends Fragment {
             @Override
             public void onSuccess(List<MarkPoint> list) {
                 if (null!=list){
+                    markPoints.clear();
+                    markPoints.addAll(list);
                     initMap(list);
                 }
 
@@ -175,7 +181,7 @@ public class SquareFragment extends Fragment {
         /**
          * 设置地图的中心点
          */
-        LatLng latLng = new LatLng(37.391485,117.991591) ; //地理坐标基本数据结构  -->纬度/经度
+        LatLng latLng = new LatLng(37.391485,117.991591) ; //地 理坐标基本数据结构  -->纬度/经度
         final MapStatus mapStatus =new MapStatus.Builder()
                 .target(latLng)  //中心点
                 .zoom(17) //缩放级别
@@ -189,24 +195,7 @@ public class SquareFragment extends Fragment {
         /**
          * 设置地图的Mark点
          */
-        for (int i =0;i<list.size();i++){
-            MarkPoint markPoint =list.get(i);
-            String latitude = markPoint.getLatitude();
-            String longitude = markPoint.getLongitude();
-            String plcae =markPoint.getPlace();
-            //String introbuce =markPoint.getIntrobuce();
-
-            LatLng libraryPoint = new LatLng(Double.parseDouble(latitude),Double.parseDouble(longitude));
-            BitmapDescriptor bitmap = BitmapDescriptorFactory
-                    .fromResource(R.drawable.ic_mark);
-            OverlayOptions option = new MarkerOptions()
-                    .position(libraryPoint)
-                    .icon(bitmap)
-                    .title(plcae);
-
-            map.addOverlay(option);
-
-        }
+      initMarker();
 
         /**----------------------------------Mark点的点击事件--------------------------------------**/
 
@@ -240,14 +229,16 @@ public class SquareFragment extends Fragment {
                     markers = marker;
                     map.showInfoWindow(infoWindow);
                 } else {
-                    if (markers.equals(marker)) {
-                        map.hideInfoWindow();
-                        markers = null;
-                    } else {
-                        map.hideInfoWindow();
-                        map.showInfoWindow(infoWindow);
-                        markers = marker;
-                    }
+//                    if (markers.equals(marker)) {
+//                        map.hideInfoWindow();
+//                        markers = null;
+//                    } else {
+//                        map.hideInfoWindow();
+//                        map.showInfoWindow(infoWindow);
+//                        markers = marker;
+//                    }
+                    map.showInfoWindow(infoWindow);
+                    markers = marker;
                 }
 
                 return true;
@@ -270,6 +261,29 @@ public class SquareFragment extends Fragment {
                 return false;
             }
         });
+    }
+
+    private void initMarker() {
+        map.clear();
+        List<OverlayOptions> list = new ArrayList<>();
+        for (int i =0;i<markPoints.size();i++){
+            MarkPoint markPoint =markPoints.get(i);
+            String latitude = markPoint.getLatitude();
+            String longitude = markPoint.getLongitude();
+            String plcae =markPoint.getPlace();
+            //String introbuce =markPoint.getIntrobuce();
+
+            LatLng libraryPoint = new LatLng(Double.parseDouble(latitude),Double.parseDouble(longitude));
+            BitmapDescriptor bitmap = BitmapDescriptorFactory
+                    .fromResource(R.drawable.ic_mark);
+            OverlayOptions option = new MarkerOptions()
+                    .position(libraryPoint)
+                    .icon(bitmap)
+                    .title(plcae);
+
+        list.add(option);
+        }
+        map.addOverlays(list);
     }
 
 
