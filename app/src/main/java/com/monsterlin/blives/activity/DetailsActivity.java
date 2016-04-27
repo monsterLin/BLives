@@ -155,7 +155,7 @@ public class DetailsActivity extends BaseActivity{
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
 
         tv_content.setText(content);
-        tv_date.setText(date);
+        tv_date.setText(stringFormate(date));
 
         if (informImg!=null){
             iv_img.setTag(informImg.getFileUrl(this));
@@ -165,6 +165,17 @@ public class DetailsActivity extends BaseActivity{
             iv_img.setVisibility(View.INVISIBLE);
         }
 
+    }
+
+    /**
+     * 格式化时间
+     * @param date
+     * @return
+     */
+    private String stringFormate (String date){
+        String dateString;
+        dateString = date.substring(0,10);
+        return dateString ;
     }
 
 
