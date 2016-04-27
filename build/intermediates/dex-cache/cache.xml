@@ -1,3 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\libs\butterknife-6.1.0.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\butterknife-6.1.0_ad1b00f93a0f9f6872e6d9b0b3fbca590c90d7a3.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="99989ca1ef094322e5995e87df1f2314c3c9c0b2">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_c9fbcc36ada5745faac4091e3ca907652dd723fe.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-22.2.1_2d38bff59544ef6ab22327847594b878cb36b4fd.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\me.drakeet.materialdialog\library\1.2.2\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="8646b1e69dd5d923d8866dc4311859f0fbca456c">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\me.drakeet.materialdialog-library-1.2.2_dde68a9c139951a751c7f70b15b505bf754c2b45.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.getbase\floatingactionbutton\1.10.1\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="f40cf334cdc8b098b74312e21c7741c6eefbeb0e">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\com.getbase-floatingactionbutton-1.10.1_bc078eeaf40b14174291dc6abae4d260286f982c.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.monsterlin\mlbasetools\1.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="1babf6139f19017d2468aafe965871d34e2da288">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\com.monsterlin-mlbasetools-1.2.0_ed517e21936eb6cafbf2e05900dad601f1355985.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="5b37cf49773f7f17aca9830efd3053b0cac56728">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-22.2.0_0f887932f51a2888ecd60943819728cb2540ebda.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.github.rey5137\material\1.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="0040be6592cbfbb19a2c1e90a759278795ed2280">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\com.github.rey5137-material-1.2.1_90052df4cddf4631268c7161cf9165a531e217e3.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\de.hdodenhof-circleimageview-1.3.0_63b868b20d4c852c85a54ab1a8e953caf1cc60ce.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\libs\libammsdk.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="c1f63f70671d69ee38379728e1192db82e289246">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\libammsdk_1b57ee9ea3959d61355e55add23683296be51d25.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="54f8a05fc670e254f8ff68e10a74a675dc231497">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\instant-run_bd6bc68e39cb97a3cb7018ea7e539276267db3d0.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\libs\Volley.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="2dd908289a096a92b5f266cefb6c1bda32762cef">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\Volley_81993b446156932ee98d9eaf95199f992114c127.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\cn.bmob.android\bmob-sdk\3.4.5\44e559d18fd5a4826b0a4c0354308213e4f658a2\bmob-sdk-3.4.5.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="44e559d18fd5a4826b0a4c0354308213e4f658a2">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\bmob-sdk-3.4.5_f8460ac30a4820dc717be90c1808efd7e8de599e.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-22.2.1_2925a38941352366b58210da7b5a502dde041136.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.balysv\material-ripple\1.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="c733e9d1b065d940a08f2fca0ff920dfc08d94cc">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\com.balysv-material-ripple-1.0.2_e3a76821c766c4a687170d6876845cdf022593cb.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1_6f078955c709d2cddbbdbf7893aa4c4bd159befe.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="97f7e239e86ef994de894818fdd8a71d2e89d6aa">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-22.2.0_1fc3bb189a46fa8500bfdf63e12f247a05d63c5e.jar" />
+    </item>
+    <item
+        jar="G:\Users\monster\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1_f84bf69664d36b20d1da0e7f8083c8eeed8941d2.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\libs\jsoup-1.8.3.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="3a86e137575e4a45f5a9eec407f8135512e823a2">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\jsoup-1.8.3_f180b3447af4dfb2d3229cadc1d37899211ec508.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.rengwuxian.materialedittext\library\2.1.4\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="288913b440a3c61c30aa171095453a605432277a">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\com.rengwuxian.materialedittext-library-2.1.4_a9f590056ffc9d0d9748f8e18bbf278c16201cc4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\library-2.4.0_dd460f45d27a359687729c3c169358b1eda3100b.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.pnikosis\materialish-progress\1.7\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="41a4edf3c43fdbce6eba27da50b17ff9933987f1">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\com.pnikosis-materialish-progress-1.7_e1e922028cff41b8e83f027d2a281c739bbb4e9f.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\libs\BaiduLBS_Android.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="95a1969738d6f75acc2b6c1478abfc3421a314e9">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\BaiduLBS_Android_cbdc0515952ec5f26f51d3c5248b685babaa6b17.jar" />
+    </item>
+    <item
+        jar="F:\workspace-android-bymonster\BLives\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="F:\workspace-android-bymonster\BLives\app\build\intermediates\pre-dexed\debug\com.android.support-design-22.2.0_8970ba0459c17491309ac22ad114fc2818f1bb68.jar" />
+    </item>
+
+</items>

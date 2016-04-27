@@ -38,7 +38,7 @@
 
 
 ## 下载试用
-  - [点我下载]()
+  - [点我下载](http://binzhouuniversity.github.io/app/app-release.encrypted_signed_Aligned.apk)
 
 ## 截图欣赏
   ![](showimg/app_show_01.jpg)
