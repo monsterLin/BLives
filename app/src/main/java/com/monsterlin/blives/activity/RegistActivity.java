@@ -123,6 +123,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
         edt_name= (EditText) findViewById(R.id.edt_name);
 
         //TODO  系院为选取，不应该输入
+        edt_nick= (EditText) findViewById(R.id.edt_nick);
         edt_depart= (EditText) findViewById(R.id.edt_depart);
         edt_tel= (EditText) findViewById(R.id.edt_tel);
         btn_regist= (Button) findViewById(R.id.btn_regist);

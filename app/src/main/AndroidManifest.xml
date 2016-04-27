@@ -42,6 +42,7 @@
 
 
         <activity android:name=".MainActivity"/>
+        <activity android:name=".activity.MCampusActivity"/>
         <activity android:name=".activity.LifeDetailActivity"/>
         <activity android:name=".activity.LoginActivity"/>
         <activity android:name=".activity.RegistActivity"/>

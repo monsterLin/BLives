@@ -154,7 +154,7 @@ public class SquareFragment extends Fragment {
          */
         map.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
             @Override
-            public boolean onMarkerClick(Marker marker) {
+            public boolean onMarkerClick(final Marker marker) {
 
                 LatLng libraryPoint =marker.getPosition();
 
@@ -168,7 +168,7 @@ public class SquareFragment extends Fragment {
                 InfoWindow infoWindow = new InfoWindow(BitmapDescriptorFactory.fromView(popView), libraryPoint, -70, new InfoWindow.OnInfoWindowClickListener() {
                     @Override
                     public void onInfoWindowClick() {
-                        Toast.makeText(mContext,"弹出框被点击",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext,marker.getTitle(),Toast.LENGTH_SHORT).show();
                     }
                 });
 

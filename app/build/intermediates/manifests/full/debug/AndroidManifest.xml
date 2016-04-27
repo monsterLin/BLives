@@ -48,6 +48,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.monsterlin.blives.MainActivity" />
+        <activity android:name="com.monsterlin.blives.activity.MCampusActivity" />
         <activity android:name="com.monsterlin.blives.activity.LifeDetailActivity" />
         <activity android:name="com.monsterlin.blives.activity.LoginActivity" />
         <activity android:name="com.monsterlin.blives.activity.RegistActivity" />

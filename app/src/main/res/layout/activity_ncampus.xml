@@ -86,6 +86,13 @@
         android:hint="@string/edt_campus_type"/>
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:text="★：活动发布后不可删除和修改，请认真填写，如需更改，请联系管理员"/>
     <Button
         android:id="@+id/btn_public"
         android:layout_width="match_parent"

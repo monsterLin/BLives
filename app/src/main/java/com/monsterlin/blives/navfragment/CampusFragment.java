@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.monsterlin.blives.activity.MCampusActivity;
 import com.monsterlin.blives.activity.NCampusActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.CampusDetailActivity;
@@ -55,7 +56,10 @@ public class CampusFragment extends Fragment {
     private int limit =10;		// 每页的数据是8条
     private int curPage = 0;		// 当前页的编号，从0开始
 
+    @InjectView(R.id.fab_new)
     FloatingActionButton fab_new ;
+
+    @InjectView(R.id.fab_me)
     View fab_me;
 
 
@@ -94,7 +98,13 @@ public class CampusFragment extends Fragment {
         fab_me.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("我的发布");
+                BmobUser bmobUser=BmobUser.getCurrentUser(mContext);
+                if (bmobUser!=null){
+                    Intent mcampusIntent = new Intent(mContext, MCampusActivity.class);
+                    startActivity(mcampusIntent);
+                }else {
+                    showToast("登陆程序方可查询发布");
+                }
             }
         });
 
@@ -163,11 +173,6 @@ public class CampusFragment extends Fragment {
 
 
     private void initView(View view) {
-        fab_new = (FloatingActionButton) view.findViewById(R.id.fab_new);
-        fab_me = view.findViewById(R.id.fab_me);
-        srl = (SwipeRefreshLayout) view.findViewById(R.id.srl);
-        rv_campus = (RecyclerView) view.findViewById(R.id.rv_campus);
-
 
         srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -270,5 +275,12 @@ public class CampusFragment extends Fragment {
 
     public void showToast(String s){
         Toast.makeText(mContext,""+s,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.e("RESUME","RESUME..................");
+
     }
 }
