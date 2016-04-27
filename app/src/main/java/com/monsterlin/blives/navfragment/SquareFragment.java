@@ -31,7 +31,6 @@ import com.baidu.mapapi.model.LatLng;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.MarkPoint;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
@@ -55,7 +54,8 @@ public class SquareFragment extends Fragment {
     private LocationClient locationClient=null;
     private static final int UPDATE_TIME=15000;  //更新频率
 
-private List<MarkPoint> markPoints = new ArrayList<>();
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_square,container,false);
@@ -96,7 +96,8 @@ private List<MarkPoint> markPoints = new ArrayList<>();
 
                 String AddStr  =location.getAddrStr();  //详细地址
 
-                //showToast("纬度："+Latitude+"\n"+"精度："+Longitude+"\n"+"详细地址："+AddStr);
+               // showToast("纬度："+Latitude+"\n"+"精度："+Longitude+"\n"+"详细地址："+AddStr);
+                showToast("你当前位置："+AddStr);
 //
 //                LatLng locationLbs = new LatLng(Latitude,Longitude);
 //
@@ -108,13 +109,24 @@ private List<MarkPoint> markPoints = new ArrayList<>();
 //                        .title(city);
 //
 //                map.addOverlay(option);
-               // LatLng latLng = new LatLng(mList.get(0).getLat(), mList.get(0).getLng());
-                LatLng latLng = new LatLng(Latitude, Longitude);
-                MapStatus status = new MapStatus.Builder().zoom(18.0f).target(latLng).build();
+                LatLng locationLbs = new LatLng(Latitude,Longitude);
+                //设置地图默认展开缩放大小为18
+                MapStatus status = new MapStatus.Builder().zoom(18.0f).target(locationLbs).build();
                 MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newMapStatus(status);
+
+                BitmapDescriptor bitmap = BitmapDescriptorFactory
+                        .fromResource(R.drawable.location_arrows);
+                OverlayOptions option = new MarkerOptions()
+                        .position(locationLbs)
+                        .icon(bitmap)
+                        .title(AddStr);
+
+                map.addOverlay(option);
+
                 map.animateMapStatus(mapStatusUpdate);
-                initMarker();
-           }
+
+
+            }
         });
     }
 
@@ -123,7 +135,7 @@ private List<MarkPoint> markPoints = new ArrayList<>();
         btn_lbs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                   // showToast("定位");
+                // showToast("定位");
                 if(locationClient==null){
                     return;
                 }if(locationClient.isStarted()){
@@ -158,8 +170,6 @@ private List<MarkPoint> markPoints = new ArrayList<>();
             @Override
             public void onSuccess(List<MarkPoint> list) {
                 if (null!=list){
-                    markPoints.clear();
-                    markPoints.addAll(list);
                     initMap(list);
                 }
 
@@ -181,7 +191,7 @@ private List<MarkPoint> markPoints = new ArrayList<>();
         /**
          * 设置地图的中心点
          */
-        LatLng latLng = new LatLng(37.391485,117.991591) ; //地 理坐标基本数据结构  -->纬度/经度
+        LatLng latLng = new LatLng(37.391485,117.991591) ; //地理坐标基本数据结构  -->纬度/经度
         final MapStatus mapStatus =new MapStatus.Builder()
                 .target(latLng)  //中心点
                 .zoom(17) //缩放级别
@@ -195,7 +205,24 @@ private List<MarkPoint> markPoints = new ArrayList<>();
         /**
          * 设置地图的Mark点
          */
-      initMarker();
+        for (int i =0;i<list.size();i++){
+            MarkPoint markPoint =list.get(i);
+            String latitude = markPoint.getLatitude();
+            String longitude = markPoint.getLongitude();
+            String plcae =markPoint.getPlace();
+            //String introbuce =markPoint.getIntrobuce();
+
+            LatLng libraryPoint = new LatLng(Double.parseDouble(latitude),Double.parseDouble(longitude));
+            BitmapDescriptor bitmap = BitmapDescriptorFactory
+                    .fromResource(R.drawable.ic_mark);
+            OverlayOptions option = new MarkerOptions()
+                    .position(libraryPoint)
+                    .icon(bitmap)
+                    .title(plcae);
+
+            map.addOverlay(option);
+
+        }
 
         /**----------------------------------Mark点的点击事件--------------------------------------**/
 
@@ -229,16 +256,14 @@ private List<MarkPoint> markPoints = new ArrayList<>();
                     markers = marker;
                     map.showInfoWindow(infoWindow);
                 } else {
-//                    if (markers.equals(marker)) {
-//                        map.hideInfoWindow();
-//                        markers = null;
-//                    } else {
-//                        map.hideInfoWindow();
-//                        map.showInfoWindow(infoWindow);
-//                        markers = marker;
-//                    }
-                    map.showInfoWindow(infoWindow);
-                    markers = marker;
+                    if (markers.equals(marker)) {
+                        map.hideInfoWindow();
+                        markers = null;
+                    } else {
+                        map.hideInfoWindow();
+                        map.showInfoWindow(infoWindow);
+                        markers = marker;
+                    }
                 }
 
                 return true;
@@ -261,29 +286,6 @@ private List<MarkPoint> markPoints = new ArrayList<>();
                 return false;
             }
         });
-    }
-
-    private void initMarker() {
-        map.clear();
-        List<OverlayOptions> list = new ArrayList<>();
-        for (int i =0;i<markPoints.size();i++){
-            MarkPoint markPoint =markPoints.get(i);
-            String latitude = markPoint.getLatitude();
-            String longitude = markPoint.getLongitude();
-            String plcae =markPoint.getPlace();
-            //String introbuce =markPoint.getIntrobuce();
-
-            LatLng libraryPoint = new LatLng(Double.parseDouble(latitude),Double.parseDouble(longitude));
-            BitmapDescriptor bitmap = BitmapDescriptorFactory
-                    .fromResource(R.drawable.ic_mark);
-            OverlayOptions option = new MarkerOptions()
-                    .position(libraryPoint)
-                    .icon(bitmap)
-                    .title(plcae);
-
-        list.add(option);
-        }
-        map.addOverlays(list);
     }
 
 
