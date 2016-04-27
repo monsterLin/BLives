@@ -1,5 +1,6 @@
 package com.monsterlin.blives.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -63,7 +64,7 @@ public class NCampusActivity extends BaseActivity {
                     typeString=edt_type.getText().toString();
 
 
-                    Campus campus=new Campus();
+                    final Campus campus=new Campus();
                     campus.setTitle(titleString);
                     campus.setContent(contentString);
                     campus.setCampusDate(dateString);
@@ -78,6 +79,13 @@ public class NCampusActivity extends BaseActivity {
                         @Override
                         public void onSuccess() {
                             showToast("发布成功");
+
+                            /**发送广播**/
+                            Intent intent = new Intent();
+                            intent.setAction("com.monster.broadcast");
+                            intent.putExtra("newcampus",campus);
+                            sendBroadcast(intent);
+
                             finish();
                         }
 

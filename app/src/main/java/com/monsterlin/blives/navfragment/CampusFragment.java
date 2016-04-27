@@ -1,8 +1,10 @@
 package com.monsterlin.blives.navfragment;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -16,10 +18,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
-import com.monsterlin.blives.activity.MCampusActivity;
-import com.monsterlin.blives.activity.NCampusActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.CampusDetailActivity;
+import com.monsterlin.blives.activity.MCampusActivity;
+import com.monsterlin.blives.activity.NCampusActivity;
 import com.monsterlin.blives.adapter.CampusAdapter;
 import com.monsterlin.blives.entity.Campus;
 
@@ -62,7 +64,7 @@ public class CampusFragment extends Fragment {
     @InjectView(R.id.fab_me)
     View fab_me;
 
-
+private MyReceiver myReceiver = null;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_campus,container,false);
@@ -74,6 +76,13 @@ public class CampusFragment extends Fragment {
     @Override
     public void onViewCreated(View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        /**
+         * 创建广播
+         */
+        myReceiver = new MyReceiver();
+        getActivity().registerReceiver(myReceiver,new IntentFilter("com.monster.broadcast"));
+
         initView(view);
         initData();
         initEvent();
@@ -109,7 +118,6 @@ public class CampusFragment extends Fragment {
         });
 
     }
-
 
 
 
@@ -277,10 +285,22 @@ public class CampusFragment extends Fragment {
         Toast.makeText(mContext,""+s,Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.e("RESUME","RESUME..................");
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(myReceiver!= null)
+            getActivity().unregisterReceiver(myReceiver);
+    }
+
+    public class MyReceiver  extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Bundle bundle =intent.getExtras();
+            Campus campus = (Campus) bundle.get("newcampus");
+            mList.add(0,campus);
+          //  adapter.notifyItemInserted(0);
+            adapter.notifyDataSetChanged();
+        }
     }
 }
