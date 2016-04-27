@@ -60,6 +60,7 @@
     <string name="edt_campus_type">活动类型</string>
     <string name="btn_public_text">发布</string>
     <string name="tv_thanks">特别鸣谢</string>
-    <string name="tv_thanks_ui"><![CDATA[鸣谢-->≈ 云朵飘过的城南<--对程序UI的支持， 欢迎关注新浪微博：@磁力链接君]]></string>
+    <string name="tv_thanks_ui">UI支持：@磁力链接君(weibo)     ||       @柠木 ⚜</string>
+    <string name="tv_thanks_code">技术支持：@蓝默      ||      @全世界Coder</string>
 
 </resources>
