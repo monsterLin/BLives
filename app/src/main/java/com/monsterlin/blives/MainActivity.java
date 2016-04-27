@@ -182,9 +182,9 @@ public class MainActivity extends BaseActivity
                 }
             });
         }else {
-            tv_nick.setText("滨州学院");
-            tv_depart.setText("信息工程系");
-           iv_userphoto.setImageResource(R.drawable.ic_bzu);
+            tv_nick.setText("点击头像登陆");
+            tv_depart.setText("");
+            iv_userphoto.setImageResource(R.drawable.ic_bzu);
         }
          //   drawer.closeDrawer(GravityCompat.START);
     }

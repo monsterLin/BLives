@@ -129,24 +129,29 @@ public class FeedBackActivity extends BaseActivity {
         if (TextUtils.isEmpty(email)||TextUtils.isEmpty(feedContent)){
             showToast("请正确填写信息");
         }else {
-            FeedBack feedBack = new FeedBack();
-            feedBack.setDevice(deviceType);
-            feedBack.setIMEI(IMEI);
-            feedBack.setEmail(email);
-            feedBack.setFeedContent(feedContent);
+            if (email.matches("[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?")){
+                FeedBack feedBack = new FeedBack();
+                feedBack.setDevice(deviceType);
+                feedBack.setIMEI(IMEI);
+                feedBack.setEmail(email);
+                feedBack.setFeedContent(feedContent);
 
-            feedBack.save(this, new SaveListener() {
-                @Override
-                public void onSuccess() {
-                    showToast("谢谢你的反馈");
-                    finish();
-                }
+                feedBack.save(this, new SaveListener() {
+                    @Override
+                    public void onSuccess() {
+                        showToast("谢谢你的反馈");
+                        finish();
+                    }
 
-                @Override
-                public void onFailure(int i, String s) {
-                    showToast("提交反馈发生异常："+s);
-                }
-            });
+                    @Override
+                    public void onFailure(int i, String s) {
+                        showToast("提交反馈发生异常："+s);
+                    }
+                });
+            }else {
+                showToast("邮箱格式错误");
+            }
+
         }
     }
 

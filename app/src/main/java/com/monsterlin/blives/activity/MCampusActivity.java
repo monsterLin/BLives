@@ -134,7 +134,7 @@ public class MCampusActivity extends BaseActivity{
                         initData();
                         srl.setRefreshing(false);
                     }
-                }, 2000);
+                }, 1500);
 
             }
         });

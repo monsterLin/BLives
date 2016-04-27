@@ -193,7 +193,7 @@ private MyReceiver myReceiver = null;
                         initData();
                         srl.setRefreshing(false);
                     }
-                }, 2000);
+                }, 1500);
 
             }
         });

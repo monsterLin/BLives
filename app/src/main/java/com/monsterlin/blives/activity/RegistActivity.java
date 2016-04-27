@@ -15,6 +15,7 @@ import android.widget.EditText;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.BUser;
+import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.io.File;
 
@@ -58,6 +59,10 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
 
 
     private String mailString , passString ,nameString ,departString,telString ,nickString ;
+
+    @InjectView(R.id.progress_wheel)
+    ProgressWheel progressWheel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,6 +141,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                 Boolean isOK=form.validate(); //得到验证结果
                 if(isOK){
                     //验证成功
+                    progressWheel.setVisibility(View.VISIBLE);
                    mailString =edt_mail.getText().toString();
                    passString =edt_pass.getText().toString();
                    nameString =edt_name.getText().toString();
@@ -144,20 +150,28 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                    telString =edt_tel.getText().toString();
 
                     if(mCurrentPhotoStr==null){
+                        progressWheel.setVisibility(View.GONE);
                         showToast("头像未选取");
                     }else {
-                        final BmobFile file=new BmobFile(new File(mCurrentPhotoStr));//将图片路径转为BmobFile
-                        file.upload(RegistActivity.this, new UploadFileListener() {
-                            @Override
-                            public void onSuccess() {
-                                upData(file);
-                            }
+                        if (passString.matches("^(?![\\d]+$)(?![a-zA-Z]+$)(?![^\\da-zA-Z]+$).{6,20}$\n")){
+                            final BmobFile file=new BmobFile(new File(mCurrentPhotoStr));//将图片路径转为BmobFile
+                            file.upload(RegistActivity.this, new UploadFileListener() {
+                                @Override
+                                public void onSuccess() {
+                                    upData(file);
+                                }
 
-                            @Override
-                            public void onFailure(int i, String s) {
-                                showToast("头像上传失败："+s);
-                            }
-                        });
+                                @Override
+                                public void onFailure(int i, String s) {
+                                    progressWheel.setVisibility(View.GONE);
+                                    showToast("头像上传失败："+s);
+                                }
+                            });
+                        }else {
+                            progressWheel.setVisibility(View.GONE);
+                            showToast("密码不规范");
+                        }
+
 
                     }
 
@@ -188,12 +202,14 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
         bUser.signUp(RegistActivity.this, new SaveListener() {
             @Override
             public void onSuccess() {
+                progressWheel.setVisibility(View.GONE);
                 showToast("注册成功，验证邮件已发送到你的邮箱，请注意查收");
                 finish();
             }
 
             @Override
             public void onFailure(int i, String s) {
+                progressWheel.setVisibility(View.GONE);
                 showToast("发生异常："+s);
             }
         });

@@ -13,6 +13,7 @@ import android.widget.EditText;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.BUser;
+import com.pnikosis.materialishprogress.ProgressWheel;
 
 import butterknife.InjectView;
 import cn.bmob.v3.BmobUser;
@@ -42,6 +43,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
 
     private String mailString , passString ;
+
+    @InjectView(R.id.progress_wheel)
+    ProgressWheel progressWheel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,12 +80,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
      * 用户登录
      */
     private void login() {
+        progressWheel.setVisibility(View.VISIBLE);
         mailString=edt_mail.getText().toString();
         passString=edt_pass.getText().toString();
 
         //TODO 必须要求用户进行邮箱验证，否则无法登陆
 
         if(TextUtils.isEmpty(mailString)&&TextUtils.isEmpty(passString)){
+            progressWheel.setVisibility(View.GONE);
             showToast("邮箱或密码未填写");
         }else {
             //邮箱进行正则表达式匹配
@@ -93,8 +99,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         if(bUser!=null){
                             if (bUser.getEmailVerified()){
                                 showToast("登录成功");
+                                progressWheel.setVisibility(View.GONE);
                                 finish();
                             }else {
+                                progressWheel.setVisibility(View.GONE);
                                 showToast("请登录你的邮箱进行邮箱验证");
                             }
 

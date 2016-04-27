@@ -52,7 +52,7 @@ public class SquareFragment extends Fragment {
     private Button btn_lbs;
 
     private LocationClient locationClient=null;
-    private static final int UPDATE_TIME=15000;  //更新频率
+   // private static final int UPDATE_TIME=15000;  //更新频率
 
 
 
@@ -80,7 +80,7 @@ public class SquareFragment extends Fragment {
         LocationClientOption option = new LocationClientOption();
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);//设置高精度定位定位模式
         option.setCoorType("bd09ll");//设置百度经纬度坐标系格式
-        option.setScanSpan(UPDATE_TIME);//设置发起定位请求的间隔时间为1000ms
+        //option.setScanSpan(UPDATE_TIME);//设置发起定位请求的间隔时间为1000ms
         option.setIsNeedAddress(true);//反编译获得具体位置，只有网络定位才可以
         locationClient.setLocOption(option);  //讲option的初始化信息添加到客户端
 

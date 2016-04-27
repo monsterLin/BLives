@@ -39,6 +39,7 @@
     <string name="tv_popview_test_text">测试</string>
 
 
+
     <string name="tv_about_author_text">关于作者</string>
     <string name="tv_version_number">1.0</string>
     <string name="tv_about_me_text">https://github.com/monsterLin</string>
@@ -62,5 +63,7 @@
     <string name="tv_thanks">特别鸣谢</string>
     <string name="tv_thanks_ui">UI支持：@磁力链接君(weibo)     ||       @柠木 ⚜</string>
     <string name="tv_thanks_code">技术支持：@蓝默      ||      @全世界Coder</string>
+    <string name="tv_nick_tip_text">点击头像登陆</string>
+    <string name="tv_pass_tips">提示：密码长度需为6-20个字符，区分大小写，至少包含两种类型</string>
 
 </resources>
