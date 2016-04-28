@@ -463,7 +463,7 @@
     <string name="tv_mz_text_two">Power by BLives</string>
     <string name="tv_nick_text">滨州学院</string>
     <string name="tv_nick_tip_text">点击头像登陆</string>
-    <string name="tv_pass_tips">提示：密码长度需为6-20个字符，区分大小写，至少包含两种类型</string>
+    <string name="tv_pass_tips">提示：密码长度需大于6位，且不能为汉字</string>
     <string name="tv_popview_test_text">测试</string>
     <string name="tv_thanks">特别鸣谢</string>
     <string name="tv_thanks_code">技术支持：@蓝默      ||      @全世界Coder</string>

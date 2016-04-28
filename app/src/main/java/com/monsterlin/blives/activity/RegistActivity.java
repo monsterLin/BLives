@@ -153,7 +153,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                         progressWheel.setVisibility(View.GONE);
                         showToast("头像未选取");
                     }else {
-                        if (passString.matches("^(?![\\d]+$)(?![a-zA-Z]+$)(?![^\\da-zA-Z]+$).{6,20}$\n")){
+                        if (!containsChinese(passString)&&passString.length()>6){
                             final BmobFile file=new BmobFile(new File(mCurrentPhotoStr));//将图片路径转为BmobFile
                             file.upload(RegistActivity.this, new UploadFileListener() {
                                 @Override
@@ -186,6 +186,30 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                 startActivityForResult(intent, PICK_CODE);
                 break;
         }
+    }
+
+    public static boolean containsChinese(String s){
+        if (null == s || "".equals(s.trim())) return false;
+        for (int i = 0; i < s.length(); i++) {
+            if (isChinese(s.charAt(i)))
+                return true;
+        }
+        return false;
+    }
+
+    // 根据Unicode编码完美的判断中文汉字和符号
+    private static boolean isChinese(char c) {
+        Character.UnicodeBlock ub = Character.UnicodeBlock.of(c);
+        if (ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS
+                || ub == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS
+                || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A
+                || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B
+                || ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION
+                || ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS
+                || ub == Character.UnicodeBlock.GENERAL_PUNCTUATION) {
+            return true;
+        }
+        return false;
     }
 
     private void upData(BmobFile file) {
