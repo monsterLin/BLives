@@ -17,7 +17,8 @@
 
 
 ## 版本
- - `1.0`
+ - `1.1 beta 2016-04-29 更新`
+ - `1.0 2016-04-28 更新 ` 
 
 ## 技术
  - 程序采用了material design设计风格，在设计上注重用户交互性(不断完善)
@@ -36,9 +37,6 @@
   - @磁力链接君(weibo)
   - @柠木
 
-
-## 下载试用
-  - [点我下载](http://binzhouuniversity.github.io/app/app-release.encrypted_signed_Aligned.apk)
 
 ## 截图欣赏
   ![](showimg/app_show_01.jpg)
