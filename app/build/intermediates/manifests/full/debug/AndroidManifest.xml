@@ -30,6 +30,9 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="1gxNcmK2hlY6INyQNxpdGGSodXMGqIIp" />
+        <meta-data
+            android:name="BUG_HD_SDK_GENERAL_KEY"
+            android:value="2ccb36c7d8e8271bd74478f94485c9ff" />
 
         <service
             android:name="com.baidu.location.f"

@@ -48,4 +48,5 @@ dependencies {
     compile 'com.monsterlin:mlbasetools:1.2.0'
     compile 'me.drakeet.materialdialog:library:1.2.2'
     compile 'com.getbase:floatingactionbutton:1.10.1'
+    compile 'im.fir:fir-sdk:latest.integration@aar'
 }

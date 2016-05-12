@@ -26,6 +26,10 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="1gxNcmK2hlY6INyQNxpdGGSodXMGqIIp" />
 
+        <meta-data
+            android:value="2ccb36c7d8e8271bd74478f94485c9ff" android:name="BUG_HD_SDK_GENERAL_KEY" />
+
+
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
 
         </service>
