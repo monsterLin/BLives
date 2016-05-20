@@ -14,6 +14,7 @@
 
 ## 程序主页
 - [http://fir.im/s9zh](http://fir.im/s9zh)
+- [http://www.wandoujia.com/apps/com.monsterlin.blives](http://www.wandoujia.com/apps/com.monsterlin.blives)
 
 
 ## 版本
