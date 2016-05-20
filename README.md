@@ -1,5 +1,5 @@
 # BLives
-> 历时两个多月，Blives程序1.0诞生
+> 历时数月 , BLives正式诞生
 > 
 > 虽然程序存在bug，存在不足，但是我也在认真的在修复，在更新，在完善
 > 
@@ -13,7 +13,7 @@
 - 程序版本1.0，在随后的日子里，小编会继续对程序予以完善，版本更新
 
 ## 程序主页
-- [http://binzhouuniversity.github.io](http://binzhouuniversity.github.io/)
+- [http://fir.im/s9zh](http://fir.im/s9zh)
 
 
 ## 版本
