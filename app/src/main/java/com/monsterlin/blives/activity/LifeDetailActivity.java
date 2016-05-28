@@ -11,6 +11,7 @@ import android.webkit.WebViewClient;
 
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
+import com.monsterlin.blives.widget.ProgressWebView;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import butterknife.InjectView;
@@ -21,13 +22,12 @@ import butterknife.InjectView;
 public class LifeDetailActivity extends BaseActivity {
 
     @InjectView(R.id.wv_detail)
-    WebView webView ;
+    ProgressWebView webView ;
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
 
-    @InjectView(R.id.progress_wheel)
-    ProgressWheel progressWheel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,37 +42,8 @@ public class LifeDetailActivity extends BaseActivity {
     private void initWeb() {
         String appUrl = getIntent().getStringExtra("app_url");
 
+        webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(appUrl);
-
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-
-        webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);  //优先使用缓存
-
-//        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-
-        webView.setWebViewClient(new WebViewClient(){
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                //返回值是true的时候控制去WebView打开，为false调用系统浏览器或第三方浏览器
-                view.loadUrl(url);
-                return true;
-            }
-        });
-
-        webView.setWebChromeClient(new WebChromeClient() {
-            @Override
-            public void onProgressChanged(WebView view, int newProgress) {
-                if (newProgress == 100) {
-                    // 网页加载完成
-                progressWheel.setVisibility(View.GONE);
-                } else {
-                    // 加载中
-                progressWheel.setVisibility(View.VISIBLE);
-                }
-
-            }
-        });
 
     }
 

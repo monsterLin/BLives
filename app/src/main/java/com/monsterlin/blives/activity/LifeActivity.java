@@ -10,6 +10,8 @@ import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.adapter.LifeAdapter;
 import com.monsterlin.blives.entity.Life;
+import com.monsterlin.mlbasetools.recyclerview.CommonAdapter;
+import com.monsterlin.mlbasetools.viewholder.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +64,7 @@ public class LifeActivity extends BaseActivity{
             }
         });
     }
+
 
     /**
      * TODO 最初版本数据为固定状态
