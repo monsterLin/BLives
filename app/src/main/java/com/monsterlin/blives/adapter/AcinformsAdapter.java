@@ -104,11 +104,11 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
             }else {
-                ((ItemViewHolder) holder).iv_show_img.setImageResource(R.drawable.ic_nopic);
+                ((ItemViewHolder) holder).iv_show_img.setImageResource(R.drawable.ic_news_default);
             }
 
             ((ItemViewHolder) holder).tv_title.setText(cutText(acinformsList.get(position).getTitle()));
-            ((ItemViewHolder) holder).tv_content.setText(cutText(acinformsList.get(position).getContent()));
+            ((ItemViewHolder) holder).tv_content.setText(acinformsList.get(position).getContent());
 
               ((ItemViewHolder) holder).tv_date.setText(stringFormate(acinformsList.get(position).getInformdate().getDate()));
 
@@ -159,8 +159,8 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
      */
     private String cutText(String allText) {
         int length = allText.length();
-        if(length>=11){
-            String text = allText.substring(0,10)+"....";
+        if(length>=15){
+            String text = allText.substring(0,14)+"....";
             return text;
         }else {
             return  allText;

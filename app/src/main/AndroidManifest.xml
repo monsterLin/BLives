@@ -14,6 +14,12 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
+
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -52,8 +58,17 @@
         <activity android:name=".activity.LifeDetailActivity"/>
         <activity android:name=".activity.LoginActivity"/>
         <activity android:name=".activity.RegistActivity"/>
-        <activity android:name=".activity.DetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".activity.DetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar"  >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
         <activity android:name=".activity.FeedBackActivity"/>
         <activity android:name=".activity.ResetActivity"/>
         <activity android:name=".activity.ShowUserActivity"/>

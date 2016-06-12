@@ -19,6 +19,10 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <application
         android:name="com.monsterlin.blives.application.BApplication"
@@ -58,7 +62,13 @@
         <activity android:name="com.monsterlin.blives.activity.RegistActivity" />
         <activity
             android:name="com.monsterlin.blives.activity.DetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.monsterlin.blives.activity.FeedBackActivity" />
         <activity android:name="com.monsterlin.blives.activity.ResetActivity" />
         <activity android:name="com.monsterlin.blives.activity.ShowUserActivity" />

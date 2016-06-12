@@ -1,5 +1,6 @@
 package com.monsterlin.blives.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -59,7 +60,7 @@ public class DetailsActivity extends BaseActivity{
     private Offnews offnews; //教务信息
     private Jobnews jobnews; //就业新闻
 
-    private IWXAPI wxApi;
+    private String newsInfo ;
 
 
     @Override
@@ -67,10 +68,6 @@ public class DetailsActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         initActivityButterKnife(this);
-        //实例化
-        wxApi = WXAPIFactory.createWXAPI(this, KEY.APPID);
-        wxApi.registerApp(KEY.APPID);
-
         initToolBar();
         initData();
         initEvent();
@@ -83,38 +80,13 @@ public class DetailsActivity extends BaseActivity{
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                wechatShare(1);
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, newsInfo);
+                startActivity(Intent.createChooser(shareIntent, "分享"));
             }
         });
     }
-
-    /**
-     * 微信分享标签
-     * @param flag
-     */
-    private void wechatShare(int flag) {
-        WXWebpageObject webpage = new WXWebpageObject();
-        WXMediaMessage msg = new WXMediaMessage(webpage);
-        msg.mediaObject = new WXImageObject(generate()); //在微信信息中添加图片
-
-        SendMessageToWX.Req req = new SendMessageToWX.Req();
-        req.transaction = String.valueOf(System.currentTimeMillis());
-        req.message = msg;
-        req.scene = flag == 0 ? SendMessageToWX.Req.WXSceneSession : SendMessageToWX.Req.WXSceneTimeline;
-        wxApi.sendReq(req);
-    }
-
-    /**
-     * 调用系统自带的截图功能
-     * @return
-     */
-    private Bitmap generate() {
-        View view = getWindow().getDecorView();
-        view.setDrawingCacheEnabled(true);
-        view.buildDrawingCache();
-        return view.getDrawingCache();
-    }
-
 
     /**
      * 初始化数据源
@@ -125,18 +97,22 @@ public class DetailsActivity extends BaseActivity{
             case DetailType.SchoolNews:
                  schoolNews = (SchoolNews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");  //得到上一级传来的数据
                 initDetail(schoolNews.getTitle(),schoolNews.getContent(),schoolNews.getNewsdate().getDate(),schoolNews.getNewsimg());
+                newsInfo=""+schoolNews.getTitle()+"\n"+schoolNews.getContent()+"\n";
                 break;
             case DetailType.Acinforms:
                 acinforms= (Acinforms) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
                 initDetail(acinforms.getTitle(),acinforms.getContent(),acinforms.getInformdate().getDate(),acinforms.getInformimg());
+                newsInfo=""+acinforms.getTitle()+"\n"+acinforms.getContent()+"\n";
                 break;
             case DetailType.Offnews:
                 offnews= (Offnews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
                 initDetail(offnews.getTitle(),offnews.getContent(),offnews.getNewsdate().getDate(),offnews.getNewsimg());
+                newsInfo=""+offnews.getTitle()+"\n"+offnews.getContent()+"\n";
                 break;
             case DetailType.Jobnews:
                 jobnews= (Jobnews) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
                 initDetail(jobnews.getTitle(),jobnews.getContent(),jobnews.getNewsdate().getDate(),jobnews.getNewsimg());
+                newsInfo=""+jobnews.getTitle()+"\n"+jobnews.getContent()+"\n";
                 break;
         }
     }

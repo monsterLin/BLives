@@ -93,11 +93,11 @@ public class JobnewsAdapter   extends RecyclerView.Adapter<RecyclerView.ViewHold
                 imgFile.loadImage(mContext,((ItemViewHolder) holder).iv_show_img);
 
             }else {
-                ((ItemViewHolder) holder).iv_show_img.setImageResource(R.drawable.ic_nopic);
+                ((ItemViewHolder) holder).iv_show_img.setImageResource(R.drawable.ic_news_default);
             }
 
             ((ItemViewHolder) holder).tv_title.setText(cutText(newsList.get(position).getTitle()));
-            ((ItemViewHolder) holder).tv_content.setText(cutText(newsList.get(position).getContent()));
+            ((ItemViewHolder) holder).tv_content.setText(newsList.get(position).getContent());
             ((ItemViewHolder) holder).tv_date.setText(stringFormate(newsList.get(position).getNewsdate().getDate()));
 
 

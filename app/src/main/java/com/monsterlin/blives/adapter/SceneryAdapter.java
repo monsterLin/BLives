@@ -150,9 +150,6 @@ public class SceneryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
 
 
-
-
-
     static class ItemViewHolder extends RecyclerView.ViewHolder {
 
         ImageView iv_img ;

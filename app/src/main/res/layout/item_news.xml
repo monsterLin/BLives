@@ -23,10 +23,12 @@
     <TextView
         android:id="@+id/tv_title"
         android:layout_toRightOf="@id/iv_show_img"
+        android:layout_toLeftOf="@id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textSize="14sp"
+        android:layout_marginRight="10dp"
         android:textColor="@color/black"
         android:text="@string/test_tv_title_text"/>
 
@@ -37,9 +39,10 @@
         android:textSize="12sp"
         android:textColor="@color/black"
         android:layout_marginTop="12dp"
+        android:layout_marginRight="15dp"
         android:layout_alignBottom="@id/iv_show_img"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignLeft="@id/tv_title"
         android:text="@string/test_tv_content_text"/>
 

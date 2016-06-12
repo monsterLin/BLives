@@ -101,11 +101,11 @@ public class SchoolNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 BmobFile imgFile = newsList.get(position).getNewsimg();
                 imgFile.loadImage(mContext,((ItemViewHolder) holder).iv_show_img);
             }else {
-                ((ItemViewHolder) holder).iv_show_img.setImageResource(R.drawable.ic_nopic);
+                ((ItemViewHolder) holder).iv_show_img.setImageResource(R.drawable.ic_news_default);
             }
 
             ((ItemViewHolder) holder).tv_title.setText(cutText(newsList.get(position).getTitle()));
-            ((ItemViewHolder) holder).tv_content.setText(cutText(newsList.get(position).getContent()));
+            ((ItemViewHolder) holder).tv_content.setText(newsList.get(position).getContent());
             ((ItemViewHolder) holder).tv_date.setText(stringFormate(newsList.get(position).getNewsdate().getDate()));
 
 
@@ -155,8 +155,8 @@ public class SchoolNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
      */
     private String cutText(String allText) {
         int length = allText.length();
-        if(length>=11){
-            String text = allText.substring(0,10)+"....";
+        if(length>=15){
+            String text = allText.substring(0,14)+"....";
             return text;
         }else {
             return  allText;

@@ -447,6 +447,7 @@
     <string name="iv_show_img_text">暂无缩略图</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="send_to">分享</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="test_tv_content_text">今天天气真好，风和日丽，鸟语花香.....</string>
     <string name="test_tv_date_text">2016-02-27</string>
@@ -458,6 +459,7 @@
     <string name="tv_label_email">邮箱</string>
     <string name="tv_label_name">姓名</string>
     <string name="tv_label_tel">手机号</string>
+    <string name="tv_load_campus_detail">加载中...</string>
     <string name="tv_main_web_text">项目主页</string>
     <string name="tv_mz_text_one">Copyright @ 2015 BLives All Rights Reserved</string>
     <string name="tv_mz_text_two">Power by BLives</string>
