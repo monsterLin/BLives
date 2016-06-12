@@ -96,15 +96,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 BmobUser.loginByAccount(LoginActivity.this, mailString, passString, new LogInListener<BUser>() {
                     @Override
                     public void done(BUser bUser, BmobException e) {
-                        if(bUser!=null){
-                            if (bUser.getEmailVerified()){
+
+                            if (bUser!=null){
+
                                 showToast("登录成功");
                                 progressWheel.setVisibility(View.GONE);
                                 finish();
-                            }else {
-                                progressWheel.setVisibility(View.GONE);
-                                showToast("请登录你的邮箱进行邮箱验证");
-                            }
 
                         }else {
                             showToast("邮箱或者密码不正确");
