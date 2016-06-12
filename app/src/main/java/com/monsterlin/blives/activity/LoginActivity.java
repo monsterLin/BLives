@@ -105,6 +105,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                         }else {
                             showToast("邮箱或者密码不正确");
+                                progressWheel.setVisibility(View.GONE);
                         }
                     }
                 });
