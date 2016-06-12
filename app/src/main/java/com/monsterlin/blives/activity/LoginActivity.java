@@ -36,7 +36,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     EditText  edt_pass ;
 
     @InjectView(R.id.btn_regist)
-     Button btn_regist ;
+    Button btn_regist ;
 
     @InjectView(R.id. btn_login)
     Button  btn_login;
@@ -97,15 +97,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     @Override
                     public void done(BUser bUser, BmobException e) {
 
-                            if (bUser!=null){
+                        if (bUser!=null){
 
-                                showToast("登录成功");
-                                progressWheel.setVisibility(View.GONE);
-                                finish();
+                            showToast("登录成功");
+                            progressWheel.setVisibility(View.GONE);
+                            finish();
 
                         }else {
                             showToast("邮箱或者密码不正确");
-                                progressWheel.setVisibility(View.GONE);
+                            progressWheel.setVisibility(View.GONE);
                         }
                     }
                 });
