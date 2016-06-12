@@ -71,6 +71,7 @@ public class MCampusActivity extends BaseActivity{
         query= new BmobQuery<Campus>();
         query.order("-updatedAt");
         query.setLimit(limit);
+        query.addWhereEqualTo("bUser",BmobUser.getCurrentUser(this).getObjectId());
         query.include("bUser");
         query.setSkip(curPage*limit);
         curPage++;
