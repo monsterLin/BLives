@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@color/borrow"
+    android:background="#f1f1f1"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -51,7 +51,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:padding="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="1dp"
+        android:background="@color/white"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -59,6 +62,7 @@
             android:layout_marginLeft="10dp"
             android:textSize="15sp"
             android:textColor="@color/black"
+            android:padding="5dp"
             android:text="@string/tv_label_name"/>
         <TextView
             android:id="@+id/tv_name"
@@ -66,25 +70,23 @@
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:textColor="@color/black"
+            android:padding="5dp"
             android:layout_marginLeft="35dp"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0.8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/drivide_shape"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:layout_marginBottom="1dp"
+        android:background="@color/white"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:textColor="@color/black"
+            android:padding="5dp"
             android:textSize="15sp"
             android:text="@string/tv_label_email"/>
         <TextView
@@ -92,27 +94,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
+            android:padding="5dp"
             android:textColor="@color/black"
             android:layout_marginLeft="35dp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0.8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/drivide_shape"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@color/white"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:textSize="15sp"
+            android:padding="5dp"
             android:textColor="@color/black"
             android:text="@string/tv_label_tel"/>
         <TextView
@@ -120,15 +119,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
+            android:padding="5dp"
             android:textColor="@color/black"
             android:layout_marginLeft="20dp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0.8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/drivide_shape"/>
 
 </LinearLayout>
