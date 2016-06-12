@@ -60,7 +60,7 @@
         android:id="@+id/iv_img"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_feedback_img"
+        android:src="@drawable/ic_feedback_img_other"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:clickable="true"
