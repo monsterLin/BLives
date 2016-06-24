@@ -66,15 +66,10 @@ public class AcinformsAdapter extends CommonAdapter<Acinforms> {
 
     }
 
-    /**
-     * 得到单个实体类对象
-     * @param position
-     * @return  Acinforms
-     */
+
     public Acinforms getAcinform(int position){
         return newsList.get(position);
     }
-
 
 
 }
