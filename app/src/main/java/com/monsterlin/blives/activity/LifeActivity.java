@@ -16,6 +16,7 @@ import com.monsterlin.mlbasetools.viewholder.ViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
@@ -30,7 +31,6 @@ public class LifeActivity extends BaseActivity{
     @InjectView(R.id.rv_life)
     RecyclerView rv_life ;
 
-
     private LifeAdapter adapter;
     private List<Life> mList ;
 
@@ -38,7 +38,7 @@ public class LifeActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_life);
-        initActivityButterKnife(this);
+        ButterKnife.inject(this);
         initToolBar(toolbar,"生活应用",true);
         initData();
         initAdapter();

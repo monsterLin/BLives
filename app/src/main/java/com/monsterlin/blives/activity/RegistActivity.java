@@ -1,5 +1,6 @@
 package com.monsterlin.blives.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -15,15 +16,16 @@ import android.widget.EditText;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.BUser;
-import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.io.File;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UploadFileListener;
 import de.hdodenhof.circleimageview.CircleImageView;
+import dmax.dialog.SpotsDialog;
 import monster.org.validator.validator.Form;
 import monster.org.validator.validator.Validate;
 import monster.org.validator.validator.validator.EmailValidator;
@@ -44,31 +46,31 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
     Toolbar toolbar;
 
     @InjectView(R.id.iv_userphoto)
-     CircleImageView iv_userphoto;
+    CircleImageView iv_userphoto;
 
     private EditText edt_mail ,edt_pass ,edt_name ,edt_depart , edt_tel,edt_nick;
 
     @InjectView(R.id.btn_regist)
-     Button btn_regist;
+    Button btn_regist;
 
     private static final int PICK_CODE = 1; //请求码
     private String mCurrentPhotoStr;  //当前图片的路径  --->上传图片所用到的数据
     private Bitmap mPhotoImg;
 
-     Form form = new Form();//用于实现表单的验证
+    Form form = new Form();//用于实现表单的验证
 
 
     private String mailString , passString ,nameString ,departString,telString ,nickString ;
 
-    @InjectView(R.id.progress_wheel)
-    ProgressWheel progressWheel;
 
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist);
-        initActivityButterKnife(this);
+        dialog=new SpotsDialog(this);
+        ButterKnife.inject(this);
         initView();
         initToolBar(toolbar,"注册",true);
         initEvent();
@@ -141,16 +143,16 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                 Boolean isOK=form.validate(); //得到验证结果
                 if(isOK){
                     //验证成功
-                    progressWheel.setVisibility(View.VISIBLE);
-                   mailString =edt_mail.getText().toString();
-                   passString =edt_pass.getText().toString();
-                   nameString =edt_name.getText().toString();
-                   nickString =edt_nick.getText().toString();
-                   departString =edt_depart.getText().toString();
-                   telString =edt_tel.getText().toString();
+                    dialog.show();
+                    mailString =edt_mail.getText().toString();
+                    passString =edt_pass.getText().toString();
+                    nameString =edt_name.getText().toString();
+                    nickString =edt_nick.getText().toString();
+                    departString =edt_depart.getText().toString();
+                    telString =edt_tel.getText().toString();
 
                     if(mCurrentPhotoStr==null){
-                        progressWheel.setVisibility(View.GONE);
+                        dialog.dismiss();
                         showToast("头像未选取");
                     }else {
                         if (!containsChinese(passString)&&passString.length()>6){
@@ -163,12 +165,12 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
 
                                 @Override
                                 public void onFailure(int i, String s) {
-                                    progressWheel.setVisibility(View.GONE);
+                                    dialog.dismiss();
                                     showToast("头像上传失败："+s);
                                 }
                             });
                         }else {
-                            progressWheel.setVisibility(View.GONE);
+                            dialog.dismiss();
                             showToast("密码不规范");
                         }
 
@@ -177,7 +179,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
 
                 }else {
                     //验证失败
-                   showToast("请正确填写信息");
+                    showToast("请正确填写信息");
                 }
                 break;
             case R.id.iv_userphoto:
@@ -226,14 +228,14 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
         bUser.signUp(RegistActivity.this, new SaveListener() {
             @Override
             public void onSuccess() {
-                progressWheel.setVisibility(View.GONE);
+               dialog.dismiss();
                 showToast("注册成功，验证邮件已发送到你的邮箱，请注意查收");
                 finish();
             }
 
             @Override
             public void onFailure(int i, String s) {
-                progressWheel.setVisibility(View.GONE);
+              dialog.dismiss();
                 showToast("发生异常："+s);
             }
         });
@@ -255,7 +257,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
 
                 residePhoto();  //压缩照片
 
-              iv_userphoto.setImageBitmap(mPhotoImg);
+                iv_userphoto.setImageBitmap(mPhotoImg);
 
             }
         }

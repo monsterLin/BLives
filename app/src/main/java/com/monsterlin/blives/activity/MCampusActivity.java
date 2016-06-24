@@ -18,6 +18,7 @@ import com.monsterlin.blives.entity.Campus;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
@@ -55,7 +56,7 @@ public class MCampusActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mcampus);
         objectId= BmobUser.getCurrentUser(this).getObjectId();
-        initActivityButterKnife(this);
+        ButterKnife.inject(this);
         initToolBar(toolbar,"我的发布",true);
         initView();
         initData();

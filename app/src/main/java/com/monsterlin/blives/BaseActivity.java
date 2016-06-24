@@ -1,6 +1,7 @@
 package com.monsterlin.blives;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import com.monsterlin.blives.utils.ToastUtils;
 import butterknife.ButterKnife;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobInstallation;
+import dmax.dialog.SpotsDialog;
 
 /**
  * 封装公共方法
@@ -37,24 +39,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * 使用ButterKnife初始化Activity
-     * @param activity
-     */
-    public void initActivityButterKnife(Activity activity){
-        ButterKnife.inject(activity);
-    }
-
-
-    /**
-     * 使用ButterKnife初始化Fragment
-     * @param target
-     * @param source
-     */
-    public void initFragButterKnife(Object target, View source){
-        ButterKnife.inject(target,source);
-    }
-
 
     /**
      * 显示Toast
@@ -70,7 +54,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public void nextActivity(Class cls) {
         nextActivity(cls, null);
-
     }
 
     /**

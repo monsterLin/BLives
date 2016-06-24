@@ -27,6 +27,7 @@ import com.tencent.mm.sdk.openapi.WXImageObject;
 import com.tencent.mm.sdk.openapi.WXMediaMessage;
 import com.tencent.mm.sdk.openapi.WXWebpageObject;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.datatype.BmobFile;
 
@@ -67,7 +68,7 @@ public class DetailsActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-        initActivityButterKnife(this);
+        ButterKnife.inject(this);
         initToolBar();
         initData();
         initEvent();

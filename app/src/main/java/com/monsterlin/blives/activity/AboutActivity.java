@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
@@ -27,7 +28,7 @@ public class AboutActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        initActivityButterKnife(this);
+        ButterKnife.inject(this);
         initToolBar(toolbar,"关于",true);
         versionName=getAppInfo();
         tv_versionName.setText(versionName);

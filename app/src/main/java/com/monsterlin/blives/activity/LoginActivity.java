@@ -1,5 +1,6 @@
 package com.monsterlin.blives.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,12 +14,13 @@ import android.widget.EditText;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.BUser;
-import com.pnikosis.materialishprogress.ProgressWheel;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
+import dmax.dialog.SpotsDialog;
 
 /**
  * 登陆界面
@@ -44,14 +46,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     private String mailString , passString ;
 
-    @InjectView(R.id.progress_wheel)
-    ProgressWheel progressWheel;
+
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        initActivityButterKnife(this);
+        dialog=new SpotsDialog(this);
+        ButterKnife.inject(this);
         initToolBar(toolbar,"登陆",true);
         initEvent();
     }
@@ -80,14 +83,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
      * 用户登录
      */
     private void login() {
-        progressWheel.setVisibility(View.VISIBLE);
+        dialog.show();
         mailString=edt_mail.getText().toString();
         passString=edt_pass.getText().toString();
 
         //TODO 必须要求用户进行邮箱验证，否则无法登陆
 
         if(TextUtils.isEmpty(mailString)&&TextUtils.isEmpty(passString)){
-            progressWheel.setVisibility(View.GONE);
+            dialog.dismiss();
             showToast("邮箱或密码未填写");
         }else {
             //邮箱进行正则表达式匹配
@@ -100,12 +103,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         if (bUser!=null){
 
                             showToast("登录成功");
-                            progressWheel.setVisibility(View.GONE);
+                            dialog.dismiss();
                             finish();
 
                         }else {
                             showToast("邮箱或者密码不正确");
-                            progressWheel.setVisibility(View.GONE);
+                            dialog.dismiss();
                         }
                     }
                 });
@@ -136,4 +139,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+
 }

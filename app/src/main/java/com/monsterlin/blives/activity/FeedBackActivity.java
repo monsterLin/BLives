@@ -15,6 +15,7 @@ import com.monsterlin.blives.entity.BUser;
 import com.monsterlin.blives.entity.FeedBack;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
@@ -60,7 +61,7 @@ public class FeedBackActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
-        initActivityButterKnife(this);
+        ButterKnife.inject(this);
         bd = new Build();
         tm = (TelephonyManager) getSystemService(this.TELEPHONY_SERVICE);
         initToolBar(toolbar,"用户反馈",true);

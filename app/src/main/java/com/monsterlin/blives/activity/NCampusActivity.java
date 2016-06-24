@@ -12,6 +12,7 @@ import com.monsterlin.blives.entity.BUser;
 import com.monsterlin.blives.entity.Campus;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
@@ -42,7 +43,7 @@ public class NCampusActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ncampus);
-        initActivityButterKnife(this);
+        ButterKnife.inject(this);
         initToolBar(toolbar,"发布新活动",true);
         initView();
         initForm();

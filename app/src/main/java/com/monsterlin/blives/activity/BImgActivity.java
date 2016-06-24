@@ -8,6 +8,7 @@ import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.utils.ImageLoader;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
@@ -27,7 +28,7 @@ public class BImgActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bimg);
-        initActivityButterKnife(this);
+        ButterKnife.inject(this);
         initToolBar(toolbar,"浏览",true);
 
         String imgUrl = getIntent().getStringExtra("imgUrl");

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.ResetPasswordByEmailListener;
@@ -33,7 +34,7 @@ public class ResetActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset);
-        initActivityButterKnife(this);
+        ButterKnife.inject(this);
         initToolBar(toolbar,"找回密码",true);
         initEvent();
     }

@@ -29,6 +29,7 @@ import com.monsterlin.blives.navfragment.SquareFragment;
 import com.monsterlin.blives.utils.CheckNetWork;
 import com.monsterlin.blives.utils.ImageLoader;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
@@ -108,7 +109,7 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initActivityButterKnife(this);  //初始化注解框架
+        ButterKnife.inject(this);
         initToolBar(mToolBar,"BLives",false);  //初始化ToolBar
         checkNet();
 

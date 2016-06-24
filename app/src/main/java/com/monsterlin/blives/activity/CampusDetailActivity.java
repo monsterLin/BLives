@@ -11,6 +11,7 @@ import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.Campus;
 import com.monsterlin.blives.utils.ImageLoader;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.GetListener;
@@ -60,7 +61,7 @@ public class CampusDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailcampus);
-        initActivityButterKnife(this);
+        ButterKnife.inject(this);
         objectId = getIntent().getStringExtra("objectId");
         userObjectId=getIntent().getStringExtra("userObjectId");
         query=new BmobQuery<>();

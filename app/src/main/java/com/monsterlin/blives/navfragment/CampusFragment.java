@@ -46,7 +46,7 @@ public class CampusFragment extends Fragment {
     RecyclerView rv_campus;
 
     @InjectView(R.id.srl)
-     SwipeRefreshLayout srl ;
+    SwipeRefreshLayout srl ;
 
 
     BmobQuery<Campus> query ;
@@ -64,7 +64,7 @@ public class CampusFragment extends Fragment {
     @InjectView(R.id.fab_me)
     View fab_me;
 
-private MyReceiver myReceiver = null;
+    private MyReceiver myReceiver = null;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_campus,container,false);
@@ -246,29 +246,25 @@ private MyReceiver myReceiver = null;
         });
 
 
-       adapter.setOnItemClickListener(new CampusAdapter.OnItemClickListener() {
-           @Override
-           public void OnItemClick(int position, View view) {
-               Campus campus =adapter.getCampusData(position);
-              String objectId = campus.getObjectId();
-               String userObjectId = campus.getbUser().getObjectId();
-               Intent campusIntent =  new Intent(mContext, CampusDetailActivity.class);
-               campusIntent.putExtra("objectId",objectId);
-               campusIntent.putExtra("userObjectId",userObjectId);
-               startActivity(campusIntent);
+        adapter.setOnItemClickListener(new CampusAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position, View view) {
+                Campus campus =adapter.getCampusData(position);
+                String objectId = campus.getObjectId();
+                String userObjectId = campus.getbUser().getObjectId();
+                Intent campusIntent =  new Intent(mContext, CampusDetailActivity.class);
+                campusIntent.putExtra("objectId",objectId);
+                campusIntent.putExtra("userObjectId",userObjectId);
+                startActivity(campusIntent);
 
 
-           }
+            }
 
-           @Override
-           public void OnItemLongClick(int position, View view) {
+            @Override
+            public void OnItemLongClick(int position, View view) {
 
-           }
-       });
-
-
-
-
+            }
+        });
     }
 
 
@@ -277,8 +273,6 @@ private MyReceiver myReceiver = null;
         super.onAttach(activity);
         mContext=activity;
     }
-
-
 
 
     public void showToast(String s){
@@ -299,7 +293,7 @@ private MyReceiver myReceiver = null;
             Bundle bundle =intent.getExtras();
             Campus campus = (Campus) bundle.get("newcampus");
             mList.add(0,campus);
-          //  adapter.notifyItemInserted(0);
+            //  adapter.notifyItemInserted(0);
             adapter.notifyDataSetChanged();
         }
     }

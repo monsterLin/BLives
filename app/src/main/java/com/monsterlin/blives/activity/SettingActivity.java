@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
@@ -34,7 +35,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        initActivityButterKnife(this);
+        ButterKnife.inject(this);
         intiView();
         initToolBar(toolbar,"设置与帮助",true);
         initEvent();

@@ -26,21 +26,15 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.android.support:design:22.2.0'
     compile 'de.hdodenhof:circleimageview:1.3.0'
-    //圆形图片
     compile 'com.android.support:recyclerview-v7:22.2.0'
     compile 'com.android.support:cardview-v7:22.0.0'
-    compile 'com.pnikosis:materialish-progress:1.7'
-    //进度条
+    compile 'com.github.d-max:spots-dialog:0.4@aar'
     compile 'cn.bmob.android:bmob-sdk:3.4.5'
-    //Bmob的android sdk包
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
-    //Material Text
     compile files('libs/jsoup-1.8.3.jar')
     compile files('libs/Volley.jar')
     compile files('libs/libammsdk.jar')
-    //微信SDK
     compile project(':validator')
-    //水滴反馈
     compile 'com.balysv:material-ripple:1.0.2'
     compile files('libs/BaiduLBS_Android.jar')
     compile 'com.github.rey5137:material:1.2.1'

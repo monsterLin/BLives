@@ -19,7 +19,6 @@ import com.monsterlin.blives.activity.DetailsActivity;
 import com.monsterlin.blives.adapter.SchoolNewsAdapter;
 import com.monsterlin.blives.constants.DetailType;
 import com.monsterlin.blives.entity.SchoolNews;
-import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +46,6 @@ public class SNewsFragment extends Fragment{
     private int limit =10;		// 每页的数据是8条
     private int curPage = 0;		// 当前页的编号，从0开始
 
-    private ProgressWheel progressWheel ;
 
     /**
      * 创建视图，返回View对象
@@ -67,7 +65,6 @@ public class SNewsFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
         initView(view);
         initData();
-        progressWheel.setVisibility(View.INVISIBLE);
     }
 
     /**
@@ -130,7 +127,6 @@ public class SNewsFragment extends Fragment{
     private void initView(View view) {
         srl= (SwipeRefreshLayout) view.findViewById(R.id.srl);
         rynews= (RecyclerView) view.findViewById(R.id.rynews);
-        progressWheel = (ProgressWheel) view.findViewById(R.id.progressWheel);
 
 
 

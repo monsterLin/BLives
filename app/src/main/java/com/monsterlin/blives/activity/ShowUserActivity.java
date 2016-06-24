@@ -12,6 +12,7 @@ import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.BUser;
 import com.monsterlin.blives.utils.ImageLoader;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.GetListener;
@@ -37,7 +38,7 @@ public class ShowUserActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showuser_activity);
-        initActivityButterKnife(this);
+        ButterKnife.inject(this);
       //  bmobUser=BmobUser.getCurrentUser(this);
         objectId=getIntent().getStringExtra("objectId");
         initView();
