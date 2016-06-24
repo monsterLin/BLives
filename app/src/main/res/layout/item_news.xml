@@ -12,51 +12,46 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+  
   <ImageView
       android:id="@+id/iv_show_img"
       android:layout_width="100dp"
-      android:layout_height="46dp"
-      android:layout_margin="10dp"
-      android:contentDescription="@string/iv_show_img_text" />
+      android:layout_height="70dp"
+      android:layout_marginRight="4dp"
+      android:layout_centerVertical="true"
+      android:layout_alignParentRight="true"
+      android:src="@drawable/ic_nopic"/>
+
+  <TextView
+      android:id="@+id/tv_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="18sp"
+      android:textColor="@color/black"
+      android:layout_toLeftOf="@id/iv_show_img"
+      android:padding="10dp"
+      android:text="山东济南一村民遭强拆 砍死不明闯入者"/>
 
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_toRightOf="@id/iv_show_img"
-        android:layout_toLeftOf="@id/tv_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="14sp"
-        android:layout_marginRight="10dp"
-        android:textColor="@color/black"
-        android:text="@string/test_tv_title_text"/>
 
-    <TextView
-        android:id="@+id/tv_content"
-        android:layout_toRightOf="@id/iv_show_img"
-        android:layout_below="@id/tv_title"
-        android:textSize="12sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="12dp"
-        android:layout_marginRight="15dp"
-        android:layout_alignBottom="@id/iv_show_img"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignLeft="@id/tv_title"
-        android:text="@string/test_tv_content_text"/>
+  <TextView
+      android:id="@+id/tv_date"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="2016/06/20"
+      android:layout_below="@id/tv_title"
+      android:layout_marginLeft="10dp"
+      android:layout_marginTop="4dp"/>
 
-    <TextView
-        android:id="@+id/tv_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/test_tv_date_text"
-        android:textColor="@color/black"
-        android:layout_alignParentRight="true"
-       android:layout_marginTop="12dp"
-        android:layout_marginRight="5dp"
-        android:textSize="10sp"/>
-
+  <TextView
+      android:id="@+id/tv_from"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="滨州学院"
+      android:layout_below="@id/tv_title"
+      android:layout_toRightOf="@id/tv_date"
+      android:layout_marginTop="4dp"
+      android:layout_marginLeft="12dp"/>
 
 
 </RelativeLayout>

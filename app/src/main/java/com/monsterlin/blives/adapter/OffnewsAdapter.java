@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.Offnews;
+import com.monsterlin.blives.utils.MTextUtils;
 
 import java.util.List;
 
@@ -106,9 +107,8 @@ public class OffnewsAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolde
                 ((ItemViewHolder) holder).iv_show_img.setImageResource(R.drawable.ic_news_default);
             }
 
-            ((ItemViewHolder) holder).tv_title.setText(cutText(newsList.get(position).getTitle()));
-            ((ItemViewHolder) holder).tv_content.setText((newsList.get(position).getContent()));
-            ((ItemViewHolder) holder).tv_date.setText(stringFormate(newsList.get(position).getNewsdate().getDate()));
+            ((ItemViewHolder) holder).tv_title.setText(MTextUtils.textFormat(newsList.get(position).getTitle()));
+            ((ItemViewHolder) holder).tv_date.setText(MTextUtils.dateFormat(newsList.get(position).getNewsdate().getDate()));
 
 
 
@@ -141,32 +141,6 @@ public class OffnewsAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
 
-    /**
-     * 格式化时间
-     * @param date
-     * @return
-     */
-    private String stringFormate (String date){
-        String dateString;
-        dateString = date.substring(0,10);
-        return dateString ;
-    }
-    /**
-     * 剪切文本
-     * @param allText
-     * @return
-     */
-    private String cutText(String allText) {
-        int length = allText.length();
-        if(length>=15){
-            String text = allText.substring(0,14)+"....";
-            return text;
-        }else {
-            return  allText;
-        }
-
-    }
-
 
     /**
      * 得到单个实体类对象
@@ -183,13 +157,12 @@ public class OffnewsAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolde
     static class ItemViewHolder extends RecyclerView.ViewHolder {
 
         ImageView iv_show_img;
-        TextView tv_title , tv_content , tv_date ;
+        TextView tv_title, tv_date ;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             iv_show_img= (ImageView) itemView.findViewById(R.id.iv_show_img);
             tv_title= (TextView) itemView.findViewById(R.id.tv_title);
-            tv_content= (TextView) itemView.findViewById(R.id.tv_content);
             tv_date= (TextView) itemView.findViewById(R.id.tv_date);
         }
 

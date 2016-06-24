@@ -189,7 +189,7 @@ public class AcinformsFragment extends Fragment{
              detail.setTitle(acinforms.getTitle());
              detail.setContent(acinforms.getContent());
              detail.setInformimg(acinforms.getInformimg());
-             detail.setInformdate(acinforms.getInformdate());
+             detail.setNewsdate(acinforms.getNewsdate());
 
              bundle.putSerializable("detail",detail);
              bundle.putInt("type", DetailType.Acinforms);

@@ -13,7 +13,7 @@ public class Acinforms extends BmobObject{
     private String title ;
     private String content ;
     private BmobFile informimg;
-    private BmobDate informdate ;
+    private BmobDate newsdate;
 
 
     public String getTitle() {
@@ -40,11 +40,11 @@ public class Acinforms extends BmobObject{
         this.informimg = informimg;
     }
 
-    public BmobDate getInformdate() {
-        return informdate;
+    public BmobDate getNewsdate() {
+        return newsdate;
     }
 
-    public void setInformdate(BmobDate informdate) {
-        this.informdate = informdate;
+    public void setNewsdate(BmobDate newsdate) {
+        this.newsdate = newsdate;
     }
 }

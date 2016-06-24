@@ -1,7 +1,6 @@
 package com.monsterlin.blives.activity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -14,18 +13,11 @@ import android.widget.TextView;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.constants.DetailType;
-import com.monsterlin.blives.constants.KEY;
 import com.monsterlin.blives.entity.Acinforms;
 import com.monsterlin.blives.entity.Jobnews;
 import com.monsterlin.blives.entity.Offnews;
 import com.monsterlin.blives.entity.SchoolNews;
 import com.monsterlin.blives.utils.ImageLoader;
-import com.tencent.mm.sdk.openapi.IWXAPI;
-import com.tencent.mm.sdk.openapi.SendMessageToWX;
-import com.tencent.mm.sdk.openapi.WXAPIFactory;
-import com.tencent.mm.sdk.openapi.WXImageObject;
-import com.tencent.mm.sdk.openapi.WXMediaMessage;
-import com.tencent.mm.sdk.openapi.WXWebpageObject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -102,7 +94,7 @@ public class DetailsActivity extends BaseActivity{
                 break;
             case DetailType.Acinforms:
                 acinforms= (Acinforms) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
-                initDetail(acinforms.getTitle(),acinforms.getContent(),acinforms.getInformdate().getDate(),acinforms.getInformimg());
+                initDetail(acinforms.getTitle(),acinforms.getContent(),acinforms.getNewsdate().getDate(),acinforms.getInformimg());
                 newsInfo=""+acinforms.getTitle()+"\n"+acinforms.getContent()+"\n";
                 break;
             case DetailType.Offnews:

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.entity.Acinforms;
+import com.monsterlin.blives.utils.MTextUtils;
 
 import java.util.List;
 
@@ -27,10 +28,10 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
     private Context mContext;
-    private List<Acinforms> acinformsList;
+    private List<Acinforms> newsList;
     public AcinformsAdapter(Context mContext, List<Acinforms> acinformsList) {
         this.mContext = mContext;
-        this.acinformsList = acinformsList;
+        this.newsList = acinformsList;
     }
 
 
@@ -54,7 +55,7 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public int getItemCount() {
-        return acinformsList.size()+1;
+        return newsList.size()+1;
     }
 
 
@@ -75,7 +76,7 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     false);
             return new ItemViewHolder(view);
         } else if (viewType == TYPE_FOOTER) {
-            if(acinformsList.size()!=0){
+            if(newsList.size()!=0){
                 View view = LayoutInflater.from(mContext).inflate(R.layout.item_foot, parent,
                         false);
                 return new FootViewHolder(view);
@@ -97,8 +98,8 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ItemViewHolder) {
 
-            if (acinformsList.get(position).getInformimg()!=null){
-                BmobFile imgFile = acinformsList.get(position).getInformimg();
+            if (newsList.get(position).getInformimg()!=null){
+                BmobFile imgFile = newsList.get(position).getInformimg();
 
                 imgFile.loadImage(mContext,((ItemViewHolder) holder).iv_show_img);
 
@@ -107,10 +108,8 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 ((ItemViewHolder) holder).iv_show_img.setImageResource(R.drawable.ic_news_default);
             }
 
-            ((ItemViewHolder) holder).tv_title.setText(cutText(acinformsList.get(position).getTitle()));
-            ((ItemViewHolder) holder).tv_content.setText(acinformsList.get(position).getContent());
-
-              ((ItemViewHolder) holder).tv_date.setText(stringFormate(acinformsList.get(position).getInformdate().getDate()));
+            ((ItemViewHolder) holder).tv_title.setText(MTextUtils.textFormat(newsList.get(position).getTitle()));
+            ((ItemViewHolder) holder).tv_date.setText(MTextUtils.dateFormat(newsList.get(position).getNewsdate().getDate()));
 
 
 
@@ -142,31 +141,6 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
 
-    /**
-     * 格式化时间
-     * @param date
-     * @return
-     */
-    private String stringFormate (String date){
-        String dateString;
-        dateString = date.substring(0,10);
-        return dateString ;
-    }
-    /**
-     * 剪切文本
-     * @param allText
-     * @return
-     */
-    private String cutText(String allText) {
-        int length = allText.length();
-        if(length>=15){
-            String text = allText.substring(0,14)+"....";
-            return text;
-        }else {
-            return  allText;
-        }
-
-    }
 
     /**
      * 得到单个实体类对象
@@ -174,20 +148,19 @@ public class AcinformsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
      * @return  Acinforms
      */
     public Acinforms getAcinform(int position){
-        return acinformsList.get(position);
+        return newsList.get(position);
     }
     //布局ViewHolder
 
     static class ItemViewHolder extends RecyclerView.ViewHolder {
 
         ImageView iv_show_img;
-        TextView tv_title , tv_content , tv_date ;
+        TextView tv_title  , tv_date ;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             iv_show_img= (ImageView) itemView.findViewById(R.id.iv_show_img);
             tv_title= (TextView) itemView.findViewById(R.id.tv_title);
-            tv_content= (TextView) itemView.findViewById(R.id.tv_content);
             tv_date= (TextView) itemView.findViewById(R.id.tv_date);
         }
 
