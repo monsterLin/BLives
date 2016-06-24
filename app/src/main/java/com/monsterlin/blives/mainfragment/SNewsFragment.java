@@ -12,11 +12,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.DetailsActivity;
-import com.monsterlin.blives.adapter.SchoolNewsAdapter;
+import com.monsterlin.blives.adapter.newsadapter.SchoolNewsAdapter;
+import com.monsterlin.blives.adapter.dao.OnItemClickListener;
 import com.monsterlin.blives.constants.DetailType;
 import com.monsterlin.blives.entity.SchoolNews;
 
@@ -37,14 +37,15 @@ public class SNewsFragment extends Fragment{
     private SwipeRefreshLayout srl ;
     private RecyclerView rynews ;
 
-    BmobQuery<SchoolNews> query ;
+    private BmobQuery<SchoolNews> query ;
     private List<SchoolNews> mList = new ArrayList<>();
-    private SchoolNewsAdapter adapter ;
 
-    boolean isLoading ; //监听加载状态
+    boolean isLoading ;
 
-    private int limit =10;		// 每页的数据是8条
-    private int curPage = 0;		// 当前页的编号，从0开始
+    private int limit =10;
+    private int curPage = 0;
+
+    private SchoolNewsAdapter schoolNewsAdapter;
 
 
     /**
@@ -67,9 +68,6 @@ public class SNewsFragment extends Fragment{
         initData();
     }
 
-    /**
-     * 初始化数据
-     */
     private void initData() {
 
         query= new BmobQuery<SchoolNews>();
@@ -80,10 +78,10 @@ public class SNewsFragment extends Fragment{
         query.findObjects(mContext, new FindListener<SchoolNews>() {
             @Override
             public void onSuccess(List<SchoolNews> list) {
-                //　新数据的添加
+
                 mList.addAll(list);
-                if (null != adapter){
-                    adapter.notifyDataSetChanged();
+                if (null!= schoolNewsAdapter){
+                    schoolNewsAdapter.notifyDataSetChanged();
                 }
             }
 
@@ -107,9 +105,8 @@ public class SNewsFragment extends Fragment{
             public void onSuccess(List<SchoolNews> list) {
                 if(list.size()!=0){
                     mList.addAll(list);
-                    adapter.notifyDataSetChanged();
+                    schoolNewsAdapter.notifyDataSetChanged();
                 }
-
 
             }
 
@@ -120,16 +117,12 @@ public class SNewsFragment extends Fragment{
         });
 
 
-
     }
 
 
     private void initView(View view) {
         srl= (SwipeRefreshLayout) view.findViewById(R.id.srl);
         rynews= (RecyclerView) view.findViewById(R.id.rynews);
-
-
-
 
         srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -143,8 +136,8 @@ public class SNewsFragment extends Fragment{
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         rynews.setLayoutManager(layoutManager);
-        adapter = new SchoolNewsAdapter(mContext,mList);
-        rynews.setAdapter(adapter);
+        schoolNewsAdapter = new SchoolNewsAdapter(mList,mContext);
+        rynews.setAdapter(schoolNewsAdapter);
 
         //滑动监听
         rynews.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -160,24 +153,25 @@ public class SNewsFragment extends Fragment{
                  */
 
             }
-
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
                 int lastVisibleItemPosition =layoutManager.findLastVisibleItemPosition(); //最后一个可视的Item
-                if (lastVisibleItemPosition + 1 == adapter.getItemCount()) {
+                if (lastVisibleItemPosition + 1 == schoolNewsAdapter.getItemCount()) {
 
                     boolean isRefreshing = srl.isRefreshing();  //刷新状态
 
                     if (isRefreshing) {
-                        adapter.notifyItemRemoved(adapter.getItemCount());
+                        //adapter.notifyItemRemoved(adapter.getItemCount());
+                        schoolNewsAdapter.notifyItemRemoved(schoolNewsAdapter.getItemCount());
+
                         return;
                     }
                     if (!isLoading) {
                         isLoading = true;
                         //　加载数据
-                       getData(curPage);
+                        getData(curPage);
 
                         isLoading = false;
                     }
@@ -189,36 +183,34 @@ public class SNewsFragment extends Fragment{
         /**
          * 点击事件
          */
-     adapter.setOnItemClickListener(new SchoolNewsAdapter.OnItemClickListener() {
-         @Override
-         public void OnItemClick(int position, View view) {
-            SchoolNews schoolNews = adapter.getSchoolNews(position);
-            //showToast(""+schoolNews.getObjectId()+"\n"+""+schoolNews.getTitle());
 
-             Bundle bundle = new Bundle();
-             SchoolNews detail = new SchoolNews();
-             detail.setTitle(schoolNews.getTitle());
-             detail.setContent(schoolNews.getContent());
-             detail.setNewsdate(schoolNews.getNewsdate());
-             detail.setNewsimg(schoolNews.getNewsimg());
+        schoolNewsAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position, View view) {
+                SchoolNews schoolNews = schoolNewsAdapter.getSchoolNews(position);
 
-             bundle.putSerializable("detail",detail);
-             bundle.putInt("type", DetailType.SchoolNews);
+                Bundle bundle = new Bundle();
+                SchoolNews detail = new SchoolNews();
+                detail.setTitle(schoolNews.getTitle());
+                detail.setContent(schoolNews.getContent());
+                detail.setNewsdate(schoolNews.getNewsdate());
+                detail.setNewsimg(schoolNews.getNewsimg());
 
-             Intent detailIntent = new Intent(mContext, DetailsActivity.class);
-             detailIntent.putExtra("dataExtra",bundle);
-            startActivity(detailIntent);
-         }
+                bundle.putSerializable("detail",detail);
+                bundle.putInt("type", DetailType.SchoolNews);
 
-         @Override
-         public void OnItemLongClick(int position, View view) {
+                Intent detailIntent = new Intent(mContext, DetailsActivity.class);
+                detailIntent.putExtra("dataExtra",bundle);
+                startActivity(detailIntent);
+            }
 
-         }
-     });
+            @Override
+            public void OnItemLongClick(int position, View view) {
 
+            }
+        });
 
     }
-
 
     @Override
     public void onAttach(Activity activity) {
@@ -226,8 +218,5 @@ public class SNewsFragment extends Fragment{
         mContext=activity;
     }
 
-    private void showToast(String s){
-        Toast.makeText(mContext,""+s,Toast.LENGTH_SHORT).show();
-    }
 
 }

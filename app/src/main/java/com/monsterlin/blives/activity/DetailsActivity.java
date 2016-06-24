@@ -94,7 +94,7 @@ public class DetailsActivity extends BaseActivity{
                 break;
             case DetailType.Acinforms:
                 acinforms= (Acinforms) getIntent().getBundleExtra("dataExtra").getSerializable("detail");
-                initDetail(acinforms.getTitle(),acinforms.getContent(),acinforms.getNewsdate().getDate(),acinforms.getInformimg());
+                initDetail(acinforms.getTitle(),acinforms.getContent(),acinforms.getNewsdate().getDate(),acinforms.getNewsimg());
                 newsInfo=""+acinforms.getTitle()+"\n"+acinforms.getContent()+"\n";
                 break;
             case DetailType.Offnews:

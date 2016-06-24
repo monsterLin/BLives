@@ -9,6 +9,7 @@ import android.view.View;
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.adapter.LifeAdapter;
+import com.monsterlin.blives.adapter.dao.OnItemClickListener;
 import com.monsterlin.blives.entity.Life;
 import com.monsterlin.mlbasetools.recyclerview.CommonAdapter;
 import com.monsterlin.mlbasetools.viewholder.ViewHolder;
@@ -49,7 +50,7 @@ public class LifeActivity extends BaseActivity{
         rv_life.setAdapter(adapter);
         rv_life.setLayoutManager(new GridLayoutManager(this,3));
 
-        adapter.setOnItemClickListener(new LifeAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void OnItemClick(int position, View view) {
                 Bundle bundle=new Bundle();
@@ -63,8 +64,8 @@ public class LifeActivity extends BaseActivity{
 
             }
         });
-    }
 
+    }
 
     /**
      * TODO 最初版本数据为固定状态

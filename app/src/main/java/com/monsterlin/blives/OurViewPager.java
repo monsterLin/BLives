@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.monsterlin.blives.adapter.WelWpadapter;
+import com.monsterlin.blives.adapter.changeadapter.WelWpadapter;
 
 import java.util.ArrayList;
 import java.util.List;

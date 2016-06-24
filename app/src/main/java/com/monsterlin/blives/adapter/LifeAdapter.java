@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.monsterlin.blives.R;
+import com.monsterlin.blives.adapter.dao.OnItemClickListener;
+import com.monsterlin.blives.adapter.viewholder.LifeVHolder;
 import com.monsterlin.blives.entity.Life;
 
 import java.util.List;
@@ -16,19 +18,12 @@ import java.util.List;
 /**
  * Created by monsterLin on 2016/4/22.
  */
-public class LifeAdapter extends RecyclerView.Adapter<LifeViewHolder>{
+public class LifeAdapter extends RecyclerView.Adapter<LifeVHolder>{
 
     private Context mContext ;
     private List<Life> mList ;
     private LayoutInflater mInflater ;
 
-    /**
-     * 声明一个接口，用于实现点击事件
-     */
-    public interface  OnItemClickListener{
-        void OnItemClick(int position, View view);
-        void OnItemLongClick(int position, View view);
-    }
 
     private OnItemClickListener mOnItemClickListener;
 
@@ -44,14 +39,14 @@ public class LifeAdapter extends RecyclerView.Adapter<LifeViewHolder>{
     }
 
     @Override
-    public LifeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public LifeVHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view=mInflater.inflate(R.layout.item_life,parent,false);
-        LifeViewHolder lifeViewHolder= new LifeViewHolder(view);
-        return lifeViewHolder;
+       LifeVHolder lifeVHolder = new LifeVHolder(view);
+        return lifeVHolder;
     }
 
     @Override
-    public void onBindViewHolder(final LifeViewHolder holder, int position) {
+    public void onBindViewHolder(final LifeVHolder holder, int position) {
         holder.tv_life.setText(mList.get(position).getLifename());
         holder.iv_life.setImageResource(mList.get(position).getLifeicon());
 
@@ -82,23 +77,9 @@ public class LifeAdapter extends RecyclerView.Adapter<LifeViewHolder>{
         return mList.size();
     }
 
-    /**
-     * 得到单个item的数据
-     * @param position
-     * @return
-     */
+
     public Life getLife(int position){
         return mList.get(position);
     }
 }
 
-class LifeViewHolder extends RecyclerView.ViewHolder{
-    ImageView iv_life;
-    TextView tv_life;
-
-    public LifeViewHolder(View itemView) {
-        super(itemView);
-        iv_life= (ImageView) itemView.findViewById(R.id.iv_life);
-        tv_life= (TextView) itemView.findViewById(R.id.tv_life);
-    }
-}

@@ -16,7 +16,8 @@ import android.widget.Toast;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.DetailsActivity;
-import com.monsterlin.blives.adapter.AcinformsAdapter;
+import com.monsterlin.blives.adapter.newsadapter.AcinformsAdapter;
+import com.monsterlin.blives.adapter.dao.OnItemClickListener;
 import com.monsterlin.blives.constants.DetailType;
 import com.monsterlin.blives.entity.Acinforms;
 
@@ -113,7 +114,6 @@ public class AcinformsFragment extends Fragment{
         });
 
 
-
     }
 
 
@@ -136,7 +136,7 @@ public class AcinformsFragment extends Fragment{
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         ryinform.setLayoutManager(layoutManager);
-        adapter = new AcinformsAdapter(mContext,mList);
+        adapter = new AcinformsAdapter(mList,mContext);
         ryinform.setAdapter(adapter);
 
         //滑动监听
@@ -180,30 +180,31 @@ public class AcinformsFragment extends Fragment{
         });
 
 
-     adapter.setOnItemClickListener(new AcinformsAdapter.OnItemClickListener() {
-         @Override
-         public void OnItemClick(int position, View view) {
-             Acinforms acinforms = adapter.getAcinform(position);
-             Bundle bundle = new Bundle();
-             Acinforms detail = new Acinforms();
-             detail.setTitle(acinforms.getTitle());
-             detail.setContent(acinforms.getContent());
-             detail.setInformimg(acinforms.getInformimg());
-             detail.setNewsdate(acinforms.getNewsdate());
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position, View view) {
+                Acinforms acinforms = adapter.getAcinform(position);
+                Bundle bundle = new Bundle();
+                Acinforms detail = new Acinforms();
+                detail.setTitle(acinforms.getTitle());
+                detail.setContent(acinforms.getContent());
+                detail.setNewsimg(acinforms.getNewsimg());
+                detail.setNewsdate(acinforms.getNewsdate());
 
-             bundle.putSerializable("detail",detail);
-             bundle.putInt("type", DetailType.Acinforms);
+                bundle.putSerializable("detail",detail);
+                bundle.putInt("type", DetailType.Acinforms);
 
-             Intent detailIntent = new Intent(mContext, DetailsActivity.class);
-             detailIntent.putExtra("dataExtra",bundle);
-             startActivity(detailIntent);
-         }
+                Intent detailIntent = new Intent(mContext, DetailsActivity.class);
+                detailIntent.putExtra("dataExtra",bundle);
+                startActivity(detailIntent);
+            }
 
-         @Override
-         public void OnItemLongClick(int position, View view) {
+            @Override
+            public void OnItemLongClick(int position, View view) {
 
-         }
-     });
+            }
+        });
+
 
     }
 

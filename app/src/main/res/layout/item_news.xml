@@ -19,8 +19,7 @@
       android:layout_height="70dp"
       android:layout_marginRight="4dp"
       android:layout_centerVertical="true"
-      android:layout_alignParentRight="true"
-      android:src="@drawable/ic_nopic"/>
+      android:layout_alignParentRight="true"/>
 
   <TextView
       android:id="@+id/tv_title"
@@ -29,8 +28,7 @@
       android:textSize="18sp"
       android:textColor="@color/black"
       android:layout_toLeftOf="@id/iv_show_img"
-      android:padding="10dp"
-      android:text="山东济南一村民遭强拆 砍死不明闯入者"/>
+      android:padding="10dp"/>
 
 
 
@@ -38,16 +36,15 @@
       android:id="@+id/tv_date"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="2016/06/20"
       android:layout_below="@id/tv_title"
       android:layout_marginLeft="10dp"
-      android:layout_marginTop="4dp"/>
+      android:layout_marginTop="4dp"
+      android:layout_marginBottom="4dp"/>
 
   <TextView
       android:id="@+id/tv_from"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="滨州学院"
       android:layout_below="@id/tv_title"
       android:layout_toRightOf="@id/tv_date"
       android:layout_marginTop="4dp"

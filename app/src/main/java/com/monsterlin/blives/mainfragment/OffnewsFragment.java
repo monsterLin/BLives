@@ -16,7 +16,8 @@ import android.widget.Toast;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.DetailsActivity;
-import com.monsterlin.blives.adapter.OffnewsAdapter;
+import com.monsterlin.blives.adapter.newsadapter.OffnewsAdapter;
+import com.monsterlin.blives.adapter.dao.OnItemClickListener;
 import com.monsterlin.blives.constants.DetailType;
 import com.monsterlin.blives.entity.Offnews;
 
@@ -133,7 +134,7 @@ public class OffnewsFragment extends Fragment {
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         ryoffices.setLayoutManager(layoutManager);
-        adapter = new OffnewsAdapter(mContext,mList);
+        adapter = new OffnewsAdapter(mList,mContext);
         ryoffices.setAdapter(adapter);
 
         //滑动监听
@@ -176,30 +177,32 @@ public class OffnewsFragment extends Fragment {
             }
         });
 
-     adapter.setOnItemClickListener(new OffnewsAdapter.OnItemClickListener() {
-         @Override
-         public void OnItemClick(int position, View view) {
-             Offnews offnews = adapter.getOffnews(position);
-             Bundle bundle = new Bundle();
-             Offnews detail = new Offnews();
-             detail.setTitle(offnews.getTitle());
-             detail.setContent(offnews.getContent());
-             detail.setNewsimg(offnews.getNewsimg());
-             detail.setNewsdate(offnews.getNewsdate());
 
-             bundle.putSerializable("detail",detail);
-             bundle.putInt("type", DetailType.Offnews);
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position, View view) {
+                Offnews offnews = adapter.getOffnews(position);
+                Bundle bundle = new Bundle();
+                Offnews detail = new Offnews();
+                detail.setTitle(offnews.getTitle());
+                detail.setContent(offnews.getContent());
+                detail.setNewsimg(offnews.getNewsimg());
+                detail.setNewsdate(offnews.getNewsdate());
 
-             Intent detailIntent = new Intent(mContext, DetailsActivity.class);
-             detailIntent.putExtra("dataExtra",bundle);
-             startActivity(detailIntent);
-         }
+                bundle.putSerializable("detail",detail);
+                bundle.putInt("type", DetailType.Offnews);
 
-         @Override
-         public void OnItemLongClick(int position, View view) {
+                Intent detailIntent = new Intent(mContext, DetailsActivity.class);
+                detailIntent.putExtra("dataExtra",bundle);
+                startActivity(detailIntent);
+            }
 
-         }
-     });
+            @Override
+            public void OnItemLongClick(int position, View view) {
+
+            }
+        });
+
 
     }
 

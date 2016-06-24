@@ -17,7 +17,8 @@ import android.widget.Toast;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.DetailsActivity;
-import com.monsterlin.blives.adapter.JobnewsAdapter;
+import com.monsterlin.blives.adapter.newsadapter.JobnewsAdapter;
+import com.monsterlin.blives.adapter.dao.OnItemClickListener;
 import com.monsterlin.blives.constants.DetailType;
 import com.monsterlin.blives.entity.Jobnews;
 
@@ -136,7 +137,7 @@ public class JobnewsFragment extends Fragment {
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         ryjobs.setLayoutManager(layoutManager);
-        adapter = new JobnewsAdapter(mContext,mList);
+        adapter = new JobnewsAdapter(mList,mContext);
         ryjobs.setAdapter(adapter);
 
         //滑动监听
@@ -179,7 +180,7 @@ public class JobnewsFragment extends Fragment {
             }
         });
 
-        adapter.setOnItemClickListener(new JobnewsAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void OnItemClick(int position, View view) {
                 Jobnews jobnews = adapter.getJobNews(position);
@@ -202,7 +203,8 @@ public class JobnewsFragment extends Fragment {
             public void OnItemLongClick(int position, View view) {
 
             }
-        }) ;
+        });
+
 
     }
 

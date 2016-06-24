@@ -49,8 +49,6 @@ public class SceneryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
 
-    // RecyclerView的count设置为数据总条数+ 1（footerView）
-
     @Override
     public int getItemCount() {
         return mList.size()+1;

@@ -12,7 +12,7 @@ public class Acinforms extends BmobObject{
 
     private String title ;
     private String content ;
-    private BmobFile informimg;
+    private BmobFile newsimg;
     private BmobDate newsdate;
 
 
@@ -32,12 +32,12 @@ public class Acinforms extends BmobObject{
         this.content = content;
     }
 
-    public BmobFile getInformimg() {
-        return informimg;
+    public BmobFile getNewsimg() {
+        return newsimg;
     }
 
-    public void setInformimg(BmobFile informimg) {
-        this.informimg = informimg;
+    public void setNewsimg(BmobFile newsimg) {
+        this.newsimg = newsimg;
     }
 
     public BmobDate getNewsdate() {

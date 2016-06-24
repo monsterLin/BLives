@@ -45,7 +45,6 @@ public class CampusAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
 
-
     public CampusAdapter(Context mContext, List<Campus> campusList) {
         this.mContext = mContext;
         this.campusList = campusList;

@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.monsterlin.blives.R;
-import com.monsterlin.blives.adapter.ViewPagerAdapter;
+import com.monsterlin.blives.adapter.changeadapter.ViewPagerAdapter;
 import com.monsterlin.blives.mainfragment.AcinformsFragment;
 import com.monsterlin.blives.mainfragment.JobnewsFragment;
 import com.monsterlin.blives.mainfragment.OffnewsFragment;
