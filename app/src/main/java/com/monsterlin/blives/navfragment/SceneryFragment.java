@@ -47,7 +47,7 @@ public class SceneryFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_scenery, container, false);
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
         return view;
     }
 
@@ -140,7 +140,7 @@ public class SceneryFragment extends Fragment {
 
 
     private void initView(View view) {
-        ryimgs= (RecyclerView) view.findViewById(R.id.ryimgs);
+        ryimgs= (RecyclerView) view.findViewById(R.id.rylist);
         srl= (SwipeRefreshLayout) view.findViewById(R.id.srl);
 
         srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
@@ -210,7 +210,4 @@ public class SceneryFragment extends Fragment {
         mContext=activity;
     }
 
-    private void showToast(String s){
-        Toast.makeText(mContext,""+s,Toast.LENGTH_SHORT).show();
-    }
 }

@@ -34,6 +34,7 @@ public class SNewsFragment extends Fragment{
 
 
     private Context mContext ;
+
     private SwipeRefreshLayout srl ;
     private RecyclerView rynews ;
 
@@ -57,7 +58,7 @@ public class SNewsFragment extends Fragment{
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main_snews,container,false);
+        View view = inflater.inflate(R.layout.fragment_list,container,false);
         return view;
     }
 
@@ -122,7 +123,7 @@ public class SNewsFragment extends Fragment{
 
     private void initView(View view) {
         srl= (SwipeRefreshLayout) view.findViewById(R.id.srl);
-        rynews= (RecyclerView) view.findViewById(R.id.rynews);
+        rynews= (RecyclerView) view.findViewById(R.id.rylist);
 
         srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

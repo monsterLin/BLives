@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.DetailsActivity;
@@ -36,7 +35,7 @@ public class JobnewsFragment extends Fragment {
 
     private Context mContext;
     private SwipeRefreshLayout srl;
-    private RecyclerView ryjobs;
+    private RecyclerView rynews;
 
     BmobQuery<Jobnews> query;
     private List<Jobnews> mList = new ArrayList<>();
@@ -50,7 +49,7 @@ public class JobnewsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main_jobnews,container,false);
+        View view = inflater.inflate(R.layout.fragment_list,container,false);
         return view;
     }
 
@@ -121,7 +120,7 @@ public class JobnewsFragment extends Fragment {
 
     private void initView(View view) {
         srl = (SwipeRefreshLayout) view.findViewById(R.id.srl);
-        ryjobs = (RecyclerView) view.findViewById(R.id.ryjobs);
+        rynews = (RecyclerView) view.findViewById(R.id.rylist);
 
 
 
@@ -136,12 +135,12 @@ public class JobnewsFragment extends Fragment {
 
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-        ryjobs.setLayoutManager(layoutManager);
+        rynews.setLayoutManager(layoutManager);
         adapter = new JobnewsAdapter(mList,mContext);
-        ryjobs.setAdapter(adapter);
+        rynews.setAdapter(adapter);
 
         //滑动监听
-        ryjobs.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        rynews.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -214,7 +213,4 @@ public class JobnewsFragment extends Fragment {
         mContext=activity;
     }
 
-    private void showToast(String s){
-        Toast.makeText(mContext,""+s,Toast.LENGTH_SHORT).show();
-    }
     }

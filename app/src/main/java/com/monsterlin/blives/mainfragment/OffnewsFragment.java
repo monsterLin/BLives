@@ -35,7 +35,7 @@ public class OffnewsFragment extends Fragment {
 
     private Context mContext;
     private SwipeRefreshLayout srl;
-    private RecyclerView ryoffices;
+    private RecyclerView rynews;
 
     BmobQuery<Offnews> query;
     private List<Offnews> mList = new ArrayList<>();
@@ -49,7 +49,7 @@ public class OffnewsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main_offnews, container, false);
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
         return view;
     }
 
@@ -118,7 +118,7 @@ public class OffnewsFragment extends Fragment {
     }
     private void initView(View view) {
         srl = (SwipeRefreshLayout) view.findViewById(R.id.srl);
-        ryoffices= (RecyclerView) view.findViewById(R.id.ryoffices);
+        rynews= (RecyclerView) view.findViewById(R.id.rylist);
 
 
 
@@ -133,12 +133,12 @@ public class OffnewsFragment extends Fragment {
 
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-        ryoffices.setLayoutManager(layoutManager);
+        rynews.setLayoutManager(layoutManager);
         adapter = new OffnewsAdapter(mList,mContext);
-        ryoffices.setAdapter(adapter);
+        rynews.setAdapter(adapter);
 
         //滑动监听
-        ryoffices.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        rynews.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);

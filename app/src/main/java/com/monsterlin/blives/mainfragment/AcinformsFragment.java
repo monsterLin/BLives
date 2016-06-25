@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.activity.DetailsActivity;
@@ -35,7 +34,7 @@ public class AcinformsFragment extends Fragment{
 
         private Context mContext ;
         private SwipeRefreshLayout srl ;
-        private RecyclerView ryinform ;
+        private RecyclerView rynews ;
 
         BmobQuery<Acinforms> query ;
         private List<Acinforms> mList = new ArrayList<>();
@@ -49,7 +48,7 @@ public class AcinformsFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main_acinforms,container,false);
+        View view = inflater.inflate(R.layout.fragment_list,container,false);
         return view;
     }
 
@@ -119,7 +118,7 @@ public class AcinformsFragment extends Fragment{
 
     private void initView(View view) {
         srl = (SwipeRefreshLayout) view.findViewById(R.id.srl);
-        ryinform = (RecyclerView) view.findViewById(R.id.ryinform);
+        rynews = (RecyclerView) view.findViewById(R.id.rylist);
 
 
 
@@ -135,12 +134,12 @@ public class AcinformsFragment extends Fragment{
 
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-        ryinform.setLayoutManager(layoutManager);
+        rynews.setLayoutManager(layoutManager);
         adapter = new AcinformsAdapter(mList,mContext);
-        ryinform.setAdapter(adapter);
+        rynews.setAdapter(adapter);
 
         //滑动监听
-        ryinform.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        rynews.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -216,7 +215,5 @@ public class AcinformsFragment extends Fragment{
         mContext=activity;
     }
 
-    private void showToast(String s){
-        Toast.makeText(mContext,""+s,Toast.LENGTH_SHORT).show();
-    }
+
 }
