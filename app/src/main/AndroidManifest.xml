@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.monsterlin.blives" >
+    package="com.monsterlin.blives">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -13,37 +13,28 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-
-
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
+        android:name=".application.BApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".application.BApplication"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="1gxNcmK2hlY6INyQNxpdGGSodXMGqIIp" />
 
-        <meta-data
-            android:value="2ccb36c7d8e8271bd74478f94485c9ff" android:name="BUG_HD_SDK_GENERAL_KEY" />
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"/>
 
 
-        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
-
-        </service>
-
-        <activity
-            android:name=".WelcomeActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+        <activity android:name=".activity.welcome.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,47 +42,43 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name=".MainActivity"/>
-        <activity android:name=".OurViewPager"/>
-        <activity android:name=".activity.MCampusActivity"/>
-        <activity android:name=".activity.LifeDetailActivity"/>
-        <activity android:name=".activity.LoginActivity"/>
-        <activity android:name=".activity.RegistActivity"/>
-
-        <activity
-            android:name=".activity.DetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar"  >
+        <activity android:name=".activity.user.LoginActivity"/>
+        <activity android:name=".activity.user.ResetActivity"/>
+        <activity android:name=".activity.user.UserInfoActivity"/>
+        <activity android:name=".activity.welcome.OurViewPager"/>
+        <activity android:name=".activity.setting.SettingActivity"/>
+        <activity android:name=".activity.setting.AboutActivity"/>
+        <activity android:name=".activity.map.MapActivity"/>
+        <activity android:name=".activity.app.AppDetailActivity"/>
+        <activity android:name=".activity.campus.UnionActivity"/>
+        <activity android:name=".activity.news.NewsDetailsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
 
-        <activity android:name=".activity.FeedBackActivity"/>
-        <activity android:name=".activity.ResetActivity"/>
-        <activity android:name=".activity.ShowUserActivity"/>
-        <activity android:name=".activity.SettingActivity"/>
-        <activity android:name=".activity.LifeActivity"/>
-        <activity android:name=".activity.BImgActivity"/>
-        <activity android:name=".activity.AboutActivity"/>
-        <activity android:name=".activity.CampusDetailActivity"/>
-
-        <activity android:name=".activity.NCampusActivity"/>
+        <activity android:name=".activity.setting.FeedBackActivity"/>
         <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-
+            android:name=".activity.user.QQRegistActivity"
+            android:windowSoftInputMode="adjustPan"/>
 
         <activity
-            android:name="cn.bmob.v3.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            android:name="com.tencent.tauth.AuthActivity"
+            android:noHistory="true"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent1105325558" />
+            </intent-filter>
         </activity>
-
-
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
     </application>
 
 </manifest>

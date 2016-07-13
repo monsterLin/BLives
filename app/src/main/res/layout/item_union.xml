@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_marginBottom="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_union_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_bzu"
+        android:layout_margin="12dp"/>
+
+    <TextView
+        android:id="@+id/tv_community"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="社团名称："
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:layout_above="@+id/tv_director"
+        android:layout_alignLeft="@+id/tv_director"
+        android:layout_alignStart="@+id/tv_director" />
+
+    <TextView
+        android:id="@+id/tv_director"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="理事长："
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:layout_alignBottom="@+id/iv_union_logo"
+        android:layout_toRightOf="@+id/iv_union_logo"
+        android:layout_toEndOf="@+id/iv_union_logo" />
+
+    <ImageView
+        android:id="@+id/iv_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_campus_star"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/tv_community"
+        android:layout_marginRight="16dp"
+        android:padding="10dp"/>
+
+    <ImageView
+        android:id="@+id/iv_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_campus_tel"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/iv_star"
+        android:layout_marginRight="16dp"
+        android:padding="10dp"/>
+</RelativeLayout>

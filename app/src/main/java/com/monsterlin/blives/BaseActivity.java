@@ -1,7 +1,5 @@
 package com.monsterlin.blives;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +10,9 @@ import android.widget.Toast;
 import com.monsterlin.blives.constants.BmobKey;
 import com.monsterlin.blives.utils.ToastUtils;
 
-import butterknife.ButterKnife;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobInstallation;
-import dmax.dialog.SpotsDialog;
+
 
 /**
  * 封装公共方法
@@ -25,18 +22,11 @@ import dmax.dialog.SpotsDialog;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-
-    //TODO  优化时候记得加入ToolBar的优化，Adapter的优化
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         BmobInstallation.getCurrentInstallation(this).save();
         Bmob.initialize(this, BmobKey.APPKEY); //Bmob的初始化
-        //initAppVersion方法适合开发者调试自动更新功能时使用，一旦AppVersion表在后台创建成功，
-        // 建议屏蔽或删除此方法，否则会生成多行记录。
-        //BmobUpdateAgent.initAppVersion(this);  //自动更新创建表
-
     }
 
 

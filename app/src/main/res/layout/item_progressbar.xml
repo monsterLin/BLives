@@ -9,4 +9,4 @@ android:indeterminate="false"
 android:maxHeight="10dip"
 android:minHeight="10dip"
 android:progress="50"
-android:progressDrawable="@drawable/greenprogress" />
+android:progressDrawable="@drawable/web_progress" />

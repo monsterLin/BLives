@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/borrow">
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/srl"
+
+
+    <com.monsterlin.blives.widget.ProgressWebView
+        android:id="@+id/wv_scenery"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/ryimgs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </android.support.v4.widget.SwipeRefreshLayout>
-
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

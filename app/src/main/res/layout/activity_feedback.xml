@@ -13,12 +13,12 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         android:fitsSystemWindows="true" />
 
-    <com.rengwuxian.materialedittext.MaterialEditText
+    <EditText
         android:id="@+id/edt_email"
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:met_iconLeft="@drawable/ic_email"
+      android:drawableLeft="@drawable/ic_reset_email"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -26,12 +26,12 @@
         android:hint="@string/edt_user_text"/>
 
 
-    <com.rengwuxian.materialedittext.MaterialEditText
+    <EditText
         android:id="@+id/edt_feedback"
         android:layout_below="@id/edt_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:met_iconLeft="@drawable/ic_feedback"
+        android:drawableLeft="@drawable/ic_default_feedback"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="5dp"
@@ -43,7 +43,7 @@
         android:id="@+id/iv_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_send"
+        android:src="@drawable/ic_setting_send"
         android:clickable="true"
         android:layout_below="@id/edt_feedback"
         android:layout_marginTop="20dp"
@@ -60,7 +60,7 @@
         android:id="@+id/iv_img"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_feedback_img_other"
+        android:src="@drawable/ic_setting_feedback_img"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:clickable="true"

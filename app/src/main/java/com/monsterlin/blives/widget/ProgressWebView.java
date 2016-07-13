@@ -21,11 +21,9 @@ public class ProgressWebView extends WebView {
     public ProgressWebView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
-//        progressbar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
         progressbar = (ProgressBar) LayoutInflater.from(context).inflate(R.layout.item_progressbar, null);
         progressbar.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 6, 0, 0));
         addView(progressbar);
-        //        setWebViewClient(new WebViewClient(){});
         setWebChromeClient(new WebChromeClient());
         setWebViewClient(new WebViewClient(){
             @Override
@@ -33,7 +31,6 @@ public class ProgressWebView extends WebView {
                 Toast.makeText(mContext, "Oh no! " + description, Toast.LENGTH_SHORT).show();
             }
         });
-//        this.getSettings().setBuiltInZoomControls(true);
         this.getSettings().setUseWideViewPort(true);
     }
 

@@ -1,187 +1,95 @@
 package com.monsterlin.blives.mainfragment;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.monsterlin.blives.R;
-import com.monsterlin.blives.activity.DetailsActivity;
-import com.monsterlin.blives.adapter.newsadapter.OffnewsAdapter;
+import com.monsterlin.blives.activity.news.NewsDetailsActivity;
 import com.monsterlin.blives.adapter.dao.OnItemClickListener;
+import com.monsterlin.blives.adapter.newsadapter.OffnewsAdapter;
+import com.monsterlin.blives.bean.Offnews;
+import com.monsterlin.blives.biz.NewsBiz;
 import com.monsterlin.blives.constants.DetailType;
-import com.monsterlin.blives.entity.Offnews;
+import com.monsterlin.blives.utils.SnackbarUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
 
 /**
  * 主内容_教务信息
  * Created by monsterLin on 2016/4/1.
  */
-public class OffnewsFragment extends Fragment {
+public class OffnewsFragment extends   BaseFragment<Offnews>  implements NewsBiz {
 
-    private Context mContext;
-    private SwipeRefreshLayout srl;
-    private RecyclerView rynews;
-
-    BmobQuery<Offnews> query;
-    private List<Offnews> mList = new ArrayList<>();
-    private OffnewsAdapter adapter;
-
-    boolean isLoading; //监听加载状态
-
-    private int limit = 10;        // 每页的数据是8条
-    private int curPage = 0;        // 当前页的编号，从0开始
-
+    private OffnewsAdapter offnewsAdapter;
+    private LinearLayoutManager layoutManager ;
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        view = inflater.inflate(R.layout.fragment_news_list,container,false);
+        initView(view);
+        initData();
         return view;
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initView(view);
-        initData();
-    }
+    public void initView(View view) {
+        super.initView(view);
 
-
-    /**
-     * 初始化数据
-     */
-    private void initData() {
-
-        query= new BmobQuery<Offnews>();
-        query.order("-newsdate");
-        query.setLimit(limit);
-        query.setSkip(curPage*limit);
-        curPage++;
-        query.findObjects(mContext, new FindListener<Offnews>() {
-            @Override
-            public void onSuccess(List<Offnews> list) {
-                //　新数据的添加
-                mList.addAll(list);
-                if (null != adapter){
-                    adapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onError(int i, String s) {
-                Log.e("OnError :",s);
-            }
-        });
-
-    }
-
-    private void getData(int page) {
-
-        BmobQuery<Offnews> query = new BmobQuery<>();
-        query.order("-newsdate");
-        query.setSkip(page*limit+1);
-        query.setLimit(5);
-        curPage++;
-        query.findObjects(mContext, new FindListener<Offnews>() {
-            @Override
-            public void onSuccess(List<Offnews> list) {
-                if(list.size()!=0){
-                    mList.addAll(list);
-                    adapter.notifyDataSetChanged();
-                }
-
-
-            }
-
-            @Override
-            public void onError(int i, String s) {
-
-            }
-        });
-
-
-
-    }
-    private void initView(View view) {
-        srl = (SwipeRefreshLayout) view.findViewById(R.id.srl);
-        rynews= (RecyclerView) view.findViewById(R.id.rylist);
-
-
-
-        srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                initData();
+                String topdate = offnewsAdapter.getOffnews(0).getUpdatedAt();
+                getNewestData(topdate);
                 srl.setRefreshing(false);
             }
         });
 
-
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+        layoutManager = new LinearLayoutManager(mContext);
         rynews.setLayoutManager(layoutManager);
-        adapter = new OffnewsAdapter(mList,mContext);
-        rynews.setAdapter(adapter);
+        offnewsAdapter = new OffnewsAdapter(mList,mContext);
+        rynews.setAdapter(offnewsAdapter);
 
-        //滑动监听
         rynews.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-
-                /**
-                 * 当RecyclerView的滑动状态改变时触发
-                 * 0： 手指离开屏幕
-                 * 1：  手指触摸屏幕
-                 * 2： 手指加速滑动并放开，此时滑动状态伴随SCROLL_STATE_IDLE
-                 */
-
             }
-
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
                 int lastVisibleItemPosition =layoutManager.findLastVisibleItemPosition(); //最后一个可视的Item
-                if (lastVisibleItemPosition + 1 == adapter.getItemCount()) {
+                if (lastVisibleItemPosition + 1 == offnewsAdapter.getItemCount()) {
 
-                    boolean isRefreshing = srl.isRefreshing();  //刷新状态
+                    boolean isRefreshing = srl.isRefreshing();
 
                     if (isRefreshing) {
-                        adapter.notifyItemRemoved(adapter.getItemCount());
+                        offnewsAdapter.notifyItemRemoved(offnewsAdapter.getItemCount());
                         return;
                     }
                     if (!isLoading) {
                         isLoading = true;
-                        //　加载数据
                         getData(curPage);
-
                         isLoading = false;
                     }
                 }
-
             }
         });
 
-
-        adapter.setOnItemClickListener(new OnItemClickListener() {
+        offnewsAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void OnItemClick(int position, View view) {
-                Offnews offnews = adapter.getOffnews(position);
+                Offnews offnews = offnewsAdapter.getOffnews(position);
                 Bundle bundle = new Bundle();
                 Offnews detail = new Offnews();
                 detail.setTitle(offnews.getTitle());
@@ -192,7 +100,7 @@ public class OffnewsFragment extends Fragment {
                 bundle.putSerializable("detail",detail);
                 bundle.putInt("type", DetailType.Offnews);
 
-                Intent detailIntent = new Intent(mContext, DetailsActivity.class);
+                Intent detailIntent = new Intent(mContext, NewsDetailsActivity.class);
                 detailIntent.putExtra("dataExtra",bundle);
                 startActivity(detailIntent);
             }
@@ -203,17 +111,69 @@ public class OffnewsFragment extends Fragment {
             }
         });
 
+    }
 
+
+
+    @Override
+    public void initData() {
+        super.initData();
+        query.findObjects(mContext, new FindListener<Offnews>() {
+            @Override
+            public void onSuccess(List<Offnews> list) {
+                mList.addAll(list);
+                if (null!= offnewsAdapter){
+                    offnewsAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Toast.makeText(mContext, "发生异常："+s, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        mContext=activity;
+    public void getData(int page) {
+        super.getData(page);
+        query.findObjects(mContext, new FindListener<Offnews>() {
+            @Override
+            public void onSuccess(List<Offnews> list) {
+                if(list.size()!=0){
+                    mList.addAll(list);
+                    offnewsAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Toast.makeText(mContext, "发生异常："+s, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    private void showToast(String s){
-        Toast.makeText(mContext,""+s,Toast.LENGTH_SHORT).show();
-    }
+    @Override
+    public void getNewestData(String topDate) {
+        super.getNewestData(topDate);
+        query.findObjects(mContext, new FindListener<Offnews>() {
+            @Override
+            public void onSuccess(List<Offnews> list) {
+                if (list.size()!=0){
+                    for (Offnews offnews:list){
+                        mList.add(0,offnews);
+                        offnewsAdapter.notifyItemInserted(0);
+                        SnackbarUtil.ShortSnackbar(view,"增加了"+list.size()+"条数据",SnackbarUtil.Warning).show();
+                    }
+                }else {
+                    SnackbarUtil.ShortSnackbar(view,"已是最新数据",SnackbarUtil.Info).show();
+                }
+            }
 
+            @Override
+            public void onError(int i, String s) {
+                Toast.makeText(mContext, "发生异常："+s, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

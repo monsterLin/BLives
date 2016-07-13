@@ -6,6 +6,6 @@
     <item
         android:id="@+id/item_edit"
         android:title="更新资料"
-        android:icon="@drawable/ic_edit"
+        android:icon="@drawable/ic_userinfo_edit"
         app:showAsAction="ifRoom"/>
 </menu>

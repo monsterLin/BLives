@@ -26,7 +26,7 @@
         android:id="@+id/edt_mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_username"
+        android:drawableLeft="@drawable/ic_login_username"
         android:drawablePadding="20dp"
         android:hint="@string/edt_user_text"
         android:inputType="text"
@@ -39,7 +39,7 @@
         android:id="@+id/edt_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_password"
+        android:drawableLeft="@drawable/ic_login_password"
         android:hint="@string/edt_pass_text"
         android:layout_below="@id/edt_mail"
         android:inputType="textPassword"
@@ -49,6 +49,7 @@
         android:layout_marginRight="10dp"/>
 
         <LinearLayout
+            android:id="@+id/ll_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_pass"
@@ -76,4 +77,46 @@
 
         </LinearLayout>
 
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_third_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/iv_qq_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bn_qq_login"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"/>
+
+
+        <ImageView
+            android:id="@+id/iv_wx_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bn_wx_login"
+            android:layout_weight="1"/>
+
+
+        <ImageView
+            android:id="@+id/iv_sina_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bn_sina_login"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/ll_third_login"
+        android:background="@color/blue"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 </RelativeLayout>

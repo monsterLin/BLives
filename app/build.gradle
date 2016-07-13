@@ -24,23 +24,27 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.android.support:design:22.2.0'
+    compile 'com.android.support:design:22.2.1'
     compile 'de.hdodenhof:circleimageview:1.3.0'
-    compile 'com.android.support:recyclerview-v7:22.2.0'
-    compile 'com.android.support:cardview-v7:22.0.0'
-    compile 'com.github.d-max:spots-dialog:0.4@aar'
-    compile 'cn.bmob.android:bmob-sdk:3.4.5'
-    compile 'com.rengwuxian.materialedittext:library:2.1.4'
-    compile files('libs/jsoup-1.8.3.jar')
-    compile files('libs/Volley.jar')
-    compile files('libs/libammsdk.jar')
-    compile project(':validator')
-    compile 'com.balysv:material-ripple:1.0.2'
-    compile files('libs/BaiduLBS_Android.jar')
-    compile 'com.github.rey5137:material:1.2.1'
-    compile files('libs/butterknife-6.1.0.jar')
-    compile 'com.monsterlin:mlbasetools:1.2.0'
     compile 'me.drakeet.materialdialog:library:1.2.2'
+    compile 'com.github.d-max:spots-dialog:0.4@aar'
+    compile 'com.android.support:recyclerview-v7:22.2.1'
+    compile 'com.android.support:cardview-v7:22.2.1'
     compile 'com.getbase:floatingactionbutton:1.10.1'
-    compile 'im.fir:fir-sdk:latest.integration@aar'
+    compile 'com.balysv:material-ripple:1.0.2'
+    compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'
+    compile files('libs/butterknife-6.1.0.jar')
+    compile files('libs/universal-image-loader-1.9.5.jar')
+    compile files('libs/BaiduLBS_Android.jar')
+    compile project(':library')
+    compile files('libs/mta-sdk-1.6.2.jar')
+    compile files('libs/open_sdk_r5756.jar')
+    compile project(':validator')
+    //RXJAVA  Retrofit
+    //    compile 'io.reactivex:rxjava:1.1.0'
+    //    compile 'io.reactivex:rxandroid:1.1.0'
+    //    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+    //    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    //    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
+    //    compile 'com.google.code.gson:gson:2.6.2'
 }

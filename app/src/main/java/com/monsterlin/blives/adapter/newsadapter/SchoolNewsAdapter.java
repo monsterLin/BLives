@@ -1,14 +1,17 @@
 package com.monsterlin.blives.adapter.newsadapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.adapter.common.CommonAdapter;
 import com.monsterlin.blives.adapter.viewholder.NewsItemVHolder;
-import com.monsterlin.blives.entity.SchoolNews;
+import com.monsterlin.blives.bean.SchoolNews;
 import com.monsterlin.blives.utils.MTextUtils;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
 
@@ -30,7 +33,16 @@ public class SchoolNewsAdapter extends CommonAdapter<SchoolNews> {
 
             if (newsList.get(position).getNewsimg()!=null){
                 BmobFile imgFile = newsList.get(position).getNewsimg();
-                imgFile.loadImage(mContext,newsItemVHolder.iv_show_img);
+
+                DisplayImageOptions options = new DisplayImageOptions.Builder()
+                        .showImageOnLoading(R.drawable.ic_news_default)
+                        .showImageOnFail(R.drawable.ic_default_error_showimg)
+                        .cacheInMemory(true)
+                        .cacheOnDisk(true)
+                        .bitmapConfig(Bitmap.Config.RGB_565)
+                        .build();
+
+                ImageLoader.getInstance().displayImage(imgFile.getFileUrl(mContext),newsItemVHolder.iv_show_img,options);
             }else {
                 newsItemVHolder.iv_show_img.setImageResource(R.drawable.ic_news_default);
             }
@@ -55,7 +67,7 @@ public class SchoolNewsAdapter extends CommonAdapter<SchoolNews> {
                 holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
-                        int LayoutPosition=holder.getLayoutPosition(); //得到布局的position
+                        int LayoutPosition=holder.getLayoutPosition();
                         mOnItemClickListener.OnItemLongClick(LayoutPosition,holder.itemView);
                         return false;
                     }

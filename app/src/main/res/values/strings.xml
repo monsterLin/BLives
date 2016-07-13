@@ -3,13 +3,17 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
+
+
     <string name="item_main_text">首页</string>
     <string name="item_scenery_text">校园风光</string>
-    <string name="item_corporation_text">校园活动</string>
-    <string name="item_square_text">校园广场</string>
+    <string name="item_campus_text">校园活动</string>
+    <string name="item_map_text">走进校园</string>
     <string name="item_other_text">其它</string>
-    <string name="item_life_text">生活应用</string>
+    <string name="item_app_text">校园应用</string>
     <string name="item_setting_text">设置与帮助</string>
+
+
     <string name="item_notification_text">消息</string>
     <string name="iv_show_img_text">暂无缩略图</string>
     <string name="test_tv_title_text">我是一则标题</string>
@@ -67,5 +71,8 @@
     <string name="tv_pass_tips">提示：密码长度需大于6位，且不能为汉字</string>
     <string name="tv_load_campus_detail">加载中...</string>
     <string name="send_to">分享</string>
+    <string name="item_location_text">定位</string>
+    <string name="item_share_text">分享</string>
+    <string name="item_tel_test">电话</string>
 
 </resources>

@@ -1,17 +1,11 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/item_refush"
-        android:icon="@drawable/ic_refush"
-        android:title="@string/item_notification_text"
-        app:showAsAction="ifRoom"/>
-
-    <item
-        android:id="@+id/item_notification"
-        android:icon="@drawable/ic_notifications"
-        android:title="@string/item_notification_text"
+        android:id="@+id/item_location"
+        android:title="@string/item_location_text"
+        android:icon="@drawable/ic_map_loc"
         app:showAsAction="ifRoom"/>
 </menu>

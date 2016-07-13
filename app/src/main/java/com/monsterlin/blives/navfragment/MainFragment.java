@@ -1,7 +1,5 @@
 package com.monsterlin.blives.navfragment;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -18,41 +16,26 @@ import com.monsterlin.blives.mainfragment.OffnewsFragment;
 import com.monsterlin.blives.mainfragment.SNewsFragment;
 
 /**
- * 说明：
- * 布局的名字和对应的类名字为测试的名字，最后基本布局确定后，通过重构的形式更改即可
- * Created by monsterLin on 2016/2/16.
+ * Created by monsterLin on 6/27/2016.
  */
 public class MainFragment extends Fragment {
 
-    /**
-     * TabLayout和ViewPager组合实现切换的功能
-     */
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
 
-    private Context mContext;
-
-    /** ViewPager缓存页面数目;当前页面的相邻N各页面都会被缓存 */
     private int cachePagers = 3;
 
-    /**
-     * 创建视图，返回View对象
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
-     */
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main,container,false);
+        initView(view);
+        initMainContent();
         return view;
     }
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initView(view);
-        initMainContent();
+    private void initView(View view) {
+        mTabLayout= (TabLayout) view.findViewById(R.id.tl_main_tabs);
+        mViewPager= (ViewPager) view.findViewById(R.id.vp_main_content);
     }
 
     /**
@@ -72,25 +55,7 @@ public class MainFragment extends Fragment {
         adapter.addFragment(jobnewsFragment, "就业信息");
 
         mViewPager.setAdapter(adapter);
-        //TODO 与左侧菜单栏冲突
-       mViewPager.setOffscreenPageLimit(cachePagers);// 设置缓存页面，当前页面的相邻N各页面都会被缓存
+        mViewPager.setOffscreenPageLimit(cachePagers);
         mTabLayout.setupWithViewPager(mViewPager);
     }
-
-    /**
-     * 初始化视图
-     * @param view
-     */
-    private void initView(View view) {
-        mTabLayout= (TabLayout) view.findViewById(R.id.tl_main_tabs);
-        mViewPager= (ViewPager) view.findViewById(R.id.vp_main_content);
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        mContext=activity;
-    }
-
-
 }

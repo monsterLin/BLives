@@ -28,6 +28,8 @@
       android:textSize="18sp"
       android:textColor="@color/black"
       android:layout_toLeftOf="@id/iv_show_img"
+      android:layout_alignParentLeft="true"
+      android:gravity="left"
       android:padding="10dp"/>
 
 
