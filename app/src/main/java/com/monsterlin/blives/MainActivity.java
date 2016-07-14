@@ -9,6 +9,8 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -138,26 +140,21 @@ public class MainActivity extends BaseActivity
             query.getObject(MainActivity.this, currentId, new GetListener<BUser>() {
                 @Override
                 public void onSuccess(BUser bUser) {
-                    if (!bUser.getNick().equals("")){
+
+                    Log.e("Buser",""+bUser.toString());
+
+                    if (bUser!=null){
                         tv_nick.setText(bUser.getNick());
-                    }else {
-                        tv_nick.setText("BLives");
-                    }
-                    if (!bUser.getDepart().equals("")){
                         tv_depart.setText(bUser.getDepart());
-                    }else {
-                        tv_depart.setText("");
-                    }
-                    if (!bUser.getUserPhoto().getFileUrl(MainActivity.this).equals("")){
-                        String photoUrl = bUser.getUserPhoto().getFileUrl(MainActivity.this);
-                        if(photoUrl!=null){
-                            ImageLoader.getInstance().displayImage(bUser.getUserPhoto().getFileUrl(MainActivity.this),iv_userphoto);
+                        if (TextUtils.isEmpty(bUser.getFigureurl())){
+                            if (bUser.getUserPhoto()!=null){
+                                ImageLoader.getInstance().displayImage(bUser.getUserPhoto().getFileUrl(MainActivity.this),iv_userphoto);
+                            }
                         }else {
-                            iv_userphoto.setBackgroundResource(R.drawable.ic_bzu);
+                            ImageLoader.getInstance().displayImage(bUser.getFigureurl(),iv_userphoto);
                         }
-                    }else {
-                        iv_userphoto.setBackgroundResource(R.drawable.ic_bzu);
                     }
+
 
                 }
 

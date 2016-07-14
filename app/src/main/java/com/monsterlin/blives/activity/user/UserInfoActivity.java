@@ -3,6 +3,7 @@ package com.monsterlin.blives.activity.user;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -53,7 +54,12 @@ public class UserInfoActivity extends BaseActivity {
                 @Override
                 public void onSuccess(BUser bUser) {
                     if (bUser!=null){
-                        ImageLoader.getInstance().displayImage(bUser.getUserPhoto().getFileUrl(UserInfoActivity.this),iv_userphoto);
+                        if (TextUtils.isEmpty(bUser.getFigureurl())){
+                            ImageLoader.getInstance().displayImage(bUser.getUserPhoto().getFileUrl(UserInfoActivity.this),iv_userphoto);
+                        }else {
+                            ImageLoader.getInstance().displayImage(bUser.getFigureurl(),iv_userphoto);
+                        }
+
                         tv_nick.setText(bUser.getNick());
                         tv_nick.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/test.ttf"));
                         tv_depart.setText(bUser.getDepart());

@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.monsterlin.blives.BaseActivity;
+import com.monsterlin.blives.MainActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.bean.BUser;
 import com.monsterlin.blives.biz.BaseUiListener;
@@ -32,10 +33,15 @@ import java.io.IOException;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.GetListener;
 import cn.bmob.v3.listener.LogInListener;
 import cn.bmob.v3.listener.OtherLoginListener;
+import cn.bmob.v3.listener.UpdateListener;
+import cn.bmob.v3.listener.UploadFileListener;
 import dmax.dialog.SpotsDialog;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -92,15 +98,68 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     private Handler mHandle = new Handler() {
         @Override
-        public void handleMessage(Message msg) {
+        public void handleMessage(final Message msg) {
 
             switch (msg.what){
                 case SUCCEED:
-                    Bundle bundle = (Bundle) msg.obj;
-                    Log.e("Nickname",""+bundle.getString("nickname"));
-                    Log.e("figureurl",""+bundle.getString("figureurl"));
+
+                    //这时候由于使用了BmobAuth方法，所有现在在表中已经存在了用户的一行数据
+                    //但是这时候的数据仅仅有objectId ， AuthData ，createDate updateDate信息
+                    //我们需要进行完善，这个时候还有一些数据没有，我们现在人为添加些随机数据，头像和昵称除外
+                    //用户在点击个人资料的时候可以进行修改资料
+
+                    final String objectId = BmobUser.getCurrentUser(LoginActivity.this).getObjectId();
+
+                    BmobQuery <BUser> query = new BmobQuery<>();
+                    query.getObject(LoginActivity.this, objectId, new GetListener<BUser>() {
+                        @Override
+                        public void onSuccess(BUser bUser) {
+                            if (!TextUtils.isEmpty(bUser.getFigureurl())){
+                                //如果figureurl不为空，则表示用户信息已经注册好
+                                finish();
+                                nextActivity(MainActivity.class);
+
+                            }else {
+                                final Bundle bundle = (Bundle) msg.obj;
+
+                                BUser bUser1 = new BUser() ;
+                                bUser1.setNick(bundle.getString("nickname"));
+                                bUser1.setDepart("滨州学院某系院");
+                                bUser1.setFigureurl(bundle.getString("figureurl"));
+                                bUser1.setMobilePhoneNumber("15762180001");
+                                bUser1.setEmail("xxxxx@xxx.com");
+                                bUser1.update(LoginActivity.this, objectId, new UpdateListener() {
+                                    @Override
+                                    public void onSuccess() {
+                                        finish();
+                                        nextActivity(MainActivity.class);
+                                    }
+
+                                    @Override
+                                    public void onFailure(int i, String s) {
+                                        Log.e("Update_Failure","Failure..."+s);
+                                    }
+                                });
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(int i, String s) {
+                            Log.e("FAILURE","获取数据异常："+s);
+                        }
+                    });
+
+
+
+
+
+
                     break;
             }
+
+        }
+
+        private void updateINFO() {
 
         }
     };
@@ -201,13 +260,53 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 //TODO 执行getDATA
                 userInfoUrl = "http://119.147.19.43/v3/user/get_info?openid=" + openid + "&openkey=" + access_token + "&pf=qzone&appid=" + APPID.QQ_APPID + "&format=json&userip=10.0.0.1&sig=v7jJNKrJFMX%2Flh6%2BevElT%2BRME3c%3D";
 
-              //  getQQInfoData(userInfoUrl);
 
-                Intent intent = new Intent(LoginActivity.this, QQRegistActivity.class);
-                intent.putExtra("openid", openid);
-                intent.putExtra("access_token", access_token);
-                startActivity(intent);
-                finish();
+                OkHttpClient mOkHttpClient = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url(userInfoUrl)
+                        .build();
+
+                Call call = mOkHttpClient.newCall(request);
+
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        Log.e("Exception",""+e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        String jsonString = response.body().string();
+
+                        Log.e("JsonString",jsonString);
+                        try {
+                            JSONObject jsonObject = new JSONObject(jsonString);
+                            nickname = jsonObject.getString("nickname");
+                            figureurl = jsonObject.getString("figureurl");
+
+
+                            Bundle bundle = new Bundle();
+
+                            bundle.putString("nickname",nickname);
+                            bundle.putString("figureurl",figureurl);
+
+                            mHandle.obtainMessage(SUCCEED, bundle).sendToTarget();
+
+                            //TODO 这个地方为子线程，我需要去主线程去更新资料
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+
+
+//                Intent intent = new Intent(LoginActivity.this, QQRegistActivity.class);
+//                intent.putExtra("openid", openid);
+//                intent.putExtra("access_token", access_token);
+//                startActivity(intent);
+//                finish();
             }
 
             @Override
@@ -217,47 +316,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         });
     }
 
-    private void getQQInfoData(String userInfoUrl) {
 
-        OkHttpClient mOkHttpClient = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(userInfoUrl)
-                .build();
-
-        Call call = mOkHttpClient.newCall(request);
-
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.e("Exception",""+e.getMessage());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String jsonString = response.body().string();
-
-                try {
-                    JSONObject jsonObject = new JSONObject(jsonString);
-                    nickname = jsonObject.getString("nickname");
-                    figureurl = jsonObject.getString("figureurl");
-
-
-                    Bundle bundle = new Bundle();
-
-                    bundle.putString("nickname",nickname);
-                    bundle.putString("figureurl",figureurl);
-
-                    mHandle.obtainMessage(SUCCEED, bundle).sendToTarget();
-
-                    //TODO 这个地方为子线程，我需要去主线程去更新资料
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });
-    }
 
 
     /**

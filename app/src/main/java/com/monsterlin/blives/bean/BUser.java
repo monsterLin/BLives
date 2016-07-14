@@ -17,6 +17,7 @@ public class BUser extends BmobUser {
     private String nick ; //昵称
     private String depart ;  //系院
     private BmobFile userPhoto ; //用户头像
+    private String figureurl ; //QQ头像的url地址
 
     public String getNick() {
         return nick;
@@ -40,5 +41,13 @@ public class BUser extends BmobUser {
 
     public void setUserPhoto(BmobFile userPhoto) {
         this.userPhoto = userPhoto;
+    }
+
+    public String getFigureurl() {
+        return figureurl;
+    }
+
+    public void setFigureurl(String figureurl) {
+        this.figureurl = figureurl;
     }
 }
