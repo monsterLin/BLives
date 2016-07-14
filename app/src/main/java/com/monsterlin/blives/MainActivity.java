@@ -247,6 +247,7 @@ public class MainActivity extends BaseActivity
             case R.id.iv_userphoto:
                 if(null ==bmobUser){
                     nextActivity(LoginActivity.class);
+                    finish();
                 }else {
                     String objectId = bmobUser.getObjectId();
                     Intent showUserIntent = new Intent(this,UserInfoActivity.class);

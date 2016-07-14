@@ -91,7 +91,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private String openid, access_token, expires;
 
     private String userInfoUrl;
-    private static final int SUCCEED =0x0001;
+    private static final int SUCCEED = 0x0001;
 
     private String nickname, figureurl;
 
@@ -100,7 +100,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         @Override
         public void handleMessage(final Message msg) {
 
-            switch (msg.what){
+            switch (msg.what) {
                 case SUCCEED:
 
                     //这时候由于使用了BmobAuth方法，所有现在在表中已经存在了用户的一行数据
@@ -110,24 +110,24 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                     final String objectId = BmobUser.getCurrentUser(LoginActivity.this).getObjectId();
 
-                    BmobQuery <BUser> query = new BmobQuery<>();
+                    BmobQuery<BUser> query = new BmobQuery<>();
                     query.getObject(LoginActivity.this, objectId, new GetListener<BUser>() {
                         @Override
                         public void onSuccess(BUser bUser) {
-                            if (!TextUtils.isEmpty(bUser.getFigureurl())){
+                            if (!TextUtils.isEmpty(bUser.getFigureurl())) {
                                 //如果figureurl不为空，则表示用户信息已经注册好
                                 finish();
                                 nextActivity(MainActivity.class);
 
-                            }else {
+                            } else {
                                 final Bundle bundle = (Bundle) msg.obj;
 
-                                BUser bUser1 = new BUser() ;
+                                BUser bUser1 = new BUser();
                                 bUser1.setNick(bundle.getString("nickname"));
                                 bUser1.setDepart("滨州学院某系院");
                                 bUser1.setFigureurl(bundle.getString("figureurl"));
-                                bUser1.setMobilePhoneNumber("15762180001");
-                                bUser1.setEmail("xxxxx@xxx.com");
+                                bUser1.setMobilePhoneNumber("15762180001"); //TODO
+                                bUser1.setEmail("xxxxx@xxx.com"); //TODO
                                 bUser1.update(LoginActivity.this, objectId, new UpdateListener() {
                                     @Override
                                     public void onSuccess() {
@@ -137,7 +137,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                                     @Override
                                     public void onFailure(int i, String s) {
-                                        Log.e("Update_Failure","Failure..."+s);
+                                        Log.e("Update_Failure", "Failure..." + s);
                                     }
                                 });
                             }
@@ -145,13 +145,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                         @Override
                         public void onFailure(int i, String s) {
-                            Log.e("FAILURE","获取数据异常："+s);
+                            Log.e("FAILURE", "获取数据异常：" + s);
                         }
                     });
-
-
-
-
 
 
                     break;
@@ -159,11 +155,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         }
 
-        private void updateINFO() {
-
-        }
     };
-
 
 
     @Override
@@ -172,7 +164,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         setContentView(R.layout.activity_login);
         dialog = new SpotsDialog(this);
         ButterKnife.inject(this);
-        initToolBar(toolbar, "登陆", true);
+        toolbar.setTitle("登陆");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextActivity(MainActivity.class);
+                finish();
+            }
+        });
+
         initEvent();
     }
 
@@ -271,14 +273,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 call.enqueue(new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
-                        Log.e("Exception",""+e.getMessage());
+                        Log.e("Exception", "" + e.getMessage());
                     }
 
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         String jsonString = response.body().string();
 
-                        Log.e("JsonString",jsonString);
+                        Log.e("JsonString", jsonString);
                         try {
                             JSONObject jsonObject = new JSONObject(jsonString);
                             nickname = jsonObject.getString("nickname");
@@ -287,8 +289,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                             Bundle bundle = new Bundle();
 
-                            bundle.putString("nickname",nickname);
-                            bundle.putString("figureurl",figureurl);
+                            bundle.putString("nickname", nickname);
+                            bundle.putString("figureurl", figureurl);
 
                             mHandle.obtainMessage(SUCCEED, bundle).sendToTarget();
 
@@ -315,8 +317,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             }
         });
     }
-
-
 
 
     /**

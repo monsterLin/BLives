@@ -32,7 +32,7 @@ public class UserInfoActivity extends BaseActivity {
     CircleImageView iv_userphoto;
 
     private String objectId;
-    private TextView tv_nick ,tv_depart ,tv_email,tv_name,tv_tel;
+    private TextView tv_nick, tv_depart, tv_email, tv_name, tv_tel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,33 +40,46 @@ public class UserInfoActivity extends BaseActivity {
         setContentView(R.layout.activity_userinfo);
         ButterKnife.inject(this);
 
-        objectId=getIntent().getStringExtra("objectId");
+        objectId = getIntent().getStringExtra("objectId");
 
         initView();
-        initToolBar(toolbar,"个人资料",true);
+        initToolBar(toolbar, "个人资料", true);
         initData();
     }
 
     private void initData() {
-        if (null!=objectId){
-            BmobQuery<BUser> query= new BmobQuery<>();
+        if (null != objectId) {
+            BmobQuery<BUser> query = new BmobQuery<>();
             query.getObject(this, objectId, new GetListener<BUser>() {
                 @Override
                 public void onSuccess(BUser bUser) {
-                    if (bUser!=null){
-                        if (TextUtils.isEmpty(bUser.getFigureurl())){
-                            ImageLoader.getInstance().displayImage(bUser.getUserPhoto().getFileUrl(UserInfoActivity.this),iv_userphoto);
-                        }else {
-                            ImageLoader.getInstance().displayImage(bUser.getFigureurl(),iv_userphoto);
+                    if (bUser != null) {
+                        if (TextUtils.isEmpty(bUser.getFigureurl())) {
+                            ImageLoader.getInstance().displayImage(bUser.getUserPhoto().getFileUrl(UserInfoActivity.this), iv_userphoto);
+                        } else {
+                            ImageLoader.getInstance().displayImage(bUser.getFigureurl(), iv_userphoto);
                         }
 
                         tv_nick.setText(bUser.getNick());
                         tv_nick.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/test.ttf"));
                         tv_depart.setText(bUser.getDepart());
                         tv_depart.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/test.ttf"));
-                        tv_email.setText(bUser.getEmail());
+
+
+                        if (!TextUtils.isEmpty(bUser.getEmail())) {
+                            tv_email.setText(bUser.getEmail());
+                        }else {
+                            tv_email.setText("请完善邮箱信息");
+
+                        }
+
+                        if (!TextUtils.isEmpty(bUser.getMobilePhoneNumber())) {
+                            tv_tel.setText(bUser.getMobilePhoneNumber());
+                        }else {
+                            tv_tel.setText("请完善手机号信息");
+                        }
                         tv_name.setText(bUser.getUsername());
-                        tv_tel.setText(bUser.getMobilePhoneNumber());
+
                     }
                 }
 
@@ -80,11 +93,11 @@ public class UserInfoActivity extends BaseActivity {
 
 
     private void initView() {
-        tv_nick= (TextView) findViewById(R.id.tv_nick);
-        tv_depart= (TextView) findViewById(R.id.tv_depart);
-        tv_email= (TextView) findViewById(R.id.tv_email);
-        tv_name= (TextView) findViewById(R.id.tv_name);
-        tv_tel= (TextView) findViewById(R.id.tv_tel);
+        tv_nick = (TextView) findViewById(R.id.tv_nick);
+        tv_depart = (TextView) findViewById(R.id.tv_depart);
+        tv_email = (TextView) findViewById(R.id.tv_email);
+        tv_name = (TextView) findViewById(R.id.tv_name);
+        tv_tel = (TextView) findViewById(R.id.tv_tel);
     }
 
     @Override
