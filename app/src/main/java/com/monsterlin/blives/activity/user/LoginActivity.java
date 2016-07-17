@@ -126,7 +126,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                                 bUser1.setNick(bundle.getString("nickname"));
                                 bUser1.setDepart("滨州学院某系院");
                                 bUser1.setFigureurl(bundle.getString("figureurl"));
-                                bUser1.setMobilePhoneNumber("15762180001"); //TODO
+                           //     bUser1.setMobilePhoneNumber("15762180001"); //TODO
                                 bUser1.setEmail("xxxxx@xxx.com"); //TODO
                                 bUser1.update(LoginActivity.this, objectId, new UpdateListener() {
                                     @Override
