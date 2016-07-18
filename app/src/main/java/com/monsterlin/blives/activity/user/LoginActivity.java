@@ -196,7 +196,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 login();
                 break;
             case R.id.btn_regist:
-
+                nextActivity(RegistActivity.class);
+                finish();
                 break;
 
             case R.id.iv_qq_login:
