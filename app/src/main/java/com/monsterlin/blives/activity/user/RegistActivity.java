@@ -58,9 +58,9 @@ public class RegistActivity extends BaseActivity {
         btn_getSmsCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                countTime();
                 telPhone = edt_tel.getText().toString();
                 if (!TextUtils.isEmpty(telPhone)){
+                    countTime();
                     BmobSMS.requestSMSCode(RegistActivity.this, telPhone, "mysms", new RequestSMSCodeListener() {
                         @Override
                         public void done(Integer smsId, BmobException ex) {
