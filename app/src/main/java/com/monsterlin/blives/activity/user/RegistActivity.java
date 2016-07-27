@@ -89,8 +89,6 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
 
                 break;
             case R.id.btn_regist:
-                dialog.show();
-
                 codeString=edt_SmsCode.getText().toString();
                 telString=edt_tel.getText().toString();
                 passString=edt_pass.getText().toString();
@@ -98,6 +96,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                 if (TextUtils.isEmpty(codeString)&&TextUtils.isEmpty(telString)&&TextUtils.isEmpty(passString)){
                     showToast("请完整填写信息");
                 }else {
+                    dialog.show();
                     BUser bUser = new BUser();
                     bUser.setMobilePhoneNumber(telString);
                     bUser.setUsername(telString);
