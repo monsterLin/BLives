@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="#f1f1f1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#f1f1f1"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:fitsSystemWindows="true" />
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/AppTheme.AppBarOverlay" />
 
 
     <RelativeLayout
@@ -22,152 +24,164 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_bzu"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:padding="5dp"/>
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_bzu" />
     </RelativeLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:padding="3dp"
-            android:text="@string/tv_version_text"/>
+            android:text="@string/tv_version_text"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
         <TextView
             android:id="@+id/tv_versionName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"/>
+            android:textSize="15sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:padding="3dp"
-            android:text="@string/tv_about_author_text"/>
+            android:text="@string/tv_about_author_text"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
             android:text="@string/tv_about_me_text"
-            android:textSize="15sp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="20dp"/>
+            android:textSize="15sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:padding="3dp"
-            android:text="@string/tv_main_web_text"/>
+            android:text="@string/tv_main_web_text"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
             android:text="@string/tv_web_text"
-            android:textSize="15sp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="20dp"/>
+            android:textSize="15sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:padding="3dp"
-            android:text="@string/tv_thanks"/>
+            android:text="@string/tv_thanks"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
             android:text="@string/tv_thanks_ui"
-            android:textSize="15sp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="20dp"/>
+            android:textSize="15sp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_thanks_code"
-            android:textSize="15sp"
-            android:layout_marginTop="5dp"
             android:layout_marginBottom="2dp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/tv_thanks_code"
+            android:textSize="15sp" />
     </LinearLayout>
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:padding="3dp"
-            android:text="@string/tv_tips"/>
+            android:text="@string/tv_tips"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tv_mz_text_one"
-            android:textSize="15sp"
-            android:layout_marginTop="5dp"
             android:layout_marginBottom="2dp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/tv_mz_text_one"
+            android:textSize="15sp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_mz_text_two"
-            android:textSize="15sp"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="5dp"
             android:layout_marginBottom="2dp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="@string/tv_mz_text_two"
+            android:textSize="15sp" />
     </LinearLayout>
 </LinearLayout>
