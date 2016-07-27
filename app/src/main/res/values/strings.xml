@@ -21,7 +21,7 @@
     <string name="test_tv_date_text">2016-02-27</string>
     <string name="edt_user_text">你的邮箱</string>
     <string name="edt_pass_text">你的密码</string>
-    <string name="btn_regist_text">注册账号</string>
+    <string name="btn_regist_text">注册</string>
     <string name="btn_login_text">登陆</string>
     <string name="item_forget_text">忘记密码？</string>
     <string name="edt_email_text">你的邮箱</string>
@@ -74,5 +74,7 @@
     <string name="item_location_text">定位</string>
     <string name="item_share_text">分享</string>
     <string name="item_tel_test">电话</string>
+    <string name="btn_sms_code">获取验证码</string>
+    <string name="edt_SmsCode_text">验证码</string>
 
 </resources>
