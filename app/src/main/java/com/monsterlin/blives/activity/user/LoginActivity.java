@@ -355,6 +355,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                             showToast("登录成功");
                             dialog.dismiss();
                             finish();
+                            nextActivity(MainActivity.class);
                         } else {
                             showToast("邮箱或者密码不正确");
                             dialog.dismiss();

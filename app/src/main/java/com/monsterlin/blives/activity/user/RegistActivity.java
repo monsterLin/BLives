@@ -85,6 +85,8 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                             }
                         }
                     });
+                }else {
+                    showToast("请完整填写手机号");
                 }
 
                 break;

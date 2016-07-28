@@ -52,6 +52,8 @@
         <activity android:name=".activity.setting.AboutActivity"/>
         <activity android:name=".activity.map.MapActivity"/>
         <activity android:name=".activity.user.RegistActivity"/>
+        <activity android:name=".activity.user.UpdateUseInfoActivity"/>
+        <activity android:name=".activity.user.ChangePassActivity"/>
         <activity android:name=".activity.app.AppDetailActivity"/>
         <activity android:name=".activity.campus.UnionActivity"/>
         <activity android:name=".activity.news.NewsDetailsActivity">

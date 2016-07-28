@@ -249,9 +249,9 @@ public class MainActivity extends BaseActivity
                     nextActivity(LoginActivity.class);
                     finish();
                 }else {
-                    String objectId = bmobUser.getObjectId();
+//                    String objectId = bmobUser.getObjectId();
                     Intent showUserIntent = new Intent(this,UserInfoActivity.class);
-                    showUserIntent.putExtra("objectId",objectId);
+//                    showUserIntent.putExtra("objectId",objectId);
                     startActivity(showUserIntent);
                 }
                 break;

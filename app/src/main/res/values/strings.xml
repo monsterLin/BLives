@@ -76,5 +76,9 @@
     <string name="item_tel_test">电话</string>
     <string name="btn_sms_code">获取验证码</string>
     <string name="edt_SmsCode_text">验证码</string>
+    <string name="item_changepass_text">更改密码</string>
+    <string name="edt_oldPass_text">请输入旧密码</string>
+    <string name="edt_newPass_text">请输入新密码</string>
+    <string name="edt_reNewPass_text">请再次输入新密码</string>
 
 </resources>

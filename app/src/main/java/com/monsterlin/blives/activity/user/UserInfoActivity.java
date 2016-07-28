@@ -16,6 +16,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.GetListener;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -33,6 +34,8 @@ public class UserInfoActivity extends BaseActivity {
 
     private String objectId;
     private TextView tv_nick, tv_depart, tv_email, tv_name, tv_tel;
+    private Bundle bundle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class UserInfoActivity extends BaseActivity {
         setContentView(R.layout.activity_userinfo);
         ButterKnife.inject(this);
 
-        objectId = getIntent().getStringExtra("objectId");
+        objectId = BmobUser.getCurrentUser(this).getObjectId();
 
         initView();
         initToolBar(toolbar, "个人资料", true);
@@ -54,6 +57,11 @@ public class UserInfoActivity extends BaseActivity {
                 @Override
                 public void onSuccess(BUser bUser) {
                     if (bUser != null) {
+
+                        bundle=new Bundle();
+                        bundle.putSerializable("bUser",bUser);
+
+
                         if (TextUtils.isEmpty(bUser.getFigureurl())) {
                             ImageLoader.getInstance().displayImage(bUser.getUserPhoto().getFileUrl(UserInfoActivity.this), iv_userphoto);
                         } else {
@@ -68,14 +76,14 @@ public class UserInfoActivity extends BaseActivity {
 
                         if (!TextUtils.isEmpty(bUser.getEmail())) {
                             tv_email.setText(bUser.getEmail());
-                        }else {
+                        } else {
                             tv_email.setText("请完善邮箱信息");
 
                         }
 
                         if (!TextUtils.isEmpty(bUser.getMobilePhoneNumber())) {
                             tv_tel.setText(bUser.getMobilePhoneNumber());
-                        }else {
+                        } else {
                             tv_tel.setText("请完善手机号信息");
                         }
                         tv_name.setText(bUser.getUsername());
@@ -111,8 +119,16 @@ public class UserInfoActivity extends BaseActivity {
         int id = item.getItemId();
 
         if (id == R.id.item_edit) {
-            showToast("更新资料暂未开放.");
+
+
+            nextActivity(UpdateUseInfoActivity.class,bundle);
+
+            finish();
             return true;
+        }
+
+        if (id==R.id.item_changepass){
+            nextActivity(ChangePassActivity.class);
         }
 
         return super.onOptionsItemSelected(item);
