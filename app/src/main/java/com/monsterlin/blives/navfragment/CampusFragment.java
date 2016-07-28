@@ -11,12 +11,7 @@ import android.view.ViewGroup;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.adapter.changeadapter.ViewPagerAdapter;
 import com.monsterlin.blives.campusfragment.CampusAcFragment;
-import com.monsterlin.blives.campusfragment.DepartAcFragment;
 import com.monsterlin.blives.campusfragment.UnionFragment;
-import com.monsterlin.blives.mainfragment.AcinformsFragment;
-import com.monsterlin.blives.mainfragment.JobnewsFragment;
-import com.monsterlin.blives.mainfragment.OffnewsFragment;
-import com.monsterlin.blives.mainfragment.SNewsFragment;
 
 /**
  * Created by monsterLin on 6/27/2016.
@@ -26,7 +21,7 @@ public class CampusFragment extends Fragment {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
 
-    private int cachePagers = 2;
+//    private int cachePagers = 2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,16 +43,16 @@ public class CampusFragment extends Fragment {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
 
         Fragment campusAcFragment = new CampusAcFragment();
-        Fragment departAcFragment = new DepartAcFragment();
+    //    Fragment departAcFragment = new DepartAcFragment();
         Fragment unionFragment = new UnionFragment();
 
-        adapter.addFragment(departAcFragment, "系院活动");
+      //  adapter.addFragment(departAcFragment, "系院活动");
         adapter.addFragment(campusAcFragment, "社团活动");
         adapter.addFragment(unionFragment, "社团联盟");
 
 
         mViewPager.setAdapter(adapter);
-        mViewPager.setOffscreenPageLimit(cachePagers);
+    //    mViewPager.setOffscreenPageLimit(cachePagers);
         mTabLayout.setupWithViewPager(mViewPager);
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@color/white">
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+       android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="LOL电竞比赛"/>
+
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2016-07-28"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/tv_title"/>
+
+    <TextView
+        android:id="@+id/tv_union"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="电竞社团"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/tv_date"/>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_union_logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_bzu" />
+</RelativeLayout>

@@ -19,6 +19,8 @@ import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.MainActivity;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.bean.BUser;
+import com.monsterlin.blives.bean.CampusAc;
+import com.monsterlin.blives.bean.Union;
 import com.monsterlin.blives.biz.BaseUiListener;
 import com.monsterlin.blives.constants.APPID;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -30,6 +32,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -40,6 +43,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.GetListener;
 import cn.bmob.v3.listener.LogInListener;
 import cn.bmob.v3.listener.OtherLoginListener;
+import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 import cn.bmob.v3.listener.UploadFileListener;
 import dmax.dialog.SpotsDialog;
@@ -392,7 +396,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
 

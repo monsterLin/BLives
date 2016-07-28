@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_bzu"
-        android:layout_margin="12dp"/>
+        android:layout_margin="4dp"/>
 
     <TextView
         android:id="@+id/tv_community"
