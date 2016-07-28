@@ -27,6 +27,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <meta-data android:value="Channel ID" android:name="BMOB_CHANNEL"/>
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="1gxNcmK2hlY6INyQNxpdGGSodXMGqIIp" />
@@ -83,6 +85,12 @@
             android:name="com.tencent.connect.common.AssistActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+
+        <activity
+            android:name="cn.bmob.v3.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
     </application>
 
 </manifest>

@@ -36,6 +36,7 @@ import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.GetListener;
+import cn.bmob.v3.update.BmobUpdateAgent;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -116,7 +117,7 @@ public class MainActivity extends BaseActivity
     private void checkNet() {
         isNet=new CheckNetWork().isNetworkAvailable(this);
         if (isNet){
-            //checkVersion();
+            checkVersion();
             init();  //初始化用户数据
             initMain(); //初始化主页面
             initEvent();  //初始化点击事件
@@ -125,6 +126,11 @@ public class MainActivity extends BaseActivity
             new CheckNetWork().showNetDialog(this);
             tv_netWork.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void checkVersion() {
+        BmobUpdateAgent.setUpdateOnlyWifi(false);
+        BmobUpdateAgent.update(this);
     }
 
     private void init() {

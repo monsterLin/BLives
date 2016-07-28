@@ -79,27 +79,27 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 showToast("清除缓存成功");
                 break;
             case R.id.btn_update:
-//                BmobUpdateAgent.forceUpdate(this);  //手动更新
-//                BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
-//                    @Override
-//                    public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
-//                        switch (updateStatus){
-//                            case UpdateStatus.Yes:
-//                                //版本有更新
-//                                break;
-//                            case UpdateStatus.No:
-//                                showToast("已是最新版本");
-//                                break;
-//                            case UpdateStatus.ErrorSizeFormat:
-//                                showToast("请检查target_size填写的格式，请使用file.length()方法获取apk大小");
-//                                break;
-//                            case UpdateStatus.TimeOut:
-//                                showToast("查询出错或超时");
-//                                break;
-//                        }
-//                    }
-//                });
-//                BmobUpdateAgent.update(this);
+                BmobUpdateAgent.forceUpdate(this);  //手动更新
+                BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
+                    @Override
+                    public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
+                        switch (updateStatus){
+                            case UpdateStatus.Yes:
+                                //版本有更新
+                                break;
+                            case UpdateStatus.No:
+                                showToast("已是最新版本");
+                                break;
+                            case UpdateStatus.ErrorSizeFormat:
+                                showToast("请检查target_size填写的格式，请使用file.length()方法获取apk大小");
+                                break;
+                            case UpdateStatus.TimeOut:
+                                showToast("查询出错或超时");
+                                break;
+                        }
+                    }
+                });
+                BmobUpdateAgent.update(this);
                 break;
             case R.id.btn_help:
                    helpDialog = new MaterialDialog(this)
