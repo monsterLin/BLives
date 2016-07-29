@@ -16,7 +16,9 @@ import com.monsterlin.blives.adapter.base.BaseRecyclerAdapter;
 import com.monsterlin.blives.adapter.campus.CampusAcAdapter;
 import com.monsterlin.blives.bean.CampusAc;
 import com.monsterlin.blives.utils.SnackbarUtil;
+import com.yyydjk.library.BannerLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
@@ -33,6 +35,8 @@ public class CampusAcFragment extends Fragment {
     private BmobQuery<CampusAc> query;
     private  SwipeRefreshLayout srl ;
     private View view;
+//    private View header;
+//    private BannerLayout bannerLayou;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,6 +46,8 @@ public class CampusAcFragment extends Fragment {
         initEvent();
         return view;
     }
+
+
 
     private void initEvent() {
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -73,9 +79,13 @@ public class CampusAcFragment extends Fragment {
 
     private void initAdapter(List<CampusAc> list) {
         adapter=new CampusAcAdapter();
-        adapter.addDatas(list);
-        Log.e("AA",""+list.size());
         rylist.setAdapter(adapter);
+        adapter.addDatas(list);
+//        header = LayoutInflater.from(getActivity()).inflate(R.layout.view_campusac_header, rylist, false);
+//        dealHeader();
+
+   //     adapter.setHeaderView(header);
+
         rylist.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         adapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
@@ -86,6 +96,18 @@ public class CampusAcFragment extends Fragment {
             }
         });
     }
+
+//    private void dealHeader() {
+//        bannerLayou = (BannerLayout) header.findViewById(R.id.banner_top);
+//        List<String> urls = new ArrayList<>();
+//        urls.add("http://7xq24t.com1.z0.glb.clouddn.com/yasuo_01.png");
+//        urls.add("http://7xq24t.com1.z0.glb.clouddn.com/yasuo_02.png");
+//        urls.add("http://7xq24t.com1.z0.glb.clouddn.com/yasuo_03.png");
+//        urls.add("http://7xq24t.com1.z0.glb.clouddn.com/yasuo_04.png");
+//        urls.add("http://7xq24t.com1.z0.glb.clouddn.com/liqing_01.png");
+//        urls.add("http://7xq24t.com1.z0.glb.clouddn.com/liqing_02.png");
+//        bannerLayou.setViewUrls(urls);
+//    }
 
     private void initView(View view) {
         rylist= (RecyclerView) view.findViewById(R.id.rylist);
