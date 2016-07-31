@@ -20,9 +20,9 @@ import android.widget.Toast;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.monsterlin.blives.R;
 import com.monsterlin.blives.adapter.campus.CampusAdapter;
-import com.monsterlin.blives.adapter.campus.CampusDetailActivity;
-import com.monsterlin.blives.adapter.campus.MCampusActivity;
-import com.monsterlin.blives.adapter.campus.NCampusActivity;
+import com.monsterlin.blives.activity.campus.CampusDetailActivity;
+import com.monsterlin.blives.activity.campus.MCampusActivity;
+import com.monsterlin.blives.activity.campus.NCampusActivity;
 import com.monsterlin.blives.bean.Campus;
 
 import java.util.ArrayList;

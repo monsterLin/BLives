@@ -1,6 +1,5 @@
-package com.monsterlin.blives.adapter.campus;
+package com.monsterlin.blives.activity.campus;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,6 +11,7 @@ import android.view.View;
 
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
+import com.monsterlin.blives.adapter.campus.CampusAdapter;
 import com.monsterlin.blives.bean.Campus;
 
 import java.util.ArrayList;

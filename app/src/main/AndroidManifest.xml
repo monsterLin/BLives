@@ -57,9 +57,9 @@
         <activity android:name=".activity.user.UpdateUseInfoActivity"/>
         <activity android:name=".activity.user.ChangePassActivity"/>
         <activity android:name=".activity.app.AppDetailActivity"/>
-        <activity android:name=".adapter.campus.CampusDetailActivity"/>
-        <activity android:name=".adapter.campus.MCampusActivity"/>
-        <activity android:name=".adapter.campus.NCampusActivity"/>
+        <activity android:name=".activity.campus.CampusDetailActivity"/>
+        <activity android:name=".activity.campus.MCampusActivity"/>
+        <activity android:name=".activity.campus.NCampusActivity"/>
         <activity android:name=".activity.campus.UnionActivity"/>
         <activity android:name=".activity.news.NewsDetailsActivity">
             <intent-filter>

@@ -1,4 +1,4 @@
-package com.monsterlin.blives.adapter.campus;
+package com.monsterlin.blives.activity.campus;
 
 import android.content.Intent;
 import android.os.Bundle;
