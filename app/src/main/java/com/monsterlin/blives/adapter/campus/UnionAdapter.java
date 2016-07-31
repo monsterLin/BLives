@@ -11,6 +11,7 @@ import com.monsterlin.blives.adapter.common.CommonUnionAdapter;
 import com.monsterlin.blives.adapter.viewholder.NewsItemVHolder;
 import com.monsterlin.blives.adapter.viewholder.UnionVHolder;
 import com.monsterlin.blives.bean.Union;
+import com.monsterlin.blives.utils.PhoneUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -29,7 +30,7 @@ public class UnionAdapter extends CommonUnionAdapter<Union> {
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof UnionVHolder) {
 
             if (unionList.get(position).getLogo()!=null){
@@ -53,14 +54,14 @@ public class UnionAdapter extends CommonUnionAdapter<Union> {
             unionVHolder.iv_star.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(mContext, "收藏被点击", Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(mContext, "收藏被点击", Toast.LENGTH_SHORT).show();
                 }
             });
 
             unionVHolder.iv_tel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(mContext, "电话被点击", Toast.LENGTH_SHORT).show();
+                    PhoneUtil.TelCALL(mContext,unionList.get(position).getDirectortel());
                 }
             });
 
