@@ -43,7 +43,7 @@ public class UpdateUseInfoActivity extends BaseActivity {
 
     private BUser bUser;
 
-    private String nickString , userNameString , departString ;
+    private String nickString , userNameString , departString , telString ,emailString;
 
     private AlertDialog dialog ;
 
@@ -68,9 +68,9 @@ public class UpdateUseInfoActivity extends BaseActivity {
             edt_nick.setText(bUser.getNick());
             edt_depart.setText(bUser.getDepart());
             edt_tel.setText(bUser.getMobilePhoneNumber());
-            edt_tel.setEnabled(false);
+          //  edt_tel.setEnabled(false);
             edt_email.setText(bUser.getEmail());
-            edt_email.setEnabled(false);
+          //  edt_email.setEnabled(false);
 
             if (TextUtils.isEmpty(bUser.getFigureurl())) {
                 if (TextUtils.isEmpty(bUser.getUserPhoto().getFileUrl(UpdateUseInfoActivity.this))) {
@@ -117,8 +117,14 @@ public class UpdateUseInfoActivity extends BaseActivity {
                 nickString=edt_nick.getText().toString();
                 userNameString=edt_username.getText().toString();
                 departString=edt_depart.getText().toString();
+                telString=edt_tel.getText().toString();
+                emailString=edt_email.getText().toString();
 
-                if (TextUtils.isEmpty(nickString)&&TextUtils.isEmpty(userNameString)&&TextUtils.isEmpty(departString)){
+                if (TextUtils.isEmpty(nickString)
+                        &&TextUtils.isEmpty(userNameString)
+                        && TextUtils.isEmpty(departString)
+                        &&TextUtils.isEmpty(telString)
+                        &&TextUtils.isEmpty(emailString)){
                     showToast("请完整填写信息");
                     dialog.dismiss();
                 }else {
@@ -126,6 +132,8 @@ public class UpdateUseInfoActivity extends BaseActivity {
                     bUser.setUsername(userNameString);
                     bUser.setNick(nickString);
                     bUser.setDepart(departString);
+                    bUser.setMobilePhoneNumber(telString);
+                    bUser.setEmail(emailString);
 
                     bUser.update(UpdateUseInfoActivity.this, BmobUser.getCurrentUser(UpdateUseInfoActivity.this).getObjectId(), new UpdateListener() {
                         @Override
