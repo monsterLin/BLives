@@ -41,6 +41,7 @@ dependencies {
     compile files('libs/open_sdk_r5756.jar')
     compile project(':validator')
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    compile 'im.fir:fir-sdk:latest.integration@aar'
     //RXJAVA  Retrofit
     //    compile 'io.reactivex:rxjava:1.1.0'
     //    compile 'io.reactivex:rxandroid:1.1.0'

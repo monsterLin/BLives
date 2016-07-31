@@ -28,6 +28,7 @@
         android:theme="@style/AppTheme">
 
         <meta-data android:value="Channel ID" android:name="BMOB_CHANNEL"/>
+        <meta-data android:value="2ccb36c7d8e8271bd74478f94485c9ff" android:name="BUG_HD_SDK_GENERAL_KEY" />
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"

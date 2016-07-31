@@ -9,6 +9,8 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import im.fir.sdk.FIR;
+
 /**
  * 应用的Application
  * Created by monsterLin on 2016/4/12.
@@ -28,6 +30,11 @@ public class BApplication extends Application{
          * 百度地图相关配置
          */
         SDKInitializer.initialize(getApplicationContext());
+
+        /**
+         * BugHD
+         */
+        FIR.init(this);
 
     }
 }
