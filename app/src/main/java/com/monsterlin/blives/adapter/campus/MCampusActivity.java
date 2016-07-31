@@ -1,28 +1,17 @@
-package com.monsterlin.blives.campusfragment;
+package com.monsterlin.blives.adapter.campus;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.R;
-import com.monsterlin.blives.adapter.campus.CampusAdapter;
-import com.monsterlin.blives.adapter.campus.CampusDetailActivity;
-import com.monsterlin.blives.adapter.campus.MCampusActivity;
-import com.monsterlin.blives.adapter.campus.NCampusActivity;
 import com.monsterlin.blives.bean.Campus;
 
 import java.util.ArrayList;
@@ -32,15 +21,20 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.listener.DeleteListener;
 import cn.bmob.v3.listener.FindListener;
+import me.drakeet.materialdialog.MaterialDialog;
 
 /**
- * 社团活动
- * Created by monsterLin on 6/29/2016.
+ * 我的发布
+ * Created by monsterLin on 2016/4/27.
  */
-public class CampusAcFragment extends Fragment {
+public class MCampusActivity extends BaseActivity{
 
-    private Context mContext ;
+    private String objectId ;
+
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
 
     @InjectView(R.id.rv_campus)
     RecyclerView rv_campus;
@@ -52,73 +46,24 @@ public class CampusAcFragment extends Fragment {
     BmobQuery<Campus> query ;
     private List<Campus> mList = new ArrayList<>();
     private CampusAdapter adapter ;
+    private MaterialDialog mMaterialDialog;
 
     boolean isLoading ; //监听加载状态
 
     private int limit =10;		// 每页的数据是8条
     private int curPage = 0;		// 当前页的编号，从0开始
 
-    @InjectView(R.id.fab_new)
-    FloatingActionButton fab_new ;
-
-    @InjectView(R.id.fab_me)
-    View fab_me;
-
-    private MyReceiver myReceiver = null;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_ac,container,false);
-        ButterKnife.inject(this,view);
-        return view;
-    }
-
-
-    @Override
-    public void onViewCreated(View view,  Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        /**
-         * 创建广播
-         */
-        myReceiver = new MyReceiver();
-        getActivity().registerReceiver(myReceiver,new IntentFilter("com.monster.broadcast"));
-
-        initView(view);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_mcampus);
+        objectId= BmobUser.getCurrentUser(this).getObjectId();
+        ButterKnife.inject(this);
+        initToolBar(toolbar,"我的发布",true);
+        initView();
         initData();
-        initEvent();
-    }
-
-    private void initEvent() {
-        fab_new.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO   数据及时刷新问题
-                //需要为带返回值的跳转，或者onResume执行数据刷新
-                BmobUser bmobUser=BmobUser.getCurrentUser(mContext);
-                if (bmobUser!=null){
-                    Intent ncampusIntent = new Intent(mContext, NCampusActivity.class);
-                    startActivity(ncampusIntent);
-                }else {
-                    showToast("登陆程序方可发布活动");
-                }
-            }
-        });
-
-        fab_me.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BmobUser bmobUser=BmobUser.getCurrentUser(mContext);
-                if (bmobUser!=null){
-                    Intent mcampusIntent = new Intent(mContext, MCampusActivity.class);
-                    startActivity(mcampusIntent);
-                }else {
-                    showToast("登陆程序方可查询发布");
-                }
-            }
-        });
 
     }
-
 
 
     /**
@@ -129,10 +74,11 @@ public class CampusAcFragment extends Fragment {
         query= new BmobQuery<Campus>();
         query.order("-updatedAt");
         query.setLimit(limit);
+        query.addWhereEqualTo("bUser",BmobUser.getCurrentUser(this).getObjectId());
         query.include("bUser");
         query.setSkip(curPage*limit);
         curPage++;
-        query.findObjects(mContext, new FindListener<Campus>() {
+        query.findObjects(MCampusActivity.this, new FindListener<Campus>() {
             @Override
             public void onSuccess(List<Campus> list) {
                 //　新数据的添加
@@ -159,7 +105,7 @@ public class CampusAcFragment extends Fragment {
         query.setSkip(page*limit+1);
         query.setLimit(5);
         curPage++;
-        query.findObjects(mContext, new FindListener<Campus>() {
+        query.findObjects(MCampusActivity.this, new FindListener<Campus>() {
             @Override
             public void onSuccess(List<Campus> list) {
                 if(list.size()!=0){
@@ -180,8 +126,7 @@ public class CampusAcFragment extends Fragment {
     }
 
 
-    private void initView(View view) {
-
+    private void initView() {
         srl.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -193,15 +138,15 @@ public class CampusAcFragment extends Fragment {
                         initData();
                         srl.setRefreshing(false);
                     }
-                }, 1000);
+                }, 1500);
 
             }
         });
 
 
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(MCampusActivity.this);
         rv_campus.setLayoutManager(layoutManager);
-        adapter = new CampusAdapter(mContext,mList);
+        adapter = new CampusAdapter(MCampusActivity.this,mList);
         rv_campus.setAdapter(adapter);
 
 
@@ -249,58 +194,69 @@ public class CampusAcFragment extends Fragment {
         adapter.setOnItemClickListener(new CampusAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(int position, View view) {
-                Campus campus =adapter.getCampusData(position);
-                String objectId = campus.getObjectId();
-                String userObjectId = campus.getbUser().getObjectId();
-                Intent campusIntent =  new Intent(mContext, CampusDetailActivity.class);
-                campusIntent.putExtra("objectId",objectId);
-                campusIntent.putExtra("userObjectId",userObjectId);
-                startActivity(campusIntent);
-
 
             }
 
             @Override
-            public void OnItemLongClick(int position, View view) {
+            public void OnItemLongClick(final int position, final View view) {
+                mMaterialDialog=new MaterialDialog(MCampusActivity.this)
 
+                        .setMessage("你是否要删除此次活动？")
+                        .setPositiveButton("残忍删除", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                Campus campus =adapter.getCampusData(position);
+                                String objectId = campus.getObjectId();
+
+                                Campus campus1=new Campus();
+                                campus1.setObjectId(objectId);
+                                campus1.delete(MCampusActivity.this, new DeleteListener() {
+                                    @Override
+                                    public void onSuccess() {
+                                        mList.clear();
+                                        BmobQuery<Campus> query = new BmobQuery<>();
+                                        query.order("-updatedAt");
+                                        query.include("bUser");
+                                        query.setLimit(5);
+                                        query.findObjects(MCampusActivity.this, new FindListener<Campus>() {
+                                            @Override
+                                            public void onSuccess(List<Campus> list) {
+                                                if(list.size()!=0){
+                                                    mList.addAll(list);
+                                                    adapter.notifyDataSetChanged();
+                                                }
+
+                                            }
+                                            @Override
+                                            public void onError(int i, String s) {
+
+                                            }
+                                        });
+                                        showToast("删除成功");
+                                    }
+
+                                    @Override
+                                    public void onFailure(int i, String s) {
+                                        showToast("删除失败："+s);
+                                    }
+                                });
+
+                                mMaterialDialog.dismiss();
+
+                            }
+                        })
+                        .setNegativeButton("再看一看", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mMaterialDialog.dismiss();
+                            }
+                        });
+                mMaterialDialog.show();
             }
         });
 
 
 
-
-    }
-
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        mContext=activity;
-    }
-
-
-
-
-    public void showToast(String s){
-        Toast.makeText(mContext,""+s, Toast.LENGTH_SHORT).show();
-    }
-
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if(myReceiver!= null)
-            getActivity().unregisterReceiver(myReceiver);
-    }
-
-    public class MyReceiver  extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Bundle bundle =intent.getExtras();
-            Campus campus = (Campus) bundle.get("newcampus");
-            mList.add(0,campus);
-            //  adapter.notifyItemInserted(0);
-            adapter.notifyDataSetChanged();
-        }
     }
 }

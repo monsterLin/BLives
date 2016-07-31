@@ -1,60 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:layout_marginBottom="4dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_union_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_bzu"
-        android:layout_margin="4dp"/>
+        <ImageView
+            android:id="@+id/iv_union_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:src="@drawable/ic_bzu" />
 
-    <TextView
-        android:id="@+id/tv_community"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="社团名称："
-        android:textSize="16sp"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:layout_above="@+id/tv_director"
-        android:layout_alignLeft="@+id/tv_director"
-        android:layout_alignStart="@+id/tv_director" />
+        <TextView
+            android:id="@+id/tv_community"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_director"
+            android:layout_alignLeft="@+id/tv_director"
+            android:layout_alignStart="@+id/tv_director"
+            android:padding="10dp"
+            android:text="社团名称："
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/tv_director"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="理事长："
-        android:textSize="16sp"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:layout_alignBottom="@+id/iv_union_logo"
-        android:layout_toRightOf="@+id/iv_union_logo"
-        android:layout_toEndOf="@+id/iv_union_logo" />
+        <TextView
+            android:id="@+id/tv_director"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_union_logo"
+            android:layout_toEndOf="@+id/iv_union_logo"
+            android:layout_toRightOf="@+id/iv_union_logo"
+            android:padding="10dp"
+            android:text="理事长："
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-    <ImageView
-        android:id="@+id/iv_star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_campus_star"
-        android:layout_alignParentRight="true"
-        android:layout_alignBottom="@id/tv_community"
-        android:layout_marginRight="16dp"
-        android:padding="10dp"/>
+        <ImageView
+            android:id="@+id/iv_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_community"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_campus_star" />
 
-    <ImageView
-        android:id="@+id/iv_tel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_campus_tel"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/iv_star"
-        android:layout_marginRight="16dp"
-        android:padding="10dp"/>
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/iv_tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/iv_star"
+            android:layout_marginRight="16dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_campus_tel" />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
