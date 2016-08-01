@@ -10,8 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:fitsSystemWindows="true" />
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/AppTheme.AppBarOverlay" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_userphoto"
