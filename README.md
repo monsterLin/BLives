@@ -31,16 +31,6 @@
 ## 联系小编
  - Email : linfanrong235@outlook.com
 
-
-## 鸣谢
- - 技术支持
-  - @蓝默
-  - @全世界Coder
- - UI支持
-  - @磁力链接君(weibo)
-  - @柠木
-
-
 ## 截图欣赏
   ![](showimg/app_show_01.jpg)
 
