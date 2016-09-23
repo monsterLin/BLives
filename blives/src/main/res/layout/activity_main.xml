@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.monsterlin.blives.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+
+
+            <TextView
+                android:id="@+id/main_tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="首页新闻"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
+
+
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/main_ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/main_bottombar_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/ic_main_before"
+            android:gravity="center"
+            android:padding="1dp"
+            android:text="首页" />
+
+        <TextView
+            android:id="@+id/main_bottombar_scenery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/ic_scenery_before"
+            android:gravity="center"
+            android:padding="1dp"
+            android:text="校园风景" />
+
+        <TextView
+            android:id="@+id/main_bottombar_campus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/ic_campus_before"
+            android:gravity="center"
+            android:padding="1dp"
+            android:text="校园社团" />
+
+        <TextView
+            android:id="@+id/main_bottombar_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/ic_map_before"
+            android:gravity="center"
+            android:padding="1dp"
+            android:text="校园活动" />
+
+        <TextView
+            android:id="@+id/main_bottombar_me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/ic_me_before"
+            android:gravity="center"
+            android:padding="1dp"
+            android:text="我的" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/main_frame_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/main_ll_bottom"
+        android:layout_below="@id/toolbar"
+        android:background="@color/white" />
+
+</RelativeLayout>

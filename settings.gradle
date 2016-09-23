@@ -1,1 +1,1 @@
-include ':app', ':library', ':validator'
+include ':app', ':library', ':validator', ':blives'
