@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ic_map_pop" >
+
+    <TextView
+        android:id="@+id/tv_popview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:drawableRight="@drawable/ic_pop_map_arrow"
+        android:drawablePadding="15dp"
+        android:layout_marginTop="6dp"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>

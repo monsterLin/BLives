@@ -83,7 +83,7 @@
             android:drawableTop="@drawable/ic_map_before"
             android:gravity="center"
             android:padding="1dp"
-            android:text="校园活动" />
+            android:text="校园地图" />
 
         <TextView
             android:id="@+id/main_bottombar_me"
