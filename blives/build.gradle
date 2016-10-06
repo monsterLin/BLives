@@ -42,4 +42,5 @@ dependencies {
     compile project(':validator')
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'im.fir:fir-sdk:latest.integration@aar'
+    compile project(':tastytoast')
 }

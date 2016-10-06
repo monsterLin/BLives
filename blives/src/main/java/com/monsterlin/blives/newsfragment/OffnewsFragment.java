@@ -19,6 +19,7 @@ import com.monsterlin.blives.biz.NewsBiz;
 import com.monsterlin.blives.constants.DetailType;
 import com.monsterlin.blives.mainfragment.BaseFragment;
 import com.monsterlin.blives.utils.SnackbarUtil;
+import com.sdsmdg.tastytoast.TastyToast;
 
 import java.util.List;
 
@@ -130,7 +131,7 @@ public class OffnewsFragment extends   BaseFragment<Offnews>  implements NewsBiz
 
             @Override
             public void onError(int i, String s) {
-                Toast.makeText(mContext, "发生异常："+s, Toast.LENGTH_SHORT).show();
+                TastyToast.makeText(mContext, "发生异常："+s, TastyToast.LENGTH_SHORT,TastyToast.ERROR);
             }
         });
     }
@@ -149,7 +150,7 @@ public class OffnewsFragment extends   BaseFragment<Offnews>  implements NewsBiz
 
             @Override
             public void onError(int i, String s) {
-                Toast.makeText(mContext, "发生异常："+s, Toast.LENGTH_SHORT).show();
+                TastyToast.makeText(mContext, "发生异常："+s, TastyToast.LENGTH_SHORT,TastyToast.ERROR);
             }
         });
     }
@@ -164,16 +165,16 @@ public class OffnewsFragment extends   BaseFragment<Offnews>  implements NewsBiz
                     for (Offnews offnews:list){
                         mList.add(0,offnews);
                         offnewsAdapter.notifyItemInserted(0);
-                        SnackbarUtil.ShortSnackbar(view,"增加了"+list.size()+"条数据",SnackbarUtil.Warning).show();
+                        TastyToast.makeText(mContext,"增加了"+list.size()+"条数据",TastyToast.LENGTH_SHORT,TastyToast.SUCCESS);
                     }
                 }else {
-                    SnackbarUtil.ShortSnackbar(view,"已是最新数据",SnackbarUtil.Info).show();
+                    TastyToast.makeText(mContext,"已是最新数据",TastyToast.LENGTH_SHORT,TastyToast.SUCCESS);
                 }
             }
 
             @Override
             public void onError(int i, String s) {
-                Toast.makeText(mContext, "发生异常："+s, Toast.LENGTH_SHORT).show();
+                TastyToast.makeText(mContext, "发生异常："+s, TastyToast.LENGTH_SHORT,TastyToast.ERROR);
             }
         });
     }

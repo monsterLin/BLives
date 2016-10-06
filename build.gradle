@@ -19,6 +19,8 @@ allprojects {
         maven {
             url "http://maven.bughd.com/public"
         }
+
+
     }
 }
 
