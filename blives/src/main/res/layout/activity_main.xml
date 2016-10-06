@@ -10,24 +10,21 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/borrow"
         android:clipToPadding="true"
         android:fitsSystemWindows="true"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/AppTheme.AppBarOverlay">
 
 
-
-            <TextView
-                android:id="@+id/main_tv_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="首页新闻"
-                android:textSize="18sp"
-                android:textColor="@color/black" />
-
-
+        <TextView
+            android:id="@+id/main_tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="首页新闻"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
 
     </android.support.v7.widget.Toolbar>
@@ -44,6 +41,7 @@
             android:id="@+id/main_bottombar_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:layout_weight="1"
             android:drawablePadding="1dp"
             android:drawableTop="@drawable/ic_main_before"
@@ -55,6 +53,7 @@
             android:id="@+id/main_bottombar_scenery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:layout_weight="1"
             android:drawablePadding="1dp"
             android:drawableTop="@drawable/ic_scenery_before"
@@ -66,6 +65,7 @@
             android:id="@+id/main_bottombar_campus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:layout_weight="1"
             android:drawablePadding="1dp"
             android:drawableTop="@drawable/ic_campus_before"
@@ -77,6 +77,7 @@
             android:id="@+id/main_bottombar_map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:layout_weight="1"
             android:drawablePadding="1dp"
             android:drawableTop="@drawable/ic_map_before"
@@ -88,6 +89,7 @@
             android:id="@+id/main_bottombar_me"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:layout_weight="1"
             android:drawablePadding="1dp"
             android:drawableTop="@drawable/ic_me_before"

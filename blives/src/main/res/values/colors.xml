@@ -2,9 +2,31 @@
 <resources>
     <color name="colorPrimary">#F4F4F4</color>
     <color name="colorPrimaryDark">#F4F4F4</color>
-    <color name="colorAccent">#303F9F</color>
-
-
-    <color name="black">#000000</color>
+    <color name="colorAccent">#F4F4F4</color>
     <color name="white">#ffffff</color>
+    <color name="orange">#ffa500</color>
+    <color name="black">#000000</color>
+    <color name="slategray">#708090</color><!--灰石色 -->
+
+    <!--test-->
+    <color name="beige">#f5f5dc</color><!--米色 -->
+    <color name="azure">#f0ffff</color><!--天蓝色 -->
+    <color name="violet">#ee82ee</color><!--紫罗兰色 -->
+    <color name="silver">#c0c0c0</color><!--银色 -->
+    <color name="red">#de1111</color><!--红色 -->
+
+    <color name="theme_red">#de1111</color>
+    <color name="theme_blcak">#000000</color>
+    <color name="theme_blue">#FF1945C9</color>
+    <color name="theme_orange">#ffa500</color>
+
+    <color name="borrow">#EEEEEE</color>
+    <color name="lightpink">#EB8A9E</color>
+    <color name="ivory">#fffff0</color><!--象牙色 -->
+    <color name="blue">#0000ff</color><!--蓝色 -->
+
+    <color name="fwhite">#fafafa</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="half_black">#808080</color>
+    <color name="black_semi_transparent">#B2000000</color>
 </resources>
