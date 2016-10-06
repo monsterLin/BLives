@@ -44,7 +44,8 @@
             android:process=":remote" />
 
 
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".activity.welcome.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,7 +53,9 @@
             </intent-filter>
         </activity>
 
-
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".activity.welcome.OurViewPager"/>
+        <activity android:name=".activity.news.NewsDetailsActivity"/>
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -67,13 +70,6 @@
             </intent-filter>
         </activity>
 
-
-        <activity android:name=".activity.NewsDetailsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
         <activity
             android:name="com.tencent.connect.common.AssistActivity"

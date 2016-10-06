@@ -8,17 +8,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.monsterlin.blives.R;
-import com.monsterlin.blives.activity.NewsDetailsActivity;
+import com.monsterlin.blives.activity.news.NewsDetailsActivity;
 import com.monsterlin.blives.adapter.dao.OnItemClickListener;
 import com.monsterlin.blives.adapter.newsadapter.SchoolNewsAdapter;
 import com.monsterlin.blives.bean.SchoolNews;
 import com.monsterlin.blives.biz.NewsBiz;
 import com.monsterlin.blives.constants.DetailType;
 import com.monsterlin.blives.mainfragment.BaseFragment;
-import com.monsterlin.blives.utils.SnackbarUtil;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.monsterlin.blives.activity;
+package com.monsterlin.blives.activity.news;
 
 import android.content.Intent;
 import android.os.Bundle;
