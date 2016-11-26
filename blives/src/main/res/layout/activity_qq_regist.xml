@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:clipToPadding="true"
+            android:fitsSystemWindows="true"
+            android:minHeight="?attr/actionBarSize"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_userphoto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_default_photo"/>
+
+        <EditText
+            android:id="@+id/edt_mail"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="20dp"
+            android:hint="@string/edt_email_text"/>
+
+        <EditText
+            android:id="@+id/edt_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:inputType="textPassword"
+            android:drawableLeft="@drawable/ic_password"
+            android:drawablePadding="20dp"
+            android:visibility="gone"
+            android:hint="@string/edt_pass_text"/>
+
+        <EditText
+            android:id="@+id/edt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:inputType="text"
+            android:drawableLeft="@drawable/ic_username"
+            android:drawablePadding="20dp"
+            android:hint="@string/edt_username_text"/>
+
+    <EditText
+        android:id="@+id/edt_nick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:inputType="text"
+        android:drawableLeft="@drawable/ic_nick"
+        android:drawablePadding="20dp"
+        android:hint="@string/edt_nick_text"/>
+
+        <EditText
+            android:id="@+id/edt_depart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:inputType="text"
+            android:drawableLeft="@drawable/ic_depart"
+            android:drawablePadding="20dp"
+            android:hint="@string/edt_depart_text"/>
+
+        <EditText
+            android:id="@+id/edt_tel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:inputType="phone"
+            android:drawableLeft="@drawable/ic_tel"
+            android:drawablePadding="20dp"
+            android:hint="@string/edt_tel_text"/>
+
+        <TextView
+            android:id="@+id/tv_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="20dp"
+            android:textColor="@color/red"
+            android:visibility="gone"
+            android:hint="@string/tv_pass_tips"/>
+
+        <Button
+            android:id="@+id/btn_regist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_regist_text"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_login_shape"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/borrow"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"/>
+
+
+    <TextView
+        android:id="@+id/tv_director"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="理事长："
+        android:textSize="16sp"
+        android:textColor="@color/red"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="8dp"
+        android:padding="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_director"
+        android:text="挂牌单位："
+        android:layout_marginLeft="8dp"
+        android:padding="4dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="体育类"
+        android:textColor="@color/blue"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/tv_director"
+        android:textSize="16sp"
+        android:layout_marginRight="10dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_introbuce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="社团介绍"
+        android:layout_below="@id/tv_from"
+        android:layout_marginLeft="8dp"
+        android:padding="4dp"
+        android:textColor="@color/black" />
+
+
+    <View
+        android:id="@+id/view_divide"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/blue"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/tv_introbuce"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加入我们"
+        android:layout_below="@id/view_divide"
+        android:layout_marginLeft="8dp"
+        android:padding="4dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:id="@+id/tv_join"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="欢迎加入我们"
+            android:layout_marginLeft="8dp"
+            android:padding="4dp"/>
+    </LinearLayout>
+</RelativeLayout>

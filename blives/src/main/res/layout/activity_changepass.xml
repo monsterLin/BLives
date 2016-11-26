@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/borrow"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"/>
+
+    <EditText
+        android:id="@+id/edt_oldPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_password"
+        android:hint="@string/edt_oldPass_text"
+        android:inputType="textPassword"
+        android:layout_margin="4dp"/>
+
+    <EditText
+        android:id="@+id/edt_newPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_password"
+        android:hint="@string/edt_newPass_text"
+        android:inputType="textPassword"
+        android:layout_margin="4dp"/>
+
+    <EditText
+        android:id="@+id/edt_reNewPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_password"
+        android:hint="@string/edt_reNewPass_text"
+        android:inputType="textPassword"
+        android:layout_margin="4dp"/>
+
+</LinearLayout>

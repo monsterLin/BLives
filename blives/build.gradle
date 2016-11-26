@@ -9,8 +9,8 @@ android {
         applicationId "com.monsterlin.blives"
         minSdkVersion 15
         targetSdkVersion 22
-        versionCode 5
-        versionName "1.5.1"
+        versionCode 6
+        versionName "1.6"
     }
     buildTypes {
         release {

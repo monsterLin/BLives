@@ -4,14 +4,15 @@
     tools:context=".MainActivity">
 
     <item
-        android:id="@+id/item_action_search"
-        android:icon="@drawable/ic_menu_search"
-        android:title="搜索"
+        android:id="@+id/item_notification"
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/item_notification_text"
         app:showAsAction="ifRoom"/>
 
+
     <item
-        android:id="@+id/item_action_inform"
-        android:icon="@drawable/ic_menu_inform"
-        android:title="消息"
+        android:id="@+id/item_setting"
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/item_notification_text"
         app:showAsAction="ifRoom"/>
 </menu>

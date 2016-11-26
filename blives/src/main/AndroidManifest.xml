@@ -80,6 +80,23 @@
         <activity
             android:name="cn.bmob.v3.update.UpdateDialogActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+        
+        <activity android:name=".activity.campus.CampusDetailActivity"/>
+        <activity android:name=".activity.campus.MCampusActivity"/>
+        <activity android:name=".activity.campus.UnionActivity"/>
+        <activity android:name=".activity.app.AppDetailActivity"/>
+        <activity android:name=".activity.campus.NCampusActivity"/>
+        <activity android:name=".activity.user.ChangePassActivity"/>
+        <activity android:name=".activity.user.LoginActivity"/>
+        <activity android:name=".activity.user.QQRegistActivity"/>
+        <activity android:name=".activity.user.ResetActivity"/>
+        <activity android:name=".activity.user.RegistActivity"/>
+        <activity android:name=".activity.user.UpdateUseInfoActivity"/>
+        <activity android:name=".activity.user.UserInfoActivity"/>
+        <activity android:name=".activity.setting.AboutActivity"/>
+        <activity android:name=".activity.setting.FeedBackActivity"/>
+        <activity android:name=".activity.setting.SettingActivity"/>
+        
     </application>
 
 </manifest>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#EEF2F3"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/borrow"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"/>
+
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/layout_sms"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleAlpha="0.2"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="1dp"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"  >
+
+        <Button
+            android:id="@+id/btn_sms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_sms_text"
+            android:drawableLeft="@drawable/ic_setting_to_send"
+            android:background="@drawable/btn_select"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"
+            android:padding="10dp"/>
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/layout_trash"
+        android:layout_below="@id/layout_sms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleAlpha="0.2"
+        android:layout_marginBottom="1dp"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"  >
+
+        <Button
+            android:id="@+id/btn_trash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_trash_text"
+            android:drawableLeft="@drawable/ic_setting_trash"
+            android:background="@drawable/btn_select"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"
+            android:padding="10dp"/>
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/layout_update"
+        android:layout_below="@id/layout_trash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleAlpha="0.2"
+        android:layout_marginBottom="1dp"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"  >
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_update_text"
+            android:drawableLeft="@drawable/ic_setting_wenhao"
+            android:background="@drawable/btn_select"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"
+            android:padding="10dp"/>
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/layout_help"
+        android:layout_below="@id/layout_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleAlpha="0.2"
+        android:layout_marginBottom="1dp"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"  >
+
+        <Button
+            android:id="@+id/btn_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_help_text"
+            android:drawableLeft="@drawable/ic_setting_help"
+            android:background="@drawable/btn_select"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"
+            android:padding="10dp"/>
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/layout_feedback"
+        android:layout_below="@id/layout_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleAlpha="0.2"
+        android:layout_marginBottom="1dp"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"  >
+
+        <Button
+            android:id="@+id/btn_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="我要反馈"
+            android:drawableLeft="@drawable/ic_setting_feedback"
+            android:background="@drawable/btn_select"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"
+            android:padding="10dp"/>
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/layout_about"
+        android:layout_below="@id/layout_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleAlpha="0.2"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleHover="true"
+        android:layout_marginBottom="1dp"
+        app:mrl_rippleOverlay="true"  >
+
+        <Button
+            android:id="@+id/btn_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_about_text"
+            android:drawableLeft="@drawable/ic_setting_about"
+            android:background="@drawable/btn_select"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"
+            android:padding="10dp"/>
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/layout_exit"
+        android:layout_below="@id/layout_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        app:mrl_rippleAlpha="0.2"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"  >
+
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_exit_text"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_exit_shape"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"
+            android:padding="10dp"/>
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+</RelativeLayout>

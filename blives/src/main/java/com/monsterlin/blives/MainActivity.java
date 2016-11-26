@@ -4,14 +4,21 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.monsterlin.blives.activity.setting.SettingActivity;
 import com.monsterlin.blives.mainfragment.CampusFragment;
 import com.monsterlin.blives.mainfragment.HomeFragment;
 import com.monsterlin.blives.mainfragment.MapFragment;
 import com.monsterlin.blives.mainfragment.MeFragment;
 import com.monsterlin.blives.mainfragment.SceneryFragment;
+import com.monsterlin.blives.utils.CheckNetWork;
+
+import cn.bmob.v3.update.BmobUpdateAgent;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -25,6 +32,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private String[] tags = new String[]{"homeFragment", "scenerylFragment", "campusFragment", "mapFragment", "meFragment"};
 
     private int curIndex = -1;
+    private boolean isNet;
+
+    private ImageView iv_main_setting ,iv_main_notifications ;
 
 
     @Override
@@ -32,8 +42,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        initEvent();
-       setSelect(0);
+        checkNet();
+
+    }
+
+    private void checkNet() {
+        isNet=new CheckNetWork().isNetworkAvailable(this);
+        if (isNet){
+            checkVersion();
+            initEvent();
+            setSelect(0);
+        }else {
+            //无网络连接
+            new CheckNetWork().showNetDialog(this);
+            Toast.makeText(MainActivity.this,"无网络连接",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    private void checkVersion() {
+        BmobUpdateAgent.setUpdateOnlyWifi(false);
+        BmobUpdateAgent.update(this);
     }
 
     private void initEvent() {
@@ -42,6 +71,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         main_bottombar_campus.setOnClickListener(this);
         main_bottombar_map.setOnClickListener(this);
         main_bottombar_me.setOnClickListener(this);
+        iv_main_notifications.setOnClickListener(this);
+        iv_main_setting.setOnClickListener(this);
     }
 
     private void initView() {
@@ -52,6 +83,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         main_bottombar_campus = (TextView) findViewById(R.id.main_bottombar_campus);
         main_bottombar_map = (TextView) findViewById(R.id.main_bottombar_map);
         main_bottombar_me = (TextView) findViewById(R.id.main_bottombar_me);
+        iv_main_setting= (ImageView) findViewById(R.id.iv_main_setting);
+        iv_main_notifications= (ImageView) findViewById(R.id.iv_main_notifications);
     }
 
     @Override
@@ -72,6 +105,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.main_bottombar_me:
                 setSelect(4);
+                break;
+            case R.id.iv_main_notifications:
+                break;
+            case R.id.iv_main_setting:
+                nextActivity(SettingActivity.class);
                 break;
         }
     }
@@ -170,4 +208,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
 
     }
+
+
 }
