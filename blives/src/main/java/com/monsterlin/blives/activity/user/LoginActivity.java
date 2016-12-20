@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.monsterlin.blives.BaseActivity;
 import com.monsterlin.blives.MainActivity;
@@ -76,6 +77,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @InjectView(R.id.iv_sina_login)
     ImageView iv_sina_login;
+
+    @InjectView(R.id.tv_forgetPass)
+    TextView tv_forgetPass ;
+
 
     private String mailString, passString;
 
@@ -158,7 +163,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_nw);
         dialog = new SpotsDialog(this);
         ButterKnife.inject(this);
         toolbar.setTitle("登陆");
@@ -183,6 +188,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         iv_qq_login.setOnClickListener(this);
         iv_wx_login.setOnClickListener(this);
         iv_sina_login.setOnClickListener(this);
+        tv_forgetPass.setOnClickListener(this);
     }
 
 
@@ -205,6 +211,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 break;
             case R.id.iv_sina_login:
                 showToast("攻城狮们正在研发中...");
+                break;
+
+            case R.id.tv_forgetPass:
+                Intent resetIntent = new Intent(LoginActivity.this, ResetActivity.class);
+                startActivity(resetIntent);
                 break;
         }
     }
@@ -366,24 +377,24 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_login, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.item_forget) {
-            Intent resetIntent = new Intent(LoginActivity.this, ResetActivity.class);
-            startActivity(resetIntent);
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_login, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//
+//        if (id == R.id.item_forget) {
+//            Intent resetIntent = new Intent(LoginActivity.this, ResetActivity.class);
+//            startActivity(resetIntent);
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
 
     @Override

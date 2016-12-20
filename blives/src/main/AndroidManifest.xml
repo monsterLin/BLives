@@ -96,6 +96,7 @@
         <activity android:name=".activity.setting.AboutActivity"/>
         <activity android:name=".activity.setting.FeedBackActivity"/>
         <activity android:name=".activity.setting.SettingActivity"/>
+        <activity android:name=".activity.user.LoginNwActivity"/>
         
     </application>
 

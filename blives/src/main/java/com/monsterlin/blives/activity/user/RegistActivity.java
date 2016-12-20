@@ -43,7 +43,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_regist);
+        setContentView(R.layout.activity_regist_nw);
         ButterKnife.inject(this);
         initView();
         initEvent();
